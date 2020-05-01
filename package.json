@@ -15,12 +15,17 @@
     "test": "jest"
   },
   "dependencies": {
-    "nuxt": "^2.0.0",
+    "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/dotenv": "^1.4.0",
+    "@nuxtjs/pwa": "^3.0.0-0",
+    "@nuxtjs/robots": "^2.4.2",
+    "@nuxtjs/router": "^1.5.0",
+    "@nuxtjs/sitemap": "^2.2.1",
+    "@nuxtjs/style-resources": "^1.0.0",
+    "@nuxtjs/svg-sprite": "^0.4.10",
     "cross-env": "^5.2.0",
     "express": "^4.16.4",
-    "@nuxtjs/axios": "^5.3.6",
-    "@nuxtjs/pwa": "^3.0.0-0",
-    "@nuxtjs/dotenv": "^1.4.0"
+    "nuxt": "^2.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
@@ -30,6 +35,7 @@
     "@nuxtjs/eslint-config-typescript": "^1.0.0",
     "@nuxtjs/eslint-module": "^1.0.0",
     "@vue/test-utils": "^1.0.0-beta.27",
+    "autoprefixer": "^9.7.6",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.1.0",
     "eslint": "^6.1.0",
@@ -39,8 +45,14 @@
     "husky": "^4.0.0",
     "jest": "^24.1.0",
     "lint-staged": "^10.0.0",
+    "node-sass": "^4.14.0",
     "nodemon": "^1.18.9",
+    "postcss-focus": "^4.0.0",
+    "postcss-initial": "^3.0.2",
+    "postcss-momentum-scrolling": "^2.5.17",
+    "postcss-object-fit-images": "^1.1.2",
     "prettier": "^1.19.1",
+    "sass-loader": "^8.0.2",
     "scriptlint": "^2.1.1",
     "ts-jest": "^25.0.0",
     "vue-jest": "^4.0.0-0"

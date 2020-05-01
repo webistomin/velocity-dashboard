@@ -1,0 +1,35 @@
+html
+  display: flex
+  // 1rem = 10px
+  font-size: 62.5%
+
+body
+  height: 100vh
+  width: 100%
+  display: flex
+  flex-direction: column
+  font-family: var(--font-family-primary)
+  margin: 0
+  font-weight: 400
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  -webkit-text-size-adjust: none
+
+  @supports (height: calc(var(--vh) * 100))
+    height: calc(var(--vh) * 100)
+
+[id="__nuxt"],
+[id="__layout"],
+[id="app"]
+  width: inherit
+  display: inherit
+  height: inherit
+  flex-direction: inherit
+
+::selection
+  background-color: var(--color-secondary)
+  color: var(--color-primary)
+  text-shadow: none
+
+h1
+  font-size: var(--heading-1)
