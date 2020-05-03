@@ -1,0 +1,15 @@
++b('logo')
+  display: inline-block
+
+  &:hover .logo__title
+    color: var(--color-blue)
+
+  +e('link')
+    display: flex
+
+  +e('title')
+    font: var(--text-logo)
+    transition: color 0.2s ease-out
+
+  +e('icon')
+    margin-right: rem(7px)

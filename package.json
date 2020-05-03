@@ -12,7 +12,9 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint:write": "eslint --ext .js,.vue --ignore-path .gitignore . --fix",
     "prettier:write": "prettier --write \"**/*.+(vue|js|ts)\" --ignore-path .gitignore",
-    "test": "jest"
+    "test": "jest",
+    "storybook": "start-storybook -p 6006 -s ./static",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
@@ -28,16 +30,25 @@
     "nuxt": "^2.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.9.6",
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-angular": "^8.3.4",
     "@ls-lint/ls-lint": "^1.8.1",
     "@nuxt/typescript-build": "^0.6.0",
     "@nuxtjs/eslint-config-typescript": "^1.0.0",
     "@nuxtjs/eslint-module": "^1.0.0",
+    "@storybook/addon-actions": "^5.3.18",
+    "@storybook/addon-links": "^5.3.18",
+    "@storybook/addons": "^5.3.18",
+    "@storybook/preset-scss": "^1.0.2",
+    "@storybook/vue": "^5.3.18",
     "@vue/test-utils": "^1.0.0-beta.27",
     "autoprefixer": "^9.7.6",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.1.0",
+    "babel-loader": "^8.1.0",
+    "babel-preset-vue": "^2.0.2",
+    "css-loader": "^3.5.3",
     "eslint": "^6.1.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-nuxt": ">=0.4.2",
@@ -56,7 +67,10 @@
     "pug-plain-loader": "^1.0.0",
     "sass-loader": "^8.0.2",
     "scriptlint": "^2.1.1",
+    "storybook-vue-router": "^1.0.7",
+    "style-loader": "^1.2.1",
     "ts-jest": "^25.0.0",
+    "tsconfig-paths-webpack-plugin": "^3.2.0",
     "vue-jest": "^4.0.0-0"
   }
 }

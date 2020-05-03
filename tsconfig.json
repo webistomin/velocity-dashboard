@@ -16,12 +16,9 @@
     "experimentalDecorators": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": [
-        "./*"
-      ],
-      "@/*": [
-        "./*"
-      ]
+      "components/*": [ "./components/*" ],
+      "~/*": [ "./*" ],
+      "@/*": [ "./*" ]
     },
     "types": [
       "@types/node",

@@ -1,3 +1,6 @@
+import { Configuration as WebpackConfiguration } from 'webpack';
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+
 module.exports = {
   mode: 'universal',
   head: {
@@ -58,6 +61,16 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
-    // extend(config, ctx) {},
+    extend(config: WebpackConfiguration) {
+      if (!config.resolve) {
+        config.resolve = {};
+      }
+
+      if (!config.resolve.plugins) {
+        config.resolve.plugins = [];
+      }
+
+      config.resolve.plugins.push(new TsconfigPathsPlugin({ configFile: './tsconfig.json' }));
+    },
   },
 };
