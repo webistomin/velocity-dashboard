@@ -54,3 +54,6 @@ dist
 
 # Service worker
 sw.*
+
+# storybook
+storybook-static
