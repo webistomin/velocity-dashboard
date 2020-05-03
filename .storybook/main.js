@@ -3,7 +3,9 @@ const rootPath = path.resolve(__dirname, '../');
 
 module.exports = {
   stories: ['../components/**/*.stories.[tj]s'],
+
   addons: ['@storybook/addon-actions', '@storybook/addon-links'],
+
   webpackFinal: async (config) => {
     config.resolve.alias['@'] = rootPath;
     config.resolve.alias['~'] = rootPath;

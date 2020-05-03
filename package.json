@@ -13,7 +13,7 @@
     "lint:write": "eslint --ext .js,.vue --ignore-path .gitignore . --fix",
     "prettier:write": "prettier --write \"**/*.+(vue|js|ts)\" --ignore-path .gitignore",
     "test": "jest",
-    "storybook": "start-storybook -p 6006 -s ./static",
+    "storybook": "start-storybook -p 6006 -s ./static -c .storybook",
     "build-storybook": "build-storybook"
   },
   "dependencies": {
