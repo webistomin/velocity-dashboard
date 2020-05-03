@@ -4,26 +4,26 @@ html
   font-size: 62.5%
 
 body
-  height: 100vh
+  min-height: 100vh
   width: 100%
   display: flex
   flex-direction: column
-  font-family: var(--font-family-primary)
+  font: var(--text-paragraph)
   margin: 0
   font-weight: 400
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   -webkit-text-size-adjust: none
 
-  @supports (height: calc(var(--vh) * 100))
-    height: calc(var(--vh) * 100)
+  @supports (min-height: calc(var(--vh) * 100))
+    min-height: calc(var(--vh) * 100)
 
 [id="__nuxt"],
 [id="__layout"],
 [id="app"]
   width: inherit
   display: inherit
-  height: inherit
+  min-height: inherit
   flex-direction: inherit
 
 ::selection

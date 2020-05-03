@@ -1,5 +1,5 @@
 <template lang="pug">
-  h1 Start
+  p Start
 </template>
 
 <script lang="ts">
