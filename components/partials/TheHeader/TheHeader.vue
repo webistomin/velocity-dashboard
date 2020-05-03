@@ -1,15 +1,15 @@
 <template lang="pug">
   header.page-header
-    AppLogo
+    BaseLogo
 </template>
 
 <script lang="ts">
   import Vue from 'vue';
-  import AppLogo from '~/components/base/AppLogo';
+  import BaseLogo from '~/components/base/BaseLogo';
 
   export default Vue.extend({
     name: 'TheHeader',
-    components: { AppLogo },
+    components: { BaseLogo },
   });
 </script>
 

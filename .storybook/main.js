@@ -4,7 +4,7 @@ const rootPath = path.resolve(__dirname, '../');
 module.exports = {
   stories: ['../components/**/*.stories.[tj]s'],
 
-  addons: ['@storybook/addon-actions', '@storybook/addon-links'],
+  addons: ['@storybook/addon-actions', '@storybook/addon-links', '@storybook/addon-knobs'],
 
   webpackFinal: async (config) => {
     config.resolve.alias['@'] = rootPath;
@@ -18,9 +18,7 @@ module.exports = {
         {
           loader: 'sass-loader',
           options: {
-            prependData: `
-						@import "@/assets/sass/main.sass";
-					`,
+            prependData: `@import "@/assets/sass/main.sass";`,
           },
         },
       ],
