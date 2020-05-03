@@ -1,6 +1,7 @@
 <template lang="pug">
   header.page-header
-    BaseLogo
+    .page-header__container.container
+      BaseLogo
 </template>
 
 <script lang="ts">

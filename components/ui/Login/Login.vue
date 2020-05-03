@@ -3,18 +3,61 @@
     .login__container.container
       .login__inner
         .login__col.login__col_left
-          BaseTitle(:level='1').login__title Sign in to Velocity
-          p.login__desc.paragraph Please enter your credentials to proceed.
+          BaseTitle(:level='3').login__title Sign in to Velocity
+          p.login__desc.paragraph.paragraph_color_darkgray Please enter your credentials to proceed.
+          form.login__form
+            BaseFormGroup(
+              :type='"email"'
+              :label='"Email address"'
+              :id='"sign-in-email"'
+              :placeholder='"Enter your email"'
+              :validator='$v.signInForm.email'
+              @input='signInForm.email = $event'
+              :value='signInForm.email'
+              @blur='$v.signInForm.email.$touch()'
+            ).login__form-group
+            BaseFormGroup(
+              :type='"password"'
+              :label='"Password"'
+              :id='"sign-in-password"'
+              :placeholder='"Enter your password"'
+              :validator='$v.signInForm.password'
+              @input='signInForm.password = $event'
+              :value='signInForm.password'
+              @blur='$v.signInForm.password.$touch()'
+            ).login__form-group
         .login__col.login__col_right
 </template>
 
 <script lang="ts">
   import Vue from 'vue';
+  // @ts-ignore
+  import { email, required } from 'vuelidate/lib/validators';
   import BaseTitle from 'components/base/BaseTitle';
+  import BaseFormGroup from 'components/base/BaseFormGroup';
 
   export default Vue.extend({
     name: 'Login',
-    components: { BaseTitle },
+    components: { BaseTitle, BaseFormGroup },
+    data() {
+      return {
+        signInForm: {
+          email: '',
+          password: '',
+        },
+      };
+    },
+    validations: {
+      signInForm: {
+        email: {
+          required,
+          email,
+        },
+        password: {
+          required,
+        },
+      },
+    },
   });
 </script>
 

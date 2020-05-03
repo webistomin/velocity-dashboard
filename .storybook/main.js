@@ -11,6 +11,19 @@ module.exports = {
     config.resolve.alias['~'] = rootPath;
 
     config.module.rules.push({
+      test: /\.(ts)$/,
+      use: [
+        {
+          loader: require.resolve('ts-loader'),
+          options: {
+            appendTsSuffixTo: [/\.vue$/],
+            transpileOnly: true
+          },
+        },
+      ],
+    });
+
+    config.module.rules.push({
       test: /\.sass$/,
       use: [
         'vue-style-loader',

@@ -19,6 +19,7 @@ export default {
 export const Default = () => ({
   props: {
     level: {
+      type: Number,
       default: number('Level', 1),
     },
   },

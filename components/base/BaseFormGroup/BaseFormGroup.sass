@@ -1,0 +1,39 @@
++b('base-form-group')
+  +e('label')
+    display: block
+
+  +e('heading')
+    margin-bottom: rem(8px)
+
+  +e('input')
+    box-sizing: border-box
+    width: 100%
+    padding: rem(10px) rem(16px)
+    font: var(--text-input)
+    color: var(--color-text)
+    background-color: var(--color-lavender-3)
+    border: rem(1px) solid var(--color-lavender-2)
+    border-radius: 5px
+    transition: border-color 0.2s ease-out
+    outline: none
+
+    &:focus
+      border-color: var(--color-primary)
+
+    +m('invalid')
+      border-color: var(--color-red)
+
+  +e('errors')
+    display: flex
+    flex-direction: column
+    padding-top: rem(4px)
+
+  +e('error')
+    font: var(--text-caption)
+    color: var(--color-red)
+
+    &:not(:last-of-type)
+      margin-bottom: rem(4px)
+
+body.using-keyboard .base-form-group__input:focus
+  outline: rem(1px) solid var(--color-primary)
