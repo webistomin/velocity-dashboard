@@ -35,7 +35,7 @@ module.exports = {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
-    '@nuxtjs/router',
+    ['@nuxtjs/router', { path: 'router', DefaultRouter: true }],
   ],
   styleResources: {
     sass: ['./assets/sass/dev.sass'],

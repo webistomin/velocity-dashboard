@@ -1,5 +1,4 @@
-<template>
-  <div>
-    <nuxt />
-  </div>
+<template lang="pug">
+  #app
+    nuxt
 </template>

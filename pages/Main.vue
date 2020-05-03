@@ -1,5 +1,5 @@
-<template>
-  <div class="container"></div>
+<template lang="pug">
+  h1 Main
 </template>
 
 <script lang="ts">
