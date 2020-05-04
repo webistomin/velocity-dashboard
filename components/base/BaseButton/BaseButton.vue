@@ -16,13 +16,17 @@
 </template>
 
 <script lang="ts">
-  import Vue from 'vue';
+  import Vue, { PropType } from 'vue';
   import Component from 'vue-class-component';
 
-  const BaseButtonProps = Vue.extend({
+  export type BaseButtonThemes = 'default' | 'light' | 'success';
+  export type BaseButtonTypes = 'button' | 'submit';
+
+  @Component({
+    name: 'BaseButton',
     props: {
       type: {
-        type: String,
+        type: String as PropType<BaseButtonTypes>,
         default: 'button',
       },
       isDisabled: {
@@ -38,16 +42,12 @@
         default: '',
       },
       theme: {
-        type: String,
+        type: String as PropType<BaseButtonThemes>,
         default: 'default',
       },
     },
-  });
-
-  @Component({
-    name: 'BaseButton',
   })
-  export default class BaseButton extends BaseButtonProps {
+  export default class BaseButton extends Vue {
     public onClick(): void {
       this.$emit('click');
     }

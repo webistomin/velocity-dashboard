@@ -31,9 +31,7 @@
               @click='setFormType(FormTypes.FORGOT_PASSWORD)'
               theme='gray'
               ) Forgot password?
-      BaseButton(
-        :type='"submit"'
-      ).login__submit Sign in
+      BaseButton(:type='"button"').login__submit Sign in
       p.login__text.paragraph Don’t have an account?
         BaseLink(
           :isButton='true'
