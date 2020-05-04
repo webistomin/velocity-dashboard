@@ -31,22 +31,15 @@
 
 <script lang="ts">
   import Vue from 'vue';
+  import Component from 'vue-class-component';
   // @ts-ignore
   import { email, required } from 'vuelidate/lib/validators';
   import BaseTitle from 'components/base/BaseTitle';
   import BaseFormGroup from 'components/base/BaseFormGroup';
 
-  export default Vue.extend({
+  @Component({
     name: 'Login',
     components: { BaseTitle, BaseFormGroup },
-    data() {
-      return {
-        signInForm: {
-          email: '',
-          password: '',
-        },
-      };
-    },
     validations: {
       signInForm: {
         email: {
@@ -58,7 +51,17 @@
         },
       },
     },
-  });
+  })
+  export default class Login extends Vue {
+    data() {
+      return {
+        signInForm: {
+          email: '',
+          password: '',
+        },
+      };
+    }
+  }
 </script>
 
 <style lang="sass">

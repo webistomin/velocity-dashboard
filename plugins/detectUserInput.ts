@@ -11,7 +11,9 @@ export const detectUserInput = (): void => {
   document.body.addEventListener(
     'keydown',
     function(e) {
-      if (e.target.tagName !== 'INPUT') {
+      const target = e.target as HTMLElement;
+
+      if (target.tagName !== 'INPUT') {
         document.body.classList.add('using-keyboard');
         document.body.classList.remove('using-mouse');
       }

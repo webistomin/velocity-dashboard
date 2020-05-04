@@ -6,12 +6,14 @@
 
 <script lang="ts">
   import Vue from 'vue';
+  import Component from 'vue-class-component';
   import BaseLogo from '~/components/base/BaseLogo';
 
-  export default Vue.extend({
+  @Component({
     name: 'TheHeader',
     components: { BaseLogo },
-  });
+  })
+  export default class TheHeader extends Vue {}
 </script>
 
 <style lang="sass">

@@ -33,12 +33,11 @@
 
 <script lang="ts">
   import Vue from 'vue';
+  import Component, { mixins } from 'vue-class-component';
   // @ts-ignore
   import { singleErrorExtractorMixin } from 'vuelidate-error-extractor';
 
-  export default Vue.extend({
-    name: 'BaseFormGroup',
-    mixins: [singleErrorExtractorMixin],
+  const BaseFormGroupProps = Vue.extend({
     props: {
       type: {
         type: String,
@@ -70,20 +69,27 @@
         default: '',
       },
     },
-    computed: {
-      isInputInvalid() {
-        return this.activeErrorMessages && this.activeErrorMessages.length;
-      },
-    },
-    methods: {
-      onInput(event: any) {
-        this.$emit('input', event.target.value);
-      },
-      onBlur() {
-        this.$emit('blur');
-      },
-    },
   });
+
+  @Component({
+    name: 'BaseFormGroup',
+  })
+  export default class BaseFormGroup extends mixins(BaseFormGroupProps, singleErrorExtractorMixin) {
+    activeErrorMessages!: string[];
+
+    public get isInputInvalid() {
+      return this.activeErrorMessages && this.activeErrorMessages.length;
+    }
+
+    public onInput(event: KeyboardEvent) {
+      const target = event.target as HTMLInputElement;
+      this.$emit('input', target.value);
+    }
+
+    public onBlur() {
+      this.$emit('blur');
+    }
+  }
 </script>
 
 <style lang="sass">

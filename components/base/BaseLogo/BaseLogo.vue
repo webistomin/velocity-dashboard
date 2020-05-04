@@ -9,10 +9,12 @@
 
 <script>
   import Vue from 'vue';
+  import Component from 'vue-class-component';
 
-  export default Vue.extend({
+  @Component({
     name: 'BaseLogo',
-  });
+  })
+  export default class BaseLogo extends Vue {}
 </script>
 
 <style lang="sass">

@@ -29,11 +29,14 @@
     "express": "^4.16.4",
     "nuxt": "^2.0.0",
     "vue": "^2.6.11",
+    "vue-class-component": "^7.2.3",
     "vuelidate": "^0.7.5",
     "vuelidate-error-extractor": "^2.4.1"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-decorators": "^7.8.3",
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-angular": "^8.3.4",
     "@ls-lint/ls-lint": "^1.8.1",

@@ -8,8 +8,9 @@
 
 <script lang="ts">
   import Vue from 'vue';
+  import Component from '~/node_modules/vue-class-component';
 
-  export default Vue.extend({
+  @Component({
     name: 'BaseTitle',
     props: {
       level: {
@@ -18,7 +19,8 @@
         default: 1,
       },
     },
-  });
+  })
+  export default class BaseTitle extends Vue {}
 </script>
 
 <style lang="sass">

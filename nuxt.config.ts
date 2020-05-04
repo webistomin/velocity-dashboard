@@ -58,6 +58,12 @@ module.exports = {
    */
   axios: {},
   build: {
+    babel: {
+      plugins: [
+        ['@babel/proposal-decorators', { legacy: true }],
+        ['@babel/proposal-class-properties', { loose: true }],
+      ],
+    },
     /*
      ** You can extend webpack config here
      */
