@@ -1,0 +1,31 @@
++b('base-link')
+  font: var(--text-link)
+  position: relative
+
+  &::after
+    content: ''
+    width: 0
+    height: 1px
+    position: absolute
+    left: 0
+    bottom: rem(-4px)
+    background-color: currentColor
+    transition: width 0.2s ease-out
+
+  +m('theme')
+    +v('default')
+      color: var(--color-primary)
+
+      &:hover::after
+        width: 100%
+
+    +v('gray')
+      color: var(--color-gray-3)
+      transition: color 0.2s ease-out
+
+      &::after
+        display: none
+
+      &:hover
+        color: var(--color-primary)
+

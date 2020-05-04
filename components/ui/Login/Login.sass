@@ -1,4 +1,44 @@
 +b('login')
+  display: flex
+  flex-direction: column
+  flex-grow: 1
+
+  +e('container')
+    display: inherit
+    flex-direction: inherit
+    flex-grow: inherit
+    justify-content: center
+    padding-bottom: rem(52px)
+
+  +e('title')
+    text-align: center
+
+  +e('desc')
+    text-align: center
+
+  +e('heading')
+    margin-bottom: rem(48px)
+
+  +e('form-inputs')
+    margin-bottom: rem(25px)
+
   +e('form-group')
     &:not(:last-of-type)
-      margin-bottom: 20px
+      margin-bottom: rem(20px)
+
+  +e('submit')
+    margin-bottom: rem(14px)
+
+  +e('text')
+    text-align: center
+
+  +e('changer')
+    margin-left: 0.5ch
+
+  +e('col')
+    +m('left')
+      position: relative
+
+  +e('holder')
+    backface-visibility: hidden
+    will-change: opacity, position
