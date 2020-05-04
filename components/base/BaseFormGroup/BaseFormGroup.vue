@@ -75,18 +75,18 @@
     name: 'BaseFormGroup',
   })
   export default class BaseFormGroup extends mixins(BaseFormGroupProps, singleErrorExtractorMixin) {
-    activeErrorMessages!: string[];
+    public activeErrorMessages!: string[];
 
-    public get isInputInvalid() {
-      return this.activeErrorMessages && this.activeErrorMessages.length;
+    public get isInputInvalid(): boolean {
+      return Boolean(this.activeErrorMessages && this.activeErrorMessages.length);
     }
 
-    public onInput(event: KeyboardEvent) {
+    public onInput(event: KeyboardEvent): void {
       const target = event.target as HTMLInputElement;
       this.$emit('input', target.value);
     }
 
-    public onBlur() {
+    public onBlur(): void {
       this.$emit('blur');
     }
   }

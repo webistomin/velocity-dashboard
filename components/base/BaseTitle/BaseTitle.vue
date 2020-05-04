@@ -10,8 +10,7 @@
   import Vue from 'vue';
   import Component from '~/node_modules/vue-class-component';
 
-  @Component({
-    name: 'BaseTitle',
+  const BaseTitleProps = Vue.extend({
     props: {
       level: {
         type: Number,
@@ -19,8 +18,12 @@
         default: 1,
       },
     },
+  });
+
+  @Component({
+    name: 'BaseTitle',
   })
-  export default class BaseTitle extends Vue {}
+  export default class BaseTitle extends BaseTitleProps {}
 </script>
 
 <style lang="sass">

@@ -1,0 +1,60 @@
++b('base-button')
+  width: 100%
+  font: var(--text-button)
+  border-radius: 4px
+  outline: none
+  transition-duration: 0.2s
+  transition-timing-function: ease-out
+
+  +m('theme')
+    +v('default')
+      background-color: var(--color-primary)
+      color: var(--color-white)
+      transition-property: opacity
+
+      &:hover,
+      &:focus
+        opacity: 0.9
+
+      &:active
+        opacity: 0.8
+
+    +v('light')
+      background-color: var(--color-secondary)
+      color: var(--color-primary)
+      transition-property: color, background-color, opacity
+
+      &:hover,
+      &:focus
+        background-color: var(--color-primary)
+        color: var(--color-white)
+
+      &:active
+        opacity: 0.8
+
+    +v('success')
+      background-color: var(--color-green)
+      color: var(--color-white)
+      transition-property: opacity
+
+      &:hover,
+      &:focus
+        opacity: 0.9
+
+      &:active
+        opacity: 0.8
+
+  +e('wrapper')
+    box-sizing: border-box
+    width: 100%
+    height: 100%
+    padding: rem(9.5px) rem(18px)
+    display: flex
+    align-items: center
+    justify-content: center
+
+  +e('icon')
+    margin-right: rem(8px)
+
+body.using-keyboard .base-button:focus
+  outline: rem(2px) solid var(--color-primary)
