@@ -59,10 +59,9 @@ module.exports = {
   axios: {},
   build: {
     babel: {
-      plugins: [
-        ['@babel/proposal-decorators', { legacy: true }],
-        ['@babel/proposal-class-properties', { loose: true }],
-      ],
+      presets() {
+        return [['@nuxt/babel-preset-app', { loose: true }]];
+      },
     },
     /*
      ** You can extend webpack config here

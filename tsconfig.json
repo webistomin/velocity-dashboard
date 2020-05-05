@@ -8,23 +8,31 @@
       "esnext.asynciterable",
       "dom"
     ],
+    "jsx": "preserve",
     "esModuleInterop": true,
     "allowJs": true,
     "sourceMap": true,
     "strict": true,
     "noEmit": true,
+    "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "baseUrl": ".",
     "paths": {
       "components/*": [ "./components/*" ],
+      "types/*": [ "./types/*" ],
       "~/*": [ "./*" ],
       "@/*": [ "./*" ]
     },
     "types": [
       "@types/node",
-      "@nuxt/types"
+      "@nuxt/types",
+      "./types"
     ]
   },
+  "include": [
+    "components/**/*.tsx",
+    "./types/**/*.ts"
+  ],
   "exclude": [
     "node_modules",
     ".nuxt",
