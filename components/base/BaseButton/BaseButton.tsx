@@ -1,4 +1,5 @@
 import { Prop, Component } from 'nuxt-property-decorator';
+import { VNode } from 'vue';
 import { VueComponent } from 'types/vue-components';
 import { ButtonTypes } from 'types/common/button-types';
 
@@ -19,19 +20,19 @@ export interface IBaseButtonProps {
 })
 export default class BaseButton extends VueComponent<IBaseButtonProps> {
   @Prop({ default: 'button' })
-  private type!: IBaseButtonProps['type'];
+  private readonly type!: IBaseButtonProps['type'];
 
   @Prop()
-  private isDisabled!: IBaseButtonProps['isDisabled'];
+  private readonly isDisabled!: IBaseButtonProps['isDisabled'];
 
   @Prop()
-  private isLoading!: IBaseButtonProps['isLoading'];
+  private readonly isLoading!: IBaseButtonProps['isLoading'];
 
   @Prop()
-  private icon!: IBaseButtonProps['icon'];
+  private readonly icon!: IBaseButtonProps['icon'];
 
   @Prop({ default: 'default' })
-  private theme!: IBaseButtonProps['theme'];
+  private readonly theme!: IBaseButtonProps['theme'];
 
   public onClick(): void {
     this.$emit('click');
@@ -51,7 +52,7 @@ export default class BaseButton extends VueComponent<IBaseButtonProps> {
     return result;
   }
 
-  public render() {
+  public render(): VNode {
     return (
       <button
         type={this.type}

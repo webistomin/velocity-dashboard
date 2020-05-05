@@ -1,3 +1,3 @@
-import BaseFormGroup from './BaseFormGroup.vue';
+import BaseFormGroup from './BaseFormGroup';
 
 export default BaseFormGroup;
