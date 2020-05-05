@@ -1,3 +1,3 @@
-import BaseLink from './BaseLink.vue';
+import BaseLink from './BaseLink';
 
 export default BaseLink;
