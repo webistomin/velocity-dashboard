@@ -31,6 +31,8 @@
   },
   "include": [
     "components/**/*.tsx",
+    "layouts/**/*.tsx",
+    "pages/**/*.tsx",
     "./types/**/*.ts"
   ],
   "exclude": [

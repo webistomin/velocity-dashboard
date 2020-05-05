@@ -1,7 +1,7 @@
-import Login from './Login.vue';
-import LoginSignIn from './LoginSignIn.vue';
-import LoginSignUp from './LoginSignUp.vue';
-import LoginForgotPassword from './LoginForgotPassword.vue';
+import Login from './Login';
+import LoginSignIn from './LoginSignIn';
+import LoginSignUp from './LoginSignUp';
+import LoginForgotPassword from './LoginForgotPassword';
 
 export { Login, LoginSignIn, LoginSignUp, LoginForgotPassword };
 

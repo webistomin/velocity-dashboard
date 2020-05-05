@@ -1,5 +1,5 @@
 import { VueComponent } from 'types/vue-components';
-import { Prop, Component } from 'nuxt-property-decorator';
+import { Prop, Component, Emit } from 'nuxt-property-decorator';
 import { ButtonTypes } from 'types/common/button-types';
 
 import './BaseLink.sass';
@@ -8,6 +8,7 @@ export type IBaseLinkThemes = 'default' | 'gray';
 
 export interface IBaseLinkProps {
   theme?: IBaseLinkThemes;
+  onClick?: () => void;
 }
 
 export interface IBaseLinkPropsWithLink extends IBaseLinkProps {
@@ -40,19 +41,18 @@ export default class BaseLink extends VueComponent<IConditionalBaseLinkProps> {
   @Prop({ default: 'button' })
   private type!: IBaseLinkPropsWithButton['type'];
 
-  public onClick(): void {
-    this.$emit('click');
-  }
+  @Emit('click')
+  public onClick(): void {}
 
   render() {
     const linkComponentDefaultProps = {
       theme: this.theme,
-      class: `base-link_theme_${this.theme} ${this.isButton ? 'btn' : ''}`,
+      class: `base-link base-link_theme_${this.theme} ${this.isButton ? 'btn' : ''}`,
       on: {
         click: this.onClick,
       },
     };
-    const linkComponentContent = <span className="base-link__content">{this.$slots.default}</span>;
+    const linkComponentContent = <span className='base-link__content'>{this.$slots.default}</span>;
     const isButton = this.isButton;
     const url = this.to;
 
@@ -75,7 +75,7 @@ export default class BaseLink extends VueComponent<IConditionalBaseLinkProps> {
       // External Link
     } else if (url.match(/^(http(s)?|ftp):\/\//)) {
       return (
-        <a {...linkComponentDefaultProps} href={url} target="_blank" rel="noopener noreferrer nofollow">
+        <a {...linkComponentDefaultProps} href={url} target='_blank' rel='noopener noreferrer nofollow'>
           {linkComponentContent}
         </a>
       );

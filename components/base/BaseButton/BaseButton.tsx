@@ -59,9 +59,9 @@ export default class BaseButton extends VueComponent<IBaseButtonProps> {
         class={`base-button btn ${this.getClassnames}`}
         disabled={this.isDisabled}
         onClick={this.onClick}>
-        <span class="base-button__wrapper">
+        <span class='base-button__wrapper'>
           {this.icon ? <svg-icon name={this.icon} width={16} height={16} /> : null}
-          <span class="base-button__content">{this.$slots.default}</span>
+          <span class='base-button__content'>{this.$slots.default}</span>
         </span>
       </button>
     );

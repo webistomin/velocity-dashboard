@@ -1,4 +1,4 @@
-import { Component, Prop, mixins } from 'nuxt-property-decorator';
+import { Component, Prop, mixins, Emit } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
 // @ts-ignore
 import { singleErrorExtractorMixin } from 'vuelidate-error-extractor';
@@ -28,6 +28,8 @@ export interface IBaseFormGroupProps {
   name?: string;
   placeholder?: string;
   autocomplete?: string;
+  onInput: () => string | number;
+  onBlur?: () => void;
 }
 
 @Component({
@@ -61,23 +63,23 @@ export default class BaseFormGroup extends mixins(singleErrorExtractorMixin) {
     return Boolean(this.activeErrorMessages && this.activeErrorMessages.length);
   }
 
-  public onInput(event: KeyboardEvent): void {
+  @Emit('input')
+  public onInput(event: KeyboardEvent): string | number {
     const target = event.target as HTMLInputElement;
-    this.$emit('input', target.value);
+    return target.value;
   }
 
-  public onBlur(): void {
-    this.$emit('blur');
-  }
+  @Emit('blur')
+  public onBlur(): void {}
 
   render(): VNode {
     return (
-      <div class="base-form-group">
-        <div class="base-form-group__heading">
+      <div class='base-form-group'>
+        <div class='base-form-group__heading'>
           {this.label ? <label htmlFor={this.id}>{this.label}</label> : null}
           {this.$slots.heading}
         </div>
-        <div class="base-form-group__content">
+        <div class='base-form-group__content'>
           <input
             type={this.type}
             id={this.id}
@@ -92,10 +94,10 @@ export default class BaseFormGroup extends mixins(singleErrorExtractorMixin) {
             class={`${this.isInputInvalid ? 'base-form-group__input_invalid' : ''} base-form-group__input`}
           />
           {this.isInputInvalid ? (
-            <ul class="base-form-group__errors list" id={`errors-${this.id}`}>
+            <ul class='base-form-group__errors list' id={`errors-${this.id}`}>
               {this.activeErrorMessages.map((error: string, index: number) => {
                 return (
-                  <li class="base-form-group__error list-item" key={`${error}-${index}`}>
+                  <li class='base-form-group__error list-item' key={`${error}-${index}`}>
                     {error}
                   </li>
                 );

@@ -1,3 +1,3 @@
-import TheHeader from './TheHeader.vue';
+import TheHeader from './TheHeader';
 
 export default TheHeader;
