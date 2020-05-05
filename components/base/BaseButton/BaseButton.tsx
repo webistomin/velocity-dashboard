@@ -1,13 +1,13 @@
 import { Prop, Component } from 'nuxt-property-decorator';
 import { VueComponent } from 'types/vue-components';
+import { ButtonTypes } from 'types/common/button-types';
 
 import './BaseButton.sass';
 
 export type BaseButtonThemes = 'default' | 'light' | 'success';
-export type BaseButtonTypes = 'button' | 'submit';
 
 export interface IBaseButtonProps {
-  type?: BaseButtonTypes;
+  type?: ButtonTypes;
   isDisabled?: boolean;
   isLoading?: boolean;
   icon?: string;
