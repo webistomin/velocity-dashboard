@@ -1,3 +1,3 @@
-import BaseTitle from './BaseTitle.vue';
+import { BaseTitle } from './BaseTitle';
 
 export default BaseTitle;

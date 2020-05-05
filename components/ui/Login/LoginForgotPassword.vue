@@ -30,7 +30,6 @@
   import Component from 'vue-class-component';
   // @ts-ignore
   import { email, required } from 'vuelidate/lib/validators';
-  import BaseTitle from 'components/base/BaseTitle';
   import BaseFormGroup from 'components/base/BaseFormGroup';
   import BaseButton from 'components/base/BaseButton';
   import BaseLink from 'components/base/BaseLink';
@@ -38,7 +37,7 @@
 
   @Component({
     name: 'LoginForgot',
-    components: { BaseTitle, BaseFormGroup, BaseButton, BaseLink },
+    components: { BaseFormGroup, BaseButton, BaseLink },
     validations: {
       forgotForm: {
         email: {

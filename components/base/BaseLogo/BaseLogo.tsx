@@ -1,6 +1,7 @@
+import { VNode } from 'vue';
 import './BaseLogo.sass';
 
-export const BaseLogo = () => {
+export const BaseLogo = (): VNode => {
   return (
     <div class="base-logo">
       <nuxt-link to="/" class="base-logo__link link">
