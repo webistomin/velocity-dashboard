@@ -13,11 +13,23 @@
   +e('title')
     text-align: center
 
+    +media($screen-sm)
+      text-align: left
+
   +e('desc')
     text-align: center
 
+    +media($screen-sm)
+      text-align: left
+
   +e('heading')
     margin-bottom: rem(48px)
+
+    +media($screen-sm)
+      margin-bottom: rem(30px)
+
+    +media($screen-lg)
+      margin-bottom: rem(45px)
 
   +e('form-inputs')
     margin-bottom: rem(25px)
@@ -39,6 +51,88 @@
     +m('left')
       position: relative
 
+      +media($screen-sm)
+        width: calc(66vw - 14%)
+        display: flex
+        flex-direction: column
+
+        +media($screen-lg)
+          width: 41%
+
+    +m('right')
+      display: none
+
+      +media($screen-sm)
+        display: block
+        position: fixed
+        top: 0
+        right: 0
+        width: 32vw
+        height: 100vh
+
+      +media($screen-lg)
+        width: 50%
+
   +e('holder')
     backface-visibility: hidden
     will-change: opacity, position
+
+    +media($screen-sm)
+      width: rem(320px)
+      margin: auto
+
+  +e('list')
+    display: grid
+    grid-template-columns: repeat(auto-fill, minmax(46%, 1fr))
+    grid-gap: 20px
+    margin-bottom: rem(20px)
+
+  +e('option-name')
+    font: var(--text-button)
+    padding-bottom: rem(6px)
+
+  +e('option-desc')
+    margin-bottom: auto
+
+  +e('option-content')
+    min-height: rem(196px)
+    box-sizing: border-box
+    padding: rem(20px)
+    display: flex
+    height: 100%
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    text-align: center
+
+  +e('option-icon')
+    margin-bottom: rem(15px)
+
+  +e('inner')
+    +media($screen-sm)
+      display: flex
+      height: 100%
+      flex-grow: 1
+
+  +e('video')
+    width: 100%
+    height: 100%
+    display: block
+    object-fit: cover
+
+  +e('video-block')
+    width: 100%
+    height: 100%
+    position: relative
+
+    &::before
+      content: ''
+      z-index: 2
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      background-color: var(--color-primary)
+      opacity: 0.2
+

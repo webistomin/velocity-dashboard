@@ -3,12 +3,13 @@ import { Component, Emit } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
 import { email, required } from 'vuelidate/lib/validators';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars,no-unused-vars
-import { Validation } from 'vuelidate';
 
 import BaseTitle from 'components/base/BaseTitle';
 import BaseFormGroup from 'components/base/BaseFormGroup';
 import BaseButton from 'components/base/BaseButton';
 import BaseLink from 'components/base/BaseLink';
+import BaseOption from 'components/base/BaseOption';
+import BaseIcon from 'components/base/BaseIcon';
 
 import { FormTypes, ILoginProps } from './Login';
 
@@ -34,11 +35,30 @@ export default class LoginSignUp extends VueComponent<ILoginProps> {
     name: '',
     email: '',
     password: '',
+    role: 'Administrator',
   };
+
+  roles = [
+    {
+      name: 'Administrator',
+      desc: 'Full access to all settings',
+      icon: 'icon-lightning',
+    },
+    {
+      name: 'Operator',
+      desc: 'Service desk and chat permissions',
+      icon: 'icon-bubble',
+    },
+  ];
 
   @Emit('setFormName')
   public setFormType(type: FormTypes): FormTypes {
     return type;
+  }
+
+  updateRoleValue(event: Event) {
+    const target = event.target as HTMLInputElement;
+    this.signUpForm.role = target.value;
   }
 
   render(): VNode {
@@ -48,11 +68,35 @@ export default class LoginSignUp extends VueComponent<ILoginProps> {
           {/*
           // @ts-ignore */}
           <BaseTitle class='login__title' level='3'>
-            <span slot='default'>Get started for free</span>
+            Get started for free
           </BaseTitle>
           <p class='login__desc paragraph paragraph_color_darkgray'>Free forever. No credit card needed.</p>
         </div>
         <form class='login__form'>
+          <ul class='login__list list'>
+            {this.roles.map((role) => {
+              return (
+                <li class='login__item list-item' key={role.name}>
+                  <BaseOption
+                    class='login__option'
+                    type='radio'
+                    value={role.name}
+                    name='login-role'
+                    id={`login-role-${role.name}`}
+                    onInput={(event: Event) => this.updateRoleValue(event)}
+                    checked={role.name === this.signUpForm.role}>
+                    <span class='login__option-content'>
+                      {/*
+                      // @ts-ignore */}
+                      <BaseIcon size='s' name={role.icon} color='default' class='login__option-icon' />
+                      <strong class='login__option-name'>{role.name}</strong>
+                      <span class='login__option-desc paragraph paragraph_color_darkgray'>{role.desc}</span>
+                    </span>
+                  </BaseOption>
+                </li>
+              );
+            })}
+          </ul>
           <div class='login__form-inputs'>
             <BaseFormGroup
               class='login__form-group'

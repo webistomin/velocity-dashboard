@@ -76,7 +76,7 @@ export default class BaseFormGroup extends mixins(singleErrorExtractorMixin) {
     return (
       <div class='base-form-group'>
         <div class='base-form-group__heading'>
-          {this.label ? <label htmlFor={this.id}>{this.label}</label> : null}
+          {this.label ? <label for={this.id}>{this.label}</label> : null}
           {this.$slots.heading}
         </div>
         <div class='base-form-group__content'>

@@ -40,7 +40,7 @@ export default class LoginForgot extends VueComponent<ILoginProps> {
           {/*
           // @ts-ignore */}
           <BaseTitle class='login__title' level='3'>
-            <span slot='default'>Recover password</span>
+            Recover password
           </BaseTitle>
           <p class='login__desc paragraph paragraph_color_darkgray'>Don't worry, happens to the best of us.</p>
         </div>

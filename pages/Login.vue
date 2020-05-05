@@ -4,11 +4,10 @@
 </template>
 
 <script lang="ts">
-  import Vue from 'vue';
   import Login from 'components/ui/Login';
 
-  export default Vue.extend({
+  export default {
     name: 'LoginPage',
     components: { Login },
-  });
+  };
 </script>

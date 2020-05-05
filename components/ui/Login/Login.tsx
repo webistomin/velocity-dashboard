@@ -6,8 +6,10 @@ import { VueComponent } from 'types/vue-components';
 import LoginSignIn from './LoginSignIn';
 import LoginSignUp from './LoginSignUp';
 import LoginForgotPassword from './LoginForgotPassword';
+import LoginVideo from './LoginVideo';
 
 import './Login.sass';
+import TheHeader from 'components/partials/TheHeader';
 
 export enum FormTypes {
   SIGN_IN = 'sign-in',
@@ -23,7 +25,7 @@ export interface ILoginProps {
   name: 'Login',
 })
 export default class Login extends VueComponent {
-  currentForm = FormTypes.SIGN_IN;
+  currentForm = FormTypes.SIGN_UP;
 
   public setFormType(formName: FormTypes): void {
     this.currentForm = formName;
@@ -32,9 +34,11 @@ export default class Login extends VueComponent {
   render(): VNode {
     return (
       <section class='login'>
+        <h2 class='visually-hidden'>Authorization</h2>
         <div class='login__container container'>
           <div class='login__inner'>
             <div class='login__col login__col_left'>
+              <TheHeader />
               <transition name='login-fade' mode='out-in'>
                 {this.currentForm === FormTypes.SIGN_IN && (
                   <LoginSignIn onSetFormName={(formName) => this.setFormType(formName)} />
@@ -46,6 +50,9 @@ export default class Login extends VueComponent {
                   <LoginForgotPassword onSetFormName={(formName) => this.setFormType(formName)} />
                 )}
               </transition>
+            </div>
+            <div class='login__col login__col_right'>
+              <LoginVideo />
             </div>
           </div>
         </div>

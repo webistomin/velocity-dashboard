@@ -1,0 +1,38 @@
++b('base-icon')
+  display: flex
+  align-items: center
+  justify-content: center
+  border-radius: 50%
+  position: relative
+
+  &::before
+    content: ''
+    border-radius: inherit
+    width: 100%
+    height: 100%
+    position: absolute
+    top: 0
+    left: 0
+    background-color: currentColor
+    opacity: 0.15
+
+  +m('size')
+    +v('xs')
+      width: rem(32px)
+      height: rem(32px)
+
+    +v('s')
+      width: rem(48px)
+      height: rem(48px)
+
+    +v('m')
+      width: rem(70px)
+      height: rem(70px)
+
+  +m('color')
+    +v('default')
+      color: var(--color-primary)
+
+  +e('icon')
+    width: 50%
+    height: 50%
