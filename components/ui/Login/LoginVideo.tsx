@@ -1,4 +1,6 @@
-export const LoginVideo = () => {
+import { VNode } from 'vue';
+
+export const LoginVideo = (): VNode => {
   return (
     <div class='login__video-block'>
       <video preload='auto' muted playsinline autoplay='autoplay' loop='loop' class='login__video'>

@@ -41,6 +41,8 @@ export default class LoginSignIn extends VueComponent<ILoginProps> {
     return (
       <div class='login__holder'>
         <div class='login__heading'>
+          {/*
+          // @ts-ignore */}
           <BaseTitle class='login__title' level={3}>
             Sign in to Velocity
           </BaseTitle>
