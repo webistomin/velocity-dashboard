@@ -1,3 +1,6 @@
+// Global styles
+import '../assets/sass/main.sass';
+
 import Vue from 'vue';
 import { addDecorator } from '@storybook/vue';
 import StoryRouter from 'storybook-vue-router';
@@ -39,12 +42,6 @@ addDecorator(() => ({
     );
   },
 }));
-
-// Global styles
-addDecorator((getStory) => {
-  require('../assets/sass/main.sass');
-  return getStory();
-});
 
 // Svg-icon component
 Vue.component('SvgIcon', {
