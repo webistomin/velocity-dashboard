@@ -1,6 +1,6 @@
 import { text } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-import { email, required } from 'vuelidate/lib/validators';
+import { required } from 'vuelidate/lib/validators';
 import BaseFormGroup from './BaseFormGroup';
 
 export default {
@@ -27,7 +27,7 @@ export const Default = () => ({
     },
     label: {
       type: String,
-      default: text('label', 'label'),
+      default: text('label', 'Text'),
     },
     id: {
       type: String,
@@ -48,19 +48,14 @@ export const Default = () => ({
   },
   data() {
     return {
-      signInForm: {
-        email: '',
-        password: '',
+      form: {
+        field: '',
       },
     };
   },
   validations: {
-    signInForm: {
-      email: {
-        required,
-        email,
-      },
-      password: {
+    form: {
+      field: {
         required,
       },
     },
@@ -73,8 +68,8 @@ export const Default = () => ({
                               :label='this.label'
                               :id='this.id'
                               :placeholder='this.placeholder'
-                              :validator='$v.signInForm.email'
-                              @input='signInForm.email = $event, onInput()'
-                              :value='signInForm.email'
-                              @blur='$v.signInForm.email.$touch(), onBlur()'/>`,
+                              :validator='$v.form.field'
+                              @input='form.field = $event, onInput()'
+                              :value='form.field'
+                              @blur='$v.form.field.$touch(), onBlur()'/>`,
 });

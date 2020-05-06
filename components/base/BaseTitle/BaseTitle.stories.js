@@ -28,10 +28,10 @@ export const Default = () => ({
       BaseTitle,
       {
         props: {
-          level: 1,
+          level: this.level,
         },
       },
-      [`Heading ${this.level || 1}`]
+      [`Heading ${this.level}`]
     );
   },
 });

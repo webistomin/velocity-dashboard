@@ -41,9 +41,7 @@ export default class LoginSignIn extends VueComponent<ILoginProps> {
     return (
       <div class='login__holder'>
         <div class='login__heading'>
-          {/*
-          // @ts-ignore */}
-          <BaseTitle class='login__title' level='3'>
+          <BaseTitle class='login__title' level={3}>
             Sign in to Velocity
           </BaseTitle>
           <p class='login__desc paragraph paragraph_color_darkgray'>Please enter your credentials to proceed.</p>

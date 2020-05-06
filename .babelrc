@@ -1,4 +1,12 @@
 {
+  "presets": [
+    [
+      "@vue/babel-preset-jsx",
+      {
+        "injectH": false
+      }
+    ]
+  ],
   "env": {
     "test": {
       "presets": [

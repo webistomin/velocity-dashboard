@@ -22,13 +22,13 @@ export default class BaseButton extends VueComponent<IBaseButtonProps> {
   @Prop({ default: 'button' })
   private readonly type!: IBaseButtonProps['type'];
 
-  @Prop()
+  @Prop({ default: false })
   private readonly isDisabled!: IBaseButtonProps['isDisabled'];
 
-  @Prop()
+  @Prop({ default: false })
   private readonly isLoading!: IBaseButtonProps['isLoading'];
 
-  @Prop()
+  @Prop({ default: '' })
   private readonly icon!: IBaseButtonProps['icon'];
 
   @Prop({ default: 'default' })
@@ -56,7 +56,7 @@ export default class BaseButton extends VueComponent<IBaseButtonProps> {
     return (
       <button
         type={this.type}
-        class={`base-button btn ${this.getClassnames}`}
+        class={`base-button btn ${this.getClassnames.join(' ')}`}
         disabled={this.isDisabled}
         onClick={this.onClick}>
         <span class='base-button__wrapper'>

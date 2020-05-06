@@ -55,6 +55,8 @@
     "@storybook/preset-typescript": "^3.0.0",
     "@storybook/vue": "^5.3.18",
     "@types/vuelidate": "^0.7.13",
+    "@vue/babel-helper-vue-jsx-merge-props": "^1.0.0",
+    "@vue/babel-preset-jsx": "^1.1.2",
     "@vue/test-utils": "^1.0.0-beta.27",
     "autoprefixer": "^9.7.6",
     "babel-eslint": "^10.0.1",

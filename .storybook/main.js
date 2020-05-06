@@ -2,7 +2,7 @@ const path = require('path');
 const rootPath = path.resolve(__dirname, '../');
 
 module.exports = {
-  stories: ['../components/base/BaseLogo/*.stories.[tj]s'],
+  stories: ['../components/**/*.stories.[tj]s'],
 
   addons: ['@storybook/addon-actions', '@storybook/addon-links', '@storybook/addon-knobs'],
 
@@ -10,6 +10,7 @@ module.exports = {
     config.resolve.extensions.push('.ts', '.tsx', '.vue', '.sass');
     config.resolve.alias['@'] = rootPath;
     config.resolve.alias['~'] = rootPath;
+    config.resolve.alias['types'] = path.resolve(rootPath, 'types');
 
     config.module.rules.push({
       test: /\.tsx?$/,
@@ -39,7 +40,7 @@ module.exports = {
         {
           loader: 'sass-loader',
           options: {
-            prependData: `@import "@/assets/sass/main.sass";`,
+            prependData: `@import "@/assets/sass/dev.sass";`,
           },
         },
       ],
