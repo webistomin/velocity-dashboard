@@ -8,8 +8,8 @@ const interopDefault = (promise) => {
   return promise.then((m) => m.default || m);
 };
 
-const Main = () => interopDefault(import('~/pages/Main.vue'));
-const Login = () => interopDefault(import('~/pages/Login.vue'));
+const Main = () => interopDefault(import('~/pages/Main'));
+const Login = () => interopDefault(import('~/pages/Login'));
 
 export function createRouter() {
   return new Router({

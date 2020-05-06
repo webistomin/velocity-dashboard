@@ -1,4 +1,4 @@
-import BaseLogo from './BaseLogo';
+import { BaseLogo } from './BaseLogo';
 
 export default {
   title: 'BaseLogo',
@@ -8,5 +8,7 @@ export default {
 };
 
 export const Default = () => ({
-  render: (h) => h(BaseLogo),
+  render(h) {
+    return h(BaseLogo);
+  },
 });

@@ -1,7 +1,7 @@
 import { text } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import { email, required } from 'vuelidate/lib/validators';
-import BaseFormGroup from './BaseFormGroup.vue';
+import BaseFormGroup from './BaseFormGroup';
 
 export default {
   title: 'BaseFormGroup',

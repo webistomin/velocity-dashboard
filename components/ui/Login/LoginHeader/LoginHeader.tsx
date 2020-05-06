@@ -4,16 +4,16 @@ import { VNode } from 'vue';
 
 import BaseLogo from 'components/base/BaseLogo';
 
-import './TheHeader.sass';
+import './LoginHeader.sass';
 
 @Component({
-  name: 'TheHeader',
+  name: 'LoginHeader',
 })
-export default class TheHeader extends VueComponent {
+export default class LoginHeader extends VueComponent {
   render(): VNode {
     return (
-      <header class='page-header'>
-        <div class='page-header__container container'>
+      <header class='login__header'>
+        <div class='login__header-container container'>
           <BaseLogo />
         </div>
       </header>

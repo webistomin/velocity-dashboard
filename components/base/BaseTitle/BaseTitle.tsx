@@ -11,8 +11,8 @@ export const BaseTitle = (context: RenderContext<IBaseTitleProps>): VNode => {
   const HeadingComponent = `h${level}`;
   return (
     <HeadingComponent
-      class={`title base-title base-title_level-${level} ${context.data.staticClass || ''} ${context.data
-        .class || ''}`}>
+      class={`title base-title base-title_level-${level} ${context.data.staticClass || ''} ${context.data.class ||
+        ''}`}>
       {context.children}
     </HeadingComponent>
   );

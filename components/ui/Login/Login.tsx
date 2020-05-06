@@ -7,9 +7,9 @@ import LoginSignIn from './LoginSignIn';
 import LoginSignUp from './LoginSignUp';
 import LoginForgotPassword from './LoginForgotPassword';
 import LoginVideo from './LoginVideo';
+import LoginHeader from './LoginHeader';
 
 import './Login.sass';
-import TheHeader from 'components/partials/TheHeader';
 
 export enum FormTypes {
   SIGN_IN = 'sign-in',
@@ -38,7 +38,7 @@ export default class Login extends VueComponent {
         <div class='login__container container'>
           <div class='login__inner'>
             <div class='login__col login__col_left'>
-              <TheHeader />
+              <LoginHeader />
               <transition name='login-fade' mode='out-in'>
                 {this.currentForm === FormTypes.SIGN_IN && (
                   <LoginSignIn onSetFormName={(formName) => this.setFormType(formName)} />

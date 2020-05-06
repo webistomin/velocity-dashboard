@@ -2,19 +2,27 @@ const path = require('path');
 const rootPath = path.resolve(__dirname, '../');
 
 module.exports = {
-  stories: ['../components/**/*.stories.[tj]s'],
+  stories: ['../components/base/BaseLogo/*.stories.[tj]s'],
 
   addons: ['@storybook/addon-actions', '@storybook/addon-links', '@storybook/addon-knobs'],
 
   webpackFinal: async (config) => {
+    config.resolve.extensions.push('.ts', '.tsx', '.vue', '.sass');
     config.resolve.alias['@'] = rootPath;
     config.resolve.alias['~'] = rootPath;
 
     config.module.rules.push({
-      test: /\.(ts)$/,
+      test: /\.tsx?$/,
       use: [
         {
-          loader: require.resolve('ts-loader'),
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+            plugins: ['transform-vue-jsx'],
+          },
+        },
+        {
+          loader: 'ts-loader',
           options: {
             appendTsSuffixTo: [/\.vue$/],
             transpileOnly: true,
@@ -35,11 +43,6 @@ module.exports = {
           },
         },
       ],
-    });
-
-    config.module.rules.push({
-      test: /\.pug$/,
-      loader: 'pug-plain-loader',
     });
 
     config.module.rules.push({

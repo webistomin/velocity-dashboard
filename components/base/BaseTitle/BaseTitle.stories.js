@@ -1,5 +1,5 @@
 import { number } from '@storybook/addon-knobs';
-import BaseTitle from './BaseTitle';
+import { BaseTitle } from './BaseTitle';
 
 export default {
   title: 'BaseTitle',
@@ -28,7 +28,7 @@ export const Default = () => ({
       BaseTitle,
       {
         props: {
-          level: this.level || 1,
+          level: 1,
         },
       },
       [`Heading ${this.level || 1}`]

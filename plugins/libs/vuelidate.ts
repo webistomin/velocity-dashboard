@@ -3,7 +3,7 @@ import Vue from 'vue';
 import Vuelidate from 'vuelidate';
 // @ts-ignore
 import VuelidateErrorExtractor from 'vuelidate-error-extractor';
-import BaseFormGroup from '@/components/base/BaseFormGroup';
+import BaseFormGroup from 'components/base/BaseFormGroup';
 
 Vue.use(Vuelidate);
 Vue.component('BaseFormGroup', BaseFormGroup);

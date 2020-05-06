@@ -1,4 +1,4 @@
-import { Configuration as WebpackConfiguration } from 'webpack';
+// import { Configuration as WebpackConfiguration } from 'webpack';
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = {
@@ -66,7 +66,7 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
-    extend(config: WebpackConfiguration) {
+    extend(config) {
       if (!config.resolve) {
         config.resolve = {};
       }

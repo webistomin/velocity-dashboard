@@ -4,7 +4,7 @@ import StoryRouter from 'storybook-vue-router';
 import Vuelidate from 'vuelidate';
 import VuelidateErrorExtractor from 'vuelidate-error-extractor';
 
-import BaseFormGroup from '@/components/base/BaseFormGroup/BaseFormGroup';
+import BaseFormGroup from '@/components/base/BaseFormGroup';
 
 Vue.use(Vuelidate);
 Vue.component('BaseFormGroup', BaseFormGroup);
@@ -28,3 +28,14 @@ Vue.component('NuxtLink', {
   },
   template: '<a :href="to"><slot/></a>',
 });
+
+// JSX
+addDecorator(() => ({
+  render() {
+    return (
+      <div id='app'>
+        <story />
+      </div>
+    );
+  },
+}));

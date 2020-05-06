@@ -9,6 +9,7 @@
       "dom"
     ],
     "jsx": "preserve",
+    "jsxFactory": "h",
     "esModuleInterop": true,
     "allowJs": true,
     "sourceMap": true,
