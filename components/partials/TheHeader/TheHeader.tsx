@@ -8,6 +8,7 @@ import MessagesCenter from 'components/ui/MessagesCenter';
 import UserCenter from 'components/ui/UserCenter';
 
 import './TheHeader.sass';
+import BaseToggle from 'components/base/BaseToggle';
 
 @Component({
   name: 'TheHeader',
@@ -17,11 +18,7 @@ export default class TheHeader extends VueComponent {
     return (
       <header class='page-header'>
         <div class='page-header__container container'>
-          <button class='page-header__nav-toggler btn' type='button'>
-            <span class='page-header__nav-toggler-line' />
-            <span class='page-header__nav-toggler-line' />
-            <span class='page-header__nav-toggler-line' />
-          </button>
+          <BaseToggle class='page-header__nav-toggle' />
           <BaseLogo class='page-header__logo' />
           <h2 class='page-header__title title'>Page title</h2>
           <ul class='page-header__user-list list'>

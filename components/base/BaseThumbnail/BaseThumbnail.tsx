@@ -8,13 +8,17 @@ export interface IBaseThumbnailProps {
   image: string;
   alt: string;
   size?: IBaseThumbnailSize;
+  isSquared?: boolean;
 }
 
 export const BaseThumbnail = (context: RenderContext<IBaseThumbnailProps>): VNode => {
   const { class: cls, staticClass } = context.data;
-  const { image, alt, size = 's' } = context.props;
+  const { image, alt, size = 's', isSquared = false } = context.props;
   return (
-    <span class={`base-thumbnail base-thumbnail_size_${size} ${cls || ''} ${staticClass || ''}`}>
+    <span
+      class={`base-thumbnail base-thumbnail_size_${size} ${cls || ''} ${staticClass || ''} ${
+        isSquared ? 'base-thumbnail_squared' : ''
+      }`}>
       <picture class='base-thumbnail__picture picture'>
         <img src={image} alt={alt} class='base-thumbnail__img image' />
       </picture>

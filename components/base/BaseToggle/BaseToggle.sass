@@ -1,0 +1,42 @@
++b('base-toggle')
+  width: rem(50px)
+  height: rem(50px)
+  position: relative
+
+  &:hover .base-toggle__line
+    background-color: var(--color-primary)
+
+    &:last-of-type
+      width: rem(18px)
+
+  +m('active')
+    .base-toggle__line
+      &:first-of-type
+        transform: translateY(rem(6px)) rotate(45deg)
+
+      &:nth-of-type(2)
+        transform: translateX(-50%)
+        opacity: 0
+
+      &:last-of-type
+        width: rem(18px)
+        transform: translateY(rem(-6px)) rotate(-45deg)
+
+  +e('line')
+    display: block
+    position: absolute
+    width: rem(18px)
+    height: rem(2px)
+    background-color: var(--color-gray-4)
+    left: rem(16px)
+    transition: background-color 0.2s ease-out, width 0.2s ease-out, transform 0.2s ease-out, opacity 0.2s ease-out
+
+    &:first-of-type
+      top: calc(50% - 0.6rem)
+
+    &:nth-of-type(2)
+      top: 50%
+
+    &:last-of-type
+      width: rem(11px)
+      top: calc(50% + 0.6rem)
