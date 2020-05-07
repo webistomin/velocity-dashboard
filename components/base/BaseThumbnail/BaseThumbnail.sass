@@ -1,0 +1,21 @@
++b('base-thumbnail')
+  display: flex
+  align-items: center
+  justify-content: center
+  border-radius: 50%
+  overflow: hidden
+
+  +m('size')
+    +v('xs')
+      width: rem(36px)
+      height: rem(36px)
+
+      +media($screen-lg)
+        width: rem(40px)
+        height: rem(40px)
+
+  +e('picture')
+    width: 100%
+
+  +e('img')
+    width: 100%

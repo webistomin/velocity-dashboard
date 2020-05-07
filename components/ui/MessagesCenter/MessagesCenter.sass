@@ -1,0 +1,25 @@
++b('messages-center')
+  +e('btn')
+    width: rem(50px)
+    height: rem(50px)
+    max-width: rem(60px)
+    display: flex
+    align-items: center
+    justify-content: center
+    color: var(--color-gray-4)
+    transition: color 0.2s ease-out
+
+    &:hover
+      color: var(--color-primary)
+
+  +e('btn-content')
+    position: relative
+
+    .icon
+      width: rem(23px)
+      height: rem(18px)
+
+    +media($screen-lg)
+      .icon
+        width: rem(26px)
+        height: rem(21px)

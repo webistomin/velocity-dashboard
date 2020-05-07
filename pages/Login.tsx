@@ -6,6 +6,7 @@ import Login from 'components/ui/Login';
 
 @Component({
   name: 'LoginPage',
+  layout: 'login',
 })
 export default class LoginPage extends VueComponent {
   render(): VNode {
