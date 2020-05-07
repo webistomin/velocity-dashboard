@@ -25,9 +25,12 @@ export default class BaseToggle extends VueComponent<IBaseToggleProps> {
   onToggleClick() {}
 
   render(): VNode {
-    const {size, isActive} = this;
+    const { size, isActive } = this;
     return (
-      <button class={`base-toggle btn base-toggle_size_${size} ${isActive ? 'base-toggle_active' : ''}`} type='button' onClick={this.onToggleClick}>
+      <button
+        class={`base-toggle btn base-toggle_size_${size} ${isActive ? 'base-toggle_active' : ''}`}
+        type='button'
+        onClick={this.onToggleClick}>
         <span class='base-toggle__wrapper'>
           <span class='base-toggle__line' />
           <span class='base-toggle__line' />

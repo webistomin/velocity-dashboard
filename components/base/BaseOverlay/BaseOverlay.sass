@@ -1,0 +1,16 @@
++b('base-overlay')
+  position: fixed
+  top: 0
+  left: 0
+  width: 100vw
+  height: 100%
+  background-color: var(--color-gray-1)
+  opacity: 0
+  visibility: hidden
+  transition: opacity 0.2s ease-out, visibility 0.2s ease-out
+  pointer-events: none
+
+  +m('visible')
+    opacity: 0.5
+    visibility: visible
+    pointer-events: all

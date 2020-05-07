@@ -9,6 +9,46 @@ export default class MainPage extends VueComponent {
   render(): VNode {
     return (
       <main class='page-content'>
+        <h1>MainMainMainMain</h1>
+        <h1>Main</h1>
+        <h1>Main</h1>
+        <h1>Main</h1>
+        <h1>Main</h1>
+        <h1>Main</h1>
+        <h1>Main</h1>
+        <h1>Main</h1>
+        <h1>Main</h1>
+        <h1>Main</h1>
+        <h1>Main</h1>
+        <h1>Main</h1>
+        <h1>Main</h1>
+        <h1>Main</h1>
+        <h1>Main</h1>
+        <h1>Main</h1>
+        <h1>Main</h1>
+        <h1>Main</h1>
+        <h1>Main</h1>
+        <h1>Main</h1>
+        <h1>Main</h1>
+        <h1>Main</h1>
+        <h1>Main</h1>
+        <h1>Main</h1>
+        <h1>Main</h1>
+        <h1>Main</h1>
+        <h1>Main</h1>
+        <h1>Main</h1>
+        <h1>Main</h1>
+        <h1>Main</h1>
+        <h1>Main</h1>
+        <h1>Main</h1>
+        <h1>Main</h1>
+        <h1>Main</h1>
+        <h1>Main</h1>
+        <h1>Main</h1>
+        <h1>Main</h1>
+        <h1>Main</h1>
+        <h1>Main</h1>
+        <h1>Main</h1>
         <h1>Main</h1>
       </main>
     );

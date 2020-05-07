@@ -25,7 +25,7 @@ export default class Default extends VueComponent {
     return (
       <div class={`site-grid ${this.isNavOpened ? 'site-grid_full' : ''}`} id='app'>
         <TheNavigation onOpenNav={this.toggleNav} isNavOpened={this.isNavOpened} />
-        <TheHeader />
+        <TheHeader onOpenNav={this.toggleNav} isNavOpened={this.isNavOpened} />
         <nuxt />
       </div>
     );
