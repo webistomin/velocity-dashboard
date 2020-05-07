@@ -1,7 +1,6 @@
-// Fade animations for login form switcher /login
-
+// Fade animations for login form switcher. path: /login
 .login-fade-enter-active, .login-fade-leave-active
-  transition: opacity 0.3s ease-in-out
+  transition: opacity 0.2s ease-out
 
 .login-fade-enter
   position: absolute
@@ -9,5 +8,7 @@
 .login-fade-enter, .login-fade-leave-to
   opacity: 0
 
-
-
+// Disable animation if user doesn't like it
+@media (prefers-reduced-motion: reduce)
+  *, *::before, *::after
+    transition: none !important
