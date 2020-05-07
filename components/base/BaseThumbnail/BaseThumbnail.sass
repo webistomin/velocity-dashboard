@@ -5,8 +5,15 @@
   border-radius: 50%
   overflow: hidden
 
+  +m('squared')
+    border-radius: 6px
+
   +m('size')
     +v('xs')
+      width: rem(32px)
+      height: rem(32px)
+
+    +v('s')
       width: rem(36px)
       height: rem(36px)
 

@@ -1,0 +1,67 @@
++b('main-nav')
+  width: 215px
+  height: calc(100% - 51px)
+  position: absolute
+  top: 51px
+  left: 0
+  overflow: auto
+  +scroll-overflow()
+  z-index: 1
+  background-color: var(--color-white)
+
+  +media($screen-lg)
+    width: auto
+    grid-area: navigation
+
+  +e('toggle')
+    display: none
+
+  +e('user')
+    display: flex
+    align-items: center
+    padding: rem(14px) rem(14px) rem(28px)
+
+  +e('info')
+    display: flex
+    flex-direction: column
+    font: var(--text-link)
+
+  +e('thumb')
+    margin-right: rem(10px)
+
+  +e('welcome')
+    font: inherit
+
+  +e('username')
+    font: inherit
+    color: var(--color-gray-3)
+
+  +e('link')
+    display: flex
+    align-items: center
+    padding: rem(16px) rem(14px)
+    color: var(--color-gray-3)
+    transition: color 0.2s ease-out, background-color 0.2s ease-out
+    position: relative
+
+    .icon
+      margin-right: rem(16px)
+
+    &::before
+      content: ''
+      background-color: currentColor
+      position: absolute
+      top: 0
+      left: 0
+      width: rem(3px)
+      height: 100%
+      opacity: 0
+      transition: opacity 0.2s ease-out
+
+    &:hover,
+    &.nuxt-link-active
+      color: var(--color-primary)
+      background-color: var(--color-secondary)
+
+      &::before
+        opacity: 1

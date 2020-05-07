@@ -6,9 +6,9 @@ import BaseLogo from 'components/base/BaseLogo';
 import NotificationCenter from 'components/ui/NotificationCenter';
 import MessagesCenter from 'components/ui/MessagesCenter';
 import UserCenter from 'components/ui/UserCenter';
+import BaseToggle from 'components/base/BaseToggle';
 
 import './TheHeader.sass';
-import BaseToggle from 'components/base/BaseToggle';
 
 @Component({
   name: 'TheHeader',
@@ -17,7 +17,7 @@ export default class TheHeader extends VueComponent {
   public render(): VNode {
     return (
       <header class='page-header'>
-        <div class='page-header__container container'>
+        <div class='page-header__container'>
           <BaseToggle class='page-header__nav-toggle' />
           <BaseLogo class='page-header__logo' />
           <h2 class='page-header__title title'>Page title</h2>

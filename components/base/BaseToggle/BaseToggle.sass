@@ -1,7 +1,14 @@
 +b('base-toggle')
-  width: rem(50px)
-  height: rem(50px)
   position: relative
+
+  +m('size')
+    +v('xs')
+      width: rem(50px)
+      height: rem(50px)
+
+    +v('s')
+      width: rem(80px)
+      height: rem(80px)
 
   &:hover .base-toggle__line
     background-color: var(--color-primary)
@@ -11,6 +18,8 @@
 
   +m('active')
     .base-toggle__line
+      background-color: var(--color-primary)
+
       &:first-of-type
         transform: translateY(rem(6px)) rotate(45deg)
 
@@ -22,13 +31,18 @@
         width: rem(18px)
         transform: translateY(rem(-6px)) rotate(-45deg)
 
+  +e('wrapper')
+    width: rem(18px)
+    height: rem(14px)
+    +absolute-center()
+
   +e('line')
     display: block
     position: absolute
-    width: rem(18px)
+    width: inherit
     height: rem(2px)
     background-color: var(--color-gray-4)
-    left: rem(16px)
+    left: 0
     transition: background-color 0.2s ease-out, width 0.2s ease-out, transform 0.2s ease-out, opacity 0.2s ease-out
 
     &:first-of-type

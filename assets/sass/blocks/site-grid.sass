@@ -1,0 +1,10 @@
++b('site-grid')
+  +media($screen-lg)
+    display: grid
+    grid-template-columns: 80px 1fr
+    grid-template-rows: 80px 1fr
+    grid-template-areas: "navigation header" "navigation content"
+    transition: all 0.2s ease-out
+
+    +m('full')
+      grid-template-columns: 215px 1fr
