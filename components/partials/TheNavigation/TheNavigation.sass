@@ -23,7 +23,7 @@
     height: calc(100% - 8rem)
 
   +media($screen-lg)
-    width: auto
+    width: 80px
     height: 100%
     grid-area: navigation
     position: relative
@@ -33,6 +33,12 @@
     overflow: initial
     visibility: visible
     opacity: 1
+    transition: width 0.2s ease-out
+    will-change: width
+    backface-visibility: hidden
+
+    +m('visible')
+      width: 215px
 
   +e('overlay')
     z-index: -1

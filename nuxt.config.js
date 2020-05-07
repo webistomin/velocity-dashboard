@@ -26,6 +26,7 @@ module.exports = {
   css: ['~assets/sass/main'],
   plugins: [
     { src: '~/plugins/libs/vuelidate.ts', ssr: true },
+    { src: '~/plugins/libs/v-lazy-image.ts', ssr: true },
     { src: '~/plugins/libs/v-scroll-lock.ts', ssr: false },
   ],
   buildModules: [

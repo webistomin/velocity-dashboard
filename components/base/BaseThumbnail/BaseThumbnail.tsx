@@ -20,7 +20,7 @@ export const BaseThumbnail = (context: RenderContext<IBaseThumbnailProps>): VNod
         isSquared ? 'base-thumbnail_squared' : ''
       }`}>
       <picture class='base-thumbnail__picture picture'>
-        <img src={image} alt={alt} class='base-thumbnail__img image' />
+        <v-lazy-image src={image} alt={alt} class='base-thumbnail__img image' />
       </picture>
     </span>
   );

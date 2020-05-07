@@ -27,7 +27,7 @@ export default class Default extends VueComponent {
 
   render(): VNode {
     return (
-      <div class={`site-grid ${this.isNavOpened ? 'site-grid_full' : ''}`} id='app'>
+      <div class={`site-grid`} id='app'>
         <TheNavigation onOpenNav={this.toggleNav} isNavOpened={this.isNavOpened} v-scroll-lock={this.shouldLockBody} />
         <TheHeader onOpenNav={this.toggleNav} isNavOpened={this.isNavOpened} />
         <nuxt />
