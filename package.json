@@ -29,6 +29,7 @@
     "express": "^4.16.4",
     "nuxt": "^2.0.0",
     "nuxt-property-decorator": "^2.7.2",
+    "v-scroll-lock": "^1.1.1",
     "vue": "^2.6.11",
     "vuelidate": "^0.7.5",
     "vuelidate-error-extractor": "^2.4.1"

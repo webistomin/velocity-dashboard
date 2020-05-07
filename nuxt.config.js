@@ -24,7 +24,10 @@ module.exports = {
   },
   loading: { color: '#fff' },
   css: ['~assets/sass/main'],
-  plugins: [{ src: '~/plugins/libs/vuelidate.ts', ssr: true }],
+  plugins: [
+    { src: '~/plugins/libs/vuelidate.ts', ssr: true },
+    { src: '~/plugins/libs/v-scroll-lock.ts', ssr: false },
+  ],
   buildModules: [
     '@nuxt/typescript-build',
     '@nuxtjs/sitemap',
