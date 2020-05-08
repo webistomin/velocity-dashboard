@@ -72,10 +72,10 @@ export default class TheNavigation extends VueComponent<INavigationProps> {
         <div class='main-nav__wrapper'>
           <BaseToggle class='main-nav__toggle' size='s' onClick={this.onToggleClick} isActive={this.isNavOpened} />
           <div class='main-nav__user'>
-            <BaseThumbnail class='main-nav__thumb' image='/img/avatar.jpg' size='xs' alt='user' isSquared={true} />
+            <BaseThumbnail class='main-nav__thumb' image='/img/avatar.png' size='xs' alt='user' isSquared={true} />
             <span class={`main-nav__info ${this.isNavOpened ? 'main-nav__info_visible' : ''}`}>
               <strong class='main-nav__welcome'>Welcome</strong>
-              <strong class='main-nav__username'>Alesha</strong>
+              <strong class='main-nav__username'>Alexey Istomin</strong>
             </span>
           </div>
           <nav class='main-nav__nav'>

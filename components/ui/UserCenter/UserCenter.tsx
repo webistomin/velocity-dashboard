@@ -14,7 +14,7 @@ export default class UserCenter extends VueComponent {
     return (
       <div class='user-center'>
         <button class='user-center__btn btn'>
-          <BaseThumbnail image='/img/avatar.jpg' size='s' alt='User' />
+          <BaseThumbnail image='/img/avatar.png' size='s' alt='User' />
         </button>
       </div>
     );

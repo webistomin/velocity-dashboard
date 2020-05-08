@@ -12,6 +12,9 @@
     &:hover
       color: var(--color-primary)
 
+    +m('active')
+      color: var(--color-primary)
+
   +e('btn-content')
     position: relative
 
@@ -23,3 +26,24 @@
       .icon
         width: rem(26px)
         height: rem(21px)
+
+  +e('sidebar')
+    width: 378px
+    height: calc(100% - 5.1rem)
+    top: rem(51px)
+    right: 0
+
+    +media($screen-sm)
+      top: 8rem
+      height: calc(100% - 8rem)
+
+  +e('overlay')
+    height: calc(100% - 5.1rem)
+    top: rem(51px)
+
+    +media($screen-sm)
+      top: 8rem
+      height: calc(100% - 8rem)
+
+    +media($screen-lg)
+      display: none

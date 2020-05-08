@@ -90,7 +90,10 @@ export default class NotificationCenter extends VueComponent {
   render(): VNode {
     return (
       <div class='notification-center' v-scroll-lock={this.shouldLockBody}>
-        <button class='notification-center__btn btn' type='button' onClick={this.toggleNotificationVisibility}>
+        <button
+          class={`notification-center__btn btn ${this.isNotificationsVisible ? 'notification-center__btn_active' : ''}`}
+          type='button'
+          onClick={this.toggleNotificationVisibility}>
           <span class='notification-center__btn-content'>
             <BaseNotify class='notification-center__status' />
             <svg-icon name='icon-bell' width={20} height={22} />
@@ -102,7 +105,9 @@ export default class NotificationCenter extends VueComponent {
             <div class='notification-center__info'>
               <NotificationCenterWeather temperature={181} city='New York, NY' />
             </div>
-            <BaseButton theme='gray' class='notification-center__clear-btn'>Clear</BaseButton>
+            <BaseButton theme='gray' class='notification-center__clear-btn'>
+              Clear
+            </BaseButton>
           </div>
           <ul class='notification-center__list list'>
             {this.notifications.map((notification) => {
