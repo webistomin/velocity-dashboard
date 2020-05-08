@@ -1,0 +1,15 @@
++b('base-sidebar')
+  position: fixed
+  z-index: 1
+  overflow: auto
+  +scroll-overflow()
+  +scrollbar(5px, var(--color-primary), var(--color-secondary))
+  background-color: var(--color-white)
+  visibility: hidden
+  transform: translateX(100%)
+  transition: transform 0.2s ease-out, visibility 0.2s ease-out
+
+  +m('visible')
+    transition-delay: 0.2s
+    visibility: visible
+    transform: none

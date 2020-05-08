@@ -5,7 +5,7 @@ import { ButtonTypes } from 'types/common/button-types';
 
 import './BaseButton.sass';
 
-export type BaseButtonThemes = 'default' | 'light' | 'success';
+export type BaseButtonThemes = 'default' | 'light' | 'success' | 'gray';
 
 export interface IBaseButtonProps {
   type?: ButtonTypes;

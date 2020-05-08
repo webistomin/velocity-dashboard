@@ -43,6 +43,15 @@
       &:active
         opacity: 0.8
 
+    +v('gray')
+      background-color: var(--color-gray-5)
+      color: var(--color-gray-3)
+      transition-property: background-color, color
+
+      &:hover
+        color: var(--color-white)
+        background-color: var(--color-gray-4)
+
   +e('wrapper')
     box-sizing: border-box
     width: 100%
