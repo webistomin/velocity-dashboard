@@ -6,3 +6,24 @@
     display: flex
     align-items: center
     justify-content: center
+
+  +e('sidebar')
+    width: 356px
+    height: calc(100% - 5.1rem)
+    top: rem(51px)
+    right: 0
+
+    +media($screen-sm)
+      top: 8rem
+      height: calc(100% - 8rem)
+
+  +e('overlay')
+    height: calc(100% - 5.1rem)
+    top: rem(51px)
+
+    +media($screen-sm)
+      top: 8rem
+      height: calc(100% - 8rem)
+
+    +media($screen-lg)
+      display: none

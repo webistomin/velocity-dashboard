@@ -1,0 +1,39 @@
++b('user-profile')
+  padding: rem(64px) rem(24px)
+
+  +e('heading')
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    padding-bottom: rem(40px)
+    margin-bottom: rem(40px)
+    border-bottom: rem(1px) solid var(--color-border-gray)
+
+  +e('avatar')
+    margin-bottom: rem(24px)
+
+  +e('post')
+    font-weight: 400
+    color: var(--color-gray-3)
+    margin-bottom: rem(35px)
+
+  +e('actions')
+    width: 100%
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+    .base-button
+      width: 48%
+
+  +e('item')
+    display: flex
+    flex-direction: column
+
+    &:not(:last-of-type)
+      margin-bottom: rem(22px)
+
+  +e('key')
+    margin-bottom: rem(10px)
+

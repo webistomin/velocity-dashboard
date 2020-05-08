@@ -55,7 +55,7 @@ export default class NotificationCenterItem extends VueComponent<INotificationCe
       <div class='notification-center__item'>
         <nuxt-link to='/test' class='notification-center__item-link link'>
           <div class='notification-center__col notification-center__col_left'>
-            {this.isNew ? <BaseNotify/> : null}
+            {this.isNew ? <BaseNotify /> : null}
             <BaseIcon
               class={`notification-center__item-icon ${this.isNew ? 'notification-center__item-icon_new' : ''}`}
               name={this.getIconName}

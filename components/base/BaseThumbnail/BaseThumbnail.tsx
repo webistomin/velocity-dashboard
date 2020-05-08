@@ -2,7 +2,7 @@ import { RenderContext, VNode } from 'vue';
 
 import './BaseThumbnail.sass';
 
-export type IBaseThumbnailSize = 'xs' | 's' | 'm' | 'l';
+export type IBaseThumbnailSize = 'xs' | 's' | 'm' | 'l' | 'xl';
 
 export interface IBaseThumbnailProps {
   image: string;
