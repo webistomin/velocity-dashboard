@@ -1,0 +1,25 @@
++b('base-block')
+  padding: rem(24px)
+  background-color: var(--color-white)
+
+  +e('heading')
+    display: flex
+    justify-content: space-between
+    margin-bottom: rem(24px)
+
+    +media($screen-lg)
+      margin-bottom: rem(34px)
+
+  +e('options-btn')
+    color: var(--color-gray-3)
+    transition: color 0.2s ease-out
+    position: relative
+
+    &:hover
+      color: var(--color-primary)
+
+    &::before
+      content: ''
+      width: calc(100% + 2rem)
+      height: calc(100% + 2rem)
+      +absolute-center()

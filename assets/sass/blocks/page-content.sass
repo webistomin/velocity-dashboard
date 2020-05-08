@@ -4,3 +4,15 @@
   flex-direction: column
   flex-grow: 1
   background-color: var(--color-lavender-3)
+
+  +m('offset')
+    padding-top: rem(30px)
+    padding-bottom: rem(30px)
+
+    +media($screen-sm)
+      padding-top: rem(60px)
+      padding-bottom: rem(60px)
+
+    +media($screen-lg)
+      padding-top: rem(64px)
+      padding-bottom: rem(64px)

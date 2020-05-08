@@ -47,7 +47,9 @@ export default class UserProfile extends VueComponent<IUserProfileProps> {
           <strong class='user-profile__post'>{this.post}</strong>
           <div class='user-profile__actions'>
             <BaseButton>
-              <nuxt-link class='link' to='/profile'>Edit profile</nuxt-link>
+              <nuxt-link class='link' to='/profile'>
+                Edit profile
+              </nuxt-link>
             </BaseButton>
             <BaseButton theme='light'>Change status</BaseButton>
           </div>
