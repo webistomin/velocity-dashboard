@@ -62,6 +62,7 @@ module.exports = {
    */
   axios: {},
   build: {
+    extractCSS: true,
     babel: {
       presets() {
         return [['@nuxt/babel-preset-app', { loose: true }]];

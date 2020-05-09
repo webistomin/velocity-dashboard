@@ -123,3 +123,25 @@
 
       &:nth-of-type(8)
         order: 8
+
+  +e('text')
+    color: var(--color-gray-3)
+
+  +e('desc')
+    margin-top: rem(24px)
+
+    +media($screen-lg)
+      width: rem(220px)
+      margin-top: 0
+      margin-left: rem(24px)
+
+    +media($screen-xl)
+      margin-left: rem(48px)
+
+  +e('welcome')
+    +media($screen-lg)
+      display: flex
+      justify-content: center
+
+  +e('welcome-title')
+    margin-bottom: rem(8px)

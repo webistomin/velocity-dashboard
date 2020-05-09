@@ -15,6 +15,7 @@
     "sourceMap": true,
     "strict": true,
     "noEmit": true,
+    "noImplicitThis": false,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "baseUrl": ".",

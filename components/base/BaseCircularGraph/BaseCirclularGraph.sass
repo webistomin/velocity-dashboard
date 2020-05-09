@@ -1,0 +1,24 @@
++b('base-circular-graph')
+  position: relative
+  width: 223px
+
+  +e('base')
+    display: block
+
+  +e('fill')
+    overflow: hidden
+    position: absolute
+    top: 0
+    left: 0
+    width: 0
+    animation: progress-bar 2s ease-in-out
+
+  +e('info')
+    text-align: center
+    position: absolute
+    left: 50%
+    top: 50%
+    transform: translateX(-50%)
+
+  +e('title')
+    margin-bottom: rem(4px)
