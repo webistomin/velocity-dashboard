@@ -13,6 +13,7 @@ import BaseLineChart from 'components/base/BaseLineChart';
 import BaseMap from 'components/base/BaseMap';
 import BaseList from 'components/base/BaseList';
 import { IBaseList } from 'components/base/BaseList/BaseList';
+import BaseBarGraph from 'components/base/BaseBarCraph';
 
 @Component({
   name: 'Overview',
@@ -151,6 +152,7 @@ export default class Overview extends VueComponent {
         usePointStyle: true,
         padding: 20,
         fontColor: '#B0BAC9',
+        fontFamily: 'Rubik, system-ui, sans-serif',
       },
     },
     elements: {
@@ -200,7 +202,49 @@ export default class Overview extends VueComponent {
       statistic: '1,232 miles',
       price: '$6,432',
     },
+    {
+      image: '/img/avatar.png',
+      name: 'Bebop',
+      text: 'Volvo Intellisafe',
+      statistic: '1,232 miles',
+      price: '$6,432',
+    },
+    {
+      image: '/img/avatar.png',
+      name: 'Bebop',
+      text: 'Volvo Intellisafe',
+      statistic: '1,232 miles',
+      price: '$6,432',
+    },
+    {
+      image: '/img/avatar.png',
+      name: 'Bebop',
+      text: 'Volvo Intellisafe',
+      statistic: '1,232 miles',
+      price: '$6,432',
+    },
   ];
+
+  barGraphData: ChartData = {
+    labels: ['April', 'May', 'June'],
+    datasets: [
+      {
+        barPercentage: 0.5,
+        categoryPercentage: 0.3,
+        label: 'Comfort',
+        lineTension: 0.4,
+        backgroundColor: '#2E5BFF',
+        data: [60, 65, 85],
+      },
+      {
+        barPercentage: 0.5,
+        categoryPercentage: 0.3,
+        label: 'Premium',
+        backgroundColor: '#8C54FF',
+        data: [70, 80, 90],
+      },
+    ],
+  };
 
   render(): VNode {
     return (
@@ -249,14 +293,8 @@ export default class Overview extends VueComponent {
             <BaseBlock class='overview__block' title='Top drivers'>
               <BaseList list={this.drivers} />
             </BaseBlock>
-            <BaseBlock class='overview__block' title='vehicles on track' hasOptions={true}>
-              <h1>Здарова</h1>
-              <h1>Здарова</h1>
-              <h1>Здарова</h1>
-              <h1>Здарова</h1>
-              <h1>Здарова</h1>
-              <h1>Здарова</h1>
-              <h1>Здарова</h1>
+            <BaseBlock class='overview__block' title='Trips by type'>
+              <BaseBarGraph chartData={this.barGraphData} options={this.options} />
             </BaseBlock>
             <BaseBlock class='overview__block' title='vehicles on track' hasOptions={true}>
               <h1>Здарова</h1>
