@@ -10,6 +10,7 @@ import BaseTitle from 'components/base/BaseTitle';
 import './Overview.sass';
 import BaseStat from 'components/base/BaseStat/BaseStat';
 import BaseLineChart from 'components/base/BaseLineChart';
+import BaseMap from 'components/base/BaseMap';
 
 @Component({
   name: 'Overview',
@@ -203,7 +204,7 @@ export default class Overview extends VueComponent {
               <BaseStat value={158.3} prevValue={190} measure='mi' />
             </BaseBlock>
             <BaseBlock class='overview__block' title='vehicles on track' hasOptions={true}>
-              <h1>Здарова</h1>
+              <BaseMap />
             </BaseBlock>
             <BaseBlock class='overview__block' title='vehicles on track' hasOptions={true}>
               <h1>Здарова</h1>

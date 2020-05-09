@@ -31,31 +31,41 @@ export default class BaseLineChart extends VueComponent<IBaseLineChartProps> {
   private readonly gradients!: IBaseLineChartProps['gradients'];
 
   @Prop({ default: 'Linear graph' })
-  private readonly fallbackText!: IBaseLineChartProps['fallbackText'];
+  private readonly fallbackText: IBaseLineChartProps['fallbackText'];
 
   mounted(): void {
     if (this.gradients) {
       this.constructGradients(this.gradients);
     }
 
+    // @ts-ignore
     this.renderChart(this.chartData, this.options);
 
     this.$nextTick(() => {
-      this.$refs.canvas.setAttribute('aria-label', this.fallbackText);
-      this.$refs.canvas.setAttribute('role', 'img');
+      const canvas = this.$refs.canvas as HTMLCanvasElement;
+      canvas.setAttribute('aria-label', this.fallbackText || 'Linear graph');
+      canvas.setAttribute('role', 'img');
     });
   }
 
   constructGradients(gradients: IBaseLineChartGradient[]) {
-    gradients.forEach((gradient, index) => {
-      const firstGradient = this.$refs.canvas.getContext('2d').createLinearGradient(0, 0, 0, 450);
-      firstGradient.addColorStop(0, 'rgba(' + gradient.red + ',' + gradient.green + ',' + gradient.blue + ',0.4)');
-      firstGradient.addColorStop(0.3, 'rgba(' + gradient.red + ',' + gradient.green + ',' + gradient.blue + ',0.15)');
-      firstGradient.addColorStop(0.5, 'rgba(' + gradient.red + ',' + gradient.green + ',' + gradient.blue + ',0.05)');
-      firstGradient.addColorStop(1, 'rgba(' + gradient.red + ',' + gradient.green + ',' + gradient.blue + ',0)');
+    const datasets = this.chartData.datasets;
 
-      if (this.chartData.datasets) {
-        this.chartData.datasets[index].backgroundColor = firstGradient;
+    gradients.forEach((gradient, index) => {
+      const canvas = this.$refs.canvas as HTMLCanvasElement;
+      const ctx = canvas.getContext('2d');
+
+      if (ctx) {
+        const graphGradient = ctx.createLinearGradient(0, 0, 0, 450);
+
+        graphGradient.addColorStop(0, `rgba(${gradient.red}, ${gradient.green}, ${gradient.blue}, 0.4)`);
+        graphGradient.addColorStop(0.3, `rgba(${gradient.red}, ${gradient.green}, ${gradient.blue}, 0.15)`);
+        graphGradient.addColorStop(0.5, `rgba(${gradient.red}, ${gradient.green}, ${gradient.blue}, 0.05)`);
+        graphGradient.addColorStop(1, `rgba(${gradient.red}, ${gradient.green}, ${gradient.blue}, 0)`);
+
+        if (datasets && datasets[index]) {
+          datasets[index].backgroundColor = graphGradient;
+        }
       }
     });
   }

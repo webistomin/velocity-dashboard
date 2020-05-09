@@ -23,11 +23,17 @@ module.exports = {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   loading: { color: '#fff' },
-  css: ['~assets/sass/main'],
+  css: [
+    '~assets/sass/main',
+    'leaflet/dist/leaflet.css',
+    'leaflet.markercluster/dist/MarkerCluster.css',
+    'leaflet.markercluster/dist/MarkerCluster.Default.css',
+  ],
   plugins: [
     { src: '~/plugins/libs/vuelidate.ts', ssr: true },
     { src: '~/plugins/libs/v-lazy-image.ts', ssr: true },
     { src: '~/plugins/libs/v-scroll-lock.ts', ssr: false },
+    { src: '~plugins/libs/leaflet.ts', ssr: false },
   ],
   buildModules: [
     '@nuxt/typescript-build',
