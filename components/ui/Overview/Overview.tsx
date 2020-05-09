@@ -11,6 +11,8 @@ import './Overview.sass';
 import BaseStat from 'components/base/BaseStat/BaseStat';
 import BaseLineChart from 'components/base/BaseLineChart';
 import BaseMap from 'components/base/BaseMap';
+import BaseList from 'components/base/BaseList';
+import { IBaseList } from 'components/base/BaseList/BaseList';
 
 @Component({
   name: 'Overview',
@@ -162,6 +164,44 @@ export default class Overview extends VueComponent {
     },
   };
 
+  drivers: IBaseList[] = [
+    {
+      image: '/img/avatar.png',
+      name: 'Bebop',
+      text: 'Volvo Intellisafe',
+      statistic: '1,232 miles',
+      price: '$6,432',
+    },
+    {
+      image: '/img/avatar.png',
+      name: 'Bebop',
+      text: 'Volvo Intellisafe',
+      statistic: '1,232 miles',
+      price: '$6,432',
+    },
+    {
+      image: '/img/avatar.png',
+      name: 'Bebop',
+      text: 'Volvo Intellisafe',
+      statistic: '1,232 miles',
+      price: '$6,432',
+    },
+    {
+      image: '/img/avatar.png',
+      name: 'Bebop',
+      text: 'Volvo Intellisafe',
+      statistic: '1,232 miles',
+      price: '$6,432',
+    },
+    {
+      image: '/img/avatar.png',
+      name: 'Bebop',
+      text: 'Volvo Intellisafe',
+      statistic: '1,232 miles',
+      price: '$6,432',
+    },
+  ];
+
   render(): VNode {
     return (
       <section class='overview'>
@@ -206,14 +246,8 @@ export default class Overview extends VueComponent {
             <BaseBlock class='overview__block' title='vehicles on track' hasOptions={true}>
               <BaseMap />
             </BaseBlock>
-            <BaseBlock class='overview__block' title='vehicles on track' hasOptions={true}>
-              <h1>Здарова</h1>
-              <h1>Здарова</h1>
-              <h1>Здарова</h1>
-              <h1>Здарова</h1>
-              <h1>Здарова</h1>
-              <h1>Здарова</h1>
-              <h1>Здарова</h1>
+            <BaseBlock class='overview__block' title='Top drivers'>
+              <BaseList list={this.drivers} />
             </BaseBlock>
             <BaseBlock class='overview__block' title='vehicles on track' hasOptions={true}>
               <h1>Здарова</h1>

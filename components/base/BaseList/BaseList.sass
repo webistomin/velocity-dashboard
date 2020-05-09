@@ -1,0 +1,51 @@
++b('base-list')
+  counter-reset: base-list
+
+  +e('item')
+    width: 100%
+    display: flex
+    counter-increment: base-list
+
+    &:not(:last-of-type)
+      margin-bottom: rem(14px)
+
+  +e('col')
+    +m('right')
+      width: 100%
+
+    +m('left')
+      position: relative
+      width: rem(48px)
+      margin-right: rem(16px)
+
+      &::before
+        content: counters(base-list, ".") " "
+        width: rem(16px)
+        height: rem(16px)
+        display: flex
+        align-items: center
+        justify-content: center
+        position: absolute
+        top: 0
+        right: 0
+        background-color: var(--color-white)
+        font: var(--text-counter)
+        color: var(--color-gray-3)
+        border-radius: 50%
+        z-index: 1
+        box-shadow: 0 rem(3px) rem(10px) var(--color-lavender)
+
+  +e('row')
+    display: flex
+    justify-content: space-between
+    align-items: baseline
+
+  +e('name')
+    font-weight: 400
+
+  +e('text')
+    font-weight: 400
+    color: var(--color-gray-3)
+
+  +e('stat')
+    color: var(--color-gray-3)
