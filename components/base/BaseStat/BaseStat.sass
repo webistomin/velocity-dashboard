@@ -1,0 +1,25 @@
++b('base-stat')
+  +e('measure')
+    display: none
+
+    +media($screen-sm)
+      display: inline
+      padding-left: rem(6px)
+      font: var(--text-heading-3)
+
+  +e('heading')
+    margin-bottom: rem(4px)
+
+    +media($screen-sm)
+      display: flex
+      align-items: baseline
+
+  +e('percent')
+    padding-left: rem(6px)
+
+  +e('dynamic')
+    +m('positive')
+      color: var(--color-green)
+
+    +m('negative')
+      color: var(--color-red)

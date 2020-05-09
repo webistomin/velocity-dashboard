@@ -13,31 +13,43 @@
 
   +e('block')
     &:first-of-type
+      order: 1
       grid-column: 12 span
       grid-row: 2 span
 
-    &:nth-of-type(2),
-    &:nth-of-type(3)
-      grid-column: 6 span
-      grid-row: 1 span
-
-    &:nth-of-type(4)
+    &:nth-of-type(2)
+      order: 4
       grid-column: 12 span
       grid-row: 3 span
 
+    &:nth-of-type(3),
+    &:nth-of-type(4)
+      grid-column: 6 span
+      grid-row: 1 span
+
+    &:nth-of-type(3)
+      order: 2
+
+    &:nth-of-type(4)
+      order: 3
+
     &:nth-of-type(5)
+      order: 5
       grid-column: 12 span
       grid-row: 3 span
 
     &:nth-of-type(6)
+      order: 6
       grid-column: 12 span
       grid-row: 2 span
 
     &:nth-of-type(7)
+      order: 7
       grid-column: 12 span
       grid-row: 4 span
 
     &:nth-of-type(8)
+      order: 8
       grid-column: 12 span
       grid-row: 2 span
 
