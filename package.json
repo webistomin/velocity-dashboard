@@ -25,6 +25,7 @@
     "@nuxtjs/sitemap": "^2.2.1",
     "@nuxtjs/style-resources": "^1.0.0",
     "@nuxtjs/svg-sprite": "^0.4.10",
+    "chart.js": "^2.9.3",
     "cross-env": "^5.2.0",
     "express": "^4.16.4",
     "nuxt": "^2.0.0",
@@ -32,6 +33,7 @@
     "v-lazy-image": "^1.4.0",
     "v-scroll-lock": "^1.1.1",
     "vue": "^2.6.11",
+    "vue-chartjs": "^3.5.0",
     "vuelidate": "^0.7.5",
     "vuelidate-error-extractor": "^2.4.1"
   },
@@ -53,6 +55,7 @@
     "@storybook/preset-scss": "^1.0.2",
     "@storybook/preset-typescript": "^3.0.0",
     "@storybook/vue": "^5.3.18",
+    "@types/chart.js": "^2.9.20",
     "@types/vuelidate": "^0.7.13",
     "@vue/babel-helper-vue-jsx-merge-props": "^1.0.0",
     "@vue/babel-preset-jsx": "^1.1.2",
