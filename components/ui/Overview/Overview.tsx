@@ -14,6 +14,8 @@ import { IBaseList } from 'components/base/BaseList/BaseList';
 import BaseBarGraph from 'components/base/BaseBarCraph';
 
 import './Overview.sass';
+import BaseTodo from 'components/base/BaseTodo';
+import { IBaseTodo } from 'components/base/BaseTodo/BaseTodo';
 
 @Component({
   name: 'Overview',
@@ -246,6 +248,52 @@ export default class Overview extends VueComponent {
     ],
   };
 
+  todos: IBaseTodo[] = [
+    {
+      title: 'Vehicle #11283',
+      date: Date.now(),
+      id: '1',
+      isDone: false,
+    },
+    {
+      title: 'Vehicle #11283',
+      date: Date.now(),
+      id: '2',
+      isDone: false,
+    },
+    {
+      title: 'Vehicle #11283',
+      date: Date.now(),
+      id: '3',
+      isDone: false,
+    },
+    {
+      title: 'Vehicle #11283',
+      date: Date.now(),
+      id: '4',
+      isDone: false,
+    },
+    {
+      title: 'Vehicle #11283',
+      date: Date.now(),
+      id: '5',
+      isDone: false,
+    },
+    {
+      title: 'Vehicle #11283',
+      date: Date.now(),
+      id: '6',
+      isDone: false,
+    },
+  ];
+
+  updateTodo(event: Event): void {
+    const target = event.target as HTMLInputElement;
+    const id = target.value;
+    const index = this.todos.findIndex((todo) => todo.id === id);
+    this.todos[index].isDone = !this.todos[index].isDone;
+  }
+
   render(): VNode {
     return (
       <section class='overview'>
@@ -296,14 +344,8 @@ export default class Overview extends VueComponent {
             <BaseBlock class='overview__block' title='Trips by type'>
               <BaseBarGraph chartData={this.barGraphData} options={this.options} />
             </BaseBlock>
-            <BaseBlock class='overview__block' title='vehicles on track' hasOptions={true}>
-              <h1>Здарова</h1>
-              <h1>Здарова</h1>
-              <h1>Здарова</h1>
-              <h1>Здарова</h1>
-              <h1>Здарова</h1>
-              <h1>Здарова</h1>
-              <h1>Здарова</h1>
+            <BaseBlock class='overview__block' title='Service Reminders'>
+              <BaseTodo todos={this.todos} onInput={(event: Event) => this.updateTodo(event)} />
             </BaseBlock>
           </div>
         </div>
