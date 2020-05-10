@@ -37,6 +37,9 @@
       top: 8rem
       height: calc(100% - 8rem)
 
+    +media($screen-lg)
+      width: 356px
+
   +e('overlay')
     height: calc(100% - 5.1rem)
     top: rem(51px)
@@ -66,11 +69,15 @@
       padding-left: rem(15px)
       padding-right: rem(15px)
 
+    +media($screen-lg)
+      padding-left: rem(24px)
+      padding-right: rem(24px)
+
   +e('col')
     +m('left')
       position: relative
       margin-right: rem(15px)
-      margin-top: rem(28px)
+      margin-top: rem(24px)
 
   +e('item-icon')
     color: var(--color-gray-3)
