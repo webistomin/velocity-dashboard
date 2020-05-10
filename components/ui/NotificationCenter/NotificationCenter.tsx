@@ -87,9 +87,13 @@ export default class NotificationCenter extends VueComponent {
     return !!(this.isNotificationsVisible && window.matchMedia('(max-width: 1023px)').matches);
   }
 
+  onClickOutside(): void {
+    this.isNotificationsVisible = false;
+  }
+
   render(): VNode {
     return (
-      <div class='notification-center' v-scroll-lock={this.shouldLockBody}>
+      <div class='notification-center' v-scroll-lock={this.shouldLockBody} v-click-outside={this.onClickOutside}>
         <button
           class={`notification-center__btn btn ${this.isNotificationsVisible ? 'notification-center__btn_active' : ''}`}
           type='button'
@@ -129,7 +133,7 @@ export default class NotificationCenter extends VueComponent {
         <BaseOverlay
           class='notification-center__overlay'
           isVisible={this.isNotificationsVisible}
-          onClick={this.toggleNotificationVisibility}
+          onClick={this.onClickOutside}
         />
       </div>
     );

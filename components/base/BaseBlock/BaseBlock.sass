@@ -1,14 +1,14 @@
 +b('base-block')
+  display: flex
+  flex-direction: column
   padding: rem(24px)
   background-color: var(--color-white)
 
   +e('heading')
     display: flex
     justify-content: space-between
-    margin-bottom: rem(24px)
-
-    +media($screen-lg)
-      margin-bottom: rem(34px)
+    align-items: center
+    margin-bottom: rem(20px)
 
   +e('options-btn')
     color: var(--color-gray-3)
@@ -23,3 +23,9 @@
       width: calc(100% + 2rem)
       height: calc(100% + 2rem)
       +absolute-center()
+
+  +e('content')
+    display: flex
+    flex-direction: column
+    justify-content: center
+    flex-grow: 1

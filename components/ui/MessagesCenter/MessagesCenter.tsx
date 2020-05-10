@@ -83,9 +83,13 @@ export default class MessagesCenter extends VueComponent {
     return !!(this.isMessagesVisible && window.matchMedia('(max-width: 1023px)').matches);
   }
 
+  onClickOutside(): void {
+    this.isMessagesVisible = false;
+  }
+
   render(): VNode {
     return (
-      <div class='messages-center' v-scroll-lock={this.shouldLockBody}>
+      <div class='messages-center' v-scroll-lock={this.shouldLockBody} v-click-outside={this.onClickOutside}>
         <button
           class={`messages-center__btn btn ${this.isMessagesVisible ? 'messages-center__btn_active' : ''}`}
           type='button'
@@ -103,7 +107,7 @@ export default class MessagesCenter extends VueComponent {
         <BaseOverlay
           class='messages-center__overlay'
           isVisible={this.isMessagesVisible}
-          onClick={this.toggleMessagesVisibility}
+          onClick={this.onClickOutside}
         />
       </div>
     );

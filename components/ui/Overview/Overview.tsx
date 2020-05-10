@@ -6,14 +6,14 @@ import { ChartData, ChartOptions } from 'chart.js';
 import BaseBlock from 'components/base/BaseBlock';
 import BaseCircularGraph from 'components/base/BaseCircularGraph';
 import BaseTitle from 'components/base/BaseTitle';
-
-import './Overview.sass';
 import BaseStat from 'components/base/BaseStat/BaseStat';
 import BaseLineChart from 'components/base/BaseLineChart';
 import BaseMap from 'components/base/BaseMap';
 import BaseList from 'components/base/BaseList';
 import { IBaseList } from 'components/base/BaseList/BaseList';
 import BaseBarGraph from 'components/base/BaseBarCraph';
+
+import './Overview.sass';
 
 @Component({
   name: 'Overview',
@@ -282,13 +282,13 @@ export default class Overview extends VueComponent {
               />
             </BaseBlock>
             <BaseBlock class='overview__block' title='vehicles on track'>
-              <BaseStat value={1428} prevValue={1000} measure='cars' />
+              <BaseStat value={1428} prevValue={1000} measure='cars' icon='icon-check' color='green' align='row' />
             </BaseBlock>
             <BaseBlock class='overview__block' title='Distance driven'>
-              <BaseStat value={158.3} prevValue={190} measure='mi' />
+              <BaseStat value={158.3} prevValue={190} measure='mi' icon='icon-pin' color='blue' align='row' />
             </BaseBlock>
             <BaseBlock class='overview__block' title='vehicles on track' hasOptions={true}>
-              <BaseMap />
+              <BaseMap class='overview__map' />
             </BaseBlock>
             <BaseBlock class='overview__block' title='Top drivers'>
               <BaseList list={this.drivers} />

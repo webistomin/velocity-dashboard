@@ -50,9 +50,13 @@ export default class UserCenter extends VueComponent {
     return !!(this.isUserProfileVisible && window.matchMedia('(max-width: 1023px)').matches);
   }
 
+  onClickOutside(): void {
+    this.isUserProfileVisible = false;
+  }
+
   render(): VNode {
     return (
-      <div class='user-center' v-scroll-lock={this.shouldLockBody}>
+      <div class='user-center' v-scroll-lock={this.shouldLockBody} v-click-outside={this.onClickOutside}>
         <button class='user-center__btn btn' onClick={this.toggleUserProfileVisibility}>
           <BaseThumbnail image='/img/avatar.png' size='s' alt='User' />
         </button>
@@ -67,11 +71,7 @@ export default class UserCenter extends VueComponent {
           />
         </BaseSidebar>
 
-        <BaseOverlay
-          class='user-center__overlay'
-          isVisible={this.isUserProfileVisible}
-          onClick={this.toggleUserProfileVisibility}
-        />
+        <BaseOverlay class='user-center__overlay' isVisible={this.isUserProfileVisible} onClick={this.onClickOutside} />
       </div>
     );
   }

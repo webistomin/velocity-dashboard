@@ -3,19 +3,25 @@ import { Component, Prop } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
 
 import BaseTitle from 'components/base/BaseTitle';
+import { BaseIcon } from 'components/base/BaseIcon/BaseIcon';
+import { animateValue } from '~/utils/animate-value';
 
 import './BaseStat.sass';
-import { animateValue } from '~/utils/animate-value';
 
 export enum DynamicTypes {
   POSITIVE = 'positive',
   NEGATIVE = 'negative',
 }
 
+export type IBaseStatAlignTypes = 'row' | 'col';
+
 export interface IBaseStatProps {
   value: number;
   prevValue: number;
   measure: string;
+  icon?: string;
+  color?: string;
+  align?: IBaseStatAlignTypes;
 }
 
 @Component({
@@ -32,6 +38,15 @@ export default class BaseStat extends VueComponent<IBaseStatProps> {
 
   @Prop()
   private readonly measure!: IBaseStatProps['measure'];
+
+  @Prop()
+  private readonly icon!: IBaseStatProps['icon'];
+
+  @Prop()
+  private readonly color!: IBaseStatProps['color'];
+
+  @Prop({ default: 'col' })
+  private readonly align!: IBaseStatProps['align'];
 
   mounted(): void {
     animateValue.call(this, 'animatedValue', 0, this.value, 2000);
@@ -61,20 +76,23 @@ export default class BaseStat extends VueComponent<IBaseStatProps> {
 
   render(): VNode {
     return (
-      <div class='base-stat'>
-        <div class='base-stat__heading'>
-          <BaseTitle level={2} class='base-stat__title'>
-            {this.animatedValue}
-          </BaseTitle>
-          <strong class='base-stat__measure'>{this.measure}</strong>
+      <div class={`base-stat base-stat_align_${this.align}`}>
+        {this.icon ? <BaseIcon class='base-stat__icon' name={this.icon} color={this.color} /> : null}
+        <div class='base-stat__holder'>
+          <div class='base-stat__heading'>
+            <BaseTitle level={2} class='base-stat__title'>
+              {this.animatedValue}
+            </BaseTitle>
+            <strong class='base-stat__measure'>{this.measure}</strong>
+          </div>
+          <span
+            class={`base-stat__dynamic ${
+              this.getDynamic === DynamicTypes.POSITIVE ? 'base-stat__dynamic_positive' : 'base-stat__dynamic_negative'
+            }`}>
+            <svg-icon name={this.getIconName} width={10} height={10} />
+            <span class='base-stat__percent'>{this.getStat}%</span>
+          </span>
         </div>
-        <span
-          class={`base-stat__dynamic ${
-            this.getDynamic === DynamicTypes.POSITIVE ? 'base-stat__dynamic_positive' : 'base-stat__dynamic_negative'
-          }`}>
-          <svg-icon name={this.getIconName} width={10} height={10} />
-          <span class='base-stat__percent'>{this.getStat}%</span>
-        </span>
       </div>
     );
   }

@@ -28,7 +28,7 @@ export default class TheHeader extends VueComponent<IHeaderProps> {
   public render(): VNode {
     return (
       <header class='page-header'>
-        <div class='page-header__container'>
+        <div class='page-header__container container'>
           <BaseToggle class='page-header__nav-toggle' onClick={this.onToggleClick} isActive={this.isNavOpened} />
           <BaseLogo class='page-header__logo' />
           <h2 class='page-header__title title'>Page title</h2>

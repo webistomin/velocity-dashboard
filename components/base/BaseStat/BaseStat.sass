@@ -1,4 +1,19 @@
 +b('base-stat')
+  display: flex
+
+  +m('align')
+    +v('row')
+      align-items: baseline
+
+      .base-stat__icon
+        margin-right: rem(16px)
+
+    +v('col')
+      flex-direction: column
+
+      .base-stat__icon
+        margin-bottom: rem(16px)
+
   +e('measure')
     display: none
 
