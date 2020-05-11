@@ -33,7 +33,7 @@ module.exports = {
     { src: '~/plugins/libs/vuelidate.ts', ssr: true },
     { src: '~/plugins/libs/v-lazy-image.ts', ssr: true },
     { src: '~/plugins/libs/v-scroll-lock.ts', ssr: false },
-    { src: '~plugins/libs/leaflet.ts', ssr: false },
+    { src: '~plugins/libs/leaflet/leaflet.ts', ssr: false },
     { src: '~plugins/libs/v-click-outside.ts', ssr: true },
   ],
   buildModules: [
