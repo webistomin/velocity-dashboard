@@ -88,7 +88,7 @@ export default class BaseCircularGraph extends VueComponent<IBaseCircularGraphPr
                     id='color_dashes'
                     transform='translate(30 45.6)'
                     fill='none'
-                    stroke='#2e5bff'
+                    stroke='var(--color-primary)'
                     stroke-miterlimit='10'
                     stroke-width='24'
                     stroke-dasharray='1.6 5'>

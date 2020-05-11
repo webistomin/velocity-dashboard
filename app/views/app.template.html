@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html {{ HTML_ATTRS }}>
+<head {{ HEAD_ATTRS }}>
+  {{ HEAD }}
+</head>
+<body {{ BODY_ATTRS }}>
+<script>
+  (function () {
+    var root = document.documentElement;
+    var theme = localStorage.getItem('theme');
+    if (theme) {
+      root.className = 'theme theme_' + theme;
+    } else {
+      root.className = 'theme theme_shelob';
+    }
+  })()
+</script>
+{{ APP }}
+</body>
+</html>

@@ -9,9 +9,22 @@
     height: 100%
     padding: rem(20px) rem(14px)
     transition: background-color 0.2s ease-out
+    position: relative
 
-    &:hover
-      background-color: var(--color-lavender-2)
+    &::before
+      content: ''
+      width: 100%
+      height: 100%
+      position: absolute
+      top: 0
+      left: 0
+      z-index: -1
+      background-color: var(--color-primary)
+      opacity: 0
+      transition: opacity 0.2s ease-out, background-color 0.2s ease-out
+
+    &:hover::before
+      opacity: 0.15
 
     +media($screen-sm)
       padding-left: rem(24px)

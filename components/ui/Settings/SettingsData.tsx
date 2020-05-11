@@ -1,10 +1,15 @@
 import { VueComponent } from 'types/vue-components';
-import { Component } from 'nuxt-property-decorator';
+import { Component, Emit, Prop } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
 import { email, sameAs } from 'vuelidate/lib/validators';
 
 import BaseFormGroup from 'components/base/BaseFormGroup';
 import BaseButton from 'components/base/BaseButton';
+import { IUserSettings } from './Settings';
+
+export interface ISettingsDataProps {
+  info: IUserSettings['info'];
+}
 
 @Component({
   name: 'SettingsData',
@@ -24,16 +29,17 @@ import BaseButton from 'components/base/BaseButton';
     },
   },
 })
-export default class SettingsData extends VueComponent {
-  settingsForm = {
-    email: '',
-    firstName: '',
-    lastName: '',
-    dob: '',
-    currentPassword: '123',
-    newPassword: '',
-    confirmPassword: '',
-  };
+export default class SettingsData extends VueComponent<ISettingsDataProps> {
+  @Prop()
+  private readonly info!: IUserSettings['info'];
+
+  settingsForm: IUserSettings['info'] = this.info;
+
+  @Emit('changeSettings')
+  onInput(value: string, field: keyof IUserSettings['info']): IUserSettings['info'] {
+    this.settingsForm[field] = value;
+    return this.settingsForm;
+  }
 
   render(): VNode {
     return (
@@ -50,7 +56,7 @@ export default class SettingsData extends VueComponent {
               id='settings-email'
               placeholder='Enter your email'
               validator={this.$v.settingsForm.email}
-              onInput={($event: string) => (this.settingsForm.email = $event)}
+              onInput={($event: string) => this.onInput($event, 'email')}
               value={this.settingsForm.email}
               onBlur={this.$v.settingsForm.email?.$touch}
             />
@@ -63,7 +69,7 @@ export default class SettingsData extends VueComponent {
               id='settings-first-name'
               placeholder='Enter your first name'
               validator={this.$v.settingsForm.firstName}
-              onInput={($event: string) => (this.settingsForm.firstName = $event)}
+              onInput={($event: string) => this.onInput($event, 'firstName')}
               value={this.settingsForm.firstName}
               onBlur={this.$v.settingsForm.firstName?.$touch}
             />
@@ -74,7 +80,7 @@ export default class SettingsData extends VueComponent {
               id='settings-last-name'
               placeholder='Enter your last name'
               validator={this.$v.settingsForm.lastName}
-              onInput={($event: string) => (this.settingsForm.lastName = $event)}
+              onInput={($event: string) => this.onInput($event, 'lastName')}
               value={this.settingsForm.lastName}
               onBlur={this.$v.settingsForm.lastName?.$touch}
             />
@@ -85,7 +91,7 @@ export default class SettingsData extends VueComponent {
               id='settings-birth-date'
               placeholder='DD/MM/YYYY'
               validator={this.$v.settingsForm.dob}
-              onInput={($event: string) => (this.settingsForm.dob = $event)}
+              onInput={($event: string) => this.onInput($event, 'dob')}
               value={this.settingsForm.dob}
               onBlur={this.$v.settingsForm.dob?.$touch}
             />
@@ -98,7 +104,7 @@ export default class SettingsData extends VueComponent {
               id='settings-current-password'
               placeholder=''
               validator={this.$v.settingsForm.currentPassword}
-              onInput={($event: string) => (this.settingsForm.currentPassword = $event)}
+              onInput={($event: string) => this.onInput($event, 'currentPassword')}
               value={this.settingsForm.currentPassword}
               onBlur={this.$v.settingsForm.currentPassword?.$touch}
             />
@@ -109,7 +115,7 @@ export default class SettingsData extends VueComponent {
               id='settings-new-password'
               placeholder='Enter new password'
               validator={this.$v.settingsForm.newPassword}
-              onInput={($event: string) => (this.settingsForm.newPassword = $event)}
+              oonInput={($event: string) => this.onInput($event, 'newPassword')}
               value={this.settingsForm.newPassword}
               onBlur={this.$v.settingsForm.newPassword?.$touch}
             />
@@ -120,7 +126,7 @@ export default class SettingsData extends VueComponent {
               id='settings-confirm-password'
               placeholder='Repeat new password'
               validator={this.$v.settingsForm.confirmPassword}
-              onInput={($event: string) => (this.settingsForm.confirmPassword = $event)}
+              onInput={($event: string) => this.onInput($event, 'confirmPassword')}
               value={this.settingsForm.confirmPassword}
               onBlur={this.$v.settingsForm.confirmPassword?.$touch}
             />

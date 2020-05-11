@@ -13,7 +13,7 @@ import { detectUserInput } from '~/plugins/detectUserInput';
 export default class Default extends VueComponent {
   isNavOpened: boolean = false;
 
-  mounted(): void {
+  public mounted(): void {
     detectUserInput();
   }
 
