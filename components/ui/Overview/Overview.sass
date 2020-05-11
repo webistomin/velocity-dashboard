@@ -152,10 +152,11 @@
 
   +e('welcome')
     +media($screen-lg)
-      display: flex
-      flex-direction: row
-      justify-content: center
-      align-items: center
+      &.base-block__content
+        display: flex
+        flex-direction: row
+        justify-content: center
+        align-items: center
 
   +e('welcome-title')
     margin-bottom: rem(8px)

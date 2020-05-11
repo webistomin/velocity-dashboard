@@ -88,13 +88,13 @@ export default class BaseStat extends VueComponent<IBaseStatProps> {
           </div>
           {this.prevValue ? (
             <span
-              className={`base-stat__dynamic ${
+              class={`base-stat__dynamic ${
                 this.getDynamic === DynamicTypes.POSITIVE
                   ? 'base-stat__dynamic_positive'
                   : 'base-stat__dynamic_negative'
               }`}>
               <svg-icon name={this.getIconName} width={10} height={10} />
-              <span className='base-stat__percent'>{this.getStat}%</span>
+              <span class='base-stat__percent'>{this.getStat}%</span>
             </span>
           ) : null}
         </div>

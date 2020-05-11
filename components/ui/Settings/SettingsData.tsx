@@ -126,7 +126,9 @@ export default class SettingsData extends VueComponent {
             />
           </div>
         </div>
-        <BaseButton class='settings__submit' type='submit'>Save changes</BaseButton>
+        <BaseButton class='settings__submit' type='submit'>
+          Save changes
+        </BaseButton>
       </fieldset>
     );
   }

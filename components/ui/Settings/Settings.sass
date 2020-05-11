@@ -42,3 +42,19 @@
     +media($screen-sm)
       max-width: 272px
 
+  +e('toggles')
+    display: grid
+    grid-gap: rem(20px)
+
+    +media($screen-sm)
+      grid-template-columns: repeat(2, minmax(150px, 346px))
+      grid-gap: rem(40px)
+
+    +media($screen-lg)
+      grid-gap: rem(20px) rem(110px)
+
+  +e('toggle-group')
+    display: grid
+    grid-gap: rem(20px)
+    max-width: rem(346px)
+

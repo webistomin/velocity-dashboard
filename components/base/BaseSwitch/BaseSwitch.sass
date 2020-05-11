@@ -1,0 +1,43 @@
++b('base-switch')
+  +e('label')
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+  +e('text')
+    display: flex
+    flex-direction: column
+
+  +e('title')
+    font: var(--text-button)
+
+  +e('desc')
+    color: var(--color-gray-3)
+
+  +e('slider')
+    display: block
+    width: rem(36px)
+    height: rem(20px)
+    background-color: var(--color-gray-4)
+    position: relative
+    border-radius: 20px
+    transition: background-color 0.2s ease-out
+
+    &::before
+      content: ''
+      width: rem(16px)
+      height: rem(16px)
+      position: absolute
+      top: 50%
+      transform: translateX(0.2rem) translateY(-50%)
+      background-color: var(--color-white)
+      border-radius: 50%
+      transition: transform 0.2s ease-out
+
+  +e('checkbox')
+    &:checked ~ .base-switch__label
+      .base-switch__slider
+        background-color: var(--color-primary)
+
+        &::before
+          transform: translateX(1.8rem) translateY(-50%)

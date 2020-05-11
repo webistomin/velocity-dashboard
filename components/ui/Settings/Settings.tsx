@@ -5,6 +5,7 @@ import { VNode } from 'vue';
 import BaseTitle from 'components/base/BaseTitle';
 import BaseBlock from 'components/base/BaseBlock';
 import SettingsData from './SettingsData';
+import SettingsNotifications from './SettingsNotifications';
 
 import './Settings.sass';
 
@@ -16,12 +17,16 @@ export default class Settings extends VueComponent {
     return (
       <section class='settings'>
         <div class='container settings__container'>
-          <BaseTitle class='settings__title' level={3}>Settings</BaseTitle>
+          <BaseTitle class='settings__title' level={3}>
+            Settings
+          </BaseTitle>
           <form class='settings__grid'>
             <BaseBlock title='Personal Data'>
               <SettingsData />
             </BaseBlock>
-            <BaseBlock title='Notifications' />
+            <BaseBlock title='Notifications'>
+              <SettingsNotifications />
+            </BaseBlock>
             <BaseBlock title='Theme' />
           </form>
         </div>
