@@ -4,6 +4,7 @@
   justify-content: center
   border-radius: 50%
   position: relative
+  flex-shrink: 0
 
   &::before
     content: ''
@@ -41,6 +42,12 @@
 
     +v('blue')
       color: var(--color-blue)
+
+    +v('purple')
+      color: var(--color-purple)
+
+    +v('yellow')
+      color: var(--color-yellow)
 
   +e('icon')
     width: 50%

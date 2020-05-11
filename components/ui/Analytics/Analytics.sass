@@ -1,0 +1,58 @@
++b('analytics')
+  +e('grid')
+    display: grid
+    justify-content: start
+    grid-template-columns: repeat(12, 1fr)
+    grid-gap: rem(14px)
+
+    +media($screen-sm)
+      grid-gap: rem(24px)
+
+    +media($screen-lg)
+      grid-gap: rem(34px)
+
+  +e('block')
+    &:first-of-type
+      grid-column: 12 span
+      grid-row: 4 span
+
+    &:nth-of-type(2),
+    &:nth-of-type(3),
+    &:nth-of-type(4),
+    &:nth-of-type(5)
+      grid-column: 12 span
+      grid-row: 1 span
+
+    &:nth-of-type(6)
+      grid-column: 12 span
+      grid-row: 2 span
+
+    &:nth-of-type(7)
+      grid-column: 12 span
+      grid-row: 3 span
+
+    +media($screen-sm)
+      &:nth-of-type(2),
+      &:nth-of-type(3),
+      &:nth-of-type(4),
+      &:nth-of-type(5)
+        grid-column: 6 span
+        grid-row: 1 span
+
+    +media($screen-lg)
+      &:nth-of-type(2),
+      &:nth-of-type(3),
+      &:nth-of-type(4),
+      &:nth-of-type(5)
+        grid-column: 3 span
+        grid-row: 1 span
+
+      &:nth-of-type(6)
+        grid-column: 4 span
+        grid-row: 3 span
+
+      &:nth-of-type(7)
+        grid-column: 8 span
+        grid-row: 3 span
+
+
