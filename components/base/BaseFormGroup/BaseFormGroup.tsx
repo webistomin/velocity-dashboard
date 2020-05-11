@@ -1,9 +1,10 @@
-import { Component, Prop, mixins, Emit } from 'nuxt-property-decorator';
+import { Component, Prop, Emit } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
 // @ts-ignore
 import { singleErrorExtractorMixin } from 'vuelidate-error-extractor';
 
 import './BaseFormGroup.sass';
+import { VueComponent } from 'types/vue-components';
 
 export type BaseFormGroupTypes =
   | 'email'
@@ -34,8 +35,9 @@ export interface IBaseFormGroupProps {
 
 @Component({
   name: 'BaseFormGroup',
+  mixins: [singleErrorExtractorMixin],
 })
-export default class BaseFormGroup extends mixins(singleErrorExtractorMixin) {
+export default class BaseFormGroup extends VueComponent<IBaseFormGroupProps> {
   public activeErrorMessages!: string[];
 
   @Prop({ default: 'text' })
@@ -77,7 +79,7 @@ export default class BaseFormGroup extends mixins(singleErrorExtractorMixin) {
       <div class='base-form-group'>
         <div class='base-form-group__heading'>
           {this.label ? (
-            <label for={this.id} class='base-form-group__label label'>
+            <label for={this.id} class='base-form-group__label caption label'>
               {this.label}
             </label>
           ) : null}

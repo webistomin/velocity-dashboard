@@ -1,0 +1,44 @@
++b('settings')
+  +e('container')
+    max-width: rem(1140px)
+
+  +e('title')
+    margin-bottom: rem(14px)
+
+  +e('grid')
+    display: grid
+    grid-gap: rem(40px)
+
+    +media($screen-sm)
+      grid-gap: rem(50px)
+
+    +media($screen-lg)
+      grid-gap: rem(60px)
+
+  +e('legend')
+    margin-bottom: rem(24px)
+
+  +e('inputs')
+    display: grid
+    grid-gap: rem(14px)
+    margin-bottom: rem(24px)
+
+    +media($screen-sm)
+      grid-gap: rem(30px)
+      margin-bottom: rem(30px)
+
+  +e('input-row')
+    display: grid
+    grid-gap: rem(14px)
+
+    +media($screen-sm)
+      grid-template-columns: repeat(3, minmax(150px, 272px))
+
+  +e('submit')
+    +media($screen-sm)
+      width: auto
+
+  +e('input')
+    +media($screen-sm)
+      max-width: 272px
+

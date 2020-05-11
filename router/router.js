@@ -11,6 +11,7 @@ const interopDefault = (promise) => {
 const Main = () => interopDefault(import('~/pages/Main'));
 const Login = () => interopDefault(import('~/pages/Login'));
 const Analytics = () => interopDefault(import('~/pages/Analytics'));
+const Settings = () => interopDefault(import('~/pages/Settings'));
 
 export function createRouter() {
   return new Router({
@@ -30,6 +31,10 @@ export function createRouter() {
       {
         path: '/analytics',
         component: Analytics,
+      },
+      {
+        path: '/settings',
+        component: Settings,
       },
     ],
   });
