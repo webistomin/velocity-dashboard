@@ -6,6 +6,7 @@ import BaseTitle from 'components/base/BaseTitle';
 import BaseBlock from 'components/base/BaseBlock';
 import SettingsData from './SettingsData';
 import SettingsNotifications from './SettingsNotifications';
+import SettingsTheme from './SettingsTheme';
 
 import './Settings.sass';
 
@@ -27,7 +28,9 @@ export default class Settings extends VueComponent {
             <BaseBlock title='Notifications'>
               <SettingsNotifications />
             </BaseBlock>
-            <BaseBlock title='Theme' />
+            <BaseBlock title='Theme'>
+              <SettingsTheme />
+            </BaseBlock>
           </form>
         </div>
       </section>

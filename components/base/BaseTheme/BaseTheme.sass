@@ -1,0 +1,48 @@
++b('base-theme')
+  +e('label')
+    display: flex
+    flex-direction: column
+
+  +e('theme')
+    display: block
+    width: 100%
+    max-width: rem(140px)
+    height: rem(65px)
+    margin-bottom: rem(14px)
+    border-radius: 5px
+
+    +m('shelob')
+      background-image: linear-gradient(to right, #2E5BFF 33%, #E0E7FF 33%, #E0E7FF 66%, #8097B1 33%)
+
+    +m('denethor')
+      background-image: linear-gradient(to right, #8C54FF 33%, #00C1D4 33%, #00C1D4 66%, #FAD050 33%)
+
+    +m('quickbeam')
+      background-image: linear-gradient(to right, #00A4DE 33%, #3B7ED5 33%, #3B7ED5 66%, #00A550 33%)
+
+    +m('shadowfax')
+      background-image: linear-gradient(to right, #232A64 33%, #85C800 33%, #85C800 66%, #616266 33%)
+
+    +m('grima')
+      background-image: linear-gradient(to right, #A728A3 33%, #F7E0FF 33%, #F7E0FF 66%, #7675AC 33%)
+
+  +e('text')
+    font: var(--text-button)
+    position: relative
+    padding-left: rem(24px)
+
+    &::before
+      content: ''
+      box-sizing: border-box
+      width: rem(16px)
+      height: rem(16px)
+      +vertical-center()
+      left: 0
+      border: rem(1px) solid var(--color-gray-3)
+      border-radius: 50%
+      transition: border 0.2s ease-out
+
+  +e('radio')
+    &:checked ~ .base-theme__label
+      .base-theme__text::before
+        border: rem(4px) solid var(--color-primary)

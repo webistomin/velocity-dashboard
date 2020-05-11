@@ -58,3 +58,14 @@
     grid-gap: rem(20px)
     max-width: rem(346px)
 
+  +e('theme-group')
+    display: grid
+    grid-gap: rem(25px)
+    grid-template-columns: repeat(2, minmax(100px, 140px))
+
+    +media($screen-sm)
+      grid-template-columns: repeat(5, minmax(100px, 140px))
+
+    +media($screen-lg)
+      grid-gap: rem(35px)
+
