@@ -1,10 +1,12 @@
 import { Component, Prop, Emit } from 'nuxt-property-decorator';
+import { VueComponent } from 'types/vue-components';
 import { VNode } from 'vue';
 // @ts-ignore
 import { singleErrorExtractorMixin } from 'vuelidate-error-extractor';
 
+import { TheMask } from 'vue-the-mask';
+
 import './BaseFormGroup.sass';
-import { VueComponent } from 'types/vue-components';
 
 export type BaseFormGroupTypes =
   | 'email'
@@ -31,6 +33,7 @@ export interface IBaseFormGroupProps {
   autocomplete?: string;
   onInput: () => string | number;
   onBlur?: () => void;
+  mask?: string;
 }
 
 @Component({
@@ -61,6 +64,9 @@ export default class BaseFormGroup extends VueComponent<IBaseFormGroupProps> {
   @Prop()
   private readonly autocomplete!: IBaseFormGroupProps['autocomplete'];
 
+  @Prop()
+  private readonly mask!: IBaseFormGroupProps['mask'];
+
   public get isInputInvalid(): boolean {
     return Boolean(this.activeErrorMessages && this.activeErrorMessages.length);
   }
@@ -71,8 +77,15 @@ export default class BaseFormGroup extends VueComponent<IBaseFormGroupProps> {
     return target.value;
   }
 
+  @Emit('input')
+  public onMaskedInput(value: string | number): string | number {
+    return value;
+  }
+
   @Emit('blur')
-  public onBlur(): void {}
+  public onBlur(): void {
+    console.log(1);
+  }
 
   render(): VNode {
     return (
@@ -86,22 +99,40 @@ export default class BaseFormGroup extends VueComponent<IBaseFormGroupProps> {
           {this.$slots.heading}
         </div>
         <div class='base-form-group__content'>
-          <input
-            type={this.type}
-            id={this.id}
-            aria-label={this.label}
-            name={this.name}
-            onInput={this.onInput}
-            onBlur={this.onBlur}
-            value={this.value}
-            aria-describedby={`errors-${this.id}`}
-            autoComplete={this.autocomplete}
-            placeholder={this.placeholder}
-            class={`${this.isInputInvalid ? 'base-form-group__input_invalid' : ''} base-form-group__input`}
-          />
+          {this.mask ? (
+            <TheMask
+              type={this.type}
+              id={this.id}
+              aria-label={this.label}
+              name={this.name}
+              onInput={this.onMaskedInput}
+              nativeOnBlur={this.onBlur}
+              value={this.value}
+              aria-describedby={`errors-${this.id}`}
+              autoComplete={this.autocomplete}
+              placeholder={this.placeholder}
+              class={`${this.isInputInvalid ? 'base-form-group__input_invalid' : ''} base-form-group__input`}
+              mask={this.mask}
+              masked
+            />
+          ) : (
+            <input
+              type={this.type}
+              id={this.id}
+              aria-label={this.label}
+              name={this.name}
+              onInput={this.onInput}
+              onBlur={this.onBlur}
+              value={this.value}
+              aria-describedby={`errors-${this.id}`}
+              autoComplete={this.autocomplete}
+              placeholder={this.placeholder}
+              class={`${this.isInputInvalid ? 'base-form-group__input_invalid' : ''} base-form-group__input`}
+            />
+          )}
           {this.isInputInvalid ? (
             <ul class='base-form-group__errors list' id={`errors-${this.id}`}>
-              {this.activeErrorMessages.map((error: string, index: number) => {
+              {this.activeErrorMessages.slice(0, 1).map((error: string, index: number) => {
                 return (
                   <li class='base-form-group__error list-item' key={`${error}-${index}`}>
                     {error}

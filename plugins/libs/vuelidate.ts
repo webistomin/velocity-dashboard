@@ -12,5 +12,9 @@ Vue.use(VuelidateErrorExtractor, {
   messages: {
     required: 'The {attribute} field is required',
     email: 'Email is invalid',
+    between: 'Date must be between',
+    sameAsPassword: 'Passwords must be identical',
+    minLengthDate: 'Date must be in DD/MM/YYYY format',
+    betweenDate: 'Provide valid date',
   },
 });

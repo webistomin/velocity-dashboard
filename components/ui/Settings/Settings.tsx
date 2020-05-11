@@ -38,7 +38,7 @@ export default class Settings extends VueComponent {
       email: 'webistomin@gmail.com',
       firstName: 'Alexey',
       lastName: 'Istomin',
-      dob: '10/02/1997',
+      dob: '',
       currentPassword: '123',
       newPassword: '',
       confirmPassword: '',

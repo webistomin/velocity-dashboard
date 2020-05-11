@@ -1,7 +1,7 @@
 import { VueComponent } from 'types/vue-components';
 import { Component, Emit, Prop } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
-import { email, sameAs } from 'vuelidate/lib/validators';
+import { email, sameAs, between, minLength } from 'vuelidate/lib/validators';
 
 import BaseFormGroup from 'components/base/BaseFormGroup';
 import BaseButton from 'components/base/BaseButton';
@@ -20,7 +20,10 @@ export interface ISettingsDataProps {
       },
       firstName: {},
       lastName: {},
-      dob: {},
+      dob: {
+        betweenDate: between(new Date('01-01-1960'), new Date('01-01-2005')),
+        minLengthDate: minLength(10),
+      },
       currentPassword: {},
       newPassword: {},
       confirmPassword: {
@@ -94,6 +97,7 @@ export default class SettingsData extends VueComponent<ISettingsDataProps> {
               onInput={($event: string) => this.onInput($event, 'dob')}
               value={this.settingsForm.dob}
               onBlur={this.$v.settingsForm.dob?.$touch}
+              mask='##/##/####'
             />
           </div>
           <div class='settings__input-row'>
@@ -115,7 +119,7 @@ export default class SettingsData extends VueComponent<ISettingsDataProps> {
               id='settings-new-password'
               placeholder='Enter new password'
               validator={this.$v.settingsForm.newPassword}
-              oonInput={($event: string) => this.onInput($event, 'newPassword')}
+              onInput={($event: string) => this.onInput($event, 'newPassword')}
               value={this.settingsForm.newPassword}
               onBlur={this.$v.settingsForm.newPassword?.$touch}
             />
