@@ -9,6 +9,8 @@
     flex-grow: inherit
     justify-content: center
     padding-bottom: rem(52px)
+    margin: 0
+    max-width: none
 
   +e('title')
     text-align: center
@@ -52,12 +54,12 @@
       position: relative
 
       +media($screen-sm)
-        width: calc(66vw - 14%)
+        width: calc(70% - 2.4rem)
         display: flex
         flex-direction: column
 
         +media($screen-lg)
-          width: 41%
+          width: calc(50% - 2.4rem)
 
     +m('right')
       display: none
