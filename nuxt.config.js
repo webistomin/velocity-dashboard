@@ -35,6 +35,7 @@ module.exports = {
     { src: '~/plugins/libs/v-scroll-lock.ts', ssr: false },
     { src: '~plugins/libs/leaflet/leaflet.ts', ssr: false },
     { src: '~plugins/libs/v-click-outside.ts', ssr: true },
+    { src: '~plugins/libs/vue-virtual-scroll.ts', ssr: true },
   ],
   buildModules: [
     '@nuxt/typescript-build',

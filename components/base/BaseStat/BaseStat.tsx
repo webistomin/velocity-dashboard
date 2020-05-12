@@ -18,7 +18,7 @@ export type IBaseStatAlignTypes = 'row' | 'col';
 export interface IBaseStatProps {
   value: number;
   prevValue?: number;
-  measure: string;
+  measure?: string;
   icon?: string;
   color?: string;
   align?: IBaseStatAlignTypes;
@@ -84,7 +84,7 @@ export default class BaseStat extends VueComponent<IBaseStatProps> {
             <BaseTitle level={2} class='base-stat__title'>
               {this.animatedValue}
             </BaseTitle>
-            <strong class='base-stat__measure'>{this.measure}</strong>
+            {this.measure ? <strong class='base-stat__measure'>{this.measure}</strong> : null}
           </div>
           {this.prevValue ? (
             <span

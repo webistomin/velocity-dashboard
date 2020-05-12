@@ -1,0 +1,57 @@
++b('base-table')
+  +e('scroller')
+    +scrollbar(5px, var(--color-primary), var(--color-secondary))
+    height: calc(100vh - 350px)
+
+    .vue-recycle-scroller__slot
+      padding-top: rem(10px)
+      padding-bottom: rem(10px)
+      position: sticky
+      top: 0
+      z-index: 1
+
+  +e('table')
+    position: relative
+    width: 100%
+    border-spacing: 0 rem(10px)
+
+  +e('row')
+    display: flex
+    background-color: var(--color-white)
+
+  +e('head')
+    display: flex
+    padding-bottom: rem(10px)
+
+  +e('head-data')
+    padding-right: rem(24px)
+
+    &:first-of-type
+      padding-left: rem(24px)
+
+  +e('sort')
+    display: flex
+    align-items: center
+    transition: color 0.2s ease-out
+
+    &:hover
+      color: var(--color-primary)
+
+  +e('sort-name')
+    margin-right: rem(10px)
+
+  +e('body-data')
+    box-sizing: border-box
+    display: inline-block
+    padding-top: rem(30px)
+    padding-bottom: rem(30px)
+    padding-right: rem(24px)
+
+    &:first-of-type
+      padding-left: rem(24px)
+
+  +e('cell')
+    flex: 23 1 0
+
+    &:first-of-type
+      flex: 8 1 0

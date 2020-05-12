@@ -8,6 +8,7 @@ export interface IBaseBlockProps {
   title?: string;
   hasOptions?: boolean;
   contentMix?: string;
+  simple?: boolean;
 }
 
 @Component({
@@ -23,9 +24,12 @@ export default class BaseBlock extends VueComponent<IBaseBlockProps> {
   @Prop()
   private readonly contentMix!: IBaseBlockProps['contentMix'];
 
+  @Prop()
+  private readonly simple!: IBaseBlockProps['simple'];
+
   render(): VNode {
     return (
-      <div class='base-block'>
+      <div class={`base-block ${this.simple ? 'base-block_simple' : ''}`}>
         {this.title || this.hasOptions ? (
           <div class='base-block__heading'>
             {this.title ? <h3 class='base-block__title caption title'>{this.title}</h3> : null}
