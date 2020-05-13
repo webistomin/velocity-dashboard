@@ -1,0 +1,35 @@
++b('base-badge')
+  font: var(--text-caption)
+  min-width: rem(32px)
+  box-sizing: border-box
+  padding: rem(3px)
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  border-radius: 12px
+  position: relative
+
+  &::before
+    content: ''
+    +absolute-center()
+    width: 100%
+    height: 100%
+    background-color: currentColor
+    opacity: 0.1
+    border-radius: inherit
+
+  +m('color')
+    +v('default')
+      color: var(--color-primary)
+
+    +v('blue')
+      color: var(--color-blue)
+
+    +v('yellow')
+      color: var(--color-yellow)
+
+    +v('purple')
+      color: var(--color-purple)
+
+    +v('darkturquoise')
+      color: var(--color-darkturquoise)

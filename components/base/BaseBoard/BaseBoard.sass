@@ -1,0 +1,64 @@
++b('base-board')
+  +e('wrapper')
+    display: grid
+    grid-gap: rem(24px)
+    grid-template-columns: repeat(auto-fill, minmax(266px, 1fr))
+
+  +e('heading')
+    margin-bottom: rem(10px)
+
+  +e('item')
+    display: flex
+    flex-direction: column
+    background-color: var(--color-white)
+    padding: rem(24px)
+    border-radius: 5px
+    position: relative
+    overflow: hidden
+
+    &::before
+      content: ''
+      position: absolute
+      left: 0
+      top: 0
+      width: rem(2px)
+      height: 100%
+
+    +m('ghost')
+      background-color: var(--color-lavender-3)
+      font-size: 0
+      border: rem(1px) dashed var(--color-primary)
+
+      &::before
+        display: none
+
+    +m('color')
+      +v('default')
+        &::before
+          background-color: var(--color-primary)
+
+      +v('yellow')
+        &::before
+          background-color: var(--color-yellow)
+
+      +v('purple')
+        &::before
+          background-color: var(--color-purple)
+
+      +v('darkturquoise')
+        &::before
+          background-color: var(--color-darkturquoise)
+
+      +v('blue')
+        &::before
+          background-color: var(--color-blue)
+
+    &:not(:last-of-type)
+      margin-bottom: rem(8px)
+
+  +e('heading')
+    display: flex
+    align-items: baseline
+
+  +e('caption')
+    margin-right: rem(8px)

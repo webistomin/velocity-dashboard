@@ -26,6 +26,7 @@
     "@nuxtjs/style-resources": "^1.0.0",
     "@nuxtjs/svg-sprite": "^0.4.10",
     "@types/vue-the-mask": "^0.11.0",
+    "@types/vuedraggable": "^2.23.0",
     "chart.js": "^2.9.3",
     "cross-env": "^5.2.0",
     "express": "^4.16.4",
@@ -46,6 +47,7 @@
     "vue2-leaflet": "^2.5.2",
     "vue2-leaflet-markercluster": "^3.1.0",
     "vue2-transitions": "^0.3.0",
+    "vuedraggable": "^2.23.2",
     "vuelidate": "^0.7.5",
     "vuelidate-error-extractor": "^2.4.1"
   },

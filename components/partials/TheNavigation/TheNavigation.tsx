@@ -44,7 +44,7 @@ export default class TheNavigation extends VueComponent<INavigationProps> {
     {
       name: 'Service',
       icon: 'icon-service',
-      to: '/service',
+      to: '/reminders',
     },
     {
       name: 'Map',

@@ -1,0 +1,79 @@
+import { VueComponent } from 'types/vue-components';
+import { Component, Emit, Prop } from 'nuxt-property-decorator';
+import { VNode } from 'vue';
+
+import './BaseBoard.sass';
+import { BaseBadge } from 'components/base/BaseBadge/BaseBadge';
+
+export interface ITask {
+  title: string;
+  text: string;
+  date: string;
+}
+
+export interface ITaskBoard {
+  title: string;
+  color?: string;
+  tasks: ITask[];
+}
+
+export interface IBaseBoardProps {
+  board: ITaskBoard[];
+  onSetBoard?: (board: ITaskBoard[]) => void;
+}
+
+@Component({
+  name: 'BaseBoard',
+})
+export default class BaseBoard extends VueComponent<IBaseBoardProps> {
+  @Prop()
+  private readonly board!: IBaseBoardProps['board'];
+
+  currentBoard = this.board;
+
+  @Emit('setBoard')
+  setBoard(): IBaseBoardProps['board'] {
+    return this.currentBoard;
+  }
+
+  public render(): VNode {
+    return (
+      <div class='base-board'>
+        <div class='base-board__wrapper'>
+          {this.currentBoard.map((column) => {
+            return (
+              <div class='base-board__col'>
+                <div class='base-board__heading'>
+                  <strong class='base-board__caption caption'>{column.title}</strong>
+                  <BaseBadge color={column.color}>{column.tasks.length}</BaseBadge>
+                </div>
+                <Draggable
+                  class='base-board__draggable'
+                  group='tasks'
+                  animation={200}
+                  disabled={false}
+                  ghostClass='base-board__item_ghost'
+                  list={column.tasks}
+                  onChange={this.setBoard}>
+                  {column.tasks.map((task) => {
+                    return (
+                      <div class={`base-board__item base-board__item_color_${column.color || 'default'}`}>
+                        <div class='base-board__item-row'>
+                          <strong class='base-board__name'>{task.title}</strong>
+                        </div>
+                        <div class='base-board__item-row'>
+                          <span class='base-board__text'>{task.text}</span>
+                          <time class='base-board__date'>{task.date}</time>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </Draggable>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    );
+  }
+}

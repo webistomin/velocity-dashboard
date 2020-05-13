@@ -38,6 +38,7 @@ module.exports = {
     { src: '~plugins/libs/vue-virtual-scroll.ts', ssr: true },
     { src: '~plugins/libs/vue-slider.ts', ssr: true },
     { src: '~plugins/libs/vue-select.ts', ssr: true },
+    { src: '~plugins/libs/vue-draggable.ts', ssr: true },
   ],
   buildModules: [
     '@nuxt/typescript-build',

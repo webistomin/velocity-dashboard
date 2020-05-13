@@ -2,6 +2,8 @@
 
 import Vue from 'vue';
 import Router from 'vue-router';
+import scrollBehavior from '../.nuxt/router.scrollBehavior';
+
 Vue.use(Router);
 
 const interopDefault = (promise) => {
@@ -14,6 +16,7 @@ const Analytics = () => interopDefault(import('~/pages/Analytics'));
 const Settings = () => interopDefault(import('~/pages/Settings'));
 const Profile = () => interopDefault(import('~/pages/Profile'));
 const Vehicles = () => interopDefault(import('~/pages/Vehicles'));
+const Reminders = () => interopDefault(import('~/pages/Reminders'));
 
 export function createRouter() {
   return new Router({
@@ -21,6 +24,8 @@ export function createRouter() {
     base: '/',
     linkActiveClass: 'nuxt-link-active',
     linkExactActiveClass: 'nuxt-link-exact-active',
+    scrollBehavior,
+    fallback: false,
     routes: [
       {
         path: '/',
@@ -45,6 +50,10 @@ export function createRouter() {
       {
         path: '/vehicles',
         component: Vehicles,
+      },
+      {
+        path: '/reminders',
+        component: Reminders,
       },
     ],
   });
