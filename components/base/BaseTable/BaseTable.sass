@@ -10,6 +10,10 @@
       top: 0
       z-index: 1
 
+    .vue-recycle-scroller__item-wrapper
+      overflow-x: auto
+      overflow-y: hidden
+
   +e('table')
     position: relative
     width: 100%
@@ -22,6 +26,8 @@
   +e('head')
     display: flex
     padding-bottom: rem(10px)
+    overflow-x: auto
+    overflow-y: hidden
 
   +e('head-data')
     padding-right: rem(24px)

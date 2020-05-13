@@ -13,6 +13,7 @@ const Login = () => interopDefault(import('~/pages/Login'));
 const Analytics = () => interopDefault(import('~/pages/Analytics'));
 const Settings = () => interopDefault(import('~/pages/Settings'));
 const Profile = () => interopDefault(import('~/pages/Profile'));
+const Vehicles = () => interopDefault(import('~/pages/Vehicles'));
 
 export function createRouter() {
   return new Router({
@@ -40,6 +41,10 @@ export function createRouter() {
       {
         path: '/profile',
         component: Profile,
+      },
+      {
+        path: '/vehicles',
+        component: Vehicles,
       },
     ],
   });

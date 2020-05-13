@@ -59,9 +59,19 @@ export default class BaseTable extends VueComponent<IBaseTableProps> {
               );
             })}
           </div>
-          <RecycleScroller class='base-table__scroller' items={this.tableData} item-size={95} key-field='id'>
-            {this.getTableRows}
-          </RecycleScroller>
+          <DynamicScroller
+            class='base-table__scroller'
+            items={this.tableData}
+            item-size={95}
+            minItemSize={75}
+            key-field='id'>
+            <div class='base-table__row'>
+              <span class='base-table__body-data base-table__cell'>#2178</span>
+              <span class='base-table__body-data base-table__cell'>Refund request</span>
+              <span class='base-table__body-data base-table__cell'>05/04/2018</span>
+              <span class='base-table__body-data base-table__cell'>Active</span>
+            </div>
+          </DynamicScroller>
         </div>
       </div>
     );
