@@ -37,6 +37,16 @@ export default class Reminders extends VueComponent {
           text: 'Tire replacement',
           date: 'June 12',
         },
+        {
+          title: 'Spire4',
+          text: 'Tire replacement',
+          date: 'June 12',
+        },
+        {
+          title: 'Spire4',
+          text: 'Tire replacement',
+          date: 'June 12',
+        },
       ],
     },
     {

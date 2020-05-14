@@ -2,8 +2,9 @@ import { VueComponent } from 'types/vue-components';
 import { Component, Emit, Prop } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
 
+import BaseBadge from 'components/base/BaseBadge';
+
 import './BaseBoard.sass';
-import { BaseBadge } from 'components/base/BaseBadge/BaseBadge';
 
 export interface ITask {
   title: string;
@@ -30,10 +31,15 @@ export default class BaseBoard extends VueComponent<IBaseBoardProps> {
   private readonly board!: IBaseBoardProps['board'];
 
   currentBoard = this.board;
+  collapsed = true;
 
   @Emit('setBoard')
   setBoard(): IBaseBoardProps['board'] {
     return this.currentBoard;
+  }
+
+  toggleBoard() {
+    this.collapsed = !this.collapsed;
   }
 
   public render(): VNode {
@@ -55,7 +61,7 @@ export default class BaseBoard extends VueComponent<IBaseBoardProps> {
                   ghostClass='base-board__item_ghost'
                   list={column.tasks}
                   onChange={this.setBoard}>
-                  {column.tasks.map((task) => {
+                  {column.tasks.slice(0, this.collapsed ? 4 : column.tasks.length).map((task) => {
                     return (
                       <div class={`base-board__item base-board__item_color_${column.color || 'default'}`}>
                         <div class='base-board__item-row'>
@@ -73,6 +79,9 @@ export default class BaseBoard extends VueComponent<IBaseBoardProps> {
             );
           })}
         </div>
+        <button class='base-board__toggle btn caption' type='button' onClick={this.toggleBoard}>
+          <span class='base-board__toggle-text'>{this.collapsed ? 'Expand' : 'Collapse'} boards</span>
+        </button>
       </div>
     );
   }

@@ -56,9 +56,44 @@
     &:not(:last-of-type)
       margin-bottom: rem(8px)
 
+  +e('item-row')
+    display: flex
+    align-items: baseline
+    justify-content: space-between
+
+    &:not(:last-of-type)
+      margin-bottom: rem(6px)
+
   +e('heading')
     display: flex
     align-items: baseline
 
   +e('caption')
     margin-right: rem(8px)
+
+  +e('toggle')
+    display: flex
+    align-items: center
+    box-sizing: border-box
+    padding-top: rem(35px)
+    padding-bottom: rem(35px)
+    width: 100%
+    position: relative
+    transition: color 0.2s ease-out
+
+    &::before,
+    &::after
+      content: ''
+      display: inline-block
+      width: 100%
+      height: 1px
+      background-color: var(--color-gray-4)
+
+    &:hover
+      color: var(--color-primary)
+
+  +e('toggle-text')
+    position: relative
+    flex-shrink: 0
+    padding: 0 rem(10px)
+
