@@ -1,10 +1,12 @@
 import { VueComponent } from 'types/vue-components';
 import { Component } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
+import { ChartData, ChartOptions } from 'chart.js';
 
 import BaseBlock from 'components/base/BaseBlock';
 import BaseBoard from 'components/base/BaseBoard';
 import { ITaskBoard } from 'components/base/BaseBoard/BaseBoard';
+import BasePieGraph from 'components/base/BasePieGraph';
 import RemindersMap from './RemindersMap';
 
 import './Reminders.sass';
@@ -130,6 +132,41 @@ export default class Reminders extends VueComponent {
     },
   ];
 
+  pieData: ChartData = {
+    labels: ['Fully serviced', 'In service', 'Waiting', 'Service needed'],
+    datasets: [
+      {
+        fill: true,
+        weight: 5,
+        hoverBorderWidth: 10,
+        borderWidth: 0,
+        hoverBorderColor: ['#F7C137', '#00C1D4', '#8C54FF', '#2E5BFF'],
+        hoverBackgroundColor: ['#F7C137', '#00C1D4', '#8C54FF', '#2E5BFF'],
+        backgroundColor: ['#F7C137', '#00C1D4', '#8C54FF', '#2E5BFF'],
+        data: [57.8, 5, 20, 17.2],
+      },
+    ],
+  };
+
+  pieOptions: ChartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    animation: {
+      animateScale: true,
+    },
+    legend: {
+      display: true,
+      position: 'right',
+      align: 'center',
+      labels: {
+        boxWidth: 10,
+        usePointStyle: true,
+        padding: 30,
+        fontColor: '#2e384d',
+      },
+    },
+  };
+
   public onSetBoard(board: ITaskBoard[]): void {
     this.board = board;
   }
@@ -145,7 +182,9 @@ export default class Reminders extends VueComponent {
             <BaseBlock title='service center'>
               <RemindersMap />
             </BaseBlock>
-            <BaseBlock title='Vehicle Service Status' />
+            <BaseBlock title='Vehicle Service Status'>
+              <BasePieGraph chartData={this.pieData} options={this.pieOptions} />
+            </BaseBlock>
             <BaseBlock title='Top drivers' />
           </div>
         </div>
