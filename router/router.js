@@ -17,6 +17,7 @@ const Settings = () => interopDefault(import('~/pages/Settings'));
 const Profile = () => interopDefault(import('~/pages/Profile'));
 const Vehicles = () => interopDefault(import('~/pages/Vehicles'));
 const Reminders = () => interopDefault(import('~/pages/Reminders'));
+const Map = () => interopDefault(import('~/pages/Map'));
 
 export function createRouter() {
   return new Router({
@@ -54,6 +55,10 @@ export function createRouter() {
       {
         path: '/reminders',
         component: Reminders,
+      },
+      {
+        path: '/map',
+        component: Map,
       },
     ],
   });

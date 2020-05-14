@@ -9,10 +9,10 @@ import { ITaskBoard } from 'components/base/BaseBoard/BaseBoard';
 import BasePieGraph from 'components/base/BasePieGraph';
 import BaseList from 'components/base/BaseList';
 import { IBaseList } from 'components/base/BaseList/BaseList';
+import BaseTitle from 'components/base/BaseTitle';
 import RemindersMap from './RemindersMap';
 
 import './Reminders.sass';
-import { BaseTitle } from 'components/base/BaseTitle/BaseTitle';
 
 @Component({
   name: 'Reminders',
@@ -237,7 +237,9 @@ export default class Reminders extends VueComponent {
     return (
       <section class='reminders'>
         <div class='reminders__container container'>
-          <BaseTitle level={3} class='reminders__title'>Service Reminders</BaseTitle>
+          <BaseTitle level={3} class='reminders__title'>
+            Service Reminders
+          </BaseTitle>
           <div class='reminders__grid'>
             <BaseBlock simple class='reminders__block'>
               <BaseBoard board={this.board} onSetBoard={(board: ITaskBoard[]) => this.onSetBoard(board)} />

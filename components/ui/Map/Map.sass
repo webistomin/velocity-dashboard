@@ -1,0 +1,108 @@
++b('map')
+  +e('map')
+    &.vue2leaflet-map
+      height: 70vh
+      max-height: rem(700px)
+      margin-bottom: rem(24px)
+
+  +e('passenger-heading')
+    display: flex
+    margin-bottom: rem(24px)
+
+  +e('passenger-avatar')
+    margin-right: rem(10px)
+
+  +e('passenger-info')
+    display: flex
+    flex-direction: column
+
+  +e('passenger-name')
+    font-weight: 500
+    margin-bottom: rem(4px)
+
+  +e('passenger-count')
+    color: var(--color-gray-3)
+
+  +e('passenger-item')
+    display: flex
+    flex-direction: column
+
+    &:not(:last-of-type)
+      margin-bottom: rem(16px)
+
+  +e('passenger-caption')
+    margin-bottom: rem(10px)
+
+  +e('passenger-payment')
+    display: flex
+    align-items: center
+    justify-content: center
+    padding: rem(24px)
+    border-radius: 5px
+    border: rem(1px) solid var(--color-lavender-2)
+    max-width: rem(140px)
+
+  +e('passenger-payment-logo')
+    width: 50%
+
+  +e('passenger-col')
+    +m('left')
+      margin-bottom: rem(24px)
+
+      +media($screen-sm)
+        margin-bottom: 0
+        flex-shrink: 0
+        margin-right: rem(40px)
+
+    +m('right')
+      +media($screen-sm)
+        width: 100%
+
+  +e('passenger-payments')
+    display: grid
+    grid-gap: rem(24px)
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr))
+
+  +e('passenger')
+    +media($screen-sm)
+      display: flex
+
+  +e('grid')
+    display: grid
+    justify-content: start
+    grid-template-columns: repeat(12, 1fr)
+    grid-gap: rem(14px)
+
+    +media($screen-sm)
+      grid-gap: rem(24px)
+
+    +media($screen-lg)
+      grid-gap: rem(34px)
+
+  +e('block')
+    &:first-of-type
+      grid-column: 12 span
+      grid-row: 2 span
+
+    &:nth-of-type(2)
+      grid-column: 12 span
+      grid-row: 1 span
+
+    &:nth-of-type(3)
+      grid-column: 12 span
+      grid-row: 1 span
+
+    +media($screen-lg)
+      &:first-of-type
+        grid-column: 7 span
+        grid-row: 4 span
+
+      &:nth-of-type(2)
+        grid-column: 5 span
+        grid-row: 3 span
+
+      &:nth-of-type(3)
+        grid-column: 5 span
+        grid-row: 1 span
+
+
