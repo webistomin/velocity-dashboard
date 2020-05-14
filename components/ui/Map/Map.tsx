@@ -5,6 +5,7 @@ import { VNode } from 'vue';
 import BaseBlock from 'components/base/BaseBlock';
 import BaseMap from 'components/base/BaseMap';
 import MapPassenger from './MapPassenger';
+import MapDestination from './MapDestination';
 
 import './Map.sass';
 
@@ -22,7 +23,7 @@ export default class Map extends VueComponent {
               <MapPassenger />
             </BaseBlock>
             <BaseBlock class='map__block'>
-              <h1>1</h1>
+              <MapDestination />
             </BaseBlock>
             <BaseBlock class='map__block'>
               <h1>2</h1>
