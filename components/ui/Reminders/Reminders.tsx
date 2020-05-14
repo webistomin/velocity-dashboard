@@ -3,10 +3,11 @@ import { Component } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
 
 import BaseBlock from 'components/base/BaseBlock';
-
-import './Reminders.sass';
 import BaseBoard from 'components/base/BaseBoard';
 import { ITaskBoard } from 'components/base/BaseBoard/BaseBoard';
+import RemindersMap from './RemindersMap';
+
+import './Reminders.sass';
 
 @Component({
   name: 'Reminders',
@@ -141,7 +142,9 @@ export default class Reminders extends VueComponent {
             <BaseBlock simple>
               <BaseBoard board={this.board} onSetBoard={(board: ITaskBoard[]) => this.onSetBoard(board)} />
             </BaseBlock>
-            <BaseBlock title='service center' />
+            <BaseBlock title='service center'>
+              <RemindersMap />
+            </BaseBlock>
             <BaseBlock title='Vehicle Service Status' />
             <BaseBlock title='Top drivers' />
           </div>

@@ -1,1 +1,19 @@
 +b('reminders')
+  +e('map-holder')
+    margin-bottom: rem(42px)
+
+  +e('map-states')
+    display: grid
+    grid-gap: rem(45px)
+    grid-template-columns: repeat(auto-fill, minmax(22%, 1fr))
+
+  +e('map-item')
+    display: flex
+    flex-direction: column
+
+  +e('map-city')
+    font-weight: 500
+
+  +e('map-state')
+    color: var(--color-gray-3)
+
