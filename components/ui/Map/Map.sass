@@ -162,5 +162,61 @@
   +e('destination-key')
     color: var(--color-gray-3)
 
+  +e('video')
+    display: flex
+    flex-direction: column
+
+    +media($screen-sm)
+      flex-direction: row
+      align-items: center
+
+  +e('video-content')
+    width: 100%
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+  +e('video-info')
+    display: flex
+    flex-direction: column
+
+  +e('video-play-btn')
+    color: var(--color-white)
+    position: relative
+    transition: color 0.2s ease-out
+    margin-bottom: rem(24px)
+    max-width: rem(120px)
+    flex-shrink: 0
+
+    &:hover
+      color: var(--color-primary)
+
+    .icon
+      +absolute-center()
+
+    +media($screen-sm)
+      margin-right: rem(24px)
+      margin-bottom: 0
+
+  +e('video-play-image')
+    width: 100%
+    height: 100%
+    object-fit: cover
+
+  +e('video-camera')
+    display: none
+
+    +media($screen-sm)
+      display: block
+      width: rem(80px)
+      height: rem(80px)
+
+  +e('video-name')
+    font-weight: 500
+    margin-bottom: rem(4px)
+
+  +e('video-place')
+    color: var(--color-gray-3)
+
 
 

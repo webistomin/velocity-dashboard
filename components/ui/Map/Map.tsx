@@ -6,6 +6,7 @@ import BaseBlock from 'components/base/BaseBlock';
 import BaseMap from 'components/base/BaseMap';
 import MapPassenger from './MapPassenger';
 import MapDestination from './MapDestination';
+import MapVideo from './MapVideo';
 
 import './Map.sass';
 
@@ -26,7 +27,7 @@ export default class Map extends VueComponent {
               <MapDestination />
             </BaseBlock>
             <BaseBlock class='map__block'>
-              <h1>2</h1>
+              <MapVideo />
             </BaseBlock>
           </div>
         </div>
