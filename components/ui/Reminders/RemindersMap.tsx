@@ -10,7 +10,12 @@ export default class RemindersMap extends VueComponent {
     return (
       <div class='reminders__map'>
         <div class='reminders__map-holder'>
-          <svg xmlns='http://www.w3.org/2000/svg' width='564.92' height='377.92' viewBox='0 0 564.92 377.92'>
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            width='564.92'
+            height='377.92'
+            viewBox='0 0 564.92 377.92'
+            class='reminders__map-content'>
             <defs>
               <clipPath id='clip-path'>
                 <circle id='marker_Oval' data-name='marker Oval' cx='6' cy='6' r='6' fill='#2e5bff' />

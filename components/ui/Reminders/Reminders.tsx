@@ -7,9 +7,12 @@ import BaseBlock from 'components/base/BaseBlock';
 import BaseBoard from 'components/base/BaseBoard';
 import { ITaskBoard } from 'components/base/BaseBoard/BaseBoard';
 import BasePieGraph from 'components/base/BasePieGraph';
+import BaseList from 'components/base/BaseList';
+import { IBaseList } from 'components/base/BaseList/BaseList';
 import RemindersMap from './RemindersMap';
 
 import './Reminders.sass';
+import { BaseTitle } from 'components/base/BaseTitle/BaseTitle';
 
 @Component({
   name: 'Reminders',
@@ -167,6 +170,65 @@ export default class Reminders extends VueComponent {
     },
   };
 
+  drivers: IBaseList[] = [
+    {
+      image: '/img/avatar.png',
+      name: 'Bebop',
+      text: 'Volvo Intellisafe',
+      statistic: '1,232 miles',
+      price: '$6,432',
+    },
+    {
+      image: '/img/avatar.png',
+      name: 'Bebop',
+      text: 'Volvo Intellisafe',
+      statistic: '1,232 miles',
+      price: '$6,432',
+    },
+    {
+      image: '/img/avatar.png',
+      name: 'Bebop',
+      text: 'Volvo Intellisafe',
+      statistic: '1,232 miles',
+      price: '$6,432',
+    },
+    {
+      image: '/img/avatar.png',
+      name: 'Bebop',
+      text: 'Volvo Intellisafe',
+      statistic: '1,232 miles',
+      price: '$6,432',
+    },
+    {
+      image: '/img/avatar.png',
+      name: 'Bebop',
+      text: 'Volvo Intellisafe',
+      statistic: '1,232 miles',
+      price: '$6,432',
+    },
+    {
+      image: '/img/avatar.png',
+      name: 'Bebop',
+      text: 'Volvo Intellisafe',
+      statistic: '1,232 miles',
+      price: '$6,432',
+    },
+    {
+      image: '/img/avatar.png',
+      name: 'Bebop',
+      text: 'Volvo Intellisafe',
+      statistic: '1,232 miles',
+      price: '$6,432',
+    },
+    {
+      image: '/img/avatar.png',
+      name: 'Bebop',
+      text: 'Volvo Intellisafe',
+      statistic: '1,232 miles',
+      price: '$6,432',
+    },
+  ];
+
   public onSetBoard(board: ITaskBoard[]): void {
     this.board = board;
   }
@@ -175,17 +237,20 @@ export default class Reminders extends VueComponent {
     return (
       <section class='reminders'>
         <div class='reminders__container container'>
+          <BaseTitle level={3} class='reminders__title'>Service Reminders</BaseTitle>
           <div class='reminders__grid'>
-            <BaseBlock simple>
+            <BaseBlock simple class='reminders__block'>
               <BaseBoard board={this.board} onSetBoard={(board: ITaskBoard[]) => this.onSetBoard(board)} />
             </BaseBlock>
-            <BaseBlock title='service center'>
+            <BaseBlock title='service center' class='reminders__block'>
               <RemindersMap />
             </BaseBlock>
-            <BaseBlock title='Vehicle Service Status'>
+            <BaseBlock title='Vehicle Service Status' class='reminders__block'>
               <BasePieGraph chartData={this.pieData} options={this.pieOptions} />
             </BaseBlock>
-            <BaseBlock title='Top drivers' />
+            <BaseBlock title='Top drivers' class='reminders__block'>
+              <BaseList list={this.drivers} limit={3} />
+            </BaseBlock>
           </div>
         </div>
       </section>

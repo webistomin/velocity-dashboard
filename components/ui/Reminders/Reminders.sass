@@ -4,8 +4,11 @@
 
   +e('map-states')
     display: grid
-    grid-gap: rem(45px)
-    grid-template-columns: repeat(auto-fill, minmax(22%, 1fr))
+    grid-gap: rem(14px)
+    grid-template-columns: repeat(auto-fill, minmax(14%, 1fr))
+
+    +media($screen-sm)
+      grid-gap: rem(24px)
 
   +e('map-item')
     display: flex
@@ -16,4 +19,62 @@
 
   +e('map-state')
     color: var(--color-gray-3)
+
+  +e('map-content')
+    width: 100%
+    height: auto
+
+  +e('grid')
+    display: grid
+    justify-content: start
+    grid-template-columns: repeat(12, 1fr)
+    grid-gap: rem(14px)
+
+    +media($screen-sm)
+      grid-gap: rem(24px)
+
+    +media($screen-lg)
+      grid-gap: rem(34px)
+
+  +e('block')
+    &:first-of-type
+      grid-column: 12 span
+      grid-row: 4 span
+
+    &:nth-of-type(2)
+      grid-column: 12 span
+      grid-row: 3 span
+
+    &:nth-of-type(3)
+      grid-column: 12 span
+      grid-row: 3 span
+
+    &:nth-of-type(4)
+      grid-column: 12 span
+      grid-row: 2 span
+
+    +media($screen-lg)
+      &:nth-of-type(3)
+        grid-column: 6 span
+        grid-row: 3 span
+
+      &:nth-of-type(4)
+        grid-column: 6 span
+        grid-row: 3 span
+
+    +media($screen-xl)
+      &:nth-of-type(2)
+        grid-column: 7 span
+        grid-row: 6 span
+
+      &:nth-of-type(3)
+        grid-column: 5 span
+        grid-row: 3 span
+
+      &:nth-of-type(4)
+        grid-column: 5 span
+        grid-row: 3 span
+
+  +e('title')
+    margin-bottom: rem(24px)
 
