@@ -10,6 +10,7 @@ import './TheNavigation.sass';
 
 export interface INavigationProps {
   isNavOpened: boolean;
+  onOpenNav?: () => void;
 }
 
 export interface INavigationLinks {

@@ -3,8 +3,8 @@ import { VueComponent } from 'types/vue-components';
 import { VNode } from 'vue';
 // @ts-ignore
 import { singleErrorExtractorMixin } from 'vuelidate-error-extractor';
-
 import { TheMask } from 'vue-the-mask';
+import { Validation } from '~/node_modules/@types/vuelidate';
 
 import './BaseFormGroup.sass';
 
@@ -31,14 +31,16 @@ export interface IBaseFormGroupProps {
   name?: string;
   placeholder?: string;
   autocomplete?: string;
-  onInput: () => string | number;
+  onInput: (event: string) => any;
   onBlur?: () => void;
   mask?: string;
+  validator?: Validation;
 }
 
 @Component({
   name: 'BaseFormGroup',
   mixins: [singleErrorExtractorMixin],
+  components: { TheMask },
 })
 export default class BaseFormGroup extends VueComponent<IBaseFormGroupProps> {
   public activeErrorMessages!: string[];
@@ -98,6 +100,8 @@ export default class BaseFormGroup extends VueComponent<IBaseFormGroupProps> {
         </div>
         <div class='base-form-group__content'>
           {this.mask ? (
+            /*
+            // @ts-ignore */
             <TheMask
               type={this.type}
               id={this.id}

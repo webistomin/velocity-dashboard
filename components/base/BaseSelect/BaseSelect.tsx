@@ -2,6 +2,8 @@ import { VueComponent } from 'types/vue-components';
 import { Component, Prop, Emit } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
 
+import VSelect from 'vue-select';
+
 import './BaseSelect.sass';
 
 export interface IBaseSelectProps {
@@ -15,6 +17,7 @@ export interface IBaseSelectProps {
 
 @Component({
   name: 'BaseSelect',
+  components: { VSelect },
 })
 export default class BaseSelect extends VueComponent<IBaseSelectProps> {
   @Prop()

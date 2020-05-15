@@ -1,14 +1,18 @@
 import { VueComponent } from 'types/vue-components';
-import { Component, Prop } from 'nuxt-property-decorator';
+import { Component, Prop, Emit } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
+
 import { IBaseTodo } from './BaseTodo';
 import { addDaysToDate } from '~/utils/add-days';
-import { Emit } from '~/node_modules/nuxt-property-decorator';
+
+export interface IBaseTodoItem extends IBaseTodo {
+  onInput?: (event: Event) => void;
+}
 
 @Component({
   name: 'BaseTodoItem',
 })
-export default class BaseTodoItem extends VueComponent<IBaseTodo> {
+export default class BaseTodoItem extends VueComponent<IBaseTodoItem> {
   @Prop()
   private readonly id!: IBaseTodo['id'];
 

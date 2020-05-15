@@ -67,7 +67,7 @@ export default class LoginSignUp extends VueComponent<ILoginProps> {
         <div class='login__heading'>
           {/*
           // @ts-ignore */}
-          <BaseTitle class='login__title' level='3'>
+          <BaseTitle class='login__title' level={3}>
             Get started for free
           </BaseTitle>
           <p class='login__desc paragraph paragraph_color_darkgray'>Free forever. No credit card needed.</p>

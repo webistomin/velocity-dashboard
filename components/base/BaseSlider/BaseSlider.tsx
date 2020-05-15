@@ -2,6 +2,9 @@ import { VueComponent } from 'types/vue-components';
 import { Component, Prop, Emit } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
 
+// @ts-ignore
+import VueSlider from 'vue-slider-component/dist-css/vue-slider-component.umd.min.js';
+
 import './BaseSlider.sass';
 
 interface IBaseSliderProps {
@@ -15,6 +18,7 @@ interface IBaseSliderProps {
 
 @Component({
   name: 'BaseSlider',
+  components: { VueSlider },
 })
 export default class BaseSlider extends VueComponent<IBaseSliderProps> {
   @Prop()

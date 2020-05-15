@@ -16,6 +16,7 @@ export interface IBaseTodo {
 export interface IBaseTodoProps {
   todos: IBaseTodo[];
   limit?: number;
+  onInput?: (event: Event) => void;
 }
 
 @Component({

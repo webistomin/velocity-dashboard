@@ -13,6 +13,7 @@ export interface IBaseThemeProps {
   label: string;
   theme: IBaseThemes;
   checked?: boolean;
+  onInput?: (event: Event) => void;
 }
 
 @Component({

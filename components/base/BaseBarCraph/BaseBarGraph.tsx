@@ -1,5 +1,5 @@
 import { VueComponent } from 'types/vue-components';
-import { Component, Prop } from 'nuxt-property-decorator';
+import { Component, Prop, mixins } from 'nuxt-property-decorator';
 import { ChartData, ChartOptions } from 'chart.js';
 import { Bar } from 'vue-chartjs';
 
@@ -10,21 +10,24 @@ export interface IBaseBarGraphProps {
 }
 
 @Component({
-  name: 'BaseBarGraph',
-  extends: Bar,
+  name: 'BaseBarGraphWithProps',
 })
-export default class BaseBarGraph extends VueComponent<IBaseBarGraphProps> {
+class BaseBarGraphWithProps extends VueComponent<IBaseBarGraphProps> {
   @Prop()
-  private readonly chartData!: IBaseBarGraphProps['chartData'];
+  public readonly chartData!: IBaseBarGraphProps['chartData'];
 
   @Prop()
-  private readonly options!: IBaseBarGraphProps['options'];
+  public readonly options!: IBaseBarGraphProps['options'];
 
-  @Prop({ default: 'Linear graph' })
-  private readonly fallbackText: IBaseBarGraphProps['fallbackText'];
+  @Prop({ default: 'Bar graph' })
+  public readonly fallbackText: IBaseBarGraphProps['fallbackText'];
+}
 
+@Component({
+  name: 'BaseBarGraph',
+})
+export default class BaseBarGraph extends mixins(Bar, BaseBarGraphWithProps) {
   mounted(): void {
-    // @ts-ignore
     this.renderChart(this.chartData, this.options);
 
     this.$nextTick(() => {

@@ -9,6 +9,7 @@ import { IUserSettings } from './Settings';
 
 export interface ISettingsDataProps {
   info: IUserSettings['info'];
+  onChangeSettings?: (info: IUserSettings['info']) => void;
 }
 
 @Component({

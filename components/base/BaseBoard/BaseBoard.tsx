@@ -2,6 +2,7 @@ import { VueComponent } from 'types/vue-components';
 import { Component, Emit, Prop } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
 
+import Draggable from 'vuedraggable';
 import BaseBadge from 'components/base/BaseBadge';
 
 import './BaseBoard.sass';
@@ -25,6 +26,7 @@ export interface IBaseBoardProps {
 
 @Component({
   name: 'BaseBoard',
+  components: { Draggable },
 })
 export default class BaseBoard extends VueComponent<IBaseBoardProps> {
   @Prop()

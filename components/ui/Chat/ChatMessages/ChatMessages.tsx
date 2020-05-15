@@ -55,7 +55,7 @@ export default class ChatMessages extends VueComponent {
               </div>
             </li>
             <li class='chat-messages__item chat-messages__item_own list-item'>
-              <BaseThumbnail class='chat-messages__avatar' image='/img/avatar.png' size='s' alt='Me'/>
+              <BaseThumbnail class='chat-messages__avatar' image='/img/avatar.png' size='s' alt='Me' />
               <div class='chat-messages__holder'>
                 <strong class='chat-messages__name'>Anna</strong>
                 <ul class='chat-messages__group-messages list'>
@@ -81,7 +81,7 @@ export default class ChatMessages extends VueComponent {
               </div>
             </li>
             <li class='chat-messages__item chat-messages__item_other list-item'>
-              <BaseThumbnail class='chat-messages__avatar' image='/img/avatar.png' size='s' alt='Me'/>
+              <BaseThumbnail class='chat-messages__avatar' image='/img/avatar.png' size='s' alt='Me' />
               <div class='chat-messages__holder'>
                 <strong class='chat-messages__name'>Nora</strong>
                 <ul class='chat-messages__group-messages list'>
@@ -95,7 +95,7 @@ export default class ChatMessages extends VueComponent {
               </div>
             </li>
             <li class='chat-messages__item chat-messages__item_own list-item'>
-              <BaseThumbnail class='chat-messages__avatar' image='/img/avatar.png' size='s' alt='Me'/>
+              <BaseThumbnail class='chat-messages__avatar' image='/img/avatar.png' size='s' alt='Me' />
               <div class='chat-messages__holder'>
                 <strong class='chat-messages__name'>Anna</strong>
                 <ul class='chat-messages__group-messages list'>
@@ -121,7 +121,7 @@ export default class ChatMessages extends VueComponent {
               </div>
             </li>
             <li class='chat-messages__item chat-messages__item_other list-item'>
-              <BaseThumbnail class='chat-messages__avatar' image='/img/avatar.png' size='s' alt='Me'/>
+              <BaseThumbnail class='chat-messages__avatar' image='/img/avatar.png' size='s' alt='Me' />
               <div class='chat-messages__holder'>
                 <strong class='chat-messages__name'>Nora</strong>
                 <ul class='chat-messages__group-messages list'>
@@ -135,7 +135,7 @@ export default class ChatMessages extends VueComponent {
               </div>
             </li>
             <li class='chat-messages__item chat-messages__item_own list-item'>
-              <BaseThumbnail class='chat-messages__avatar' image='/img/avatar.png' size='s' alt='Me'/>
+              <BaseThumbnail class='chat-messages__avatar' image='/img/avatar.png' size='s' alt='Me' />
               <div class='chat-messages__holder'>
                 <strong class='chat-messages__name'>Anna</strong>
                 <ul class='chat-messages__group-messages list'>
@@ -161,7 +161,7 @@ export default class ChatMessages extends VueComponent {
               </div>
             </li>
             <li class='chat-messages__item chat-messages__item_other list-item'>
-              <BaseThumbnail class='chat-messages__avatar' image='/img/avatar.png' size='s' alt='Me'/>
+              <BaseThumbnail class='chat-messages__avatar' image='/img/avatar.png' size='s' alt='Me' />
               <div class='chat-messages__holder'>
                 <strong class='chat-messages__name'>Nora</strong>
                 <ul class='chat-messages__group-messages list'>

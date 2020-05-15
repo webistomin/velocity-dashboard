@@ -9,6 +9,7 @@ export interface IBaseSwitchProps {
   text?: string;
   id?: string;
   checked?: boolean;
+  onInput?: (event: Event) => void;
 }
 
 @Component({

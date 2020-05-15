@@ -7,6 +7,7 @@ import { IUserSettings } from 'components/ui/Settings/Settings';
 
 export interface ISettingsThemeProps {
   theme: IUserSettings['theme'];
+  onThemeSelect?: (theme: IUserSettings['theme']) => void;
 }
 
 @Component({

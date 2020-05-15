@@ -13,6 +13,7 @@ import { Prop } from '~/node_modules/nuxt-property-decorator';
 
 export interface IHeaderProps {
   isNavOpened: boolean;
+  onOpenNav?: () => void;
 }
 
 @Component({

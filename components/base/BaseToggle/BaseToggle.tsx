@@ -9,6 +9,7 @@ export type IBaseToggleSize = 'xs' | 's';
 export interface IBaseToggleProps {
   size?: IBaseToggleSize;
   isActive: boolean;
+  onClick?: () => void;
 }
 
 @Component({

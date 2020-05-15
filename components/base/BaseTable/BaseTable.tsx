@@ -2,6 +2,9 @@ import { VueComponent } from 'types/vue-components';
 import { Component, Prop } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
 
+// @ts-ignore
+import { DynamicScroller } from 'vue-virtual-scroller';
+
 import './BaseTable.sass';
 
 export interface IBaseTableConfig {
@@ -16,6 +19,7 @@ export interface IBaseTableProps {
 
 @Component({
   name: 'BaseTable',
+  components: { DynamicScroller },
 })
 export default class BaseTable extends VueComponent<IBaseTableProps> {
   @Prop()

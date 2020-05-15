@@ -132,8 +132,14 @@ export default class Chat extends VueComponent {
             <BaseIcon name='icon-arrow-right' color='blue' size='xs' />
           </nuxt-link>
         </div>
+        {/*
+        // @ts-ignore */}
         <ChatList class='chat__user-list' chats={this.chats} vShow={this.isChatListVisible} />
+        {/*
+        // @ts-ignore */}
         <ChatMessages class='chat__user-messages' vShow={this.isChatMessagesVisible} />
+        {/*
+        // @ts-ignore */}
         <ChatInfo class='chat__user-desc' vShow={this.isChatInfoVisible} />
       </div>
     );

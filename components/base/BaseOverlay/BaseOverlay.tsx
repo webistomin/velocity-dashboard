@@ -6,6 +6,7 @@ import './BaseOverlay.sass';
 
 export interface IBaseOverlayProps {
   isVisible: boolean;
+  onClick?: () => void;
 }
 
 @Component({

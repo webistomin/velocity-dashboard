@@ -7,6 +7,7 @@ import { IUserSettings } from 'components/ui/Settings/Settings';
 
 export interface ISettingsNotificationsProps {
   notifications: IUserSettings['notifications'];
+  onSelectNotification?: (notifications: IUserSettings['notifications']) => void;
 }
 
 @Component({
