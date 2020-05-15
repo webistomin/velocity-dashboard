@@ -1,5 +1,5 @@
-// import { Configuration as WebpackConfiguration } from 'webpack';
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 
 module.exports = {
   mode: 'universal',
@@ -79,6 +79,11 @@ module.exports = {
         return [['@nuxt/babel-preset-app', { loose: true }]];
       },
     },
+    plugins: [
+      new MomentLocalesPlugin({
+        localesToKeep: ['es-us'],
+      }),
+    ],
     /*
      ** You can extend webpack config here
      */
