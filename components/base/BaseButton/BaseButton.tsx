@@ -13,7 +13,7 @@ export interface IBaseButtonProps {
   isLoading?: boolean;
   icon?: string;
   theme?: BaseButtonThemes;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 @Component({

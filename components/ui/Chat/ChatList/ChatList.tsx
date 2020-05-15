@@ -24,7 +24,7 @@ export default class ChatList extends VueComponent<IChatListProps> {
       ? this.chats.map((chat) => {
           return (
             <li class='chat-list__item list-item'>
-              <nuxt-link class='chat-list__link link' to={chat.id}>
+              <nuxt-link class='chat-list__link link' to={`/chat/${chat.id}`}>
                 <span class='chat-list__col chat-list__col_left'>
                   <BaseNotify />
                   <BaseThumbnail image={chat.avatar} alt={chat.name} size='m' />

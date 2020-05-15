@@ -18,6 +18,7 @@ const Profile = () => interopDefault(import('~/pages/Profile'));
 const Vehicles = () => interopDefault(import('~/pages/Vehicles'));
 const Reminders = () => interopDefault(import('~/pages/Reminders'));
 const Map = () => interopDefault(import('~/pages/Map'));
+const Chat = () => interopDefault(import('~/pages/Chat'));
 
 export function createRouter() {
   return new Router({
@@ -59,6 +60,14 @@ export function createRouter() {
       {
         path: '/map',
         component: Map,
+      },
+      {
+        path: '/chat',
+        component: Chat,
+      },
+      {
+        path: '/chat/:id',
+        component: Chat,
       },
     ],
   });

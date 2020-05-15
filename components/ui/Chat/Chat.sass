@@ -1,0 +1,70 @@
++b('chat')
+  display: flex
+  flex-direction: column
+  flex-grow: 1
+  height: 100%
+
+  +media($screen-xl)
+    flex-direction: row
+
+  +e('info')
+    padding: rem(24px)
+
+    +media($screen-lg)
+      padding: rem(32px)
+
+  +e('header')
+    padding: rem(12px)
+
+    +media($screen-sm)
+      display: none
+
+  +e('back')
+    display: inline-block
+    transform: rotate(180deg)
+
+  +e('info-btn')
+    &:not(:last-of-type)
+      margin-bottom: rem(12px)
+
+  +e('actions')
+    margin-bottom: rem(40px)
+
+  +e('caption')
+    display: inline-block
+    margin-bottom: rem(10px)
+
+  +e('user-heading')
+    display: flex
+    align-items: center
+    margin-bottom: rem(10px)
+
+  +e('user')
+    display: flex
+    flex-direction: column
+    padding-left: rem(10px)
+
+  +e('username')
+    font-weight: 500
+
+  +e('count')
+    color: var(--color-gray-3)
+
+  +e('info-item')
+    display: flex
+    flex-direction: column
+
+    &:not(:last-of-type)
+      margin-bottom: rem(24px)
+
+  +e('user-list')
+    +media($screen-xl)
+      width: 20%
+
+  +e('user-messages')
+    +media($screen-xl)
+      width: 65%
+
+  +e('user-desc')
+    +media($screen-xl)
+      width: 15%

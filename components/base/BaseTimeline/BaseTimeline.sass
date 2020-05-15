@@ -1,0 +1,21 @@
++b('base-timeline')
+  +e('item')
+    display: flex
+    position: relative
+
+    &:not(:last-of-type)
+      margin-bottom: rem(16px)
+
+      &::before
+        content: ''
+        position: absolute
+        top: rem(32px)
+        left: rem(15px)
+        height: calc(100% - 1.6rem)
+        width: rem(2px)
+        background-color: var(--color-lavender)
+
+  +e('text')
+    display: inline-block
+    padding-top: rem(6px)
+    padding-left: rem(10px)
