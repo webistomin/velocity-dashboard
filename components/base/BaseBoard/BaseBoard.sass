@@ -2,7 +2,10 @@
   +e('wrapper')
     display: grid
     grid-gap: rem(24px)
-    grid-template-columns: repeat(auto-fill, minmax(20%, 1fr))
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr))
+
+    +media($screen-lg)
+      grid-template-columns: repeat(auto-fill, minmax(20%, 1fr))
 
   +e('heading')
     margin-bottom: rem(10px)
@@ -10,7 +13,7 @@
   +e('item')
     display: flex
     flex-direction: column
-    background-color: var(--color-white)
+    background-color: rgb(var(--color-white))
     padding: rem(24px)
     border-radius: 5px
     position: relative
@@ -25,9 +28,9 @@
       height: 100%
 
     +m('ghost')
-      background-color: var(--color-lavender-3)
+      background-color: rgba(var(--color-lavender), 0.2)
       font-size: 0
-      border: rem(1px) dashed var(--color-primary)
+      border: rem(1px) dashed rgb(var(--color-primary))
 
       &::before
         display: none
@@ -35,23 +38,23 @@
     +m('color')
       +v('default')
         &::before
-          background-color: var(--color-primary)
+          background-color: rgb(var(--color-primary))
 
       +v('yellow')
         &::before
-          background-color: var(--color-yellow)
+          background-color: rgb(var(--color-yellow))
 
       +v('purple')
         &::before
-          background-color: var(--color-purple)
+          background-color: rgb(var(--color-purple))
 
       +v('darkturquoise')
         &::before
-          background-color: var(--color-darkturquoise)
+          background-color: rgb(var(--color-darkturquoise))
 
       +v('blue')
         &::before
-          background-color: var(--color-blue)
+          background-color: rgb(var(--color-blue))
 
     &:not(:last-of-type)
       margin-bottom: rem(8px)
@@ -87,10 +90,10 @@
       display: inline-block
       width: 100%
       height: 1px
-      background-color: var(--color-gray-4)
+      background-color: rgb(var(--color-gray-4))
 
     &:hover
-      color: var(--color-primary)
+      color: rgb(var(--color-primary))
 
   +e('toggle-text')
     position: relative

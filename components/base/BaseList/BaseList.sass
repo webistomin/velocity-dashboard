@@ -29,12 +29,12 @@
         position: absolute
         top: 0
         right: 0
-        background-color: var(--color-white)
+        background-color: rgb(var(--color-white))
         font: var(--text-counter)
-        color: var(--color-gray-3)
+        color: rgb(var(--color-gray-3))
         border-radius: 50%
         z-index: 1
-        box-shadow: 0 rem(3px) rem(10px) var(--color-lavender)
+        box-shadow: 0 rem(3px) rem(10px) rgba(var(--color-primary), 0.2)
 
   +e('row')
     display: flex
@@ -46,7 +46,8 @@
 
   +e('text')
     font-weight: 400
-    color: var(--color-gray-3)
+    color: rgb(var(--color-gray-3))
 
   +e('stat')
-    color: var(--color-gray-3)
+    color: rgb(var(--color-gray-3))
+    text-align: right

@@ -1,6 +1,8 @@
 +b('chat-list')
+  background-color: rgb(var(--color-white))
+
   +e('item')
-    border-bottom: rem(1px) solid var(--color-lavender-3)
+    border-bottom: rem(1px) solid rgba(var(--color-primary), 0.2)
 
   +e('link')
     display: flex
@@ -18,8 +20,8 @@
       position: absolute
       top: 0
       left: 0
-      z-index: -1
-      background-color: var(--color-primary)
+      z-index: 0
+      background-color: rgb(var(--color-primary))
       opacity: 0
       transition: opacity 0.2s ease-out, background-color 0.2s ease-out
 
@@ -55,8 +57,8 @@
 
   +e('time')
     font: var(--font-caption)
-    color: var(--color-gray-2)
+    color: rgb(var(--color-gray-2))
 
   +e('message')
     font: var(--font-caption)
-    color: var(--color-gray-2)
+    color: rgb(var(--color-gray-2))

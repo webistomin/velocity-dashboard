@@ -5,10 +5,11 @@
   +e('map-states')
     display: grid
     grid-gap: rem(14px)
-    grid-template-columns: repeat(auto-fill, minmax(14%, 1fr))
+    grid-template-columns: repeat(auto-fill, minmax(30%, 1fr))
 
     +media($screen-sm)
       grid-gap: rem(24px)
+      grid-template-columns: repeat(auto-fill, minmax(14%, 1fr))
 
   +e('map-item')
     display: flex
@@ -18,7 +19,7 @@
     font-weight: 500
 
   +e('map-state')
-    color: var(--color-gray-3)
+    color: rgb(var(--color-gray-3))
 
   +e('map-content')
     width: 100%

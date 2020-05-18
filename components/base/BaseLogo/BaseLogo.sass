@@ -2,7 +2,7 @@
   display: inline-block
 
   &:hover .base-logo__title
-    color: var(--color-blue)
+    color: rgb(var(--color-primary))
 
   +e('link')
     display: flex
@@ -14,5 +14,8 @@
   +e('icon')
     margin-right: rem(7px)
 
+    path
+      transition: fill 0.2s ease-out
+
 body.using-keyboard .base-logo__link:focus
-  outline: rem(2px) solid var(--color-primary)
+  outline: rem(2px) solid rgb(var(--color-primary))

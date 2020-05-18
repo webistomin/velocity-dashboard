@@ -1,6 +1,6 @@
 +b('base-table')
   +e('scroller')
-    +scrollbar(5px, var(--color-primary), var(--color-secondary))
+    +scrollbar(5px, rgb(var(--color-primary)), rgb(var(--color-secondary)))
     height: calc(100vh - 350px)
 
     .vue-recycle-scroller__slot
@@ -21,10 +21,11 @@
 
   +e('row')
     display: flex
-    background-color: var(--color-white)
+    background-color: rgb(var(--color-white))
 
   +e('head')
     display: flex
+    align-items: center
     padding-bottom: rem(10px)
     overflow-x: auto
     overflow-y: hidden
@@ -40,8 +41,11 @@
     align-items: center
     transition: color 0.2s ease-out
 
+    .icon
+      flex-shrink: 0
+
     &:hover
-      color: var(--color-primary)
+      color: rgb(var(--color-primary))
 
   +e('sort-name')
     margin-right: rem(10px)

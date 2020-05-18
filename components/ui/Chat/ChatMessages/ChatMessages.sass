@@ -1,13 +1,17 @@
 +b('chat-messages')
-  //width: 705px
-  background-color: var(--color-lavender-3)
+  border-bottom: rem(1px) solid rgba(var(--color-primary), 0.2)
+
+  +media($screen-xl)
+    border-bottom: none
+    border-left: rem(1px) solid rgba(var(--color-primary), 0.2)
+    border-right: rem(1px) solid rgba(var(--color-primary), 0.2)
 
   +e('content')
     box-sizing: border-box
     padding: rem(24px)
     height: calc(100vh - 22.6rem)
     overflow: auto
-    +scrollbar(0.5rem, var(--color-primary), var(--color-secondary))
+    +scrollbar(0.5rem, rgb(var(--color-primary)), rgb(var(--color-secondary)))
     +scroll-overflow()
 
     +media($screen-lg)
@@ -17,7 +21,7 @@
     box-sizing: border-box
     padding: rem(24px)
     height: 12rem
-    background-color: var(--color-white)
+    background-color: rgb(var(--color-white))
 
   +e('input')
     box-sizing: border-box
@@ -25,10 +29,10 @@
     width: 100%
     height: 7rem
     border-radius: 5px
-    background-color: var(--color-lavender-3)
-    border: rem(1px) solid var(--color-lavender-2)
+    background-color: rgba(var(--color-lavender), 0.2)
+    border: rem(1px) solid rgb(var(--color-lavender))
     font: var(--text-input)
-    color: var(--color-primary)
+    color: rgb(var(--color-primary))
 
   +e('inputs')
     position: relative
@@ -39,11 +43,11 @@
     height: 100%
     top: 0
     left: 0
-    color: var(--color-lavender)
+    color: rgba(var(--color-primary), 0.5)
     transition: color 0.2s ease-out
 
     &:hover
-      color: var(--color-primary)
+      color: rgb(var(--color-primary))
 
   +e('attach')
     position: absolute
@@ -58,11 +62,11 @@
     justify-content: center
     width: inherit
     height: inherit
-    color: var(--color-lavender)
+    color: rgba(var(--color-primary), 0.5)
     transition: color 0.2s ease-out
 
     &:hover
-      color: var(--color-primary)
+      color: rgb(var(--color-primary))
 
   +e('item')
     display: flex
@@ -76,7 +80,7 @@
         margin-left: rem(8px)
 
       .chat-messages__group-item
-        background-color: var(--color-white)
+        background-color: rgb(var(--color-white))
 
     +m('own')
       flex-direction: row-reverse
@@ -89,12 +93,12 @@
         margin-right: rem(8px)
 
       .chat-messages__group-item
-        background-color: var(--color-primary)
-        color: var(--color-white)
+        background-color: rgb(var(--color-primary))
+        color: rgb(var(--color-white))
 
   +e('name')
     font-weight: 400
-    color: var(--color-gray-3)
+    color: rgb(var(--color-gray-3))
     margin-bottom: rem(4px)
 
   +e('group-item')

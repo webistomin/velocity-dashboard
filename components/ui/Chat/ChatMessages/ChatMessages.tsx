@@ -2,17 +2,29 @@ import { VueComponent } from 'types/vue-components';
 import { Component } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
 
+import BaseThumbnail from 'components/base/BaseThumbnail';
+
 import './ChatMessages.sass';
-import { BaseThumbnail } from 'components/base/BaseThumbnail/BaseThumbnail';
 
 @Component({
   name: 'ChatMessages',
 })
 export default class ChatMessages extends VueComponent {
+  $refs!: {
+    chatMessagesContent: HTMLDivElement;
+  };
+
+  async mounted(): Promise<void> {
+    await this.$nextTick();
+
+    const list = this.$refs.chatMessagesContent;
+    list.scrollTop = list.scrollHeight;
+  }
+
   public render(): VNode {
     return (
       <div class='chat-messages'>
-        <div class='chat-messages__content'>
+        <div class='chat-messages__content' ref='chatMessagesContent'>
           <ul class='chat-messages__list list'>
             <li class='chat-messages__item chat-messages__item_own list-item'>
               <BaseThumbnail class='chat-messages__avatar' image='/img/avatar.png' size='s' alt='Me' />

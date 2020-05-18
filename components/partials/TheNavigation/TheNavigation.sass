@@ -4,8 +4,7 @@
   position: fixed
   top: 5.1rem
   left: 0
-  z-index: 1
-  background-color: var(--color-white)
+  z-index: var(--z-index-navigation)
   visibility: hidden
   opacity: 0
   transition: opacity 0.2s ease-out, visibility 0.2s ease-out
@@ -29,7 +28,8 @@
     position: relative
     top: auto
     left: auto
-    border-right: 1px solid var(--color-border-gray)
+    background-color: rgb(var(--color-white))
+    border-right: 1px solid rgba(var(--color-primary), 0.2)
     overflow: initial
     visibility: visible
     opacity: 1
@@ -50,11 +50,11 @@
 
   +e('wrapper')
     position: relative
-    background-color: inherit
     height: 100%
     overflow: auto
     +scroll-overflow()
     transform: translateX(-100%)
+    background-color: rgb(var(--color-white))
     transition: transform 0.2s ease-out
 
     +media($screen-lg)
@@ -115,7 +115,7 @@
 
   +e('username')
     font: inherit
-    color: var(--color-gray-3)
+    color: rgb(var(--color-gray-3))
     +text-overflow()
     max-width: 12ch
 
@@ -123,7 +123,7 @@
     display: flex
     align-items: center
     padding: rem(16px) rem(14px)
-    color: var(--color-gray-3)
+    color: rgb(var(--color-gray-3))
     transition: color 0.2s ease-out, background-color 0.2s ease-out
     position: relative
 
@@ -149,14 +149,14 @@
       position: absolute
       top: 0
       left: 0
-      z-index: -1
-      background-color: var(--color-primary)
+      z-index: 0
+      background-color: rgb(var(--color-primary))
       opacity: 0
       transition: opacity 0.2s ease-out, background-color 0.2s ease-out
 
     &:hover,
     &.nuxt-link-exact-active
-      color: var(--color-primary)
+      color: rgb(var(--color-primary))
 
       &::before
         opacity: 1

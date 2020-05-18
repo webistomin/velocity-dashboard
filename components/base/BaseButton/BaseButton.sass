@@ -7,8 +7,8 @@
 
   +m('theme')
     +v('default')
-      background-color: var(--color-primary)
-      color: var(--color-white)
+      background-color: rgb(var(--color-primary))
+      color: rgb(var(--color-white))
       transition-property: opacity, background-color
 
       &:hover,
@@ -19,21 +19,21 @@
         opacity: 0.8
 
     +v('light')
-      background-color: var(--color-secondary)
-      color: var(--color-primary)
+      background-color: rgb(var(--color-secondary))
+      color: rgb(var(--color-primary))
       transition-property: color, background-color, opacity
 
       &:hover,
       &:focus
-        background-color: var(--color-primary)
-        color: var(--color-white)
+        background-color: rgb(var(--color-primary))
+        color: rgb(var(--color-white))
 
       &:active
         opacity: 0.8
 
     +v('success')
-      background-color: var(--color-green)
-      color: var(--color-white)
+      background-color: rgb(var(--color-green))
+      color: rgb(var(--color-white))
       transition-property: opacity, background-color
 
       &:hover,
@@ -44,13 +44,13 @@
         opacity: 0.8
 
     +v('gray')
-      background-color: var(--color-gray-5)
-      color: var(--color-gray-3)
+      background-color: rgb(var(--color-gray-5))
+      color: rgb(var(--color-gray-3))
       transition-property: background-color, color
 
       &:hover
-        color: var(--color-white)
-        background-color: var(--color-gray-4)
+        color: rgb(var(--color-white))
+        background-color: rgb(var(--color-gray-4))
 
   +e('wrapper')
     box-sizing: border-box

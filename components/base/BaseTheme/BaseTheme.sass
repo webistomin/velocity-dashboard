@@ -1,4 +1,5 @@
 +b('base-theme')
+
   +e('label')
     display: flex
     flex-direction: column
@@ -12,19 +13,19 @@
     border-radius: 5px
 
     +m('shelob')
-      background-image: linear-gradient(to right, var(--color-blue) 33%, var(--color-lavender) 33%, var(--color-lavender) 66%,  var(--color-gray-3) 33%)
+      background-image: linear-gradient(to right, rgb(var(--color-blue)) 33%, rgba(var(--color-blue), 0.2) 33%, rgba(var(--color-blue), 0.2) 66%,  rgb(var(--color-gray-3)) 33%)
 
     +m('denethor')
-      background-image: linear-gradient(to right, var(--color-purple) 33%, var(--color-darkturquoise) 33%, var(--color-darkturquoise) 66%, var(--color-yellow-lighter) 33%)
+      background-image: linear-gradient(to right, rgb(var(--color-purple)) 33%, rgb(var(--color-darkturquoise)) 33%, rgb(var(--color-darkturquoise)) 66%, rgb(var(--color-yellow-lighter)) 33%)
 
     +m('quickbeam')
-      background-image: linear-gradient(to right, var(--color-deepskyblue) 33%, var(--color-royalblue) 33%, var(--color-royalblue) 66%, var(--color-darkgreen) 33%)
+      background-image: linear-gradient(to right, rgb(var(--color-deepskyblue)) 33%, rgb(var(--color-royalblue)) 33%, rgb(var(--color-royalblue)) 66%, rgb(var(--color-darkgreen)) 33%)
 
     +m('shadowfax')
-      background-image: linear-gradient(to right, var(--color-midnightblue) 33%, var(--color-lawngreen) 33%, var(--color-lawngreen) 66%, var(--color-dimgray) 33%)
+      background-image: linear-gradient(to right, rgb(var(--color-midnightblue)) 33%, rgb(var(--color-lawngreen)) 33%, rgb(var(--color-lawngreen)) 66%, rgb(var(--color-dimgray)) 33%)
 
     +m('grima')
-      background-image: linear-gradient(to right, var(--color-darkorchid) 33%, var(--color-pink) 33%, var(--color-pink) 66%, var(--color-lightslategray) 33%)
+      background-image: linear-gradient(to right, rgb(var(--color-darkorchid)) 33%, rgb(var(--color-pink)) 33%, rgb(var(--color-pink)) 66%, rgb(var(--color-lightslategray)) 33%)
 
   +e('text')
     font: var(--text-button)
@@ -38,11 +39,11 @@
       height: rem(16px)
       +vertical-center()
       left: 0
-      border: rem(1px) solid var(--color-gray-3)
+      border: rem(1px) solid rgb(var(--color-gray-3))
       border-radius: 50%
       transition: border 0.2s ease-out
 
   +e('radio')
     &:checked ~ .base-theme__label
       .base-theme__text::before
-        border: rem(4px) solid var(--color-primary)
+        border: rem(4px) solid rgb(var(--color-primary))

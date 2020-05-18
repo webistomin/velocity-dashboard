@@ -6,14 +6,14 @@
     display: flex
     align-items: center
     justify-content: center
-    color: var(--color-gray-4)
+    color: rgb(var(--color-gray-4))
     transition: color 0.2s ease-out
 
     &:hover
-      color: var(--color-primary)
+      color: rgb(var(--color-primary))
 
     +m('active')
-      color: var(--color-primary)
+      color: rgb(var(--color-primary))
 
   +e('btn-content')
     position: relative
@@ -52,7 +52,7 @@
       display: none
 
   +e('item')
-    border-bottom: rem(1px) solid var(--color-border-gray)
+    border-bottom: rem(1px) solid rgba(var(--color-primary), 0.2)
 
   +e('item-link')
     display: flex
@@ -71,7 +71,7 @@
       top: 0
       left: 0
       z-index: -1
-      background-color: var(--color-primary)
+      background-color: rgb(var(--color-primary))
       opacity: 0
       transition: opacity 0.2s ease-out
 
@@ -93,10 +93,10 @@
       margin-top: rem(24px)
 
   +e('item-icon')
-    color: var(--color-gray-3)
+    color: rgb(var(--color-gray-3))
 
     +m('new')
-      color: var(--color-primary)
+      color: rgb(var(--color-primary))
 
   +e('caption')
     margin-bottom: rem(10px)
@@ -108,14 +108,14 @@
   +e('time')
     font: var(--text-caption)
     font-weight: 400
-    color: var(--color-gray-4)
+    color: rgb(var(--color-gray-4))
 
   +e('heading')
     display: flex
     justify-content: space-between
     align-items: center
     padding: rem(25px) rem(14px)
-    border-bottom: rem(1px) solid var(--color-border-gray)
+    border-bottom: rem(1px) solid rgba(var(--color-primary), 0.2)
 
     +media($screen-sm)
       padding-left: rem(24px)
@@ -129,7 +129,7 @@
     width: rem(90px)
 
   +e('city')
-    color: var(--color-gray-3)
+    color: rgb(var(--color-gray-3))
     font-weight: 400
 
   +e('weather-icon')

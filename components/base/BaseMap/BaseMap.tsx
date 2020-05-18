@@ -13,6 +13,16 @@ export default class BaseMap extends VueComponent {
     [8.3, 218.7],
   ];
 
+  get getPrimaryColor(): string {
+    if (process.client) {
+      return `rgb(${getComputedStyle(document.documentElement)
+        .getPropertyValue('--color-primary')
+        .trim()})`;
+    }
+
+    return 'rgb(46, 91, 255)';
+  }
+
   render() {
     return (
       <client-only>
@@ -29,11 +39,11 @@ export default class BaseMap extends VueComponent {
           <L-Hotline
             weight={2}
             outline-width={0}
-            outline-color={'#2E5BFF'}
+            outline-color={this.getPrimaryColor}
             palette={{
-              0.0: '#2E5BFF',
-              0.5: '#2E5BFF',
-              1.0: '#2E5BFF',
+              0.0: this.getPrimaryColor,
+              0.5: this.getPrimaryColor,
+              1.0: this.getPrimaryColor,
             }}
             latLngs={[
               [55.751244, 37.618423, 1],

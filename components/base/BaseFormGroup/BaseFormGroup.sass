@@ -14,26 +14,26 @@
     width: 100%
     padding: rem(10px) rem(16px)
     font: var(--text-input)
-    color: var(--color-primary)
-    background-color: var(--color-lavender-3)
-    border: rem(1px) solid var(--color-lavender-2)
+    color: rgb(var(--color-primary))
+    background-color: rgba(var(--color-lavender), 0.2)
+    border: rem(1px) solid rgb(var(--color-lavender))
     border-radius: 5px
     transition: border-color 0.2s ease-out, color 0.2s ease-out
     outline: none
 
     &:focus
-      border-color: var(--color-primary)
-      caret-color: var(--color-primary)
+      border-color: rgb(var(--color-primary))
+      caret-color: rgb(var(--color-primary))
 
       &::placeholder
-        color: var(--color-primary)
+        color: rgb(var(--color-primary))
 
     &:hover
-      border-color: var(--color-primary)
+      border-color: rgb(var(--color-primary))
 
     +m('invalid')
-      border-color: var(--color-red)
-      color: var(--color-red)
+      border-color: rgb(var(--color-red))
+      color: rgb(var(--color-red))
 
       &::placeholder
         color: inherit
@@ -45,10 +45,10 @@
 
   +e('error')
     font: var(--text-caption)
-    color: var(--color-red)
+    color: rgb(var(--color-red))
 
     &:not(:last-of-type)
       margin-bottom: rem(4px)
 
 body.using-keyboard .base-form-group__input:focus
-  outline: rem(1px) solid var(--color-primary)
+  outline: rem(1px) solid rgb(var(--color-primary))

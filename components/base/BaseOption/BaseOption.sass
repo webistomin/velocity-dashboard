@@ -8,7 +8,7 @@
     flex-grow: 1
     display: block
     position: relative
-    border: rem(1px) solid var(--color-lavender-2)
+    border: rem(1px) solid rgb(var(--color-lavender))
     transition: border-color 0.2s ease-out
 
     &::before
@@ -19,7 +19,7 @@
       transform: translateX(50%) translateY(-50%) scale(0)
       width: rem(18px)
       height: rem(18px)
-      background-color: var(--color-primary)
+      background-color: rgb(var(--color-primary))
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='12.6'%3E%3Cpath d='M11.668 5.031L4.8 12.251a1.092 1.092 0 01-1.6 0L.331 9.236a1.235 1.235 0 010-1.683 1.093 1.093 0 011.6 0L4 9.729l6.068-6.38a1.092 1.092 0 011.6 0 1.232 1.232 0 010 1.682' fill='%23fff'/%3E%3C/svg%3E")
       background-position: center
       background-repeat: no-repeat
@@ -31,7 +31,7 @@
 
   +e('input')
     &:checked ~ .base-option__label
-      border-color: var(--color-primary)
+      border-color: rgb(var(--color-primary))
 
       &::before
         opacity: 1

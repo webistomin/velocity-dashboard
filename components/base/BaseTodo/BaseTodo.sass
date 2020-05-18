@@ -14,19 +14,19 @@
           width: 100%
 
       .base-todo__label
-        border-color: var(--color-green)
-        background-color: rgba(51, 172, 46, 0.15)
+        border-color: rgb(var(--color-green))
+        background-color: rgba(var(--color-green), 0.15)
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='9.6' viewBox='0 0 12 9.6'%3E%3Cpath d='M11.668,2.031,4.8,9.251a1.092,1.092,0,0,1-1.6,0L.331,6.236a1.235,1.235,0,0,1,0-1.683,1.093,1.093,0,0,1,1.6,0L4,6.729,10.068.349a1.092,1.092,0,0,1,1.6,0,1.232,1.232,0,0,1,0,1.682' fill='rgb(51, 172, 46)'/%3E%3C/svg%3E%0A")
 
       .base-todo__date
-        color: var(--color-text)
+        color: rgb(var(--color-text))
 
   +e('label')
     display: block
     width: rem(16px)
     height: rem(16px)
     border-radius: 5px
-    border: rem(1px) solid var(--color-gray-4)
+    border: rem(1px) solid rgb(var(--color-gray-4))
     cursor: pointer
     transition: background-color 0.2s ease-out, border-color 0.2s ease-out
     background-repeat: no-repeat
@@ -34,11 +34,11 @@
     background-size: 8px 8px
 
     &:hover
-      background-color: var(--color-gray-5)
+      background-color: rgb(var(--color-gray-5))
 
   +e('checkbox')
     &:focus ~ .base-todo__label
-      outline: rem(1px) solid var(--color-primary)
+      outline: rem(1px) solid rgb(var(--color-primary))
 
   +e('actions')
     margin-right: rem(14px)
@@ -87,10 +87,10 @@
 
     +m('deadline')
       +v('overdue')
-        color: var(--color-red)
+        color: rgb(var(--color-red))
 
       +v('on-time')
-        color: var(--color-green)
+        color: rgb(var(--color-green))
 
       +v('due-soon')
-        color: var(--color-yellow)
+        color: rgb(var(--color-yellow))

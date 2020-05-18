@@ -5,7 +5,7 @@
 
   +e('select')
     .vs__dropdown-toggle
-      border: rem(1px) solid var(--color-lavender)
+      border: rem(1px) solid rgba(var(--color-primary), 0.2)
       border-radius: 5px
       padding: rem(3px) 0 rem(8px)
 
@@ -18,18 +18,18 @@
       padding-right: rem(24px)
 
     .vs__dropdown-option--highlight
-      background-color: var(--color-primary)
-      color: var(--color-white)
+      background-color: rgb(var(--color-primary))
+      color: rgb(var(--color-white))
 
     .vs__dropdown-menu
       padding: 0
       box-shadow: none
       border-radius: 5px
-      border: rem(1px) solid var(--color-lavender)
+      border: rem(1px) solid rgba(var(--color-primary), 0.2)
       top: calc(100% + 5px)
 
     .vs__selected
-      color: var(--color-primary)
+      color: rgb(var(--color-primary))
 
     .vs__search::placeholder
-      color: var(--color-gray-3)
+      color: rgb(var(--color-gray-3))

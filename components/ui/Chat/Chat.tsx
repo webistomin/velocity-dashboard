@@ -129,7 +129,7 @@ export default class Chat extends VueComponent {
       <div class='chat'>
         <div class='chat__header' vShow={this.isChatHeaderVisible}>
           <nuxt-link class='chat__back link' to='/chat' onClick={this.hideChat}>
-            <BaseIcon name='icon-arrow-right' color='blue' size='xs' />
+            <BaseIcon name='icon-arrow-right' color='default' size='xs' />
           </nuxt-link>
         </div>
         {/*

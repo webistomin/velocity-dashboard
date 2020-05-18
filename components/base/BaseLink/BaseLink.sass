@@ -14,18 +14,18 @@
 
   +m('theme')
     +v('default')
-      color: var(--color-primary)
+      color: rgb(var(--color-primary))
 
       &:hover::after
         width: 100%
 
     +v('gray')
-      color: var(--color-gray-3)
+      color: rgb(var(--color-gray-3))
       transition: color 0.2s ease-out
 
       &::after
         display: none
 
       &:hover
-        color: var(--color-primary)
+        color: rgb(var(--color-primary))
 

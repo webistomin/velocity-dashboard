@@ -11,14 +11,14 @@
       height: rem(80px)
 
   &:hover .base-toggle__line
-    background-color: var(--color-primary)
+    background-color: rgb(var(--color-primary))
 
     &:last-of-type
       width: rem(18px)
 
   +m('active')
     .base-toggle__line
-      background-color: var(--color-primary)
+      background-color: rgb(var(--color-primary))
 
       &:first-of-type
         transform: translateY(rem(6px)) rotate(45deg)
@@ -41,7 +41,7 @@
     position: absolute
     width: inherit
     height: rem(2px)
-    background-color: var(--color-gray-4)
+    background-color: rgb(var(--color-gray-4))
     left: 0
     transition: background-color 0.2s ease-out, width 0.2s ease-out, transform 0.2s ease-out, opacity 0.2s ease-out
 

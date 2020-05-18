@@ -8,6 +8,7 @@
     flex-direction: row
 
   +e('info')
+    background-color: rgb(var(--color-white))
     padding: rem(24px)
 
     +media($screen-lg)
@@ -48,7 +49,7 @@
     font-weight: 500
 
   +e('count')
-    color: var(--color-gray-3)
+    color: rgb(var(--color-gray-3))
 
   +e('info-item')
     display: flex
@@ -58,6 +59,8 @@
       margin-bottom: rem(24px)
 
   +e('user-list')
+    flex-grow: 1
+
     +media($screen-xl)
       width: 20%
 
