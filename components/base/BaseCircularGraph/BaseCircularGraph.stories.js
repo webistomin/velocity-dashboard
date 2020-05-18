@@ -1,8 +1,8 @@
 import { number } from '@storybook/addon-knobs';
-import { BaseTitle } from './BaseTitle';
+import BaseCircularGraph from './BaseCircularGraph';
 
 export default {
-  title: 'BaseTitle',
+  title: 'BaseCircularGraph',
   parameters: {
     options: {
       showPanel: true,
@@ -17,21 +17,16 @@ export default {
 };
 
 export const Default = () => ({
+  components: { BaseCircularGraph },
   props: {
-    level: {
+    value: {
       type: Number,
-      default: number('level', 1),
+      default: number('value', 50),
     },
   },
-  render(h) {
-    return h(
-      BaseTitle,
-      {
-        props: {
-          level: this.level,
-        },
-      },
-      [`Heading ${this.level}`]
-    );
-  },
+  template: `<base-circular-graph
+              :value='this.value'
+            >
+            </base-circular-graph>
+  `,
 });

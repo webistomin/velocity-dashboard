@@ -8,6 +8,7 @@ import Vuelidate from 'vuelidate';
 import VuelidateErrorExtractor from 'vuelidate-error-extractor';
 
 import BaseFormGroup from '@/components/base/BaseFormGroup';
+import { withKnobs } from '@storybook/addon-knobs';
 
 Vue.use(Vuelidate);
 Vue.component('BaseFormGroup', BaseFormGroup);
@@ -42,6 +43,13 @@ addDecorator(() => ({
     );
   },
 }));
+
+// Escape characters
+addDecorator(
+  withKnobs({
+    escapeHTML: false,
+  })
+);
 
 // Svg-icon component
 Vue.component('SvgIcon', {

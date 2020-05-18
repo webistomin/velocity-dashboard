@@ -1,8 +1,8 @@
-import { number } from '@storybook/addon-knobs';
-import { BaseTitle } from './BaseTitle';
+import { text } from '@storybook/addon-knobs';
+import { BaseBadge } from './BaseBadge';
 
 export default {
-  title: 'BaseTitle',
+  title: 'BaseBadge',
   parameters: {
     options: {
       showPanel: true,
@@ -18,20 +18,20 @@ export default {
 
 export const Default = () => ({
   props: {
-    level: {
-      type: Number,
-      default: number('level', 1),
+    color: {
+      type: String,
+      default: text('color', ''),
     },
   },
   render(h) {
     return h(
-      BaseTitle,
+      BaseBadge,
       {
         props: {
-          level: this.level,
+          color: this.color,
         },
       },
-      [`Heading ${this.level}`]
+      [`100`]
     );
   },
 });

@@ -13,6 +13,7 @@ import NotificationCenterItem, {
 import NotificationCenterWeather from './NotificationCenterWeather';
 
 import './NotificationCenter.sass';
+import { Watch } from '~/node_modules/nuxt-property-decorator';
 
 @Component({
   name: 'NotificationCenter',
@@ -88,6 +89,11 @@ export default class NotificationCenter extends VueComponent {
   }
 
   onClickOutside(): void {
+    this.isNotificationsVisible = false;
+  }
+
+  @Watch('$route')
+  onRouteChanged() {
     this.isNotificationsVisible = false;
   }
 

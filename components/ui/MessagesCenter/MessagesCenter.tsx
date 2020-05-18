@@ -9,6 +9,7 @@ import ChatList from 'components/ui/Chat/ChatList';
 import { IChat } from 'types/chat/chat-list';
 
 import './MessagesCenter.sass';
+import { Watch } from '~/node_modules/nuxt-property-decorator';
 
 @Component({
   name: 'MessagesCenter',
@@ -84,6 +85,11 @@ export default class MessagesCenter extends VueComponent {
   }
 
   onClickOutside(): void {
+    this.isMessagesVisible = false;
+  }
+
+  @Watch('$route')
+  onRouteChanged() {
     this.isMessagesVisible = false;
   }
 
