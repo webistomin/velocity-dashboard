@@ -1,5 +1,5 @@
 import { VueComponent } from 'types/vue-components';
-import { Component, Emit } from 'nuxt-property-decorator';
+import { Component, Emit, Prop } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
 
 import BaseLogo from 'components/base/BaseLogo';
@@ -9,7 +9,6 @@ import UserCenter from 'components/ui/UserCenter';
 import BaseToggle from 'components/base/BaseToggle';
 
 import './TheHeader.sass';
-import { Prop } from '~/node_modules/nuxt-property-decorator';
 
 export interface IHeaderProps {
   isNavOpened: boolean;
@@ -28,7 +27,7 @@ export default class TheHeader extends VueComponent<IHeaderProps> {
 
   public render(): VNode {
     return (
-      <header class='page-header'>
+      <header class='page-header' id='js-page-header'>
         <div class='page-header__container container'>
           <BaseToggle class='page-header__nav-toggle' onClick={this.onToggleClick} isActive={this.isNavOpened} />
           <BaseLogo class='page-header__logo' />

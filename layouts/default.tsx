@@ -1,5 +1,5 @@
 import { VueComponent } from 'types/vue-components';
-import { Component } from 'nuxt-property-decorator';
+import { Component, Watch } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
 
 import TheHeader from 'components/partials/TheHeader';
@@ -23,6 +23,13 @@ export default class Default extends VueComponent {
 
   get shouldLockBody(): boolean {
     return !!(this.isNavOpened && window.matchMedia('(max-width: 1023px)').matches);
+  }
+
+  @Watch('$route')
+  onRouteChanged() {
+    if (window.matchMedia('(max-width: 1023px)').matches) {
+      this.isNavOpened = false;
+    }
   }
 
   render(): VNode {
