@@ -1,8 +1,8 @@
-import { text } from '@storybook/addon-knobs';
-import { BaseBadge } from './BaseBadge';
+import { boolean } from '@storybook/addon-knobs';
+import { BaseSidebar } from './BaseSidebar';
 
 export default {
-  title: 'BaseBadge',
+  title: 'BaseSidebar',
   parameters: {
     options: {
       showPanel: true,
@@ -18,20 +18,20 @@ export default {
 
 export const Default = () => ({
   props: {
-    color: {
-      type: String,
-      default: text('color', 'default'),
+    isVisible: {
+      type: Boolean,
+      default: boolean('isVisible', true),
     },
   },
   render(h) {
     return h(
-      BaseBadge,
+      BaseSidebar,
       {
         props: {
-          color: this.color,
+          isVisible: this.isVisible,
         },
       },
-      [`100`]
+      ['Content']
     );
   },
 });
