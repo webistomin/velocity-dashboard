@@ -59,6 +59,7 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
     ['@nuxtjs/router', { path: 'router', DefaultRouter: true }],
+    '@nuxtjs/auth',
   ],
   styleResources: {
     sass: ['./assets/sass/dev.sass'],
@@ -102,6 +103,24 @@ module.exports = {
       }
 
       config.resolve.plugins.push(new TsconfigPathsPlugin({ configFile: './tsconfig.json' }));
+    },
+  },
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: '/sessions', method: 'post', propertyName: 'token' },
+          logout: false,
+          user: { url: '/sessions/user', method: 'get', propertyName: 'data.attributes' },
+        },
+        tokenRequired: true,
+        tokenType: 'bearer',
+      },
+    },
+    redirect: {
+      home: false,
+      callback: false,
+      logout: false,
     },
   },
 };

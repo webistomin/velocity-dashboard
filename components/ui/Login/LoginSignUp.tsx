@@ -17,7 +17,10 @@ import { FormTypes, ILoginProps } from './Login';
   name: 'LoginSignUp',
   validations: {
     signUpForm: {
-      name: {
+      firstName: {
+        required,
+      },
+      lastName: {
         required,
       },
       email: {
@@ -32,7 +35,8 @@ import { FormTypes, ILoginProps } from './Login';
 })
 export default class LoginSignUp extends VueComponent<ILoginProps> {
   public signUpForm = {
-    name: '',
+    firstName: '',
+    lastName: '',
     email: '',
     password: '',
     role: 'Administrator',
@@ -97,13 +101,24 @@ export default class LoginSignUp extends VueComponent<ILoginProps> {
             <BaseFormGroup
               class='login__form-group'
               type='text'
-              label='Full name'
-              id='sign-up-name'
-              placeholder='Enter your full name'
-              validator={this.$v.signUpForm.name}
-              onInput={($event: string) => (this.signUpForm.name = $event)}
-              value={this.signUpForm.name}
-              onBlur={this.$v.signUpForm.name?.$touch}
+              label='First name'
+              id='sign-up-first-name'
+              placeholder='Enter your first name'
+              validator={this.$v.signUpForm.firstName}
+              onInput={($event: string) => (this.signUpForm.firstName = $event)}
+              value={this.signUpForm.firstName}
+              onBlur={this.$v.signUpForm.firstName?.$touch}
+            />
+            <BaseFormGroup
+              class='login__form-group'
+              type='text'
+              label='Last name'
+              id='sign-up-last-name'
+              placeholder='Enter your last name'
+              validator={this.$v.signUpForm.lastName}
+              onInput={($event: string) => (this.signUpForm.lastName = $event)}
+              value={this.signUpForm.lastName}
+              onBlur={this.$v.signUpForm.lastName?.$touch}
             />
             <BaseFormGroup
               class='login__form-group'
