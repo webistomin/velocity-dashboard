@@ -99,7 +99,8 @@ export default class MessagesCenter extends VueComponent {
         <button
           class={`messages-center__btn btn ${this.isMessagesVisible ? 'messages-center__btn_active' : ''}`}
           type='button'
-          onClick={this.toggleMessagesVisibility}>
+          onClick={this.toggleMessagesVisibility}
+          aria-label='Toggle messages center'>
           <span class='messages-center__btn-content'>
             <BaseNotify class='messages-center__status' />
             <svg-icon name='icon-mail' width={23} height={18} />

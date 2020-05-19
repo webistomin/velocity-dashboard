@@ -35,7 +35,7 @@ export default class BaseBlock extends VueComponent<IBaseBlockProps> {
             {this.title ? <h3 class='base-block__title caption title'>{this.title}</h3> : null}
             {this.hasOptions ? (
               <div class='base-block__options-block'>
-                <button class='base-block__options-btn btn'>
+                <button class='base-block__options-btn btn' aria-label='Toggle block options'>
                   <svg-icon name='icon-options' width={16} height={16} />
                 </button>
                 <div class='base-block__options'>{this.$slots.options}</div>

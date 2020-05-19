@@ -103,7 +103,8 @@ export default class NotificationCenter extends VueComponent {
         <button
           class={`notification-center__btn btn ${this.isNotificationsVisible ? 'notification-center__btn_active' : ''}`}
           type='button'
-          onClick={this.toggleNotificationVisibility}>
+          onClick={this.toggleNotificationVisibility}
+          aria-label='Toggle notification center'>
           <span class='notification-center__btn-content'>
             <BaseNotify class='notification-center__status' />
             <svg-icon name='icon-bell' width={20} height={22} />

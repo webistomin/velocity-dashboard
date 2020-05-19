@@ -55,6 +55,7 @@ export default class BaseTodoItem extends VueComponent<IBaseTodoItem> {
             onInput={this.onInput}
             value={this.id}
             checked={this.isDone}
+            aria-label={`Toggle task with name: ${this.title}`}
           />
           <label for={this.id} class='base-todo__label label' />
         </div>

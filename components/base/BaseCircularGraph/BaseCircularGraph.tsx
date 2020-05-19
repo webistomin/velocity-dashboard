@@ -29,21 +29,16 @@ export default class BaseCircularGraph extends VueComponent<IBaseCircularGraphPr
       <div class='base-circular-graph'>
         <svg xmlns='http://www.w3.org/2000/svg' width={223} viewBox='0 0 223 140.5' class='base-circular-graph__base'>
           <defs>
-            <clipPath id='clip-path'>
+            <clipPath id='base-circular-graph-clip-path-1'>
               <path
-                id='mask'
                 d='M0,124,4.5,36,76,0h62l74.5,42.5,10.5,45L211,139l-45.5-9L51,128,0,140.5Z'
                 transform='translate(0.5)'
                 fill='#fff'
               />
             </clipPath>
-            <clipPath id='clip-path-2'>
-              <path id='Mask-2' data-name='Mask' d='M0,0H168l35.5,71L168,87.5V152H0Z' fill='#fff' />
-            </clipPath>
           </defs>
-          <g id='Chart_Figure' data-name='Chart Figure' transform='translate(-0.5)' clip-path='url(#clip-path)'>
+          <g transform='translate(-0.5)' clip-path='url(#base-circular-graph-clip-path-1)'>
             <g
-              id='external_dashes'
               transform='translate(32.6 40.6)'
               fill='none'
               stroke='#e0e7ff'
@@ -54,7 +49,6 @@ export default class BaseCircularGraph extends VueComponent<IBaseCircularGraphPr
               <circle cx='76' cy='76' r='88' fill='none' />
             </g>
             <g
-              id='inner_dashes'
               transform='translate(41 48.6)'
               fill='none'
               stroke='#e0e7ff'
@@ -69,23 +63,18 @@ export default class BaseCircularGraph extends VueComponent<IBaseCircularGraphPr
         <div class='base-circular-graph__fill' style={{ width: `${this.value}%` }}>
           <svg xmlns='http://www.w3.org/2000/svg' width={223} viewBox='0 0 223 140.5'>
             <defs>
-              <clipPath id='clip-path'>
+              <clipPath id='base-circular-graph-clip-path-2'>
                 <path
-                  id='mask'
                   d='M0,124,4.5,36,76,0h62l74.5,42.5,10.5,45L211,139l-45.5-9L51,128,0,140.5Z'
                   transform='translate(0.5)'
                   fill='#fff'
                 />
               </clipPath>
-              <clipPath id='clip-path-2'>
-                <path id='Mask-2' data-name='Mask' d='M0,0H168l35.5,71L168,87.5V152H0Z' fill='#fff' />
-              </clipPath>
             </defs>
-            <g id='Chart_Figure' data-name='Chart Figure' transform='translate(-0.5)' clip-path='url(#clip-path)'>
-              <g id='colored' transform='translate(3 -5)'>
-                <g id='colored-2' data-name='colored'>
+            <g transform='translate(-0.5)' clip-path='url(#base-circular-graph-clip-path-1)'>
+              <g transform='translate(3 -5)'>
+                <g>
                   <g
-                    id='color_dashes'
                     transform='translate(30 45.6)'
                     fill='none'
                     stroke='rgb(var(--color-primary))'
