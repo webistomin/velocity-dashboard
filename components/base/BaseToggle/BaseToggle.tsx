@@ -23,9 +23,9 @@ export default class BaseToggle extends VueComponent<IBaseToggleProps> {
   private readonly isActive!: IBaseToggleProps['isActive'];
 
   @Emit('click')
-  onToggleClick() {}
+  public onToggleClick() {}
 
-  render(): VNode {
+  public render(): VNode {
     const { size, isActive } = this;
     return (
       <button

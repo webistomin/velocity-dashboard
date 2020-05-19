@@ -36,7 +36,7 @@ export default class BaseTheme extends VueComponent<IBaseThemeProps> {
   private readonly checked!: IBaseThemeProps['checked'];
 
   @Emit('input')
-  onInput(event: Event): Event {
+  public onInput(event: Event): Event {
     return event;
   }
 

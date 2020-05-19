@@ -6,7 +6,7 @@ import { VNode } from 'vue';
   name: 'MapVideo',
 })
 export default class MapVideo extends VueComponent {
-  render(): VNode {
+  public render(): VNode {
     return (
       <div class='map__video'>
         <button class='map__video-play-btn btn'>

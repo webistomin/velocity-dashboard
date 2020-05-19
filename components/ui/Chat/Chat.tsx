@@ -14,7 +14,7 @@ import './Chat.sass';
   name: 'Chat',
 })
 export default class Chat extends VueComponent {
-  chats: IChat[] = [
+  public chats: IChat[] = [
     {
       name: 'Alexey Istomin',
       avatar: '/img/avatar.png',
@@ -73,26 +73,26 @@ export default class Chat extends VueComponent {
     },
   ];
 
-  isMobileChatVisible: boolean = false;
-  isMobile: boolean = true;
+  public isMobileChatVisible: boolean = false;
+  public isMobile: boolean = true;
 
-  created(): void {
+  public created(): void {
     if (this.$route.params.id) {
       this.isMobileChatVisible = true;
     }
   }
 
-  mounted(): void {
+  public mounted(): void {
     if (window.matchMedia('(min-width: 1280px)').matches) {
       this.isMobile = false;
     }
   }
 
-  hideChat(): void {
+  public hideChat(): void {
     this.isMobileChatVisible = false;
   }
 
-  get isChatHeaderVisible(): boolean {
+  public get isChatHeaderVisible(): boolean {
     if (this.isMobile) {
       return this.isMobileChatVisible;
     }
@@ -100,7 +100,7 @@ export default class Chat extends VueComponent {
     return true;
   }
 
-  get isChatListVisible(): boolean {
+  public get isChatListVisible(): boolean {
     if (this.isMobile) {
       return !this.isMobileChatVisible;
     }
@@ -108,7 +108,7 @@ export default class Chat extends VueComponent {
     return true;
   }
 
-  get isChatMessagesVisible(): boolean {
+  public get isChatMessagesVisible(): boolean {
     if (this.isMobile) {
       return this.isMobileChatVisible;
     }
@@ -116,7 +116,7 @@ export default class Chat extends VueComponent {
     return true;
   }
 
-  get isChatInfoVisible(): boolean {
+  public get isChatInfoVisible(): boolean {
     if (this.isMobile) {
       return this.isMobileChatVisible;
     }

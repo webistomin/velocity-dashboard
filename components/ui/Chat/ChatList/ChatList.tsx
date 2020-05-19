@@ -19,7 +19,7 @@ export default class ChatList extends VueComponent<IChatListProps> {
   @Prop({ default: null })
   private readonly chats!: IChatListProps['chats'];
 
-  render(): VNode {
+  public render(): VNode {
     const chatsList = this.chats
       ? this.chats.map((chat) => {
           return (

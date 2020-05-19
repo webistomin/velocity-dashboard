@@ -37,15 +37,15 @@ export default class SettingsData extends VueComponent<ISettingsDataProps> {
   @Prop()
   private readonly info!: IUserSettings['info'];
 
-  settingsForm: IUserSettings['info'] = this.info;
+  public settingsForm: IUserSettings['info'] = this.info;
 
   @Emit('changeSettings')
-  onInput(value: string, field: keyof IUserSettings['info']): IUserSettings['info'] {
+  public onInput(value: string, field: keyof IUserSettings['info']): IUserSettings['info'] {
     this.settingsForm[field] = value;
     return this.settingsForm;
   }
 
-  render(): VNode {
+  public render(): VNode {
     return (
       <fieldset class='settings__fieldset fieldset'>
         <legend class='settings__legend legend'>

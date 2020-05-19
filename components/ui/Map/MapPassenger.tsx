@@ -8,7 +8,7 @@ import BaseThumbnail from 'components/base/BaseThumbnail';
   name: 'MapPassenger',
 })
 export default class MapPassenger extends VueComponent {
-  render(): VNode {
+  public render(): VNode {
     return (
       <div class='map__passenger'>
         <div class='map__passenger-col map__passenger-col_left'>

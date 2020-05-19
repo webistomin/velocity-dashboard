@@ -17,7 +17,7 @@ export default class SettingsTheme extends VueComponent<ISettingsThemeProps> {
   @Prop()
   private readonly theme!: IUserSettings['theme'];
 
-  currentTheme: IUserSettings['theme'] = this.theme;
+  public currentTheme: IUserSettings['theme'] = this.theme;
 
   @Emit('themeSelect')
   onInput(event: Event): IUserSettings['theme'] {

@@ -7,7 +7,7 @@ import { VNode } from '~/node_modules/vue';
   name: 'MapDestination',
 })
 export default class MapDestination extends VueComponent {
-  render(): VNode {
+  public render(): VNode {
     return (
       <div class='map__destination'>
         <div class='map__destination-heading'>

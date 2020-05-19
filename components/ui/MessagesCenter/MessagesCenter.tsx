@@ -15,9 +15,9 @@ import { Watch } from '~/node_modules/nuxt-property-decorator';
   name: 'MessagesCenter',
 })
 export default class MessagesCenter extends VueComponent {
-  isMessagesVisible: boolean = false;
+  public isMessagesVisible: boolean = false;
 
-  chats: IChat[] = [
+  public chats: IChat[] = [
     {
       name: 'Alexey Istomin',
       avatar: '/img/avatar.png',
@@ -76,24 +76,24 @@ export default class MessagesCenter extends VueComponent {
     },
   ];
 
-  toggleMessagesVisibility() {
+  public toggleMessagesVisibility() {
     this.isMessagesVisible = !this.isMessagesVisible;
   }
 
-  get shouldLockBody(): boolean {
+  public get shouldLockBody(): boolean {
     return !!(this.isMessagesVisible && window.matchMedia('(max-width: 1023px)').matches);
   }
 
-  onClickOutside(): void {
+  public onClickOutside(): void {
     this.isMessagesVisible = false;
   }
 
   @Watch('$route')
-  onRouteChanged() {
+  public onRouteChanged() {
     this.isMessagesVisible = false;
   }
 
-  render(): VNode {
+  public render(): VNode {
     return (
       <div class='messages-center' v-scroll-lock={this.shouldLockBody} v-click-outside={this.onClickOutside}>
         <button

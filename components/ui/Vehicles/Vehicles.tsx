@@ -17,9 +17,9 @@ import './Vehicles.sass';
   name: 'Vehicles',
 })
 export default class Vehicles extends VueComponent {
-  isFiltersVisible: boolean = false;
+  public isFiltersVisible: boolean = false;
 
-  tableData = [
+  public tableData = [
     {
       id: '#2178',
       subject: 'Refund request',
@@ -82,7 +82,7 @@ export default class Vehicles extends VueComponent {
     },
   ];
 
-  tableConfig = [
+  public tableConfig = [
     {
       key: 'id',
       title: 'Id',
@@ -101,18 +101,18 @@ export default class Vehicles extends VueComponent {
     },
   ];
 
-  slider1: number = 0;
-  slider2: number = 0;
+  public slider1: number = 0;
+  public slider2: number = 0;
 
-  select1: string = '';
-  select2: string = '';
-  select3: string = '';
+  public select1: string = '';
+  public select2: string = '';
+  public select3: string = '';
 
-  toggleFiltersVisibility(): void {
+  public toggleFiltersVisibility(): void {
     this.isFiltersVisible = !this.isFiltersVisible;
   }
 
-  mounted(): void {
+  public mounted(): void {
     if (window.matchMedia('(min-width: 1024px)').matches) {
       this.isFiltersVisible = true;
     }

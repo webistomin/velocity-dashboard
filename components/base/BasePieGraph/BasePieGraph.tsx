@@ -23,7 +23,7 @@ export default class BasePieGraph extends VueComponent<IBasePieGraphProps> {
   @Prop({ default: 'Pie graph' })
   private readonly fallbackText: IBasePieGraphProps['fallbackText'];
 
-  mounted(): void {
+  public mounted(): void {
     // @ts-ignore
     this.renderChart(this.chartData, this.options);
 

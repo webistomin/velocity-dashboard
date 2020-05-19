@@ -18,7 +18,7 @@ import './Reminders.sass';
   name: 'Reminders',
 })
 export default class Reminders extends VueComponent {
-  board: ITaskBoard[] = [
+  public board: ITaskBoard[] = [
     {
       title: 'Backlog',
       color: 'blue',
@@ -135,7 +135,7 @@ export default class Reminders extends VueComponent {
     },
   ];
 
-  pieData: ChartData = {
+  public pieData: ChartData = {
     labels: ['Fully serviced', 'In service', 'Waiting', 'Service needed'],
     datasets: [
       {
@@ -151,7 +151,7 @@ export default class Reminders extends VueComponent {
     ],
   };
 
-  pieOptions: ChartOptions = {
+  public pieOptions: ChartOptions = {
     responsive: true,
     maintainAspectRatio: false,
     animation: {
@@ -170,7 +170,7 @@ export default class Reminders extends VueComponent {
     },
   };
 
-  drivers: IBaseList[] = [
+  public drivers: IBaseList[] = [
     {
       image: '/img/avatar.png',
       name: 'Bebop',

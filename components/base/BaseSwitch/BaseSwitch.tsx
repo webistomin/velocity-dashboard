@@ -29,7 +29,7 @@ export default class BaseSwitch extends VueComponent<IBaseSwitchProps> {
   private readonly checked!: IBaseSwitchProps['checked'];
 
   @Emit('input')
-  onInput(event: Event): Event {
+  public onInput(event: Event): Event {
     return event;
   }
 

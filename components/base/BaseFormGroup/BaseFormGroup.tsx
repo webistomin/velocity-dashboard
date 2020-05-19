@@ -87,7 +87,7 @@ export default class BaseFormGroup extends VueComponent<IBaseFormGroupProps> {
   @Emit('blur')
   public onBlur(): void {}
 
-  render(): VNode {
+  public render(): VNode {
     return (
       <div class='base-form-group'>
         <div class='base-form-group__heading'>

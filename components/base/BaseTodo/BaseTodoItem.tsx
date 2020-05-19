@@ -25,7 +25,7 @@ export default class BaseTodoItem extends VueComponent<IBaseTodoItem> {
   @Prop()
   private readonly isDone!: IBaseTodo['isDone'];
 
-  get getDeadline(): string {
+  public get getDeadline(): string {
     const taskDate = this.date;
     const today = Date.now();
     const onTimeDate = addDaysToDate(new Date(today), 5);
@@ -40,7 +40,7 @@ export default class BaseTodoItem extends VueComponent<IBaseTodoItem> {
   }
 
   @Emit('input')
-  onInput(event: Event): Event {
+  public onInput(event: Event): Event {
     return event;
   }
 

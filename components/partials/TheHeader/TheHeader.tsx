@@ -23,7 +23,7 @@ export default class TheHeader extends VueComponent<IHeaderProps> {
   private readonly isNavOpened!: IHeaderProps['isNavOpened'];
 
   @Emit('openNav')
-  onToggleClick(): void {}
+  public onToggleClick(): void {}
 
   public render(): VNode {
     return (

@@ -37,7 +37,7 @@ export default class BaseSlider extends VueComponent<IBaseSliderProps> {
   private readonly labelEnd!: IBaseSliderProps['labelEnd'];
 
   @Emit('change')
-  onChange(value: number): number {
+  public onChange(value: number): number {
     return value;
   }
 

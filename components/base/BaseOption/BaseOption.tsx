@@ -39,11 +39,11 @@ export default class BaseOption extends VueComponent<IBaseOptionProps> {
   private readonly checked!: IBaseOptionProps['checked'];
 
   @Emit('input')
-  onInput(event: Event): Event {
+  public onInput(event: Event): Event {
     return event;
   }
 
-  render(): VNode {
+  public render(): VNode {
     return (
       <div class={`base-option`}>
         <input

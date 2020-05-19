@@ -27,7 +27,7 @@ class BaseBarGraphWithProps extends VueComponent<IBaseBarGraphProps> {
   name: 'BaseBarGraph',
 })
 export default class BaseBarGraph extends mixins(Bar, BaseBarGraphWithProps) {
-  mounted(): void {
+  public mounted(): void {
     this.renderChart(this.chartData, this.options);
 
     this.$nextTick(() => {

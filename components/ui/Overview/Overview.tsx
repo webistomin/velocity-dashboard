@@ -21,7 +21,7 @@ import { IBaseTodo } from 'components/base/BaseTodo/BaseTodo';
   name: 'Overview',
 })
 export default class Overview extends VueComponent {
-  datacollectionLinear: ChartData = {
+  public datacollectionLinear: ChartData = {
     labels: ['', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00'],
     datasets: [
       {
@@ -117,7 +117,7 @@ export default class Overview extends VueComponent {
     ],
   };
 
-  options: ChartOptions = {
+  public options: ChartOptions = {
     responsive: true,
     maintainAspectRatio: false,
     scales: {
@@ -168,7 +168,7 @@ export default class Overview extends VueComponent {
     },
   };
 
-  drivers: IBaseList[] = [
+  public drivers: IBaseList[] = [
     {
       image: '/img/avatar.png',
       name: 'Bebop',
@@ -227,7 +227,7 @@ export default class Overview extends VueComponent {
     },
   ];
 
-  barGraphData: ChartData = {
+  public barGraphData: ChartData = {
     labels: ['April', 'May', 'June'],
     datasets: [
       {
@@ -248,7 +248,7 @@ export default class Overview extends VueComponent {
     ],
   };
 
-  todos: IBaseTodo[] = [
+  public todos: IBaseTodo[] = [
     {
       title: 'Vehicle #11283',
       date: Date.now(),
@@ -287,14 +287,14 @@ export default class Overview extends VueComponent {
     },
   ];
 
-  updateTodo(event: Event): void {
+  public updateTodo(event: Event): void {
     const target = event.target as HTMLInputElement;
     const id = target.value;
     const index = this.todos.findIndex((todo) => todo.id === id);
     this.todos[index].isDone = !this.todos[index].isDone;
   }
 
-  render(): VNode {
+  public render(): VNode {
     return (
       <section class='overview'>
         <div class='container'>

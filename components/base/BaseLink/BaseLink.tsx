@@ -44,7 +44,7 @@ export default class BaseLink extends VueComponent<IConditionalBaseLinkProps> {
   @Emit('click')
   public onClick(): void {}
 
-  render() {
+  public render() {
     const linkComponentDefaultProps = {
       theme: this.theme,
       class: `link base-link base-link_theme_${this.theme} ${this.isButton ? 'btn' : ''}`,

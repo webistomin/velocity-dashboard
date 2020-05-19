@@ -14,7 +14,7 @@ export default class ChatMessages extends VueComponent {
     chatMessagesContent: HTMLDivElement;
   };
 
-  async mounted(): Promise<void> {
+  public async mounted(): Promise<void> {
     await this.$nextTick();
 
     const list = this.$refs.chatMessagesContent;

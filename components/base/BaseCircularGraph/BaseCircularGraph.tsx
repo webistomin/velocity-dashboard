@@ -18,9 +18,9 @@ export default class BaseCircularGraph extends VueComponent<IBaseCircularGraphPr
   @Prop({ default: 0 })
   private readonly value!: IBaseCircularGraphProps['value'];
 
-  animatedValue: IBaseCircularGraphProps['value'] = 0;
+  public animatedValue: IBaseCircularGraphProps['value'] = 0;
 
-  mounted(): void {
+  public mounted(): void {
     animateValue.call(this, 'animatedValue', 0, this.value, 2000);
   }
 

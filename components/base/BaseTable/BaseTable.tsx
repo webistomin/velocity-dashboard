@@ -28,9 +28,9 @@ export default class BaseTable extends VueComponent<IBaseTableProps> {
   @Prop()
   private readonly tableData!: IBaseTableProps['tableData'];
 
-  onSortClick(_field: IBaseTableConfig['key']) {}
+  public onSortClick(_field: IBaseTableConfig['key']) {}
 
-  get getTableRows() {
+  public get getTableRows() {
     return this.tableData.map((row) => {
       return (
         <div class='base-table__row'>

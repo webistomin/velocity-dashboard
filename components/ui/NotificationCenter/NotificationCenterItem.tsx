@@ -37,7 +37,7 @@ export default class NotificationCenterItem extends VueComponent<INotificationCe
   @Prop({ default: false })
   private readonly isNew!: INotificationCenterItemProps['isNew'];
 
-  get getIconName() {
+  public get getIconName() {
     switch (this.type) {
       case NotificationCenterItemTypes.MESSAGE:
         return 'icon-bubble';
@@ -50,7 +50,7 @@ export default class NotificationCenterItem extends VueComponent<INotificationCe
     }
   }
 
-  render(): VNode {
+  public render(): VNode {
     return (
       <div class='notification-center__item'>
         <nuxt-link to='/test' class='notification-center__item-link link'>

@@ -19,7 +19,7 @@ export default class NotificationCenterWeather extends VueComponent<INotificatio
   @Prop({ default: 0 })
   private readonly temperature!: INotificationCenterWeatherProps['temperature'];
 
-  render(): VNode {
+  public render(): VNode {
     return (
       <div class='notification-center__weather'>
         <BaseTitle level={3} class='notification-center__weather-title'>

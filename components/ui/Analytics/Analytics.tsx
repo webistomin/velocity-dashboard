@@ -15,7 +15,7 @@ import './Analytics.sass';
   name: 'Analytics',
 })
 export default class Analytics extends VueComponent {
-  dataCollectionLinear: ChartData = {
+  public dataCollectionLinear: ChartData = {
     labels: [
       '',
       'Mar 1',
@@ -201,7 +201,7 @@ export default class Analytics extends VueComponent {
     ],
   };
 
-  lineOptions: ChartOptions = {
+  public lineOptions: ChartOptions = {
     responsive: true,
     maintainAspectRatio: false,
     scales: {
@@ -255,7 +255,7 @@ export default class Analytics extends VueComponent {
     },
   };
 
-  trips = [
+  public trips = [
     {
       image: '/img/avatar.png',
       name: 'Chrysler Building - The High Line',
@@ -300,7 +300,7 @@ export default class Analytics extends VueComponent {
     },
   ];
 
-  dataCollectionMixed: ChartData = {
+  public dataCollectionMixed: ChartData = {
     labels: ['Mon', 'Tue', 'Fri', 'Thu', 'Wed', 'Sat', 'Sun'],
     datasets: [
       {
@@ -328,7 +328,7 @@ export default class Analytics extends VueComponent {
     ],
   };
 
-  mixedOptions: ChartOptions = {
+  public mixedOptions: ChartOptions = {
     responsive: true,
     maintainAspectRatio: false,
     scales: {
@@ -378,7 +378,7 @@ export default class Analytics extends VueComponent {
     },
   };
 
-  render(): VNode {
+  public render(): VNode {
     return (
       <section class='analytics'>
         <div class='container'>

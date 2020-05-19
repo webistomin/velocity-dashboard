@@ -19,9 +19,9 @@ import { Watch } from '~/node_modules/nuxt-property-decorator';
   name: 'NotificationCenter',
 })
 export default class NotificationCenter extends VueComponent {
-  isNotificationsVisible: boolean = false;
+  public isNotificationsVisible: boolean = false;
 
-  notifications: INotificationCenterItemProps[] = [
+  public notifications: INotificationCenterItemProps[] = [
     {
       type: NotificationCenterItemTypes.MESSAGE,
       text: 'How may we assist you today?',
@@ -80,24 +80,24 @@ export default class NotificationCenter extends VueComponent {
     },
   ];
 
-  toggleNotificationVisibility() {
+  public toggleNotificationVisibility() {
     this.isNotificationsVisible = !this.isNotificationsVisible;
   }
 
-  get shouldLockBody(): boolean {
+  public get shouldLockBody(): boolean {
     return !!(this.isNotificationsVisible && window.matchMedia('(max-width: 1023px)').matches);
   }
 
-  onClickOutside(): void {
+  public onClickOutside(): void {
     this.isNotificationsVisible = false;
   }
 
   @Watch('$route')
-  onRouteChanged() {
+  public onRouteChanged() {
     this.isNotificationsVisible = false;
   }
 
-  render(): VNode {
+  public render(): VNode {
     return (
       <div class='notification-center' v-scroll-lock={this.shouldLockBody} v-click-outside={this.onClickOutside}>
         <button

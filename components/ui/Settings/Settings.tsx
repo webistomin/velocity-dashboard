@@ -33,7 +33,7 @@ export interface IUserSettings {
   name: 'Settings',
 })
 export default class Settings extends VueComponent {
-  settingsForm: IUserSettings = {
+  public settingsForm: IUserSettings = {
     info: {
       email: 'webistomin@gmail.com',
       firstName: 'Alexey',
@@ -52,15 +52,15 @@ export default class Settings extends VueComponent {
     theme: 'shelob',
   };
 
-  onChangeSettings(info: IUserSettings['info']): void {
+  public onChangeSettings(info: IUserSettings['info']): void {
     this.settingsForm.info = info;
   }
 
-  onSelectNotification(notifications: IUserSettings['notifications']): void {
+  public onSelectNotification(notifications: IUserSettings['notifications']): void {
     this.settingsForm.notifications = notifications;
   }
 
-  onThemeSelect(theme: string): void {
+  public onThemeSelect(theme: string): void {
     this.settingsForm.theme = theme;
     const root = document.documentElement;
     root.className = `theme theme_${theme}`;
@@ -71,8 +71,6 @@ export default class Settings extends VueComponent {
     return (
       <section class='settings'>
         <div class='container settings__container'>
-          {/*
-          // @ts-ignore */}
           <BaseTitle class='settings__title' level={3}>
             Settings
           </BaseTitle>

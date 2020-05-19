@@ -36,7 +36,7 @@ export default class BaseSelect extends VueComponent<IBaseSelectProps> {
   private readonly placeholder!: IBaseSelectProps['placeholder'];
 
   @Emit('input')
-  onInput(value: string): string {
+  public onInput(value: string): string {
     return value;
   }
 

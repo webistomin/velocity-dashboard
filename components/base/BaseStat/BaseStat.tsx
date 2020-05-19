@@ -28,7 +28,7 @@ export interface IBaseStatProps {
   name: 'BaseStat',
 })
 export default class BaseStat extends VueComponent<IBaseStatProps> {
-  animatedValue: IBaseStatProps['value'] = 0;
+  public animatedValue: IBaseStatProps['value'] = 0;
 
   @Prop()
   private readonly value!: IBaseStatProps['value'];
@@ -48,16 +48,16 @@ export default class BaseStat extends VueComponent<IBaseStatProps> {
   @Prop({ default: 'col' })
   private readonly align!: IBaseStatProps['align'];
 
-  mounted(): void {
+  public mounted(): void {
     animateValue.call(this, 'animatedValue', 0, this.value, 2000);
   }
 
-  get getStat(): string {
+  public get getStat(): string {
     // @ts-ignore
     return (((this.value - this.prevValue) / this.prevValue) * 100).toFixed(1);
   }
 
-  get getDynamic(): string {
+  public get getDynamic(): string {
     const value = Number(this.getStat);
     if (value <= 0) {
       return DynamicTypes.NEGATIVE;
@@ -66,7 +66,7 @@ export default class BaseStat extends VueComponent<IBaseStatProps> {
     return DynamicTypes.POSITIVE;
   }
 
-  get getIconName(): string {
+  public get getIconName(): string {
     const dynamic = this.getDynamic;
     if (dynamic === DynamicTypes.NEGATIVE) {
       return 'icon-arrow-down';
@@ -75,7 +75,7 @@ export default class BaseStat extends VueComponent<IBaseStatProps> {
     return 'icon-arrow-up';
   }
 
-  render(): VNode {
+  public render(): VNode {
     return (
       <div class={`base-stat base-stat_align_${this.align}`}>
         {this.icon ? <BaseIcon class='base-stat__icon' name={this.icon} color={this.color} /> : null}

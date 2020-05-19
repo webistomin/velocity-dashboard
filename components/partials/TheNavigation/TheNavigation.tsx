@@ -26,7 +26,7 @@ export default class TheNavigation extends VueComponent<INavigationProps> {
   @Prop({ default: false })
   private readonly isNavOpened!: INavigationProps['isNavOpened'];
 
-  navLinks: INavigationLinks[] = [
+  public navLinks: INavigationLinks[] = [
     {
       name: 'Overview',
       icon: 'icon-grid',
@@ -65,9 +65,9 @@ export default class TheNavigation extends VueComponent<INavigationProps> {
   ];
 
   @Emit('openNav')
-  onToggleClick(): void {}
+  public onToggleClick(): void {}
 
-  render(): VNode {
+  public render(): VNode {
     return (
       <aside class={`main-nav ${this.isNavOpened ? 'main-nav_visible' : ''}`}>
         <div class='main-nav__wrapper'>

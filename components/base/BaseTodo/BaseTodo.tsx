@@ -30,7 +30,7 @@ export default class BaseTodo extends VueComponent<IBaseTodoProps> {
   private readonly limit!: IBaseTodoProps['limit'];
 
   @Emit('input')
-  onInput(event: Event): Event {
+  public onInput(event: Event): Event {
     return event;
   }
 

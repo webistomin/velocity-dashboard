@@ -25,13 +25,13 @@ export interface ILoginProps {
   name: 'Login',
 })
 export default class Login extends VueComponent {
-  currentForm = FormTypes.SIGN_UP;
+  public currentForm = FormTypes.SIGN_UP;
 
   public setFormType(formName: FormTypes): void {
     this.currentForm = formName;
   }
 
-  render(): VNode {
+  public render(): VNode {
     return (
       <section class='login'>
         <h2 class='visually-hidden'>Authorization</h2>

@@ -17,9 +17,9 @@ export default class BaseOverlay extends VueComponent<IBaseOverlayProps> {
   private readonly isVisible!: IBaseOverlayProps['isVisible'];
 
   @Emit('click')
-  onOverlayClick(): void {}
+  public onOverlayClick(): void {}
 
-  render(): VNode {
+  public render(): VNode {
     return <div class={`base-overlay ${this.isVisible ? 'base-overlay_visible' : ''}`} onClick={this.onOverlayClick} />;
   }
 }

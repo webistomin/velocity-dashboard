@@ -13,8 +13,8 @@ import './UserCenter.sass';
   name: 'UserCenter',
 })
 export default class UserCenter extends VueComponent {
-  isUserProfileVisible: boolean = false;
-  info: IUserProfileInfo[] = [
+  public isUserProfileVisible: boolean = false;
+  public info: IUserProfileInfo[] = [
     {
       key: 'Role',
       value: 'Administrator, Moderator',
@@ -42,19 +42,19 @@ export default class UserCenter extends VueComponent {
     },
   ];
 
-  toggleUserProfileVisibility() {
+  public toggleUserProfileVisibility() {
     this.isUserProfileVisible = !this.isUserProfileVisible;
   }
 
-  get shouldLockBody(): boolean {
+  public get shouldLockBody(): boolean {
     return !!(this.isUserProfileVisible && window.matchMedia('(max-width: 1023px)').matches);
   }
 
-  onClickOutside(): void {
+  public onClickOutside(): void {
     this.isUserProfileVisible = false;
   }
 
-  render(): VNode {
+  public render(): VNode {
     return (
       <div class='user-center' v-scroll-lock={this.shouldLockBody} v-click-outside={this.onClickOutside}>
         <button class='user-center__btn btn' onClick={this.toggleUserProfileVisibility}>

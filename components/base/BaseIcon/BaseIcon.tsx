@@ -24,7 +24,7 @@ export const BaseIcon = Vue.extend({
     },
     color: {
       type: String as PropType<IBaseIconProps['color']>,
-      default: '',
+      default: 'default',
     },
   },
   render(_h: CreateElement, ctx: RenderContext<IBaseIconProps>): VNode {

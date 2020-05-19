@@ -24,7 +24,7 @@ import { FormTypes, ILoginProps } from './Login';
   },
 })
 export default class LoginForgot extends VueComponent<ILoginProps> {
-  forgotForm = {
+  public forgotForm = {
     email: '',
   };
 
@@ -33,7 +33,7 @@ export default class LoginForgot extends VueComponent<ILoginProps> {
     return type;
   }
 
-  render(): VNode {
+  public render(): VNode {
     return (
       <div class='login__holder'>
         <div class='login__heading'>

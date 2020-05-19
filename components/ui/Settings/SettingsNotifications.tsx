@@ -17,7 +17,7 @@ export default class SettingNotification extends VueComponent<ISettingsNotificat
   @Prop()
   private readonly notifications!: IUserSettings['notifications'];
 
-  settingsForm: IUserSettings['notifications'] = this.notifications;
+  public settingsForm: IUserSettings['notifications'] = this.notifications;
 
   @Emit('selectNotification')
   onInput(event: Event, field: keyof IUserSettings['notifications']): IUserSettings['notifications'] {
@@ -26,7 +26,7 @@ export default class SettingNotification extends VueComponent<ISettingsNotificat
     return this.settingsForm;
   }
 
-  render(): VNode {
+  public render(): VNode {
     return (
       <fieldset class='settings__fieldset fieldset'>
         <legend class='settings__legend legend'>Control your notification and auto-follow settings.</legend>

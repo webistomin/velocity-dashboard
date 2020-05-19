@@ -31,14 +31,14 @@ import { FormTypes, ILoginProps } from './Login';
   },
 })
 export default class LoginSignUp extends VueComponent<ILoginProps> {
-  signUpForm = {
+  public signUpForm = {
     name: '',
     email: '',
     password: '',
     role: 'Administrator',
   };
 
-  roles = [
+  public roles = [
     {
       name: 'Administrator',
       desc: 'Full access to all settings',
@@ -56,17 +56,15 @@ export default class LoginSignUp extends VueComponent<ILoginProps> {
     return type;
   }
 
-  updateRoleValue(event: Event) {
+  public updateRoleValue(event: Event) {
     const target = event.target as HTMLInputElement;
     this.signUpForm.role = target.value;
   }
 
-  render(): VNode {
+  public render(): VNode {
     return (
       <div class='login__holder'>
         <div class='login__heading'>
-          {/*
-          // @ts-ignore */}
           <BaseTitle class='login__title' level={3}>
             Get started for free
           </BaseTitle>
@@ -86,8 +84,6 @@ export default class LoginSignUp extends VueComponent<ILoginProps> {
                     onInput={(event: Event) => this.updateRoleValue(event)}
                     checked={role.name === this.signUpForm.role}>
                     <span class='login__option-content'>
-                      {/*
-                      // @ts-ignore */}
                       <BaseIcon size='s' name={role.icon} color='default' class='login__option-icon' />
                       <strong class='login__option-name'>{role.name}</strong>
                       <span class='login__option-desc paragraph paragraph_color_darkgray'>{role.desc}</span>

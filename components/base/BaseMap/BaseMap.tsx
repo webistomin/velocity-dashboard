@@ -1,5 +1,6 @@
 import { VueComponent } from 'types/vue-components';
 import { Component } from 'nuxt-property-decorator';
+import { VNode } from 'vue';
 
 import './BaseMap.sass';
 
@@ -7,13 +8,13 @@ import './BaseMap.sass';
   name: 'BaseMap',
 })
 export default class BaseMap extends VueComponent {
-  url: string = 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png';
-  travel = [
+  public url: string = 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png';
+  public travel = [
     [145.0, 175.2],
     [8.3, 218.7],
   ];
 
-  get getPrimaryColor(): string {
+  public get getPrimaryColor(): string {
     if (process.client) {
       return `rgb(${getComputedStyle(document.documentElement)
         .getPropertyValue('--color-primary')
@@ -23,7 +24,7 @@ export default class BaseMap extends VueComponent {
     return 'rgb(46, 91, 255)';
   }
 
-  render() {
+  public render(): VNode {
     return (
       <client-only>
         <L-Map zoom={10} center={[55.751244, 37.618423]} class='base-map'>

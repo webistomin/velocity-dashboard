@@ -27,7 +27,7 @@ export default class BaseBlock extends VueComponent<IBaseBlockProps> {
   @Prop()
   private readonly simple!: IBaseBlockProps['simple'];
 
-  render(): VNode {
+  public render(): VNode {
     return (
       <div class={`base-block ${this.simple ? 'base-block_simple' : ''}`}>
         {this.title || this.hasOptions ? (

@@ -32,15 +32,15 @@ export default class BaseBoard extends VueComponent<IBaseBoardProps> {
   @Prop()
   private readonly board!: IBaseBoardProps['board'];
 
-  currentBoard = this.board;
-  collapsed = true;
+  public currentBoard = this.board;
+  public collapsed = true;
 
   @Emit('setBoard')
-  setBoard(): IBaseBoardProps['board'] {
+  public setBoard(): IBaseBoardProps['board'] {
     return this.currentBoard;
   }
 
-  toggleBoard() {
+  public toggleBoard() {
     this.collapsed = !this.collapsed;
   }
 

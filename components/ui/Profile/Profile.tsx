@@ -12,7 +12,7 @@ import './Profile.sass';
   name: 'Profile',
 })
 export default class Profile extends VueComponent {
-  tableData = [
+  public tableData = [
     {
       id: '#2178',
       subject: 'Refund request',
@@ -75,7 +75,7 @@ export default class Profile extends VueComponent {
     },
   ];
 
-  tableConfig = [
+  public tableConfig = [
     {
       key: 'id',
       title: 'Id',

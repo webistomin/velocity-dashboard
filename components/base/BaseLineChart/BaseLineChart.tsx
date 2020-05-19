@@ -33,7 +33,7 @@ export default class BaseLineChart extends VueComponent<IBaseLineChartProps> {
   @Prop({ default: 'Linear graph' })
   private readonly fallbackText: IBaseLineChartProps['fallbackText'];
 
-  mounted(): void {
+  public mounted(): void {
     if (this.gradients) {
       this.constructGradients(this.gradients);
     }

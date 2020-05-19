@@ -1,4 +1,5 @@
 import { VueComponent } from 'types/vue-components';
+import { VNode } from 'vue';
 import { Component, Prop } from 'nuxt-property-decorator';
 
 import BaseThumbnail from 'components/base/BaseThumbnail';
@@ -28,7 +29,7 @@ export default class BaseList extends VueComponent<IBaseListProps> {
   @Prop({ default: 6 })
   private readonly limit!: IBaseListProps['limit'];
 
-  render() {
+  public render(): VNode {
     return (
       <div class='base-list'>
         <ul class='base-list__list list'>
