@@ -2,6 +2,7 @@ const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 
 module.exports = {
+  dev: process.env.NODE_ENV !== 'production',
   mode: 'universal',
   head: {
     title: process.env.npm_package_name || '',
@@ -20,7 +21,11 @@ module.exports = {
       { name: 'google', content: 'notranslate' },
       { 'http-equiv': 'x-ua-compatible', content: 'ie=edge' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'preconnect', href: 'https://cartodb-basemaps-c.global.ssl.fastly.net' },
+      { rel: 'preconnect', href: 'https://cdn.jsdelivr.nett' },
+    ],
   },
   loading: { color: '#fff' },
   css: [
