@@ -22,6 +22,7 @@
     "paths": {
       "components/*": [ "./components/*" ],
       "types/*": [ "./types/*" ],
+      "server/*": [ "./server/*" ],
       "~/*": [ "./*" ],
       "@/*": [ "./*" ]
     },
@@ -40,7 +41,8 @@
     "layouts/**/*.ts",
     "pages/**/*.tsx",
     "pages/**/*.ts",
-    "./types/**/*.ts"
+    "types/**/*.ts",
+    "server/**/*.ts"
   ],
   "exclude": [
     "node_modules",
