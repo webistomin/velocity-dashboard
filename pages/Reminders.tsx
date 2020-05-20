@@ -6,6 +6,7 @@ import Reminders from 'components/ui/Reminders';
 
 @Component({
   name: 'RemindersPage',
+  middleware: ['auth-guard', 'auth-admin'],
 })
 export default class RemindersPage extends VueComponent {
   render(): VNode {

@@ -28,7 +28,9 @@
     "types": [
       "@types/node",
       "@nuxt/types",
-      "@types/nuxtjs__auth"
+      "@types/nuxtjs__auth",
+      "@nuxtjs/axios",
+      "vuelidate"
     ]
   },
   "include": [

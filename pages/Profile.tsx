@@ -6,6 +6,7 @@ import Profile from 'components/ui/Profile';
 
 @Component({
   name: 'ProfilePage',
+  middleware: ['auth-guard', 'auth-admin'],
 })
 export default class ProfilePage extends VueComponent {
   render(): VNode {

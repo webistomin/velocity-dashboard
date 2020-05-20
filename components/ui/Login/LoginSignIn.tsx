@@ -39,19 +39,12 @@ export default class LoginSignIn extends VueComponent<ILoginProps> {
 
   public async onSubmit(): Promise<void> {
     try {
-      const response = await this.$auth.loginWith('local', {
+      await this.$auth.loginWith('local', {
         data: {
           email: this.signInForm.email,
           password: this.signInForm.password,
         },
       });
-
-      await console.log(response);
-
-      // @ts-ignore
-      if (response.data.success) {
-        this.$router.push('/');
-      }
     } catch (e) {
       console.log(e);
     }

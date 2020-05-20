@@ -5,6 +5,7 @@ import Settings from 'components/ui/Settings';
 
 @Component({
   name: 'SettingsPage',
+  middleware: ['auth-guard'],
 })
 export default class SettingsPage extends VueComponent {
   render(): VNode {

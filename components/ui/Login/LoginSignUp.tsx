@@ -39,17 +39,19 @@ export default class LoginSignUp extends VueComponent<ILoginProps> {
     lastName: '',
     email: '',
     password: '',
-    role: 'Administrator',
+    role: 'admin',
   };
 
   public roles = [
     {
       name: 'Administrator',
+      value: 'admin',
       desc: 'Full access to all settings',
       icon: 'icon-lightning',
     },
     {
       name: 'Operator',
+      value: 'operator',
       desc: 'Service desk and chat permissions',
       icon: 'icon-bubble',
     },
@@ -63,6 +65,24 @@ export default class LoginSignUp extends VueComponent<ILoginProps> {
   public updateRoleValue(event: Event) {
     const target = event.target as HTMLInputElement;
     this.signUpForm.role = target.value;
+  }
+
+  public async onSubmit(): Promise<void> {
+    try {
+      const data = this.signUpForm;
+      const response = await this.$axios.$post('auth/signup', data);
+
+      if (response.success) {
+        await this.$auth.loginWith('local', {
+          data: {
+            email: data.email,
+            password: data.password,
+          },
+        });
+      }
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   public render(): VNode {
@@ -82,11 +102,11 @@ export default class LoginSignUp extends VueComponent<ILoginProps> {
                   <BaseOption
                     class='login__option'
                     type='radio'
-                    value={role.name}
+                    value={role.value}
                     name='login-role'
-                    id={`login-role-${role.name}`}
+                    id={`login-role-${role.value}`}
                     onInput={(event: Event) => this.updateRoleValue(event)}
-                    checked={role.name === this.signUpForm.role}>
+                    checked={role.value === this.signUpForm.role}>
                     <span class='login__option-content'>
                       <BaseIcon size='s' name={role.icon} color='default' class='login__option-icon' />
                       <strong class='login__option-name'>{role.name}</strong>
@@ -143,7 +163,7 @@ export default class LoginSignUp extends VueComponent<ILoginProps> {
               onBlur={this.$v.signUpForm.password?.$touch}
             />
           </div>
-          <BaseButton class='login__submit' type='button'>
+          <BaseButton class='login__submit' type='button' onClick={this.onSubmit}>
             Create Account
           </BaseButton>
           <p class='login__text paragraph'>

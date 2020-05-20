@@ -6,6 +6,7 @@ import Chat from 'components/ui/Chat';
 
 @Component({
   name: 'VehiclesPage',
+  middleware: ['auth-guard'],
 })
 export default class VehiclesPage extends VueComponent {
   render(): VNode {

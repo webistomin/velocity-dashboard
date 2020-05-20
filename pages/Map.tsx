@@ -6,6 +6,7 @@ import Map from 'components/ui/Map';
 
 @Component({
   name: 'MapPage',
+  middleware: ['auth-guard', 'auth-admin'],
 })
 export default class MapPage extends VueComponent {
   render(): VNode {

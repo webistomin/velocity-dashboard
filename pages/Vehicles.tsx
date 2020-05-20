@@ -6,6 +6,7 @@ import Vehicles from 'components/ui/Vehicles';
 
 @Component({
   name: 'VehiclesPage',
+  middleware: ['auth-guard', 'auth-admin'],
 })
 export default class VehiclesPage extends VueComponent {
   render(): VNode {
