@@ -1,8 +1,8 @@
 import { Application } from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import routes from '../api/v1';
-import config from '../config';
+import routes from 'server/api/v1';
+import config from 'server/config';
 
 export default (app: Application) => {
   /**

@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import consola from 'consola';
 import { Db, MongoError } from 'mongodb';
-import config from '../config';
+import config from 'server/config';
 
 /**
  * Connect to MongoDB

@@ -1,7 +1,8 @@
 import { Request, Response } from 'express';
+import HTTPStatuses from 'http-status-codes';
 import JWT from 'jsonwebtoken';
-import User from '../../../../models/user';
-import config from '../../../../config';
+import User from 'server/models/user';
+import config from 'server/config';
 
 export default async (req: Request, res: Response) => {
   try {
@@ -10,7 +11,7 @@ export default async (req: Request, res: Response) => {
     const foundUser = await User.findOne({ email });
 
     if (!foundUser) {
-      await res.status(403).json({
+      await res.status(HTTPStatuses.NO_CONTENT).json({
         success: false,
         message: 'User is not found',
       });
@@ -24,13 +25,13 @@ export default async (req: Request, res: Response) => {
         token,
       });
     } else {
-      res.status(403).json({
+      res.status(HTTPStatuses.UNAUTHORIZED).json({
         success: false,
         message: 'Wrong password',
       });
     }
   } catch (e) {
-    await res.status(500).json({
+    await res.status(HTTPStatuses.INTERNAL_SERVER_ERROR).json({
       success: false,
       message: e.message,
     });

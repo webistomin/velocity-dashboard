@@ -1,16 +1,7 @@
-import mongoose, { Schema, Document, HookNextFunction } from 'mongoose';
+import mongoose, { Schema, HookNextFunction } from 'mongoose';
 import bcrypt from 'bcrypt-nodejs';
-
-export type IUserRoles = 'admin' | 'operator';
-
-export interface IUserSchema extends Document {
-  firstName: string;
-  lastName: string;
-  role: IUserRoles;
-  email: string;
-  password: string;
-  comparePassword(candidatePassword: string): Promise<boolean>;
-}
+import { IUserSchema } from 'common/types/user/user-schema';
+import { SiteThemes } from 'common/types/theme/site-themes';
 
 const UserSchema: Schema = new Schema({
   firstName: {
@@ -33,6 +24,46 @@ const UserSchema: Schema = new Schema({
   password: {
     type: String,
     required: true,
+  },
+  theme: {
+    type: String,
+    default: SiteThemes.SHELOB,
+  },
+  notifications: {
+    isEmailNotificationsEnabled: {
+      type: Boolean,
+      default: true,
+    },
+    isPushNotificationsEnabled: {
+      type: Boolean,
+      default: false,
+    },
+    isMonthlyNotificationsEnabled: {
+      type: Boolean,
+      default: false,
+    },
+    isQuarterNotificationsEnabled: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  phone: {
+    type: String,
+    default: '',
+  },
+  socials: {
+    twitter: {
+      type: String,
+      default: '',
+    },
+  },
+  location: {
+    type: String,
+    default: '',
+  },
+  bio: {
+    type: String,
+    default: '',
   },
 });
 

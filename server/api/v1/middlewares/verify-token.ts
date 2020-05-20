@@ -1,17 +1,14 @@
 import JWT from 'jsonwebtoken';
+import HTTPStatuses from 'http-status-codes';
 import { NextFunction, Request, Response } from 'express';
-import { IUserSchema } from '../../../models/user';
-import config from '../../../config';
+import { IUserSchema } from 'common/types/user/user-schema';
+import config from 'server/config';
 
-export interface IExtendedUserSchema extends IUserSchema {
-  _id: string;
+export interface IVerifiedUserRequest extends Request {
+  decodedUser: IUserSchema;
 }
 
-export interface ITokenRequest extends Request {
-  decoded: IExtendedUserSchema | undefined;
-}
-
-export default function verifyToken(req: ITokenRequest, res: Response, next: NextFunction) {
+export default function verifyToken(req: IVerifiedUserRequest, res: Response, next: NextFunction) {
   const BEARER_START = 'Bearer ';
   let token = req.headers.authorization;
 
@@ -21,20 +18,20 @@ export default function verifyToken(req: ITokenRequest, res: Response, next: Nex
     }
 
     if (config.jwt.secret) {
-      JWT.verify(token, config.jwt.secret, (err, decoded) => {
+      JWT.verify(token, config.jwt.secret, (err, decodedUser) => {
         if (err) {
-          res.json({
+          res.status(HTTPStatuses.INTERNAL_SERVER_ERROR).json({
             success: false,
             message: err.message,
           });
         }
 
-        req.decoded = decoded as IExtendedUserSchema;
+        req.decodedUser = decodedUser as IUserSchema;
         next();
       });
     }
   } else {
-    res.json({
+    res.status(HTTPStatuses.BAD_REQUEST).json({
       success: false,
       message: 'No token provided',
     });

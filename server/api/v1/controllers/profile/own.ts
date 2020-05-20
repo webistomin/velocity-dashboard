@@ -1,20 +1,23 @@
-import { ITokenRequest } from 'server/api/v1/middlewares/verify-token';
 import { Response } from 'express';
-import User from '../../../../models/user';
+import HTTPStatuses from 'http-status-codes';
+import User from 'server/models/user';
+import { IVerifiedUserRequest } from 'middlewares/verify-token';
 
-export default async (req: ITokenRequest, res: Response) => {
+export default async (req: IVerifiedUserRequest, res: Response) => {
   try {
-    if (req?.decoded?._id) {
-      const foundUser = await User.findOne({ _id: req.decoded._id });
+    const userId = req?.decodedUser?._id;
+
+    if (userId) {
+      const foundUser = await User.findOne({ _id: userId });
       if (foundUser) {
-        await res.json({
+        await res.status(HTTPStatuses.OK).json({
           success: true,
           user: foundUser,
         });
       }
     }
   } catch (e) {
-    await res.status(500).json({
+    await res.status(HTTPStatuses.INTERNAL_SERVER_ERROR).json({
       success: false,
       message: e.message,
     });

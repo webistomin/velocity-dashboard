@@ -6,5 +6,7 @@ export const clientUrls = {
   reminders: '/reminders',
   map: '/map',
   chat: '/chat',
+  chatWithUserById: '/chat/:id',
   settings: '/settings',
+  profile: '/profile',
 };

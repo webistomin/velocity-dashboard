@@ -1,7 +1,9 @@
 import { Request, Response } from 'express';
+import HTTPStatuses from 'http-status-codes';
 import JWT from 'jsonwebtoken';
-import User from '../../../../models/user';
-import config from '../../../../config';
+import User from 'server/models/user';
+import config from 'server/config';
+import { WEEK } from 'common/consts/times';
 
 export default async (req: Request, res: Response) => {
   try {
@@ -17,17 +19,17 @@ export default async (req: Request, res: Response) => {
 
     if (config.jwt.secret) {
       token = JWT.sign(newUser.toJSON(), config.jwt.secret, {
-        expiresIn: 60480,
+        expiresIn: WEEK,
       });
     }
 
-    await res.status(201).json({
+    await res.status(HTTPStatuses.CREATED).json({
       success: true,
       token,
       message: 'User created',
     });
   } catch (e) {
-    await res.status(500).json({
+    await res.status(HTTPStatuses.INTERNAL_SERVER_ERROR).json({
       success: false,
       message: e.message,
     });

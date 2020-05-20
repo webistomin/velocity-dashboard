@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
+import HTTPStatuses from 'http-status-codes';
 
 export default (_req: Request, res: Response) => {
-  res.status(200).send({ status: 'OK' });
+  res.status(HTTPStatuses.OK).send({ status: 'OK' });
 };

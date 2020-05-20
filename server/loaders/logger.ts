@@ -6,7 +6,7 @@ const morganOption: Options = {
     /**
      * Skip static requests
      */
-    return !!req.url.includes('_nuxt');
+    return req.url.includes('_nuxt');
   },
 };
 

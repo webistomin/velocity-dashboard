@@ -23,6 +23,9 @@
       "components/*": [ "./components/*" ],
       "types/*": [ "./types/*" ],
       "server/*": [ "./server/*" ],
+      "common/*": [ "./common/*" ],
+      "controllers/*": [ "./server/api/v1/controllers/*" ],
+      "middlewares/*": [ "./server/api/v1/middlewares/*" ],
       "~/*": [ "./*" ],
       "@/*": [ "./*" ]
     },

@@ -1,6 +1,6 @@
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
-const URL = 'http://localhost:3000/api/v1';
+const URL = `http://localhost:3000/api/v1`;
 
 module.exports = {
   dev: process.env.NODE_ENV !== 'production',
@@ -54,10 +54,8 @@ module.exports = {
     '@nuxtjs/style-resources',
   ],
   modules: [
-    // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
     ['@nuxtjs/router', { path: 'router', DefaultRouter: true }],
     '@nuxtjs/auth',
@@ -74,10 +72,6 @@ module.exports = {
       autoprefixer: {},
     },
   },
-  /*
-   ** Axios module configuration
-   ** See https://axios.nuxtjs.org/options
-   */
   axios: {
     baseURL: URL,
   },
@@ -93,9 +87,7 @@ module.exports = {
         localesToKeep: ['es-us'],
       }),
     ],
-    /*
-     ** You can extend webpack config here
-     */
+
     extend(config) {
       if (!config.resolve) {
         config.resolve = {};

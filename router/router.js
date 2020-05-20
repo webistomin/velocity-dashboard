@@ -2,6 +2,7 @@
 
 import Vue from 'vue';
 import Router from 'vue-router';
+import { clientUrls } from 'common/urls/clientUrls';
 import scrollBehavior from '../.nuxt/router.scrollBehavior';
 
 Vue.use(Router);
@@ -30,39 +31,39 @@ export function createRouter() {
     fallback: false,
     routes: [
       {
-        path: '/',
+        path: clientUrls.home,
         component: Main,
       },
       {
-        path: '/login',
+        path: clientUrls.login,
         component: Login,
       },
       {
-        path: '/analytics',
+        path: clientUrls.analytics,
         component: Analytics,
       },
       {
-        path: '/settings',
+        path: clientUrls.settings,
         component: Settings,
       },
       {
-        path: '/profile',
+        path: clientUrls.profile,
         component: Profile,
       },
       {
-        path: '/vehicles',
+        path: clientUrls.vehicles,
         component: Vehicles,
       },
       {
-        path: '/reminders',
+        path: clientUrls.reminders,
         component: Reminders,
       },
       {
-        path: '/map',
+        path: clientUrls.map,
         component: Map,
       },
       {
-        path: '/chat',
+        path: clientUrls.chatWithUserById,
         component: Chat,
       },
       {
