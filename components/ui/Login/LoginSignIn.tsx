@@ -37,6 +37,26 @@ export default class LoginSignIn extends VueComponent<ILoginProps> {
     return type;
   }
 
+  public async onSubmit(): Promise<void> {
+    try {
+      const response = await this.$auth.loginWith('local', {
+        data: {
+          email: this.signInForm.email,
+          password: this.signInForm.password,
+        },
+      });
+
+      await console.log(response);
+
+      // @ts-ignore
+      if (response.data.success) {
+        this.$router.push('/');
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   public render(): VNode {
     return (
       <div class='login__holder'>
@@ -76,7 +96,7 @@ export default class LoginSignIn extends VueComponent<ILoginProps> {
               </template>
             </BaseFormGroup>
           </div>
-          <BaseButton class='login__submit' type='button'>
+          <BaseButton class='login__submit' type='button' onClick={this.onSubmit}>
             Sign in
           </BaseButton>
           <p class='login__text paragraph'>

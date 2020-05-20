@@ -5,6 +5,7 @@ import Analytics from 'components/ui/Analytics';
 
 @Component({
   name: 'AnalyticsPage',
+  middleware: ['auth-admin'],
 })
 export default class AnalyticsPage extends VueComponent {
   render(): VNode {

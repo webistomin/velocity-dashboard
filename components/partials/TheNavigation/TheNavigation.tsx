@@ -17,6 +17,7 @@ export interface INavigationLinks {
   name: string;
   icon: string;
   to: string;
+  adminOnly: boolean;
 }
 
 @Component({
@@ -26,43 +27,67 @@ export default class TheNavigation extends VueComponent<INavigationProps> {
   @Prop({ default: false })
   private readonly isNavOpened!: INavigationProps['isNavOpened'];
 
+  public isUserAdmin: boolean = false;
+
   public navLinks: INavigationLinks[] = [
     {
       name: 'Overview',
       icon: 'icon-grid',
       to: '/',
+      adminOnly: false,
     },
     {
       name: 'Analytics',
       icon: 'icon-histograms',
       to: '/analytics',
+      adminOnly: true,
     },
     {
       name: 'Vehicles',
       icon: 'icon-car',
       to: '/vehicles',
+      adminOnly: true,
     },
     {
       name: 'Service',
       icon: 'icon-service',
       to: '/reminders',
+      adminOnly: true,
     },
     {
       name: 'Map',
       icon: 'icon-map',
       to: '/map',
+      adminOnly: true,
     },
     {
       name: 'Chat',
       icon: 'icon-mail',
       to: '/chat',
+      adminOnly: false,
     },
     {
       name: 'Settings',
       icon: 'icon-settings',
       to: '/settings',
+      adminOnly: false,
     },
   ];
+
+  public created(): void {
+    this.isUserAdmin = this.$auth.user.role === 'admin';
+  }
+
+  get getFilteredLinks(): INavigationLinks[] {
+    const allLinks = this.navLinks;
+    const isAdmin = this.isUserAdmin;
+
+    if (isAdmin) {
+      return allLinks;
+    }
+
+    return allLinks.filter((link) => !link.adminOnly);
+  }
 
   @Emit('openNav')
   public onToggleClick(): void {}
@@ -81,7 +106,7 @@ export default class TheNavigation extends VueComponent<INavigationProps> {
           </div>
           <nav class='main-nav__nav'>
             <ul class='main-nav__list list'>
-              {this.navLinks.map((link) => {
+              {this.getFilteredLinks.map((link) => {
                 return (
                   <li class='main-nav__item list-item' key={link.name}>
                     <nuxt-link class='main-nav__link link' to={link.to} aria-label={link.name} title={link.name}>

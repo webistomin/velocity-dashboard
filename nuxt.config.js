@@ -1,5 +1,6 @@
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
+const URL = 'http://localhost:3000/api/v1';
 
 module.exports = {
   dev: process.env.NODE_ENV !== 'production',
@@ -61,6 +62,9 @@ module.exports = {
     ['@nuxtjs/router', { path: 'router', DefaultRouter: true }],
     '@nuxtjs/auth',
   ],
+  router: {
+    middleware: 'auth-guard',
+  },
   styleResources: {
     sass: ['./assets/sass/dev.sass'],
   },
@@ -77,7 +81,9 @@ module.exports = {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    baseURL: URL,
+  },
   build: {
     extractCSS: true,
     babel: {
@@ -109,12 +115,12 @@ module.exports = {
     strategies: {
       local: {
         endpoints: {
-          login: { url: '/sessions', method: 'post', propertyName: 'token' },
+          login: { url: '/auth/signin', method: 'post', propertyName: 'token' },
           logout: false,
-          user: { url: '/sessions/user', method: 'get', propertyName: 'data.attributes' },
+          user: { url: '/profile/own', method: 'get' },
         },
         tokenRequired: true,
-        tokenType: 'bearer',
+        tokenType: 'Bearer',
       },
     },
     redirect: {

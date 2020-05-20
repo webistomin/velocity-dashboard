@@ -25,7 +25,7 @@ export interface ILoginProps {
   name: 'Login',
 })
 export default class Login extends VueComponent {
-  public currentForm = FormTypes.SIGN_UP;
+  public currentForm = FormTypes.SIGN_IN;
 
   public setFormType(formName: FormTypes): void {
     this.currentForm = formName;
