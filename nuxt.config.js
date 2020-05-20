@@ -62,9 +62,6 @@ module.exports = {
     ['@nuxtjs/router', { path: 'router', DefaultRouter: true }],
     '@nuxtjs/auth',
   ],
-  router: {
-    middleware: 'auth-guard',
-  },
   styleResources: {
     sass: ['./assets/sass/dev.sass'],
   },
@@ -116,7 +113,7 @@ module.exports = {
       local: {
         endpoints: {
           login: { url: '/auth/signin', method: 'post', propertyName: 'token' },
-          logout: false,
+          logout: { url: '/auth/logout', method: 'post' },
           user: { url: '/profile/own', method: 'get' },
         },
         tokenRequired: true,
@@ -124,9 +121,9 @@ module.exports = {
       },
     },
     redirect: {
-      home: false,
+      home: '/',
       callback: false,
-      logout: false,
+      logout: '/login',
     },
   },
 };

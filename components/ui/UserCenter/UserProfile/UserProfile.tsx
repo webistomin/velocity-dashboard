@@ -36,6 +36,14 @@ export default class UserProfile extends VueComponent<IUserProfileProps> {
   @Prop()
   private readonly info!: IUserProfileProps['info'];
 
+  public async logoutHandler(): Promise<void> {
+    try {
+      await this.$auth.logout();
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   render(): VNode {
     return (
       <div class='user-profile'>
@@ -51,7 +59,9 @@ export default class UserProfile extends VueComponent<IUserProfileProps> {
                 Edit profile
               </nuxt-link>
             </BaseButton>
-            <BaseButton theme='light'>Change status</BaseButton>
+            <BaseButton theme='light' onClick={this.logoutHandler}>
+              Logout
+            </BaseButton>
           </div>
         </div>
         <ul class='user-profile__list list'>

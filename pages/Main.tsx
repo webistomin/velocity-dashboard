@@ -5,6 +5,7 @@ import Overview from 'components/ui/Overview';
 
 @Component({
   name: 'MainPage',
+  middleware: ['auth-guard'],
 })
 export default class MainPage extends VueComponent {
   render(): VNode {

@@ -75,7 +75,7 @@ export default class TheNavigation extends VueComponent<INavigationProps> {
   ];
 
   public created(): void {
-    this.isUserAdmin = this.$auth.user.role === 'admin';
+    this.isUserAdmin = this.$auth?.user?.role === 'admin';
   }
 
   get getFilteredLinks(): INavigationLinks[] {

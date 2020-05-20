@@ -73,4 +73,10 @@ export default (app: Router) => {
       });
     }
   });
+
+  router.post('/logout', (_req: Request, res: Response) => {
+    res.json({
+      success: true,
+    });
+  });
 };
