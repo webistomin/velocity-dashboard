@@ -3,3 +3,8 @@ export interface IAuthSignUpResponseBody {
   message: string;
   token?: string;
 }
+
+export interface IAuthSignUpValidatorResponseBody {
+  success: boolean;
+  message: string;
+}

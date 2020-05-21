@@ -5,7 +5,7 @@ import { email, required } from 'vuelidate/lib/validators';
 import { IUserInterface } from 'common/types/user/user-schema';
 import { UserRoles } from 'common/types/user/user-roles';
 import { serverUrls } from 'common/urls/serverUrls';
-import { IAuthSignUpResponseBody } from 'common/types/auth/sign-up';
+import { IAuthSignUpResponseBody, IAuthSignUpValidatorResponseBody } from 'common/types/auth/sign-up';
 
 import BaseTitle from 'components/base/BaseTitle';
 import BaseFormGroup from 'components/base/BaseFormGroup';
@@ -91,17 +91,19 @@ export default class LoginSignUp extends VueComponent<ILoginProps> {
 
       try {
         const data = this.signUpForm;
-        await this.$axios.$post(serverUrls.auth.signUp, data).then(async (response: IAuthSignUpResponseBody) => {
-          if (response.success) {
-            await this.$auth.loginWith('local', {
-              data: {
-                email: data.email,
-                password: data.password,
-              },
-            });
-          }
-          this.isLoading = false;
-        });
+        await this.$axios
+          .$post(serverUrls.auth.signUp, data)
+          .then(async (response: IAuthSignUpResponseBody | IAuthSignUpValidatorResponseBody) => {
+            if (response.success) {
+              await this.$auth.loginWith('local', {
+                data: {
+                  email: data.email,
+                  password: data.password,
+                },
+              });
+            }
+            this.isLoading = false;
+          });
       } catch (e) {
         this.isLoading = false;
         this.$notify({
