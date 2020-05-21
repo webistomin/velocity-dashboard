@@ -35,7 +35,9 @@ export default class LoginSignIn extends VueComponent<ILoginProps> {
     return type;
   }
 
-  public async onSubmit(): Promise<void> {
+  public async onSubmit(event: Event): Promise<void> {
+    event.preventDefault();
+
     const validator = this.$v;
 
     validator.$touch();
@@ -53,8 +55,8 @@ export default class LoginSignIn extends VueComponent<ILoginProps> {
           group: 'auth',
           type: 'error',
           title: 'Authentication error',
-          text: 'Wrong email or password, please try again',
-          duration: -1,
+          text: e?.response?.data?.message,
+          duration: 3000,
         });
       }
     }
@@ -69,7 +71,7 @@ export default class LoginSignIn extends VueComponent<ILoginProps> {
           </BaseTitle>
           <p class='login__desc paragraph paragraph_color_darkgray'>Please enter your credentials to proceed.</p>
         </div>
-        <form class='login__form'>
+        <form class='login__form' onSubmit={this.onSubmit}>
           <div class='login__form-inputs'>
             <BaseFormGroup
               class='login__form-group'
@@ -99,7 +101,7 @@ export default class LoginSignIn extends VueComponent<ILoginProps> {
               </template>
             </BaseFormGroup>
           </div>
-          <BaseButton class='login__submit' type='button' onClick={this.onSubmit}>
+          <BaseButton class='login__submit' type='submit'>
             Sign in
           </BaseButton>
           <p class='login__text paragraph'>

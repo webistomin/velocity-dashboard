@@ -3,6 +3,7 @@ import HTTPStatuses from 'http-status-codes';
 import JWT from 'jsonwebtoken';
 import User from 'server/models/user';
 import config from 'server/config';
+import { WEEK } from 'common/consts/times';
 
 export default async (req: Request, res: Response) => {
   try {
@@ -11,13 +12,13 @@ export default async (req: Request, res: Response) => {
     const foundUser = await User.findOne({ email });
 
     if (!foundUser) {
-      await res.status(HTTPStatuses.NO_CONTENT).json({
+      await res.status(HTTPStatuses.UNAUTHORIZED).json({
         success: false,
-        message: 'User is not found',
+        message: 'Account does not exist',
       });
     } else if (foundUser.comparePassword(password) && config.jwt.secret) {
       const token = JWT.sign(foundUser.toJSON(), config.jwt.secret, {
-        expiresIn: 604800,
+        expiresIn: WEEK,
       });
 
       await res.json({
@@ -27,7 +28,7 @@ export default async (req: Request, res: Response) => {
     } else {
       res.status(HTTPStatuses.UNAUTHORIZED).json({
         success: false,
-        message: 'Wrong password',
+        message: 'Wrong email or password, please try again',
       });
     }
   } catch (e) {

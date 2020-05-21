@@ -38,4 +38,15 @@ export default {
   jwt: {
     secret: vars.JWT_SECRET,
   },
+  /**
+   * GMAIL Secrets
+   */
+  gmail: {
+    serviceName: vars.GMAIL_SERVICE_NAME,
+    serviceHost: vars.GMAIL_SERVICE_HOST,
+    serviceSecure: vars.GMAIL_SERVICE_SECURE,
+    servicePort: vars.GMAIL_SERVICE_PORT,
+    userName: vars.GMAIL_USER_NAME,
+    userPassword: vars.GMAIL_USER_PASSWORD,
+  },
 };

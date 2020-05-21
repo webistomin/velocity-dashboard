@@ -67,21 +67,35 @@ export default class LoginSignUp extends VueComponent<ILoginProps> {
     this.signUpForm.role = target.value;
   }
 
-  public async onSubmit(): Promise<void> {
-    try {
-      const data = this.signUpForm;
-      const response = await this.$axios.$post('auth/signup', data);
+  public async onSubmit(event: Event): Promise<void> {
+    event.preventDefault();
 
-      if (response.success) {
-        await this.$auth.loginWith('local', {
-          data: {
-            email: data.email,
-            password: data.password,
-          },
+    const validator = this.$v;
+
+    validator.$touch();
+
+    if (!validator.$anyError) {
+      try {
+        const data = this.signUpForm;
+        const response = await this.$axios.$post('auth/signup', data);
+
+        if (response.success) {
+          await this.$auth.loginWith('local', {
+            data: {
+              email: data.email,
+              password: data.password,
+            },
+          });
+        }
+      } catch (e) {
+        this.$notify({
+          group: 'auth',
+          type: 'error',
+          title: 'Authentication error',
+          text: e?.response?.data?.message,
+          duration: 3000,
         });
       }
-    } catch (e) {
-      console.log(e);
     }
   }
 
@@ -94,7 +108,7 @@ export default class LoginSignUp extends VueComponent<ILoginProps> {
           </BaseTitle>
           <p class='login__desc paragraph paragraph_color_darkgray'>Free forever. No credit card needed.</p>
         </div>
-        <form class='login__form'>
+        <form class='login__form' onSubmit={this.onSubmit}>
           <ul class='login__list list'>
             {this.roles.map((role) => {
               return (
@@ -163,7 +177,7 @@ export default class LoginSignUp extends VueComponent<ILoginProps> {
               onBlur={this.$v.signUpForm.password?.$touch}
             />
           </div>
-          <BaseButton class='login__submit' type='button' onClick={this.onSubmit}>
+          <BaseButton class='login__submit' type='submit'>
             Create Account
           </BaseButton>
           <p class='login__text paragraph'>

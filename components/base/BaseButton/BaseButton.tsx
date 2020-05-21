@@ -14,6 +14,7 @@ export interface IBaseButtonProps {
   icon?: string;
   theme?: BaseButtonThemes;
   onClick?: () => void;
+  onSubmit?: (event: Event) => void;
 }
 
 @Component({

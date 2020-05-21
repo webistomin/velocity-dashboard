@@ -15,4 +15,6 @@ export default (app: Router) => {
   router.post(serverUrls.auth.signIn, authControllers.signIn);
 
   router.post(serverUrls.auth.logout, authControllers.logout);
+
+  router.post(serverUrls.auth.reset, authControllers.reset);
 };

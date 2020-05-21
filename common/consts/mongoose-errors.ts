@@ -1,0 +1,1 @@
+export const DUPLICATE_RECORD_ERROR = 11000;

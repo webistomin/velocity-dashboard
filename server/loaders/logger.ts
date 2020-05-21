@@ -1,5 +1,5 @@
 import morgan, { Options } from 'morgan';
-import express, { Request } from 'express';
+import { Request, Application } from 'express';
 
 const morganOption: Options = {
   skip: (req: Request) => {
@@ -13,6 +13,6 @@ const morganOption: Options = {
 /**
  * Set request logger
  */
-export default (app: express.Application) => {
+export default (app: Application) => {
   app.use(morgan('dev', morganOption));
 };

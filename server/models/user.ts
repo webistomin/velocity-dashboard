@@ -1,5 +1,5 @@
 import mongoose, { Schema, HookNextFunction } from 'mongoose';
-import bcrypt from 'bcrypt-nodejs';
+import bcrypt from 'bcrypt';
 import { IUserSchema } from 'common/types/user/user-schema';
 import { SiteThemes } from 'common/types/theme/site-themes';
 
@@ -75,7 +75,7 @@ UserSchema.pre<IUserSchema>('save', function(next: HookNextFunction) {
         return next(err);
       }
 
-      bcrypt.hash(user.password, salt, null, function(err, hash) {
+      bcrypt.hash(user.password, salt, function(err, hash) {
         if (err) {
           return next(err);
         }
@@ -89,9 +89,10 @@ UserSchema.pre<IUserSchema>('save', function(next: HookNextFunction) {
   }
 });
 
-UserSchema.methods.comparePassword = function(password: IUserSchema['password']): Boolean {
+UserSchema.methods.comparePassword = async function(password: IUserSchema['password']): Promise<Boolean> {
   const user = this;
-  return bcrypt.compareSync(password, user.password);
+  const match = await bcrypt.compare(password, user.password);
+  return match;
 };
 
 export default mongoose.model<IUserSchema>('User', UserSchema);

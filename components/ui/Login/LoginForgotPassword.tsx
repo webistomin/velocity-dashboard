@@ -2,8 +2,6 @@ import { VueComponent } from 'types/vue-components';
 import { Component, Emit } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
 import { email, required } from 'vuelidate/lib/validators';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars,no-unused-vars
-import { Validation } from 'vuelidate';
 
 import BaseTitle from 'components/base/BaseTitle';
 import BaseFormGroup from 'components/base/BaseFormGroup';
@@ -33,18 +31,51 @@ export default class LoginForgot extends VueComponent<ILoginProps> {
     return type;
   }
 
+  public async onSubmit(event: Event) {
+    event.preventDefault();
+
+    const validator = this.$v;
+
+    validator.$touch();
+
+    if (!validator.$anyError) {
+      try {
+        const data = this.forgotForm;
+        const response = await this.$axios.$post('auth/reset', data);
+
+        console.log(response);
+
+        if (response.success) {
+          this.$notify({
+            group: 'auth',
+            type: 'success',
+            title: 'Authentication error',
+            text: 'Link was sent to your email',
+            duration: 3000,
+          });
+        }
+      } catch (e) {
+        this.$notify({
+          group: 'auth',
+          type: 'error',
+          title: 'Authentication error',
+          text: e?.response?.data?.message,
+          duration: 3000,
+        });
+      }
+    }
+  }
+
   public render(): VNode {
     return (
       <div class='login__holder'>
         <div class='login__heading'>
-          {/*
-          // @ts-ignore */}
-          <BaseTitle class='login__title' level='3'>
+          <BaseTitle class='login__title' level={3}>
             Recover password
           </BaseTitle>
           <p class='login__desc paragraph paragraph_color_darkgray'>Don't worry, happens to the best of us.</p>
         </div>
-        <form class='login__form'>
+        <form class='login__form' onSubmit={this.onSubmit}>
           <div class='login__form-inputs'>
             <BaseFormGroup
               class='login__form-group'
@@ -58,7 +89,7 @@ export default class LoginForgot extends VueComponent<ILoginProps> {
               onBlur={this.$v.forgotForm.email?.$touch}
             />
           </div>
-          <BaseButton class='login__submit' type='button'>
+          <BaseButton class='login__submit' type='submit'>
             Reset my password
           </BaseButton>
           <p class='login__text paragraph'>
