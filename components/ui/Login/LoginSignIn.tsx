@@ -8,6 +8,7 @@ import BaseTitle from 'components/base/BaseTitle';
 import BaseFormGroup from 'components/base/BaseFormGroup';
 import BaseButton from 'components/base/BaseButton';
 import BaseLink from 'components/base/BaseLink';
+import { IAuthSignInResponseBody, IAuthSignInValidatorResponseBody } from 'common/types/auth/sign-in';
 import { FormTypes, ILoginProps } from './Login';
 
 export interface ILoginSignInForm {
@@ -63,11 +64,12 @@ export default class LoginSignIn extends VueComponent<ILoginProps> {
             this.isLoading = false;
           });
       } catch (e) {
+        const data: IAuthSignInResponseBody | IAuthSignInValidatorResponseBody = e.response.data;
         this.$notify({
           group: 'auth',
           type: 'error',
           title: 'Authentication error',
-          text: e?.response?.data?.message,
+          text: data?.message,
           duration: 3000,
         });
         this.isLoading = false;

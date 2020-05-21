@@ -12,7 +12,7 @@ const SignUpSchema = Yup.object({
     .required()
     .email(),
   password: Yup.string().required(),
-  theme: Yup.mixed().oneOf([
+  theme: Yup.string().oneOf([
     SiteThemes.SHELOB,
     SiteThemes.SHADOWFAX,
     SiteThemes.DENETHOR,

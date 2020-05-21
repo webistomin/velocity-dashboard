@@ -105,12 +105,13 @@ export default class LoginSignUp extends VueComponent<ILoginProps> {
             this.isLoading = false;
           });
       } catch (e) {
+        const data: IAuthSignUpResponseBody | IAuthSignUpValidatorResponseBody = e.response.data;
         this.isLoading = false;
         this.$notify({
           group: 'auth',
           type: 'error',
           title: 'Authentication error',
-          text: e?.response?.data?.message,
+          text: data?.message,
           duration: 3000,
         });
       }
