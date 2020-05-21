@@ -1,9 +1,12 @@
-import mongoose, { Schema, HookNextFunction } from 'mongoose';
+import { Schema, model, HookNextFunction } from 'mongoose';
 import bcrypt from 'bcrypt';
-import { IUserSchema } from 'common/types/user/user-schema';
+import { IUserInterface, IUserSchema } from 'common/types/user/user-schema';
 import { SiteThemes } from 'common/types/theme/site-themes';
+import { nanoid } from 'nanoid';
+import PasswordReset from 'server/models/auth/password-reset';
+import { sendResetMail } from 'server/services/mailer/reset-mail';
 
-const UserSchema: Schema = new Schema({
+const UserSchema: Schema = new Schema<IUserInterface>({
   firstName: {
     type: String,
     required: true,
@@ -92,7 +95,19 @@ UserSchema.pre<IUserSchema>('save', function(next: HookNextFunction) {
 UserSchema.methods.comparePassword = async function(password: IUserSchema['password']): Promise<Boolean> {
   const user = this;
   const match = await bcrypt.compare(password, user.password);
+  console.log(match, 'here');
   return match;
 };
 
-export default mongoose.model<IUserSchema>('User', UserSchema);
+UserSchema.methods.forgotPassword = async function() {
+  const token = nanoid(72);
+
+  await PasswordReset.create({
+    email: this.email,
+    token,
+    createdAt: new Date(),
+  });
+  sendResetMail(this.email, token);
+};
+
+export default model<IUserSchema>('User', UserSchema);

@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import HTTPStatuses from 'http-status-codes';
 import JWT from 'jsonwebtoken';
-import User from 'server/models/user';
+import User from 'server/models/user/user';
 import config from 'server/config';
 import { WEEK } from 'common/consts/times';
 import { DUPLICATE_RECORD_ERROR } from 'common/consts/mongoose-errors';

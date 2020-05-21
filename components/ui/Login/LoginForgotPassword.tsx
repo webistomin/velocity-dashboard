@@ -4,7 +4,7 @@ import { VNode } from 'vue';
 import { email, required } from 'vuelidate/lib/validators';
 import { IUserInterface } from 'common/types/user/user-schema';
 import { serverUrls } from 'common/urls/serverUrls';
-import { IAuthResetResponseBody, IAuthResetValidatorResponseBody } from 'common/types/auth/reset';
+import { IAuthForgotResponseBody, IAuthForgotValidatorResponseBody } from 'common/types/auth/forgot';
 
 import BaseTitle from 'components/base/BaseTitle';
 import BaseFormGroup from 'components/base/BaseFormGroup';
@@ -51,8 +51,8 @@ export default class LoginForgot extends VueComponent<ILoginProps> {
       try {
         const data = this.forgotForm;
         await this.$axios
-          .$post(serverUrls.auth.reset, data)
-          .then((response: IAuthResetResponseBody | IAuthResetValidatorResponseBody) => {
+          .$post(serverUrls.auth.forgot, data)
+          .then((response: IAuthForgotResponseBody | IAuthForgotValidatorResponseBody) => {
             this.isLoading = false;
             if (response.success) {
               this.$notify({
@@ -65,7 +65,7 @@ export default class LoginForgot extends VueComponent<ILoginProps> {
             }
           });
       } catch (e) {
-        const data: IAuthResetResponseBody | IAuthResetValidatorResponseBody = e.response.data;
+        const data: IAuthForgotResponseBody | IAuthForgotValidatorResponseBody = e.response.data;
         this.isLoading = false;
         this.$notify({
           group: 'auth',

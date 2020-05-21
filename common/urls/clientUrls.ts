@@ -1,6 +1,7 @@
 export const clientUrls = {
   home: '/',
   login: '/login',
+  passwordReset: '/reset-password/:token',
   analytics: '/analytics',
   vehicles: '/vehicles',
   reminders: '/reminders',

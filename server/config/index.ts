@@ -9,6 +9,10 @@ const vars = process.env;
 
 export default {
   /**
+   * Base URL
+   */
+  base: vars.BASE_URL,
+  /**
    * Environment
    */
   env: vars.NODE_ENV,

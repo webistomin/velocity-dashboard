@@ -1,6 +1,6 @@
 import { Response } from 'express';
 import HTTPStatuses from 'http-status-codes';
-import User from 'server/models/user';
+import User from 'server/models/user/user';
 import { IVerifiedUserRequest } from 'middlewares/verify-token';
 import { IOwnUserProfileResponseBody } from 'common/types/user/user';
 

@@ -3,6 +3,7 @@ export const serverUrls = {
     signIn: '/auth/signin',
     signUp: '/auth/signup',
     logout: '/auth/logout',
+    forgot: '/auth/forgot',
     reset: '/auth/reset',
   },
   healthcheck: {

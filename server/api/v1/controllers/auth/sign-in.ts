@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import HTTPStatuses from 'http-status-codes';
 import JWT from 'jsonwebtoken';
-import User from 'server/models/user';
+import User from 'server/models/user/user';
 import config from 'server/config';
 import { WEEK } from 'common/consts/times';
 import { IAuthSignInResponseBody } from 'common/types/auth/sign-in';
@@ -12,12 +12,14 @@ export default async (req: Request, res: Response<IAuthSignInResponseBody>) => {
 
     const foundUser = await User.findOne({ email });
 
+    console.log(foundUser, password);
+
     if (!foundUser) {
       await res.status(HTTPStatuses.UNAUTHORIZED).json({
         success: false,
         message: 'Account does not exist',
       });
-    } else if (foundUser.comparePassword(password) && config.jwt.secret) {
+    } else if ((await foundUser.comparePassword(password)) && config.jwt.secret) {
       const token = JWT.sign(foundUser.toJSON(), config.jwt.secret, {
         expiresIn: WEEK,
       });

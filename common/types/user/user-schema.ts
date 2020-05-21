@@ -28,4 +28,5 @@ export interface IUserSchema extends IUserInterface {
   __v: number;
   _id: Types.ObjectId;
   comparePassword(userPassword: string): Promise<boolean>;
+  forgotPassword(): Promise<void>;
 }

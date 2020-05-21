@@ -39,6 +39,10 @@ export function createRouter() {
         component: Login,
       },
       {
+        path: clientUrls.passwordReset,
+        component: Login,
+      },
+      {
         path: clientUrls.analytics,
         component: Analytics,
       },

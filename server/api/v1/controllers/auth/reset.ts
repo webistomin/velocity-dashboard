@@ -1,53 +1,36 @@
 import { Request, Response } from 'express';
-import HTTPStatuses from 'http-status-codes';
-import User from 'server/models/user';
-import { IAuthResetResponseBody } from 'common/types/auth/reset';
-import { GMAIL_TRANSPORT, VIEW_OPTIONS } from 'server/config/email';
-// @ts-ignore
-import hbs from 'nodemailer-express-handlebars';
-import { SentMessageInfo } from 'nodemailer';
+import User from 'server/models/user/user';
+import PasswordReset from 'server/models/auth/password-reset';
+import bcrypt from 'bcrypt';
 
-export default async (req: Request, res: Response<IAuthResetResponseBody>) => {
-  try {
-    const { email } = req.body;
-
-    const foundUser = await User.findOne({ email });
-
-    if (!foundUser) {
-      await res.status(HTTPStatuses.UNAUTHORIZED).json({
-        success: false,
-        message: 'Account does not exist',
-      });
-    } else {
-      VIEW_OPTIONS(GMAIL_TRANSPORT, hbs);
-
-      const HelperOptions = {
-        from: '"Tariqul islam" <tariqul.islam.rony@gmail.com>',
-        to: email,
-        subject: 'Hello world!',
-        template: 'test',
-        context: {
-          name: 'tariqul_islam',
-          email: 'tariqul.islam.rony@gmail.com',
-          address: '52, Kadamtola Shubag dhaka',
-        },
-      };
-
-      GMAIL_TRANSPORT.sendMail(HelperOptions, (error: Error | null, info: SentMessageInfo) => {
-        if (error) {
-          console.log(error);
-        }
-        console.log(info);
-      });
-
-      await res.json({
-        success: true,
-      });
+export default async (req: Request, res: Response) => {
+  // @ts-ignore
+  const { user } = req;
+  bcrypt.genSalt(10, function(err, salt) {
+    if (err) {
+      throw new Error(err.message);
     }
-  } catch (e) {
-    await res.status(HTTPStatuses.INTERNAL_SERVER_ERROR).json({
-      success: false,
-      message: e.message,
+
+    bcrypt.hash(req.body.password, salt, async function(err, hash) {
+      if (err) {
+        throw new Error(err.message);
+      }
+
+      await User.findOneAndUpdate(
+        {
+          email: user.email,
+        },
+        {
+          password: hash,
+        }
+      );
     });
-  }
+  });
+
+  await PasswordReset.findOneAndDelete({ email: user.email });
+
+  return res.json({
+    success: true,
+    message: 'Password has been successfully reset',
+  });
 };

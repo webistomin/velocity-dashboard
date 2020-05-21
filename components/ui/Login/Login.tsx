@@ -6,6 +6,7 @@ import { VueComponent } from 'types/vue-components';
 import LoginSignIn from './LoginSignIn';
 import LoginSignUp from './LoginSignUp';
 import LoginForgotPassword from './LoginForgotPassword';
+import LoginResetPassword from './LoginResetPassword';
 import LoginVideo from './LoginVideo';
 import LoginHeader from './LoginHeader';
 
@@ -15,6 +16,7 @@ export enum FormTypes {
   SIGN_IN = 'sign-in',
   SIGN_UP = 'sign-up',
   FORGOT_PASSWORD = 'forgot-password',
+  RESET_PASSWORD = 'reset-password',
 }
 
 export interface ILoginProps {
@@ -29,6 +31,13 @@ export default class Login extends VueComponent {
 
   public setFormType(formName: FormTypes): void {
     this.currentForm = formName;
+  }
+
+  public created(): void {
+    const $route = this.$route;
+    if ($route.params.token) {
+      this.currentForm = FormTypes.RESET_PASSWORD;
+    }
   }
 
   public render(): VNode {
@@ -49,6 +58,7 @@ export default class Login extends VueComponent {
                 {this.currentForm === FormTypes.FORGOT_PASSWORD && (
                   <LoginForgotPassword onSetFormName={(formName) => this.setFormType(formName)} />
                 )}
+                {this.currentForm === FormTypes.RESET_PASSWORD && <LoginResetPassword />}
               </transition>
             </div>
             <div class='login__col login__col_right'>
