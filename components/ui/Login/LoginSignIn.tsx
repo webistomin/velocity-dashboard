@@ -2,8 +2,6 @@ import { VueComponent } from 'types/vue-components';
 import { Component, Emit } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
 import { email, required } from 'vuelidate/lib/validators';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars,no-unused-vars
-import { Validation } from 'vuelidate';
 
 import BaseTitle from 'components/base/BaseTitle';
 import BaseFormGroup from 'components/base/BaseFormGroup';
@@ -38,15 +36,27 @@ export default class LoginSignIn extends VueComponent<ILoginProps> {
   }
 
   public async onSubmit(): Promise<void> {
-    try {
-      await this.$auth.loginWith('local', {
-        data: {
-          email: this.signInForm.email,
-          password: this.signInForm.password,
-        },
-      });
-    } catch (e) {
-      console.log(e);
+    const validator = this.$v;
+
+    validator.$touch();
+
+    if (!validator.$anyError) {
+      try {
+        await this.$auth.loginWith('local', {
+          data: {
+            email: this.signInForm.email,
+            password: this.signInForm.password,
+          },
+        });
+      } catch (e) {
+        this.$notify({
+          group: 'auth',
+          type: 'error',
+          title: 'Authentication error',
+          text: 'Wrong email or password, please try again',
+          duration: -1,
+        });
+      }
     }
   }
 

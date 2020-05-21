@@ -13,6 +13,7 @@ export default class LoginPage extends VueComponent {
     return (
       <main class='page-content'>
         <Login />
+        <notifications group='auth' position='top left' animation-name='v-popup-fade-left' />
       </main>
     );
   }

@@ -34,7 +34,8 @@
       "@nuxt/types",
       "@types/nuxtjs__auth",
       "@nuxtjs/axios",
-      "vuelidate"
+      "vuelidate",
+      "vue-notification"
     ]
   },
   "include": [

@@ -5,7 +5,7 @@ import { IUserSchema } from 'common/types/user/user-schema';
 import config from 'server/config';
 
 export interface IVerifiedUserRequest extends Request {
-  decodedUser: IUserSchema;
+  decodedUser?: IUserSchema;
 }
 
 export default function verifyToken(req: IVerifiedUserRequest, res: Response, next: NextFunction) {

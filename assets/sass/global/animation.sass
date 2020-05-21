@@ -37,4 +37,16 @@
     transform: scale(0.95)
     box-shadow: 0 0 0 0 rgba(var(--color-primary), 0)
 
+// Animation for notification popups
+.v-popup-fade-left-enter-active,
+.v-popup-fade-left-leave-active,
+.v-popup-fade-left-move
+  transition: all 0.4s ease-out
+
+.v-popup-fade-left-enter,
+.v-popup-fade-left-leave-to
+  opacity: 0
+  transform: translate3d(-200px, 0, 0)
+
+
 

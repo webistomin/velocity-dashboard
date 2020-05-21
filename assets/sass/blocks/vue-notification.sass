@@ -1,0 +1,21 @@
+.vue-notification-group
+  position: fixed
+  z-index: var(--z-index-notification-popup)
+
+.vue-notification-wrapper
+  margin: 1rem
+
+.vue-notification-template
+  border-radius: 5px
+  padding: 2rem
+
+  &.error
+    background-color: rgb(var(--color-red))
+    color: rgb(var(--color-white))
+
+  .notification-title
+    font: var(--text-heading-4)
+    margin-bottom: 0.6rem
+
+  .notification-content
+    font: var(--text-paragraph)
