@@ -30,6 +30,8 @@ export default class LoginSignIn extends VueComponent<ILoginProps> {
     password: '',
   };
 
+  public isLoading: boolean = false;
+
   @Emit('setFormName')
   public setFormType(type: FormTypes): FormTypes {
     return type;
@@ -43,13 +45,19 @@ export default class LoginSignIn extends VueComponent<ILoginProps> {
     validator.$touch();
 
     if (!validator.$anyError) {
+      this.isLoading = true;
+
       try {
-        await this.$auth.loginWith('local', {
-          data: {
-            email: this.signInForm.email,
-            password: this.signInForm.password,
-          },
-        });
+        await this.$auth
+          .loginWith('local', {
+            data: {
+              email: this.signInForm.email,
+              password: this.signInForm.password,
+            },
+          })
+          .then(() => {
+            this.isLoading = false;
+          });
       } catch (e) {
         this.$notify({
           group: 'auth',
@@ -58,6 +66,7 @@ export default class LoginSignIn extends VueComponent<ILoginProps> {
           text: e?.response?.data?.message,
           duration: 3000,
         });
+        this.isLoading = false;
       }
     }
   }
@@ -101,7 +110,7 @@ export default class LoginSignIn extends VueComponent<ILoginProps> {
               </template>
             </BaseFormGroup>
           </div>
-          <BaseButton class='login__submit' type='submit'>
+          <BaseButton class='login__submit' type='submit' isLoading={this.isLoading}>
             Sign in
           </BaseButton>
           <p class='login__text paragraph'>

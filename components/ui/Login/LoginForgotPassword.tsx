@@ -26,6 +26,8 @@ export default class LoginForgot extends VueComponent<ILoginProps> {
     email: '',
   };
 
+  public isLoading: boolean = false;
+
   @Emit('setFormName')
   public setFormType(type: FormTypes): FormTypes {
     return type;
@@ -39,22 +41,24 @@ export default class LoginForgot extends VueComponent<ILoginProps> {
     validator.$touch();
 
     if (!validator.$anyError) {
+      this.isLoading = true;
+
       try {
         const data = this.forgotForm;
-        const response = await this.$axios.$post('auth/reset', data);
-
-        console.log(response);
-
-        if (response.success) {
-          this.$notify({
-            group: 'auth',
-            type: 'success',
-            title: 'Authentication error',
-            text: 'Link was sent to your email',
-            duration: 3000,
-          });
-        }
+        await this.$axios.$post('auth/reset', data).then((response) => {
+          this.isLoading = false;
+          if (response.success) {
+            this.$notify({
+              group: 'auth',
+              type: 'success',
+              title: 'Authentication error',
+              text: 'Link was sent to your email',
+              duration: 3000,
+            });
+          }
+        });
       } catch (e) {
+        this.isLoading = false;
         this.$notify({
           group: 'auth',
           type: 'error',
@@ -89,7 +93,7 @@ export default class LoginForgot extends VueComponent<ILoginProps> {
               onBlur={this.$v.forgotForm.email?.$touch}
             />
           </div>
-          <BaseButton class='login__submit' type='submit'>
+          <BaseButton class='login__submit' type='submit' isLoading={this.isLoading}>
             Reset my password
           </BaseButton>
           <p class='login__text paragraph'>

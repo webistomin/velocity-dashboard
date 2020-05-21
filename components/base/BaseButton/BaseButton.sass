@@ -52,6 +52,30 @@
         color: rgb(var(--color-white))
         background-color: rgb(var(--color-gray-4))
 
+
+  +m('loading')
+    position: relative
+    font-size: 0
+
+    &::after,
+    &::before
+      box-sizing: border-box
+      content: ''
+      +absolute-center()
+      width: rem(24px)
+      height: rem(24px)
+      border-radius: 50%
+
+    &::after
+      border: rem(4px) solid rgba(var(--color-white), 0.2)
+      z-index: 1
+
+    &::before
+      border: rem(4px) solid rgba(var(--color-white), 0.2)
+      border-top: rem(4px) solid rgb(var(--color-white))
+      z-index: 2
+      animation: spin-loading 1s linear infinite
+
   +e('wrapper')
     box-sizing: border-box
     width: 100%

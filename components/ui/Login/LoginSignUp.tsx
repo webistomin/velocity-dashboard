@@ -2,7 +2,6 @@ import { VueComponent } from 'types/vue-components';
 import { Component, Emit } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
 import { email, required } from 'vuelidate/lib/validators';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars,no-unused-vars
 
 import BaseTitle from 'components/base/BaseTitle';
 import BaseFormGroup from 'components/base/BaseFormGroup';
@@ -39,8 +38,10 @@ export default class LoginSignUp extends VueComponent<ILoginProps> {
     lastName: '',
     email: '',
     password: '',
-    role: 'admin',
+    role: 'operator',
   };
+
+  public isLoading: boolean = false;
 
   public roles = [
     {
@@ -75,19 +76,23 @@ export default class LoginSignUp extends VueComponent<ILoginProps> {
     validator.$touch();
 
     if (!validator.$anyError) {
+      this.isLoading = true;
+
       try {
         const data = this.signUpForm;
-        const response = await this.$axios.$post('auth/signup', data);
-
-        if (response.success) {
-          await this.$auth.loginWith('local', {
-            data: {
-              email: data.email,
-              password: data.password,
-            },
-          });
-        }
+        await this.$axios.$post('auth/signup', data).then(async (response) => {
+          if (response.success) {
+            await this.$auth.loginWith('local', {
+              data: {
+                email: data.email,
+                password: data.password,
+              },
+            });
+          }
+          this.isLoading = false;
+        });
       } catch (e) {
+        this.isLoading = false;
         this.$notify({
           group: 'auth',
           type: 'error',
@@ -177,7 +182,7 @@ export default class LoginSignUp extends VueComponent<ILoginProps> {
               onBlur={this.$v.signUpForm.password?.$touch}
             />
           </div>
-          <BaseButton class='login__submit' type='submit'>
+          <BaseButton class='login__submit' type='submit' isLoading={this.isLoading}>
             Create Account
           </BaseButton>
           <p class='login__text paragraph'>
