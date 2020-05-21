@@ -2,8 +2,9 @@ import { Response } from 'express';
 import HTTPStatuses from 'http-status-codes';
 import User from 'server/models/user';
 import { IVerifiedUserRequest } from 'middlewares/verify-token';
+import { IOwnUserProfileResponseBody } from 'common/types/user/user';
 
-export default async (req: IVerifiedUserRequest, res: Response) => {
+export default async (req: IVerifiedUserRequest, res: Response<IOwnUserProfileResponseBody>) => {
   try {
     const userId = req?.decodedUser?._id;
 

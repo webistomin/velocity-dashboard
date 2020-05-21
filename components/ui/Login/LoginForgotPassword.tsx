@@ -2,13 +2,19 @@ import { VueComponent } from 'types/vue-components';
 import { Component, Emit } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
 import { email, required } from 'vuelidate/lib/validators';
+import { IUserInterface } from 'common/types/user/user-schema';
+import { serverUrls } from 'common/urls/serverUrls';
+import { IAuthResetResponseBody } from 'common/types/auth/reset';
 
 import BaseTitle from 'components/base/BaseTitle';
 import BaseFormGroup from 'components/base/BaseFormGroup';
 import BaseButton from 'components/base/BaseButton';
 import BaseLink from 'components/base/BaseLink';
-
 import { FormTypes, ILoginProps } from './Login';
+
+export interface ILoginForgotForm {
+  email: IUserInterface['email'];
+}
 
 @Component({
   name: 'LoginForgot',
@@ -22,7 +28,7 @@ import { FormTypes, ILoginProps } from './Login';
   },
 })
 export default class LoginForgot extends VueComponent<ILoginProps> {
-  public forgotForm = {
+  public forgotForm: ILoginForgotForm = {
     email: '',
   };
 
@@ -37,7 +43,6 @@ export default class LoginForgot extends VueComponent<ILoginProps> {
     event.preventDefault();
 
     const validator = this.$v;
-
     validator.$touch();
 
     if (!validator.$anyError) {
@@ -45,13 +50,13 @@ export default class LoginForgot extends VueComponent<ILoginProps> {
 
       try {
         const data = this.forgotForm;
-        await this.$axios.$post('auth/reset', data).then((response) => {
+        await this.$axios.$post(serverUrls.auth.reset, data).then((response: IAuthResetResponseBody) => {
           this.isLoading = false;
           if (response.success) {
             this.$notify({
               group: 'auth',
               type: 'success',
-              title: 'Authentication error',
+              title: 'Success',
               text: 'Link was sent to your email',
               duration: 3000,
             });

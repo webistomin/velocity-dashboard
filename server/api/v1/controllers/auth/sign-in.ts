@@ -4,8 +4,9 @@ import JWT from 'jsonwebtoken';
 import User from 'server/models/user';
 import config from 'server/config';
 import { WEEK } from 'common/consts/times';
+import { IAuthSignInResponseBody } from 'common/types/auth/sign-in';
 
-export default async (req: Request, res: Response) => {
+export default async (req: Request, res: Response<IAuthSignInResponseBody>) => {
   try {
     const { email, password } = req.body;
 

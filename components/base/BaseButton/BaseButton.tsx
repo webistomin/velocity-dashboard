@@ -1,7 +1,7 @@
 import { Prop, Component } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
 import { VueComponent } from 'types/vue-components';
-import { ButtonTypes } from 'types/common/button-types';
+import { ButtonTypes } from 'common/types/button-types';
 
 import './BaseButton.sass';
 

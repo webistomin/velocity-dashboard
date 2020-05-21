@@ -2,13 +2,18 @@ import { VueComponent } from 'types/vue-components';
 import { Component, Emit } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
 import { email, required } from 'vuelidate/lib/validators';
+import { IUserInterface } from 'common/types/user/user-schema';
 
 import BaseTitle from 'components/base/BaseTitle';
 import BaseFormGroup from 'components/base/BaseFormGroup';
 import BaseButton from 'components/base/BaseButton';
 import BaseLink from 'components/base/BaseLink';
-
 import { FormTypes, ILoginProps } from './Login';
+
+export interface ILoginSignInForm {
+  email: IUserInterface['email'];
+  password: IUserInterface['password'];
+}
 
 @Component({
   name: 'LoginSignIn',
@@ -25,7 +30,7 @@ import { FormTypes, ILoginProps } from './Login';
   },
 })
 export default class LoginSignIn extends VueComponent<ILoginProps> {
-  public signInForm = {
+  public signInForm: ILoginSignInForm = {
     email: '',
     password: '',
   };
@@ -41,7 +46,6 @@ export default class LoginSignIn extends VueComponent<ILoginProps> {
     event.preventDefault();
 
     const validator = this.$v;
-
     validator.$touch();
 
     if (!validator.$anyError) {

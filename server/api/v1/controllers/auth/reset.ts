@@ -1,12 +1,13 @@
 import { Request, Response } from 'express';
 import HTTPStatuses from 'http-status-codes';
 import User from 'server/models/user';
+import { IAuthResetResponseBody } from 'common/types/auth/reset';
 import { GMAIL_TRANSPORT, VIEW_OPTIONS } from 'server/config/email';
 // @ts-ignore
 import hbs from 'nodemailer-express-handlebars';
 import { SentMessageInfo } from 'nodemailer';
 
-export default async (req: Request, res: Response) => {
+export default async (req: Request, res: Response<IAuthResetResponseBody>) => {
   try {
     const { email } = req.body;
 
@@ -36,7 +37,6 @@ export default async (req: Request, res: Response) => {
         if (error) {
           console.log(error);
         }
-        console.log('email is send');
         console.log(info);
       });
 

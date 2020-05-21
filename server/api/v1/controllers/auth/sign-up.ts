@@ -5,10 +5,11 @@ import User from 'server/models/user';
 import config from 'server/config';
 import { WEEK } from 'common/consts/times';
 import { DUPLICATE_RECORD_ERROR } from 'common/consts/mongoose-errors';
+import { IAuthSignUpResponseBody } from 'common/types/auth/sign-up';
 
-export default async (req: Request, res: Response) => {
+export default async (req: Request, res: Response<IAuthSignUpResponseBody>) => {
   try {
-    let token = null;
+    let token;
     const { firstName, lastName, role, email, password } = req.body;
     const newUser = new User();
     newUser.firstName = firstName;

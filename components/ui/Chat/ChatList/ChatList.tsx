@@ -1,6 +1,6 @@
 import { VueComponent } from 'types/vue-components';
 import { Component, Prop } from 'nuxt-property-decorator';
-import { IChat } from 'types/chat/chat-list';
+import { IChat } from 'common/types/chat/chat-list';
 import { VNode } from 'vue';
 
 import BaseThumbnail from 'components/base/BaseThumbnail';

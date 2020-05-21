@@ -6,7 +6,7 @@ import BaseNotify from 'components/base/BaseNotify';
 import BaseSidebar from 'components/base/BaseSidebar';
 import BaseOverlay from 'components/base/BaseOverlay';
 import ChatList from 'components/ui/Chat/ChatList';
-import { IChat } from 'types/chat/chat-list';
+import { IChat } from 'common/types/chat/chat-list';
 
 import './MessagesCenter.sass';
 import { Watch } from '~/node_modules/nuxt-property-decorator';

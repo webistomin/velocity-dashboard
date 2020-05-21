@@ -1,7 +1,11 @@
+import { VNode } from 'vue';
 import { VueComponent } from 'types/vue-components';
 import { Component, Emit } from 'nuxt-property-decorator';
-import { VNode } from 'vue';
 import { email, required } from 'vuelidate/lib/validators';
+import { IUserInterface } from 'common/types/user/user-schema';
+import { UserRoles } from 'common/types/user/user-roles';
+import { serverUrls } from 'common/urls/serverUrls';
+import { IAuthSignUpResponseBody } from 'common/types/auth/sign-up';
 
 import BaseTitle from 'components/base/BaseTitle';
 import BaseFormGroup from 'components/base/BaseFormGroup';
@@ -9,8 +13,15 @@ import BaseButton from 'components/base/BaseButton';
 import BaseLink from 'components/base/BaseLink';
 import BaseOption from 'components/base/BaseOption';
 import BaseIcon from 'components/base/BaseIcon';
-
 import { FormTypes, ILoginProps } from './Login';
+
+export interface ILoginSignUpForm {
+  firstName: IUserInterface['firstName'];
+  lastName: IUserInterface['lastName'];
+  email: IUserInterface['email'];
+  password: IUserInterface['password'];
+  role: IUserInterface['role'];
+}
 
 @Component({
   name: 'LoginSignUp',
@@ -33,12 +44,12 @@ import { FormTypes, ILoginProps } from './Login';
   },
 })
 export default class LoginSignUp extends VueComponent<ILoginProps> {
-  public signUpForm = {
+  public signUpForm: ILoginSignUpForm = {
     firstName: '',
     lastName: '',
     email: '',
     password: '',
-    role: 'operator',
+    role: UserRoles.OPERATOR,
   };
 
   public isLoading: boolean = false;
@@ -46,13 +57,13 @@ export default class LoginSignUp extends VueComponent<ILoginProps> {
   public roles = [
     {
       name: 'Administrator',
-      value: 'admin',
+      value: UserRoles.ADMIN,
       desc: 'Full access to all settings',
       icon: 'icon-lightning',
     },
     {
       name: 'Operator',
-      value: 'operator',
+      value: UserRoles.OPERATOR,
       desc: 'Service desk and chat permissions',
       icon: 'icon-bubble',
     },
@@ -65,7 +76,7 @@ export default class LoginSignUp extends VueComponent<ILoginProps> {
 
   public updateRoleValue(event: Event) {
     const target = event.target as HTMLInputElement;
-    this.signUpForm.role = target.value;
+    this.signUpForm.role = target.value as UserRoles;
   }
 
   public async onSubmit(event: Event): Promise<void> {
@@ -80,7 +91,7 @@ export default class LoginSignUp extends VueComponent<ILoginProps> {
 
       try {
         const data = this.signUpForm;
-        await this.$axios.$post('auth/signup', data).then(async (response) => {
+        await this.$axios.$post(serverUrls.auth.signUp, data).then(async (response: IAuthSignUpResponseBody) => {
           if (response.success) {
             await this.$auth.loginWith('local', {
               data: {

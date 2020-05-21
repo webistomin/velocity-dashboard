@@ -2,7 +2,7 @@ import { VueComponent } from 'types/vue-components';
 import { Component } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
 
-import { IChat } from 'types/chat/chat-list';
+import { IChat } from 'common/types/chat/chat-list';
 import BaseIcon from 'components/base/BaseIcon';
 import ChatList from './ChatList';
 import ChatMessages from './ChatMessages';
