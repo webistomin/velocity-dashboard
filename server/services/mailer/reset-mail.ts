@@ -1,13 +1,13 @@
-import { GMAIL_TRANSPORT, VIEW_OPTIONS } from 'server/config/email';
-// @ts-ignore
-import hbs from 'nodemailer-express-handlebars';
 import { SentMessageInfo } from 'nodemailer';
-
 import config from 'server/config';
+import { IAuthPasswordReset } from 'common/types/auth/reset';
+import { IUserInterface } from 'common/types/user/user-schema';
+import { BASE_MAILER } from './base';
 
-export const sendResetMail = (email: string, token: string): Promise<SentMessageInfo> => {
-  VIEW_OPTIONS(GMAIL_TRANSPORT, hbs);
-
+export const sendResetMail = (
+  email: IAuthPasswordReset['email'],
+  token: IAuthPasswordReset['token']
+): Promise<SentMessageInfo> => {
   const HelperOptions = {
     from: `"Alexey Istomin" <${config.gmail.userName}>`,
     to: email,
@@ -18,13 +18,22 @@ export const sendResetMail = (email: string, token: string): Promise<SentMessage
     },
   };
 
-  return new Promise((resolve, reject) => {
-    GMAIL_TRANSPORT.sendMail(HelperOptions, (error: Error | null, info: SentMessageInfo) => {
-      if (error) {
-        reject(error);
-      }
+  return BASE_MAILER(HelperOptions);
+};
 
-      resolve(info);
-    });
-  });
+export const sendSignUpMail = (user: IUserInterface): Promise<SentMessageInfo> => {
+  const HelperOptions = {
+    from: `"Alexey Istomin" <${config.gmail.userName}>`,
+    to: user.email,
+    subject: 'Successful registration',
+    template: '/sign-up/sign-up',
+    context: {
+      firstName: user.firstName,
+      lastName: user.lastName,
+      supportEmail: config.gmail.userName,
+      link: `${config.base}/login`,
+    },
+  };
+
+  return BASE_MAILER(HelperOptions);
 };

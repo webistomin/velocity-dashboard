@@ -22,7 +22,9 @@ export default async (req: Request, res: Response<IAuthSignUpResponseBody>) => {
     newUser.role = role;
     newUser.email = email;
     newUser.password = password;
-    await newUser.save();
+    await newUser.save().then(async () => {
+      await newUser.sendSignUpMail();
+    });
 
     /**
      * If JWT Secret specified in .env – sign

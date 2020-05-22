@@ -7,7 +7,7 @@ import consola from 'consola';
 import { IUserInterface, IUserSchema } from 'common/types/user/user-schema';
 import { SiteThemes } from 'common/types/theme/site-themes';
 import PasswordReset from 'server/models/auth/password-reset';
-import { sendResetMail } from 'server/services/mailer/reset-mail';
+import { sendResetMail, sendSignUpMail } from 'server/services/mailer/reset-mail';
 
 const UserSchema: Schema = new Schema<IUserInterface>({
   firstName: {
@@ -101,7 +101,7 @@ UserSchema.methods.comparePassword = async function(password: IUserSchema['passw
   return match;
 };
 
-UserSchema.methods.forgotPassword = async function(): Promise<SentMessageInfo> {
+UserSchema.methods.sendForgotPasswordMail = async function(): Promise<SentMessageInfo> {
   const token = nanoid(72);
 
   return await new Promise((resolve, reject) => {
@@ -115,14 +115,34 @@ UserSchema.methods.forgotPassword = async function(): Promise<SentMessageInfo> {
         resolve(info);
         consola.success({
           badge: true,
-          message: `Reset mail successfully sent: ${info}`,
+          message: `Reset mail successfully sent: ${JSON.stringify(info)}`,
         });
       })
       .catch((error) => {
         reject(error);
         consola.error({
           badge: true,
-          message: `Error during sending reset email: ${error}`,
+          message: `Error during sending reset email: ${JSON.stringify(error)}`,
+        });
+      });
+  });
+};
+
+UserSchema.methods.sendSignUpMail = async function(): Promise<SentMessageInfo> {
+  return await new Promise((resolve, reject) => {
+    sendSignUpMail(this)
+      .then((info) => {
+        resolve(info);
+        consola.success({
+          badge: true,
+          message: `Sign up mail successfully sent: ${JSON.stringify(info)}`,
+        });
+      })
+      .catch((error) => {
+        reject(error);
+        consola.error({
+          badge: true,
+          message: `Error during sending sign up email: ${JSON.stringify(error)}`,
         });
       });
   });

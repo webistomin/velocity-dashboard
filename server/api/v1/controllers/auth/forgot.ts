@@ -6,7 +6,7 @@ export default async (req: IAuthForgotValidatorRequest, res: Response<IAuthForgo
   try {
     const { user } = req;
     await user
-      .forgotPassword()
+      .sendForgotPasswordMail()
       .then(() => {
         return res.json({
           message: 'Password reset link sent',

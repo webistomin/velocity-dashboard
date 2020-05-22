@@ -18,19 +18,26 @@
           <h1> Successful registration </h1>
         </mj-text>
         <mj-text>
-          <p>Hello, {{firstName}} {{lastname}}</p>
+          <p>
+            Hello, {{ firstName }} {{ lastname }}
+          </p>
         </mj-text>
         <mj-text>
           <p>A couple of tips to get started:</p>
         </mj-text>
         <mj-text>
           <span>1. Complete your profile. Add a picture so others can recognize you.</span>
-          <br></br>
-          <span>2. Need help? Email {{supportEmail}} for support or feedback </span>
+          <br />
+          <span>2. Need help? Email {{ supportEmail }} for support or feedback </span>
         </mj-text>
-        <mj-button background-color='#2e5bff' color='#FFFFFF' href='{{link}}'> Sign in </mj-button>
+        <mj-button background-color='#2e5bff' color='#FFFFFF' href='{{link}}'>
+          Sign in
+        </mj-button>
         <mj-text>
-          <p>Didn't create a Velocity account? It's likely someone just typed in ypur email address by accident. Feel free to ignore this email.</p>
+          <p>
+            Didn't create a Velocity account? It's likely someone just typed in your email address by accident. Feel
+            free to ignore this email.
+          </p>
         </mj-text>
       </mj-column>
     </mj-section>
