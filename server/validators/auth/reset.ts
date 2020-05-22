@@ -5,6 +5,7 @@ import { NextFunction, Response } from 'express';
 import PasswordReset from 'server/models/auth/password-reset';
 import User from 'server/models/user/user';
 import { IAuthPasswordResetResponseBody, IAuthPasswordResetValidatorRequest } from 'common/types/auth/reset';
+import { ONE_MINUTE_IN_MILISECONDS } from 'common/consts/times';
 
 const ResetSchema = Yup.object({
   password: Yup.string().required(),
@@ -33,6 +34,18 @@ export default async (
      */
     if (!existingReset) {
       throw new Yup.ValidationError('Invalid reset token', req.body, 'password');
+    }
+
+    /**
+     * Delete reset link after 5 minutes
+     */
+    const timeInMinutes = Math.ceil(
+      (new Date().getTime() - new Date(existingReset.createdAt).getTime()) / ONE_MINUTE_IN_MILISECONDS
+    );
+
+    if (timeInMinutes > 5) {
+      await PasswordReset.findOneAndDelete({ token });
+      throw new Yup.ValidationError('Reset token expired', req.body, 'password');
     }
 
     /**

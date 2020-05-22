@@ -1,8 +1,7 @@
 import { Schema, model } from 'mongoose';
-import { IAuthPasswordResetSchema } from 'common/types/auth/reset';
-import { IUserSchema } from 'common/types/user/user-schema';
+import { IAuthPasswordReset, IAuthPasswordResetSchema } from 'common/types/auth/reset';
 
-const PasswordResetSchema: Schema = new Schema<IAuthPasswordResetSchema>({
+const PasswordResetSchema: Schema = new Schema<IAuthPasswordReset>({
   email: {
     type: String,
     required: true,
@@ -17,4 +16,4 @@ const PasswordResetSchema: Schema = new Schema<IAuthPasswordResetSchema>({
   },
 });
 
-export default model<IUserSchema>('PasswordReset', PasswordResetSchema);
+export default model<IAuthPasswordResetSchema>('PasswordReset', PasswordResetSchema);

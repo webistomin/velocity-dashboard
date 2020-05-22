@@ -1,1 +1,3 @@
-export const WEEK = 604800;
+export const ONE_WEEK_IN_SECONDS = 604800;
+
+export const ONE_MINUTE_IN_MILISECONDS = 60000;

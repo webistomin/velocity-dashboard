@@ -3,7 +3,7 @@ import HTTPStatuses from 'http-status-codes';
 import JWT from 'jsonwebtoken';
 
 import config from 'server/config';
-import { WEEK } from 'common/consts/times';
+import { ONE_WEEK_IN_SECONDS } from 'common/consts/times';
 import { IAuthSignInResponseBody, IAuthSignInValidatorRequest } from 'common/types/auth/sign-in';
 
 export default async (req: IAuthSignInValidatorRequest, res: Response<IAuthSignInResponseBody>) => {
@@ -21,7 +21,7 @@ export default async (req: IAuthSignInValidatorRequest, res: Response<IAuthSignI
        * Sign user token and return to front-end
        */
       const token = JWT.sign(user.toJSON(), JWTSecret, {
-        expiresIn: WEEK,
+        expiresIn: ONE_WEEK_IN_SECONDS,
       });
 
       await res.json({

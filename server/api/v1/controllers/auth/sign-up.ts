@@ -4,7 +4,7 @@ import JWT from 'jsonwebtoken';
 
 import User from 'server/models/user/user';
 import config from 'server/config';
-import { WEEK } from 'common/consts/times';
+import { ONE_WEEK_IN_SECONDS } from 'common/consts/times';
 import { DUPLICATE_RECORD_ERROR } from 'common/consts/mongoose-errors';
 import { IAuthSignUpResponseBody } from 'common/types/auth/sign-up';
 
@@ -29,7 +29,7 @@ export default async (req: Request, res: Response<IAuthSignUpResponseBody>) => {
      */
     if (config.jwt.secret) {
       token = JWT.sign(newUser.toJSON(), config.jwt.secret, {
-        expiresIn: WEEK,
+        expiresIn: ONE_WEEK_IN_SECONDS,
       });
     } else {
       throw new Error('JWT secret is not found');
