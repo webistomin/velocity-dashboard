@@ -1,5 +1,5 @@
 <h1 align="center">
-   <img src="https://velocity-bucket1.s3.eu-central-1.amazonaws.com/logo/logo.png"  width="630" height="230" alt="Velocity">
+   <img src="https://velocity-bucket1.s3.eu-central-1.amazonaws.com/logo/logo.png"  width="768" height="211" alt="Velocity">
 </h1>
 
 <p align="center">
