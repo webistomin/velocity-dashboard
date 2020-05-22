@@ -5,7 +5,7 @@ import { SentMessageInfo } from 'nodemailer';
 
 import config from 'server/config';
 
-export const sendResetMail = (email: string, token: string) => {
+export const sendResetMail = (email: string, token: string): Promise<SentMessageInfo> => {
   VIEW_OPTIONS(GMAIL_TRANSPORT, hbs);
 
   const HelperOptions = {
@@ -18,11 +18,13 @@ export const sendResetMail = (email: string, token: string) => {
     },
   };
 
-  GMAIL_TRANSPORT.sendMail(HelperOptions, (error: Error | null, info: SentMessageInfo) => {
-    if (error) {
-      console.log(error);
-      throw new Error(error.message);
-    }
-    console.log(info);
+  return new Promise((resolve, reject) => {
+    GMAIL_TRANSPORT.sendMail(HelperOptions, (error: Error | null, info: SentMessageInfo) => {
+      if (error) {
+        reject(error);
+      }
+
+      resolve(info);
+    });
   });
 };

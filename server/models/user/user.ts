@@ -1,8 +1,11 @@
 import { Schema, model, HookNextFunction } from 'mongoose';
 import bcrypt from 'bcrypt';
+import { nanoid } from 'nanoid';
+import { SentMessageInfo } from 'nodemailer';
+import consola from 'consola';
+
 import { IUserInterface, IUserSchema } from 'common/types/user/user-schema';
 import { SiteThemes } from 'common/types/theme/site-themes';
-import { nanoid } from 'nanoid';
 import PasswordReset from 'server/models/auth/password-reset';
 import { sendResetMail } from 'server/services/mailer/reset-mail';
 
@@ -98,15 +101,31 @@ UserSchema.methods.comparePassword = async function(password: IUserSchema['passw
   return match;
 };
 
-UserSchema.methods.forgotPassword = async function() {
+UserSchema.methods.forgotPassword = async function(): Promise<SentMessageInfo> {
   const token = nanoid(72);
 
-  await PasswordReset.create({
-    email: this.email,
-    token,
-    createdAt: new Date(),
+  return await new Promise((resolve, reject) => {
+    sendResetMail(this.email, token)
+      .then(async (info) => {
+        await PasswordReset.create({
+          email: this.email,
+          token,
+          createdAt: new Date(),
+        });
+        resolve(info);
+        consola.success({
+          badge: true,
+          message: `Reset mail successfully sent: ${info}`,
+        });
+      })
+      .catch((error) => {
+        reject(error);
+        consola.error({
+          badge: true,
+          message: `Error during sending reset email: ${error}`,
+        });
+      });
   });
-  sendResetMail(this.email, token);
 };
 
 export default model<IUserSchema>('User', UserSchema);

@@ -5,11 +5,20 @@ import { IAuthForgotResponseBody, IAuthForgotValidatorRequest } from 'common/typ
 export default async (req: IAuthForgotValidatorRequest, res: Response<IAuthForgotResponseBody>) => {
   try {
     const { user } = req;
-    await user.forgotPassword();
-    return await res.json({
-      message: 'Password reset link sent',
-      success: true,
-    });
+    await user
+      .forgotPassword()
+      .then(() => {
+        return res.json({
+          message: 'Password reset link sent',
+          success: true,
+        });
+      })
+      .catch(() => {
+        return res.status(HTTPStatuses.INTERNAL_SERVER_ERROR).json({
+          message: 'Error during sending mail',
+          success: false,
+        });
+      });
   } catch (error) {
     return res.status(HTTPStatuses.INTERNAL_SERVER_ERROR).json({
       success: false,
