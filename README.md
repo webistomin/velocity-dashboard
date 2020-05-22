@@ -1,5 +1,5 @@
 <h1 align="center">
-   <img src="https://raw.githubusercontent.com/webistomin/velocity-dashboard/145b99007ddd561a5bfe7bcc46922cd74fcb5bb0/docs/logo.png"  width="510" height="140" alt="Velocity">
+   <img src="https://velocity-bucket1.s3.eu-central-1.amazonaws.com/logo/logo.png"  width="630" height="230" alt="Velocity">
 </h1>
 
 <p align="center">

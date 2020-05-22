@@ -7,10 +7,7 @@
   <mj-body background-color='#f7f9ff'>
     <mj-section>
       <mj-column>
-        <mj-image
-          width='125px'
-          src='https://raw.githubusercontent.com/webistomin/velocity-dashboard/145b99007ddd561a5bfe7bcc46922cd74fcb5bb0/docs/logo.png'
-        />
+        <mj-image width='125px' src='https://velocity-bucket1.s3.eu-central-1.amazonaws.com/logo/logo.png' />
       </mj-column>
     </mj-section>
     <mj-section background-color='#ffffff'>
@@ -21,7 +18,7 @@
         <mj-text>
           <p> Seems like you forgot your password for Velocity. If it's true, click below to reset your password. </p>
         </mj-text>
-        <mj-button background-color='#2e5bff' color='#FFFFFF' href='#'>
+        <mj-button background-color='#2e5bff' color='#FFFFFF' href='{{link}}'>
           Reset password
         </mj-button>
         <mj-text>
@@ -29,5 +26,6 @@
         </mj-text>
       </mj-column>
     </mj-section>
+    <mj-spacer height='50px' />
   </mj-body>
 </mjml>;
