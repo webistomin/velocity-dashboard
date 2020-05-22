@@ -5,7 +5,6 @@ import { NextFunction, Response } from 'express';
 import { IAuthForgotValidatorRequest, IAuthForgotValidatorResponseBody } from 'common/types/auth/forgot';
 import User from 'server/models/user/user';
 import PasswordReset from 'server/models/auth/password-reset';
-import { IUserSchema } from 'common/types/user/user-schema';
 
 const ForgotSchema = Yup.object({
   email: Yup.string()
@@ -34,7 +33,7 @@ export default async (
      * If user is not found – return error
      */
     if (!foundUser) {
-      await res.status(HTTPStatuses.UNAUTHORIZED).json({
+      return await res.status(HTTPStatuses.UNAUTHORIZED).json({
         success: false,
         message: 'Account does not exist',
       });
@@ -49,7 +48,7 @@ export default async (
      * If link exists – return error
      */
     if (existingReset) {
-      await res.status(HTTPStatuses.UNPROCESSABLE_ENTITY).json({
+      return await res.status(HTTPStatuses.UNPROCESSABLE_ENTITY).json({
         success: false,
         message: 'Reset link was already sent',
       });
@@ -57,7 +56,7 @@ export default async (
     /**
      * Pass user object to forgot controller
      */
-    req.user = foundUser as IUserSchema;
+    req.user = foundUser;
 
     return next();
   } catch (error) {

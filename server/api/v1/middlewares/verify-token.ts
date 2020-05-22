@@ -20,18 +20,20 @@ export default function verifyToken(req: IVerifiedUserRequest, res: Response, ne
     if (config.jwt.secret) {
       JWT.verify(token, config.jwt.secret, (err, decodedUser) => {
         if (err) {
-          res.status(HTTPStatuses.INTERNAL_SERVER_ERROR).json({
+          return res.status(HTTPStatuses.INTERNAL_SERVER_ERROR).json({
             success: false,
             message: err.message,
           });
         }
 
         req.decodedUser = decodedUser as IUserSchema;
-        next();
+        return next();
       });
+    } else {
+      throw new Error('JWT secret is not found');
     }
   } else {
-    res.status(HTTPStatuses.BAD_REQUEST).json({
+    return res.status(HTTPStatuses.BAD_REQUEST).json({
       success: false,
       message: 'No token provided',
     });

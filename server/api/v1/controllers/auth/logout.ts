@@ -4,11 +4,11 @@ import HTTPStatuses from 'http-status-codes';
 
 export default (_req: Request, res: Response<IAuthLogoutResponseBody>) => {
   try {
-    res.json({
+    return res.json({
       success: true,
     });
   } catch (error) {
-    res.status(HTTPStatuses.INTERNAL_SERVER_ERROR).json({
+    return res.status(HTTPStatuses.INTERNAL_SERVER_ERROR).json({
       success: false,
       message: error.message,
     });

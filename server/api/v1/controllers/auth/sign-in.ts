@@ -29,10 +29,10 @@ export default async (req: IAuthSignInValidatorRequest, res: Response<IAuthSignI
         token,
       });
     }
-  } catch (e) {
-    await res.status(HTTPStatuses.INTERNAL_SERVER_ERROR).json({
+  } catch (error) {
+    return res.status(HTTPStatuses.INTERNAL_SERVER_ERROR).json({
       success: false,
-      message: e.message,
+      message: error.message,
     });
   }
 };

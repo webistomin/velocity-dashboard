@@ -47,7 +47,7 @@ export default async (req: IAuthPasswordResetValidatorRequest, res: Response<IAu
       message: 'Password has been successfully reset',
     });
   } catch (error) {
-    await res.status(HTTPStatuses.INTERNAL_SERVER_ERROR).json({
+    return res.status(HTTPStatuses.INTERNAL_SERVER_ERROR).json({
       success: false,
       message: error.message,
     });

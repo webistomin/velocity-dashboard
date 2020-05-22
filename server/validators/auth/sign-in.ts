@@ -34,7 +34,7 @@ export default async (
      * If user is not found – return error
      */
     if (!foundUser) {
-      await res.status(HTTPStatuses.UNAUTHORIZED).json({
+      return await res.status(HTTPStatuses.UNAUTHORIZED).json({
         success: false,
         message: 'Account does not exist',
       });
@@ -48,7 +48,7 @@ export default async (
        * If passwords are not equal – return error
        */
       if (!isPasswordsEqual) {
-        res.status(HTTPStatuses.UNAUTHORIZED).json({
+        return res.status(HTTPStatuses.UNAUTHORIZED).json({
           success: false,
           message: 'Wrong email or password, please try again',
         });

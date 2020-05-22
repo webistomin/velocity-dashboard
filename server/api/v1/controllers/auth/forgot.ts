@@ -6,12 +6,12 @@ export default async (req: IAuthForgotValidatorRequest, res: Response<IAuthForgo
   try {
     const { user } = req;
     await user.forgotPassword();
-    await res.json({
+    return await res.json({
       message: 'Password reset link sent',
       success: true,
     });
   } catch (error) {
-    await res.status(HTTPStatuses.INTERNAL_SERVER_ERROR).json({
+    return res.status(HTTPStatuses.INTERNAL_SERVER_ERROR).json({
       success: false,
       message: error.message,
     });

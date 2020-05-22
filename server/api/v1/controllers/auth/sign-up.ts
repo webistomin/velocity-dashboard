@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import HTTPStatuses from 'http-status-codes';
 import JWT from 'jsonwebtoken';
+
 import User from 'server/models/user/user';
 import config from 'server/config';
 import { WEEK } from 'common/consts/times';
@@ -34,17 +35,17 @@ export default async (req: Request, res: Response<IAuthSignUpResponseBody>) => {
       throw new Error('JWT secret is not found');
     }
 
-    await res.status(HTTPStatuses.CREATED).json({
+    return res.status(HTTPStatuses.CREATED).json({
       success: true,
       token,
       message: 'User created',
     });
-  } catch (e) {
-    const code = e.code;
+  } catch (error) {
+    const code = error.code;
     let status = HTTPStatuses.INTERNAL_SERVER_ERROR;
     const response = {
       success: false,
-      message: e.message,
+      message: error.message,
     };
 
     /**
@@ -55,6 +56,6 @@ export default async (req: Request, res: Response<IAuthSignUpResponseBody>) => {
       response.message = 'Email address already registered';
     }
 
-    await res.status(status).json(response);
+    return res.status(status).json(response);
   }
 };

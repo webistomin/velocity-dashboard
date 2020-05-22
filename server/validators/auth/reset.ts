@@ -5,7 +5,6 @@ import { NextFunction, Response } from 'express';
 import PasswordReset from 'server/models/auth/password-reset';
 import User from 'server/models/user/user';
 import { IAuthPasswordResetResponseBody, IAuthPasswordResetValidatorRequest } from 'common/types/auth/reset';
-import { IUserSchema } from 'common/types/user/user-schema';
 
 const ResetSchema = Yup.object({
   password: Yup.string().required(),
@@ -42,7 +41,7 @@ export default async (
     const user = await User.findOne({ email: existingReset.email });
 
     if (!user) {
-      await res.status(HTTPStatuses.UNPROCESSABLE_ENTITY).json({
+      return await res.status(HTTPStatuses.UNPROCESSABLE_ENTITY).json({
         success: false,
         message: 'Account does not exists',
       });
@@ -51,7 +50,7 @@ export default async (
     /**
      * Pass user object to reset controller
      */
-    req.user = user as IUserSchema;
+    req.user = user;
     return next();
   } catch (error) {
     res.status(HTTPStatuses.UNPROCESSABLE_ENTITY).json({
