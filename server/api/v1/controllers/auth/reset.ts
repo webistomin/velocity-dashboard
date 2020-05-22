@@ -1,36 +1,55 @@
-import { Request, Response } from 'express';
-import User from 'server/models/user/user';
-import PasswordReset from 'server/models/auth/password-reset';
+import { Response } from 'express';
+import HTTPStatuses from 'http-status-codes';
 import bcrypt from 'bcrypt';
 
-export default async (req: Request, res: Response) => {
-  // @ts-ignore
-  const { user } = req;
-  bcrypt.genSalt(10, function(err, salt) {
-    if (err) {
-      throw new Error(err.message);
-    }
+import User from 'server/models/user/user';
+import PasswordReset from 'server/models/auth/password-reset';
+import { IAuthPasswordResetResponseBody, IAuthPasswordResetValidatorRequest } from 'common/types/auth/reset';
 
-    bcrypt.hash(req.body.password, salt, async function(err, hash) {
+export default async (req: IAuthPasswordResetValidatorRequest, res: Response<IAuthPasswordResetResponseBody>) => {
+  const { user } = req;
+
+  try {
+    /**
+     * Generate the hash like it did in User model
+     */
+    await bcrypt.genSalt(10, (err, salt) => {
       if (err) {
         throw new Error(err.message);
       }
 
-      await User.findOneAndUpdate(
-        {
-          email: user.email,
-        },
-        {
-          password: hash,
+      bcrypt.hash(req.body.password, salt, async (err, hash) => {
+        if (err) {
+          throw new Error(err.message);
         }
-      );
+
+        /**
+         * Update user password with hash
+         */
+        await User.findOneAndUpdate(
+          {
+            email: user.email,
+          },
+          {
+            password: hash,
+          }
+        );
+      });
     });
-  });
 
-  await PasswordReset.findOneAndDelete({ email: user.email });
+    /**
+     * Delete password reset link
+     */
+    await PasswordReset.findOneAndDelete({ email: user.email });
 
-  return res.json({
-    success: true,
-    message: 'Password has been successfully reset',
-  });
+    return res.json({
+      success: true,
+      message: 'Password has been successfully reset',
+    });
+  } catch (error) {
+    await res.status(HTTPStatuses.INTERNAL_SERVER_ERROR).json({
+      success: false,
+      message: error.message,
+    });
+  }
 };

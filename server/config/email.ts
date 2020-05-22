@@ -18,11 +18,10 @@ export const VIEW_OPTIONS = (transport: Transporter, hbs: any) => {
     hbs({
       viewEngine: {
         extName: '.hbs',
-        partialsDir: 'server/mails',
-        layoutsDir: 'server/mails',
-        defaultLayout: 'test.hbs',
+        partialsDir: 'server/mails/partials',
+        defaultLayout: false,
       },
-      viewPath: 'server/mails',
+      viewPath: 'server/mails/views',
       extName: '.hbs',
     })
   );

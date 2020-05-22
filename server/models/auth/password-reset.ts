@@ -1,8 +1,8 @@
 import { Schema, model } from 'mongoose';
-import { IPasswordResetSchema } from 'common/types/auth/reset';
+import { IAuthPasswordResetSchema } from 'common/types/auth/reset';
 import { IUserSchema } from 'common/types/user/user-schema';
 
-const PasswordResetSchema: Schema = new Schema<IPasswordResetSchema>({
+const PasswordResetSchema: Schema = new Schema<IAuthPasswordResetSchema>({
   email: {
     type: String,
     required: true,

@@ -1,37 +1,32 @@
-import { Request, Response } from 'express';
+import { Response } from 'express';
 import HTTPStatuses from 'http-status-codes';
 import JWT from 'jsonwebtoken';
-import User from 'server/models/user/user';
+
 import config from 'server/config';
 import { WEEK } from 'common/consts/times';
-import { IAuthSignInResponseBody } from 'common/types/auth/sign-in';
+import { IAuthSignInResponseBody, IAuthSignInValidatorRequest } from 'common/types/auth/sign-in';
 
-export default async (req: Request, res: Response<IAuthSignInResponseBody>) => {
+export default async (req: IAuthSignInValidatorRequest, res: Response<IAuthSignInResponseBody>) => {
   try {
-    const { email, password } = req.body;
+    const { user } = req;
+    const JWTSecret = config.jwt.secret;
 
-    const foundUser = await User.findOne({ email });
-
-    console.log(foundUser, password);
-
-    if (!foundUser) {
-      await res.status(HTTPStatuses.UNAUTHORIZED).json({
-        success: false,
-        message: 'Account does not exist',
-      });
-    } else if ((await foundUser.comparePassword(password)) && config.jwt.secret) {
-      const token = JWT.sign(foundUser.toJSON(), config.jwt.secret, {
+    /**
+     * If JWT Secret is not specified in .env – return error
+     */
+    if (!JWTSecret) {
+      throw new Error('JWT secret is not found');
+    } else {
+      /**
+       * Sign user token and return to front-end
+       */
+      const token = JWT.sign(user.toJSON(), JWTSecret, {
         expiresIn: WEEK,
       });
 
       await res.json({
         success: true,
         token,
-      });
-    } else {
-      res.status(HTTPStatuses.UNAUTHORIZED).json({
-        success: false,
-        message: 'Wrong email or password, please try again',
       });
     }
   } catch (e) {

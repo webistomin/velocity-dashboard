@@ -11,6 +11,10 @@ export default async (req: Request, res: Response<IAuthSignUpResponseBody>) => {
   try {
     let token;
     const { firstName, lastName, role, email, password } = req.body;
+
+    /**
+     * Create new user
+     */
     const newUser = new User();
     newUser.firstName = firstName;
     newUser.lastName = lastName;
@@ -19,10 +23,15 @@ export default async (req: Request, res: Response<IAuthSignUpResponseBody>) => {
     newUser.password = password;
     await newUser.save();
 
+    /**
+     * If JWT Secret specified in .env – sign
+     */
     if (config.jwt.secret) {
       token = JWT.sign(newUser.toJSON(), config.jwt.secret, {
         expiresIn: WEEK,
       });
+    } else {
+      throw new Error('JWT secret is not found');
     }
 
     await res.status(HTTPStatuses.CREATED).json({
@@ -38,6 +47,9 @@ export default async (req: Request, res: Response<IAuthSignUpResponseBody>) => {
       message: e.message,
     };
 
+    /**
+     * If user with this email already exists – return error
+     */
     if (code === DUPLICATE_RECORD_ERROR) {
       status = HTTPStatuses.CONFLICT;
       response.message = 'Email address already registered';

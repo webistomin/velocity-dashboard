@@ -95,7 +95,6 @@ UserSchema.pre<IUserSchema>('save', function(next: HookNextFunction) {
 UserSchema.methods.comparePassword = async function(password: IUserSchema['password']): Promise<Boolean> {
   const user = this;
   const match = await bcrypt.compare(password, user.password);
-  console.log(match, 'here');
   return match;
 };
 

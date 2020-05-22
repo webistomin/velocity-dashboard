@@ -1,0 +1,33 @@
+<mjml>
+  <mj-head>
+    <mj-attributes>
+      <mj-text align='center' color='#2d384d' />
+    </mj-attributes>
+  </mj-head>
+  <mj-body background-color='#f7f9ff'>
+    <mj-section>
+      <mj-column>
+        <mj-image
+          width='125px'
+          src='https://raw.githubusercontent.com/webistomin/velocity-dashboard/145b99007ddd561a5bfe7bcc46922cd74fcb5bb0/docs/logo.png'
+        />
+      </mj-column>
+    </mj-section>
+    <mj-section background-color='#ffffff'>
+      <mj-column>
+        <mj-text>
+          <h1> Password reset </h1>
+        </mj-text>
+        <mj-text>
+          <p> Seems like you forgot your password for Velocity. If it's true, click below to reset your password. </p>
+        </mj-text>
+        <mj-button background-color='#2e5bff' color='#FFFFFF' href='#'>
+          Reset password
+        </mj-button>
+        <mj-text>
+          <p> If you did not forgot your password you can safely ignore this email. </p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>;

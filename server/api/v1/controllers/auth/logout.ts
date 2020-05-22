@@ -1,8 +1,16 @@
 import { Request, Response } from 'express';
 import { IAuthLogoutResponseBody } from 'common/types/auth/logout';
+import HTTPStatuses from 'http-status-codes';
 
 export default (_req: Request, res: Response<IAuthLogoutResponseBody>) => {
-  res.json({
-    success: true,
-  });
+  try {
+    res.json({
+      success: true,
+    });
+  } catch (error) {
+    res.status(HTTPStatuses.INTERNAL_SERVER_ERROR).json({
+      success: false,
+      message: error.message,
+    });
+  }
 };

@@ -1,6 +1,7 @@
 import * as Yup from 'yup';
 import HTTPStatuses from 'http-status-codes';
 import { NextFunction, Request, Response } from 'express';
+
 import { IAuthSignUpValidatorResponseBody } from 'common/types/auth/sign-up';
 import { SiteThemes } from 'common/types/theme/site-themes';
 
@@ -33,16 +34,19 @@ const SignUpSchema = Yup.object({
   bio: Yup.string(),
 });
 
-export default (req: Request, res: Response<IAuthSignUpValidatorResponseBody>, next: NextFunction) => {
+export default async (req: Request, res: Response<IAuthSignUpValidatorResponseBody>, next: NextFunction) => {
   const data = req.body;
-  return SignUpSchema.validate(data)
-    .then(() => {
-      return next();
-    })
-    .catch((error: Yup.ValidationError) => {
-      return res.status(HTTPStatuses.UNPROCESSABLE_ENTITY).json({
-        success: false,
-        message: error.message,
-      });
+
+  try {
+    /**
+     * Validate body with Yup
+     */
+    await SignUpSchema.validate(data);
+    return next();
+  } catch (error) {
+    return res.status(HTTPStatuses.UNPROCESSABLE_ENTITY).json({
+      success: false,
+      message: error.message,
     });
+  }
 };
