@@ -75,6 +75,10 @@ const UserSchema: Schema = new Schema<IUserDocumentInterface>({
     type: String,
     default: '',
   },
+  avatar: {
+    type: String,
+    default: '',
+  },
 });
 
 UserSchema.pre<IUserSchema>('save', function(next: HookNextFunction) {

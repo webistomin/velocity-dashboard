@@ -1,12 +1,14 @@
 import { VueComponent } from 'types/vue-components';
 import { Component, Emit, Prop } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
+import { State } from 'vuex-class';
 
 import BaseToggle from 'components/base/BaseToggle';
 import BaseThumbnail from 'components/base/BaseThumbnail';
 import BaseOverlay from 'components/base/BaseOverlay';
 
 import './TheNavigation.sass';
+import { IUserInterfaceDB } from 'common/types/user/user-schema';
 
 export interface INavigationProps {
   isNavOpened: boolean;
@@ -89,16 +91,21 @@ export default class TheNavigation extends VueComponent<INavigationProps> {
     return allLinks.filter((link) => !link.adminOnly);
   }
 
+  @State((state) => state.auth.user)
+  getAuthUser!: IUserInterfaceDB;
+
   @Emit('openNav')
   public onToggleClick(): void {}
 
   public render(): VNode {
+    const userAvatar = this.getAuthUser.avatar;
+
     return (
       <aside class={`main-nav ${this.isNavOpened ? 'main-nav_visible' : ''}`}>
         <div class='main-nav__wrapper'>
           <BaseToggle class='main-nav__toggle' size='s' onClick={this.onToggleClick} isActive={this.isNavOpened} />
           <div class='main-nav__user'>
-            <BaseThumbnail class='main-nav__thumb' image='/img/avatar.png' size='xs' alt='user' isSquared={true} />
+            <BaseThumbnail class='main-nav__thumb' image={userAvatar} size='xs' alt='user' isSquared={true} />
             <span class={`main-nav__info ${this.isNavOpened ? 'main-nav__info_visible' : ''}`}>
               <strong class='main-nav__welcome'>Welcome</strong>
               <strong class='main-nav__username'>Alexey Istomin</strong>

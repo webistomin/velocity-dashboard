@@ -7,41 +7,25 @@ import BaseThumbnail from 'components/base/BaseThumbnail';
 import BaseSidebar from 'components/base/BaseSidebar';
 import BaseOverlay from 'components/base/BaseOverlay';
 import UserProfile, { IUserProfileInfo } from 'components/ui/UserCenter/UserProfile/UserProfile';
+import { IUserInterfaceDB } from 'common/types/user/user-schema';
+import { UserRoles } from 'common/types/user/user-roles';
 
 import './UserCenter.sass';
-import { IUserInterfaceDB } from 'common/types/user/user-schema';
 
 @Component({
   name: 'UserCenter',
 })
 export default class UserCenter extends VueComponent {
   public isUserProfileVisible: boolean = false;
-  public info: IUserProfileInfo[] = [
-    {
-      key: 'Role',
-      value: '',
-    },
-    {
-      key: 'Email',
-      value: '',
-    },
-    {
-      key: 'Phone',
-      value: '',
-    },
-    {
-      key: 'Twitter',
-      value: '',
-    },
-    {
-      key: 'Location',
-      value: '',
-    },
-    {
-      key: 'Bio',
-      value: '',
-    },
-  ];
+  public userInfo: IUserProfileInfo = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    location: '',
+    bio: '',
+    avatar: '',
+    role: UserRoles.OPERATOR,
+  };
 
   @State((state) => state.auth.user)
   getAuthUser!: IUserInterfaceDB;
@@ -58,21 +42,29 @@ export default class UserCenter extends VueComponent {
     this.isUserProfileVisible = false;
   }
 
+  created(): void {
+    const authUser = this.getAuthUser;
+
+    this.userInfo.firstName = authUser.firstName;
+    this.userInfo.lastName = authUser.lastName;
+    this.userInfo.email = authUser.email;
+    this.userInfo.location = authUser.location;
+    this.userInfo.bio = authUser.bio;
+    this.userInfo.avatar = authUser.avatar;
+    this.userInfo.role = authUser.role;
+  }
+
   public render(): VNode {
+    const userAvatar = this.getAuthUser.avatar;
+
     return (
       <div class='user-center' v-scroll-lock={this.shouldLockBody} v-click-outside={this.onClickOutside}>
         <button class='user-center__btn btn' onClick={this.toggleUserProfileVisibility}>
-          <BaseThumbnail image='/img/avatar.png' size='s' alt='User' />
+          <BaseThumbnail image={userAvatar} size='s' alt='User' />
         </button>
 
         <BaseSidebar isVisible={this.isUserProfileVisible} class='user-center__sidebar'>
-          <UserProfile
-            name='Alexey Istomin'
-            class={'user-center__profile'}
-            avatar='/img/avatar.png'
-            post='Sr. Customer Manager'
-            info={this.info}
-          />
+          <UserProfile class={'user-center__profile'} info={this.userInfo} />
         </BaseSidebar>
 
         <BaseOverlay class='user-center__overlay' isVisible={this.isUserProfileVisible} onClick={this.onClickOutside} />

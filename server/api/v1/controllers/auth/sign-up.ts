@@ -1,3 +1,4 @@
+import crypto from 'crypto';
 import { Request, Response } from 'express';
 import HTTPStatuses from 'http-status-codes';
 import JWT from 'jsonwebtoken';
@@ -22,6 +23,20 @@ export default async (req: Request, res: Response<IAuthSignUpResponseBody>) => {
     newUser.role = role;
     newUser.email = email;
     newUser.password = password;
+
+    /**
+     * Generate md5 email hash
+     */
+    const emailHash = crypto
+      .createHash('md5')
+      .update(email)
+      .digest('hex');
+
+    /**
+     * Add gravatar avatar
+     */
+    newUser.avatar = `https://www.gravatar.com/avatar/${emailHash}?s=140`;
+
     await newUser.save().then(async () => {
       await newUser.sendSignUpMail();
     });
