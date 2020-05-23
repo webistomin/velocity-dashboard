@@ -1,0 +1,33 @@
++b('base-modal')
+  box-sizing: border-box
+  padding: rem(50px)
+  width: 100%
+  height: 100%
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  position: fixed
+  display: flex
+  flex-direction: column
+  overflow: auto
+  +scroll-overflow()
+  +scrollbar(5px, rgb(var(--color-primary)), rgb(var(--color-secondary)))
+  z-index: var(--z-index-base-modal)
+
+  +e('locker')
+    display: inherit
+    flex-direction: inherit
+    flex-grow: 1
+
+    div[data-lock]
+      display: inherit
+      flex-direction: inherit
+      flex-grow: 1
+
+  +e('wrapper')
+    display: inherit
+    flex-direction: inherit
+    align-items: center
+    justify-content: center
+    flex-grow: 1
