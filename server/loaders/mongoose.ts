@@ -11,6 +11,9 @@ export default async (): Promise<Db | void> => {
 
   if (url) {
     mongoose.set('useCreateIndex', true);
+    mongoose.set('useFindAndModify', false);
+    mongoose.set('useNewUrlParser', true);
+
     const connection = await mongoose.connect(
       url,
       { useNewUrlParser: true, useUnifiedTopology: true },

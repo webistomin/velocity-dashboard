@@ -7,16 +7,20 @@ import { IOwnUserProfileResponseBody } from 'common/types/user/user';
 
 export default async (req: IVerifiedUserRequest, res: Response<IOwnUserProfileResponseBody>) => {
   try {
-    const userId = req?.decodedUser?._id;
+    const userId = req.decodedUser._id;
 
-    if (userId) {
-      const foundUser = await User.findOne({ _id: userId });
-      if (foundUser) {
-        return await res.status(HTTPStatuses.OK).json({
-          success: true,
-          user: foundUser,
-        });
-      }
+    const foundUser = await User.findOne({ _id: userId });
+
+    if (foundUser) {
+      return await res.status(HTTPStatuses.OK).json({
+        success: true,
+        user: foundUser,
+      });
+    } else {
+      return res.status(HTTPStatuses.NOT_FOUND).json({
+        success: false,
+        message: 'User is not found',
+      });
     }
   } catch (error) {
     return res.status(HTTPStatuses.INTERNAL_SERVER_ERROR).json({

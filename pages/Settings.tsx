@@ -12,6 +12,7 @@ export default class SettingsPage extends VueComponent {
     return (
       <main class='page-content page-content_offset'>
         <Settings />
+        <notifications group='settings' position='top left' animation-name='v-popup-fade-left' />
       </main>
     );
   }

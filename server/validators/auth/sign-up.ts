@@ -32,6 +32,7 @@ const SignUpSchema = Yup.object({
   }),
   location: Yup.string(),
   bio: Yup.string(),
+  dob: Yup.string(),
 });
 
 export default async (req: Request, res: Response<IAuthSignUpValidatorResponseBody>, next: NextFunction) => {

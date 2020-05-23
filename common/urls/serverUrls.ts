@@ -11,5 +11,6 @@ export const serverUrls = {
   },
   profile: {
     own: '/profile/own',
+    update: '/profile/update',
   },
 };

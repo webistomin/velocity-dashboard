@@ -1,15 +1,16 @@
 import { VueComponent } from 'types/vue-components';
 import { Component, Emit, Prop } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
-import { email, sameAs, between, minLength } from 'vuelidate/lib/validators';
+import { email, sameAs, minLength, alpha, requiredIf } from 'vuelidate/lib/validators';
+import { isAfter, isBefore, subYears } from 'date-fns';
 
 import BaseFormGroup from 'components/base/BaseFormGroup';
-import BaseButton from 'components/base/BaseButton';
 import { IUserSettings } from './Settings';
 
 export interface ISettingsDataProps {
   info: IUserSettings['info'];
   onChangeSettings?: (info: IUserSettings['info']) => void;
+  ref?: string;
 }
 
 @Component({
@@ -19,16 +20,39 @@ export interface ISettingsDataProps {
       email: {
         email,
       },
-      firstName: {},
-      lastName: {},
+      firstName: {
+        alpha,
+      },
+      lastName: {
+        alpha,
+      },
       dob: {
-        betweenDate: between(new Date('01-01-1960'), new Date('01-01-2005')),
+        betweenDate: (userDob) => {
+          const dob = new Date(userDob);
+          /**
+           * User DOB valid if he was born after 1960 and he is 18 years old at least
+           */
+          const isAfter1960AndBefore2005 =
+            isAfter(dob, new Date('01-01-1960')) && isBefore(dob, subYears(new Date(Date.now()), 18));
+          return isAfter1960AndBefore2005;
+        },
         minLengthDate: minLength(10),
       },
-      currentPassword: {},
-      newPassword: {},
+      currentPassword: {
+        required: requiredIf((settingsForm) => {
+          return settingsForm.newPassword;
+        }),
+      },
+      newPassword: {
+        required: requiredIf((settingsForm) => {
+          return settingsForm.confirmPassword;
+        }),
+      },
       confirmPassword: {
         sameAsPassword: sameAs('newPassword'),
+        required: requiredIf((settingsForm) => {
+          return settingsForm.newPassword;
+        }),
       },
     },
   },
@@ -43,6 +67,11 @@ export default class SettingsData extends VueComponent<ISettingsDataProps> {
   public onInput(value: string, field: keyof IUserSettings['info']): IUserSettings['info'] {
     this.settingsForm[field] = value;
     return this.settingsForm;
+  }
+
+  public touch() {
+    this.$v.settingsForm.$touch();
+    return this.$v;
   }
 
   public render(): VNode {
@@ -93,7 +122,7 @@ export default class SettingsData extends VueComponent<ISettingsDataProps> {
               type='text'
               label='Birth date'
               id='settings-birth-date'
-              placeholder='DD/MM/YYYY'
+              placeholder='MM/DD/YYYY'
               validator={this.$v.settingsForm.dob}
               onInput={($event: string) => this.onInput($event, 'dob')}
               value={this.settingsForm.dob}
@@ -107,7 +136,7 @@ export default class SettingsData extends VueComponent<ISettingsDataProps> {
               type='password'
               label='Current password'
               id='settings-current-password'
-              placeholder=''
+              placeholder='Enter current password'
               validator={this.$v.settingsForm.currentPassword}
               onInput={($event: string) => this.onInput($event, 'currentPassword')}
               value={this.settingsForm.currentPassword}
@@ -137,9 +166,6 @@ export default class SettingsData extends VueComponent<ISettingsDataProps> {
             />
           </div>
         </div>
-        <BaseButton class='settings__submit' type='submit'>
-          Save changes
-        </BaseButton>
       </fieldset>
     );
   }

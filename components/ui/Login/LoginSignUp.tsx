@@ -1,7 +1,7 @@
 import { VNode } from 'vue';
 import { VueComponent } from 'types/vue-components';
 import { Component, Emit } from 'nuxt-property-decorator';
-import { email, required } from 'vuelidate/lib/validators';
+import { email, required, alpha } from 'vuelidate/lib/validators';
 import { IUserInterface } from 'common/types/user/user-schema';
 import { UserRoles } from 'common/types/user/user-roles';
 import { serverUrls } from 'common/urls/serverUrls';
@@ -29,9 +29,11 @@ export interface ILoginSignUpForm {
     signUpForm: {
       firstName: {
         required,
+        alpha,
       },
       lastName: {
         required,
+        alpha,
       },
       email: {
         required,

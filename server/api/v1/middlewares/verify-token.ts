@@ -1,11 +1,11 @@
 import JWT from 'jsonwebtoken';
 import HTTPStatuses from 'http-status-codes';
 import { NextFunction, Request, Response } from 'express';
-import { IUserSchema } from 'common/types/user/user-schema';
+import { IUserInterfaceDB } from 'common/types/user/user-schema';
 import config from 'server/config';
 
 export interface IVerifiedUserRequest extends Request {
-  decodedUser?: IUserSchema;
+  decodedUser: IUserInterfaceDB;
 }
 
 export default function verifyToken(req: IVerifiedUserRequest, res: Response, next: NextFunction) {
@@ -26,7 +26,14 @@ export default function verifyToken(req: IVerifiedUserRequest, res: Response, ne
           });
         }
 
-        req.decodedUser = decodedUser as IUserSchema;
+        if (!decodedUser) {
+          return res.status(HTTPStatuses.INTERNAL_SERVER_ERROR).json({
+            success: false,
+            message: 'Error during authorization',
+          });
+        }
+
+        req.decodedUser = decodedUser as IUserInterfaceDB;
         return next();
       });
     } else {

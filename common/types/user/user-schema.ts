@@ -3,7 +3,10 @@ import { SiteThemes } from 'common/types/theme/site-themes';
 import { UserRoles } from 'common/types/user/user-roles';
 import { SentMessageInfo } from 'nodemailer';
 
-export interface IUserInterface extends Document {
+/**
+ * Default user interface until it extended by Mongo
+ */
+export interface IUserInterface {
   firstName: string;
   lastName: string;
   role: UserRoles;
@@ -23,11 +26,26 @@ export interface IUserInterface extends Document {
   };
   location: string;
   bio: string;
+  dob: string;
 }
 
-export interface IUserSchema extends IUserInterface {
+/**
+ * User interface with Mongo indexes
+ */
+export interface IUserInterfaceDB extends IUserInterface {
   __v: number;
   _id: Types.ObjectId;
+}
+
+/**
+ * Mongoose interface extended by Document
+ */
+export interface IUserDocumentInterface extends Document, IUserInterface {}
+
+/**
+ * Mongoose user schema with methods
+ */
+export interface IUserSchema extends IUserDocumentInterface {
   comparePassword(userPassword: string): Promise<boolean>;
   sendForgotPasswordMail(): Promise<SentMessageInfo>;
   sendSignUpMail(): Promise<SentMessageInfo>;

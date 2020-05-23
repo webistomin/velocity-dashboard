@@ -4,12 +4,12 @@ import { nanoid } from 'nanoid';
 import { SentMessageInfo } from 'nodemailer';
 import consola from 'consola';
 
-import { IUserInterface, IUserSchema } from 'common/types/user/user-schema';
+import { IUserDocumentInterface, IUserSchema } from 'common/types/user/user-schema';
 import { SiteThemes } from 'common/types/theme/site-themes';
 import PasswordReset from 'server/models/auth/password-reset';
 import { sendResetMail, sendSignUpMail } from 'server/services/mailer/reset-mail';
 
-const UserSchema: Schema = new Schema<IUserInterface>({
+const UserSchema: Schema = new Schema<IUserDocumentInterface>({
   firstName: {
     type: String,
     required: true,
@@ -68,6 +68,10 @@ const UserSchema: Schema = new Schema<IUserInterface>({
     default: '',
   },
   bio: {
+    type: String,
+    default: '',
+  },
+  dob: {
     type: String,
     default: '',
   },

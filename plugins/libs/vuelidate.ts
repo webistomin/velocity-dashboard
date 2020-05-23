@@ -16,5 +16,6 @@ Vue.use(VuelidateErrorExtractor, {
     sameAsPassword: 'Passwords must be identical',
     minLengthDate: 'Date must be in DD/MM/YYYY format',
     betweenDate: 'Provide valid date',
+    alpha: 'Accepts only latin alphabet characters',
   },
 });

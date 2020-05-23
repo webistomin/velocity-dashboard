@@ -4,6 +4,7 @@ import { VNode } from 'vue';
 
 import BaseTheme from 'components/base/BaseTheme/BaseTheme';
 import { IUserSettings } from 'components/ui/Settings/Settings';
+import { SiteThemes } from 'common/types/theme/site-themes';
 
 export interface ISettingsThemeProps {
   theme: IUserSettings['theme'];
@@ -22,7 +23,7 @@ export default class SettingsTheme extends VueComponent<ISettingsThemeProps> {
   @Emit('themeSelect')
   onInput(event: Event): IUserSettings['theme'] {
     const target = event.target as HTMLInputElement;
-    this.currentTheme = target.value;
+    this.currentTheme = target.value as SiteThemes;
     return this.currentTheme;
   }
 

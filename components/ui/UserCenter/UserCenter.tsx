@@ -1,6 +1,7 @@
 import { VueComponent } from 'types/vue-components';
 import { Component } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
+import { State } from 'vuex-class';
 
 import BaseThumbnail from 'components/base/BaseThumbnail';
 import BaseSidebar from 'components/base/BaseSidebar';
@@ -8,6 +9,7 @@ import BaseOverlay from 'components/base/BaseOverlay';
 import UserProfile, { IUserProfileInfo } from 'components/ui/UserCenter/UserProfile/UserProfile';
 
 import './UserCenter.sass';
+import { IUserInterfaceDB } from 'common/types/user/user-schema';
 
 @Component({
   name: 'UserCenter',
@@ -17,37 +19,39 @@ export default class UserCenter extends VueComponent {
   public info: IUserProfileInfo[] = [
     {
       key: 'Role',
-      value: 'Administrator, Moderator',
+      value: '',
     },
     {
       key: 'Email',
-      value: 'invision@invisionapp.com',
+      value: '',
     },
     {
       key: 'Phone',
-      value: '+144–3412–4422',
+      value: '',
     },
     {
       key: 'Twitter',
-      value: '@invisionapp',
+      value: '',
     },
     {
       key: 'Location',
-      value: 'New York, NY',
+      value: '',
     },
     {
       key: 'Bio',
-      value:
-        "This theme adds additional client and channel information. It's useful for Admins when you need any ID of a user without searching for it.",
+      value: '',
     },
   ];
+
+  @State((state) => state.auth.user)
+  getAuthUser!: IUserInterfaceDB;
 
   public toggleUserProfileVisibility() {
     this.isUserProfileVisible = !this.isUserProfileVisible;
   }
 
   public get shouldLockBody(): boolean {
-    return !!(this.isUserProfileVisible && window.matchMedia('(max-width: 1023px)').matches);
+    return this.isUserProfileVisible && window.matchMedia('(max-width: 1023px)').matches;
   }
 
   public onClickOutside(): void {
