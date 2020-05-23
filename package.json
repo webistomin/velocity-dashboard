@@ -99,6 +99,8 @@
     "@types/module-alias": "^2.0.0",
     "@types/mongoose": "^5.7.20",
     "@types/morgan": "^1.9.0",
+    "@types/multer": "^1.4.3",
+    "@types/multer-s3": "^2.7.7",
     "@types/nodemailer": "^6.4.0",
     "@types/nuxtjs__auth": "^4.8.4",
     "@types/vue-select": "^2.5.0",

@@ -1,4 +1,4 @@
-import { Document, Types } from 'mongoose';
+import { Document } from 'mongoose';
 import { SiteThemes } from 'common/types/theme/site-themes';
 import { UserRoles } from 'common/types/user/user-roles';
 import { SentMessageInfo } from 'nodemailer';
@@ -34,7 +34,7 @@ export interface IUserInterface {
  */
 export interface IUserInterfaceDB extends IUserInterface {
   __v: number;
-  _id: Types.ObjectId;
+  _id: string;
 }
 
 /**

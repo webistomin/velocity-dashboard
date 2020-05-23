@@ -7,12 +7,14 @@ import AvatarCropper from 'vue-anka-cropper';
 import { BaseThumbnail } from 'components/base/BaseThumbnail/BaseThumbnail';
 import { BaseTitle } from 'components/base/BaseTitle/BaseTitle';
 import BaseButton from 'components/base/BaseButton';
-import { IUserInterface } from 'common/types/user/user-schema';
+import { IUserInterface, IUserInterfaceDB } from 'common/types/user/user-schema';
 import { UserRoles } from 'common/types/user/user-roles';
 import BaseModal from 'components/base/BaseModal';
+import { serverUrls } from 'common/urls/serverUrls';
 
 import 'node_modules/vue-anka-cropper/dist/VueAnkaCropper.css';
 import './UserProfile.sass';
+import { State } from 'vuex-class';
 
 export interface IUserProfileProps {
   info: IUserProfileInfo;
@@ -67,8 +69,25 @@ export default class UserProfile extends VueComponent<IUserProfileProps> {
     this.isAvatarCropperVisible = false;
   }
 
-  public onAvatarUpload(data: any): void {
-    console.log(data);
+  @State((state) => state.auth.user)
+  getAuthUser!: IUserInterfaceDB;
+
+  public async onAvatarUpload(data: any): Promise<void> {
+    const newAvatarBlob = data.croppedFile;
+
+    const formData = new FormData();
+    formData.append('file', newAvatarBlob);
+    formData.append('_id', this.getAuthUser._id);
+
+    try {
+      const response = await this.$axios.$post(serverUrls.profile.uploadAvatar, formData);
+      await this.$auth.fetchUser();
+      this.closeAvatarCropper();
+      console.log(response);
+    } catch (error) {
+      const data = error.response.data;
+      console.log(data);
+    }
   }
 
   render(): VNode {

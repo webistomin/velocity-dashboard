@@ -3,6 +3,7 @@ import verifyToken from 'middlewares/verify-token';
 import { serverUrls } from 'common/urls/serverUrls';
 import { profileControllers } from 'controllers/profile';
 import profileUpdateValidatorMiddleware from 'server/validators/profile/update';
+import { uploadAvatarMiddleware } from 'middlewares/upload-avatar';
 
 const router = Router();
 
@@ -20,4 +21,7 @@ export default (app: Router) => {
 
   // @ts-ignore
   router.post(serverUrls.profile.update, profileUpdateValidatorMiddleware, profileControllers.update);
+
+  // @ts-ignore
+  router.post(serverUrls.profile.uploadAvatar, uploadAvatarMiddleware.single('file'), profileControllers.uploadAvatar);
 };

@@ -29,6 +29,7 @@ export default {
     accessKey: vars.AWS_ACCESS_KEY_ID,
     secretKey: vars.AWS_SECRET_KEY,
     bucketName: vars.AWS_BUCKET_NAME,
+    avatarsFolder: vars.AWS_AVATAR_FOLDER,
   },
   /**
    * API version prefix

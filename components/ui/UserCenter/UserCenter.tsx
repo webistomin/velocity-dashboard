@@ -42,9 +42,8 @@ export default class UserCenter extends VueComponent {
     this.isUserProfileVisible = false;
   }
 
-  created(): void {
+  public render(): VNode {
     const authUser = this.getAuthUser;
-
     this.userInfo.firstName = authUser.firstName;
     this.userInfo.lastName = authUser.lastName;
     this.userInfo.email = authUser.email;
@@ -52,15 +51,11 @@ export default class UserCenter extends VueComponent {
     this.userInfo.bio = authUser.bio;
     this.userInfo.avatar = authUser.avatar;
     this.userInfo.role = authUser.role;
-  }
-
-  public render(): VNode {
-    const userAvatar = this.getAuthUser.avatar;
 
     return (
       <div class='user-center' v-scroll-lock={this.shouldLockBody} v-click-outside={this.onClickOutside}>
         <button class='user-center__btn btn' onClick={this.toggleUserProfileVisibility}>
-          <BaseThumbnail image={userAvatar} size='s' alt='User' />
+          <BaseThumbnail image={authUser.avatar} size='s' alt='User' />
         </button>
 
         <BaseSidebar isVisible={this.isUserProfileVisible} class='user-center__sidebar'>
