@@ -85,7 +85,7 @@ export default class NotificationCenter extends VueComponent {
   }
 
   public get shouldLockBody(): boolean {
-    return !!(this.isNotificationsVisible && window.matchMedia('(max-width: 1023px)').matches);
+    return this.isNotificationsVisible && window.matchMedia('(max-width: 1023px)').matches;
   }
 
   public onClickOutside(): void {
@@ -95,6 +95,20 @@ export default class NotificationCenter extends VueComponent {
   @Watch('$route')
   public onRouteChanged() {
     this.isNotificationsVisible = false;
+  }
+
+  public toggleModalVisibilityByKeyDown(event: KeyboardEvent) {
+    if (this.isNotificationsVisible && event.key === 'Escape') {
+      this.onClickOutside();
+    }
+  }
+
+  public mounted(): void {
+    document.addEventListener('keydown', this.toggleModalVisibilityByKeyDown);
+  }
+
+  public beforeDestroy(): void {
+    document.removeEventListener('keydown', this.toggleModalVisibilityByKeyDown);
   }
 
   public render(): VNode {

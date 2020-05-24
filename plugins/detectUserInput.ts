@@ -13,7 +13,7 @@ export const detectUserInput = (): void => {
     function(e) {
       const target = e.target as HTMLElement;
 
-      if (target.tagName !== 'INPUT') {
+      if (target.tagName !== 'INPUT' && target.tagName !== 'TEXTAREA') {
         document.body.classList.add('using-keyboard');
         document.body.classList.remove('using-mouse');
       }

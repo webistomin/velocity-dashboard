@@ -45,6 +45,8 @@ export default class Settings extends VueComponent {
     settingsDataForm: SettingsData;
   };
 
+  public isLoading: boolean = false;
+
   public settingsForm: IUserSettings = {
     info: {
       email: '',
@@ -122,12 +124,15 @@ export default class Settings extends VueComponent {
       }
     } else {
       try {
+        this.isLoading = true;
         const data = this.settingsForm;
         const response: IProfileUpdateResponseBody = await this.$axios.$post(serverUrls.profile.update, data);
 
         if (response.success) {
           if (response.token) {
             await this.$auth.setUserToken(response.token);
+          } else {
+            await this.$auth.fetchUser();
           }
 
           this.$notify({
@@ -138,7 +143,10 @@ export default class Settings extends VueComponent {
             duration: 3000,
           });
         }
+
+        this.isLoading = false;
       } catch (error) {
+        this.isLoading = false;
         const response: IProfileUpdateResponseBody = error.response.data;
         this.$notify({
           group: 'settings',
@@ -175,7 +183,7 @@ export default class Settings extends VueComponent {
             <BaseBlock title='Theme'>
               <SettingsTheme onThemeSelect={this.onThemeSelect} theme={this.settingsForm.theme} />
             </BaseBlock>
-            <BaseButton class='settings__submit' type='submit'>
+            <BaseButton class='settings__submit' type='submit' isLoading={this.isLoading}>
               Save changes
             </BaseButton>
             <pre>{JSON.stringify(this.$v)}</pre>

@@ -1,9 +1,8 @@
 import { VueComponent } from 'types/vue-components';
 import { Component, Emit, Prop } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
-import { email, sameAs, minLength, alpha, requiredIf } from 'vuelidate/lib/validators';
+import { email, sameAs, minLength, alpha, requiredIf, helpers } from 'vuelidate/lib/validators';
 import { isAfter, isBefore, subYears } from 'date-fns';
-
 import BaseFormGroup from 'components/base/BaseFormGroup';
 import { IUserSettings } from './Settings';
 
@@ -34,7 +33,7 @@ export interface ISettingsDataProps {
            */
           const isAfter1960AndBefore2005 =
             isAfter(dob, new Date('01-01-1960')) && isBefore(dob, subYears(new Date(Date.now()), 18));
-          return isAfter1960AndBefore2005;
+          return !helpers.req(userDob) || isAfter1960AndBefore2005;
         },
         minLengthDate: minLength(10),
       },
@@ -54,6 +53,8 @@ export interface ISettingsDataProps {
           return settingsForm.newPassword;
         }),
       },
+      bio: {},
+      location: {},
     },
   },
 })
@@ -163,6 +164,31 @@ export default class SettingsData extends VueComponent<ISettingsDataProps> {
               onInput={($event: string) => this.onInput($event, 'confirmPassword')}
               value={this.settingsForm.confirmPassword}
               onBlur={this.$v.settingsForm.confirmPassword?.$touch}
+            />
+          </div>
+          <div class='settings__input-row'>
+            <BaseFormGroup
+              class='settings__input'
+              type='text'
+              label='Bio'
+              id='settings-bio'
+              placeholder='Enter your biography'
+              validator={this.$v.settingsForm.bio}
+              onInput={($event: string) => this.onInput($event, 'bio')}
+              value={this.settingsForm.bio}
+              onBlur={this.$v.settingsForm.bio?.$touch}
+              isTextarea={true}
+            />
+            <BaseFormGroup
+              class='settings__input'
+              type='text'
+              label='Location'
+              id='settings-location'
+              placeholder='Enter your location'
+              validator={this.$v.settingsForm.location}
+              onInput={($event: string) => this.onInput($event, 'location')}
+              value={this.settingsForm.location}
+              onBlur={this.$v.settingsForm.location?.$touch}
             />
           </div>
         </div>

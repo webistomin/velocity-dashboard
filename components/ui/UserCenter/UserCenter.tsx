@@ -42,6 +42,20 @@ export default class UserCenter extends VueComponent {
     this.isUserProfileVisible = false;
   }
 
+  public toggleModalVisibilityByKeyDown(event: KeyboardEvent) {
+    if (this.isUserProfileVisible && event.key === 'Escape') {
+      this.onClickOutside();
+    }
+  }
+
+  public mounted(): void {
+    document.addEventListener('keydown', this.toggleModalVisibilityByKeyDown);
+  }
+
+  public beforeDestroy(): void {
+    document.removeEventListener('keydown', this.toggleModalVisibilityByKeyDown);
+  }
+
   public render(): VNode {
     const authUser = this.getAuthUser;
     this.userInfo.firstName = authUser.firstName;

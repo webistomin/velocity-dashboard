@@ -1,6 +1,6 @@
 import { Component, Prop, Emit } from 'nuxt-property-decorator';
 import { VueComponent } from 'types/vue-components';
-import { VNode } from 'vue';
+import Vue, { VNode } from 'vue';
 // @ts-ignore
 import { singleErrorExtractorMixin } from 'vuelidate-error-extractor';
 import { TheMask } from 'vue-the-mask';
@@ -35,6 +35,7 @@ export interface IBaseFormGroupProps {
   onBlur?: () => void;
   mask?: string;
   validator?: Validation;
+  isTextarea?: boolean;
 }
 
 @Component({
@@ -43,6 +44,10 @@ export interface IBaseFormGroupProps {
   components: { TheMask },
 })
 export default class BaseFormGroup extends VueComponent<IBaseFormGroupProps> {
+  public $refs!: Vue['$refs'] & {
+    baseTextarea: HTMLTextAreaElement;
+  };
+
   public activeErrorMessages!: string[];
 
   @Prop({ default: 'text' })
@@ -69,6 +74,9 @@ export default class BaseFormGroup extends VueComponent<IBaseFormGroupProps> {
   @Prop()
   private readonly mask!: IBaseFormGroupProps['mask'];
 
+  @Prop()
+  private readonly isTextarea!: IBaseFormGroupProps['isTextarea'];
+
   public get isInputInvalid(): boolean {
     return Boolean(this.activeErrorMessages && this.activeErrorMessages.length);
   }
@@ -76,6 +84,15 @@ export default class BaseFormGroup extends VueComponent<IBaseFormGroupProps> {
   @Emit('input')
   public onInput(event: KeyboardEvent): string | number {
     const target = event.target as HTMLInputElement;
+
+    if (this.isTextarea) {
+      const el = this.$refs.baseTextarea as HTMLTextAreaElement;
+      const BORDER_WIDTH = 1;
+      el.setAttribute('style', `height:${target.scrollHeight + BORDER_WIDTH * 2}px;overflow-y:hidden;`);
+      target.style.height = 'auto';
+      target.style.height = `${target.scrollHeight + BORDER_WIDTH * 2}px`;
+    }
+
     return target.value;
   }
 
@@ -117,6 +134,22 @@ export default class BaseFormGroup extends VueComponent<IBaseFormGroupProps> {
               mask={this.mask}
               masked
             />
+          ) : this.isTextarea ? (
+            <textarea
+              id={this.id}
+              aria-label={this.label}
+              name={this.name}
+              onInput={this.onInput}
+              onBlur={this.onBlur}
+              value={this.value}
+              aria-describedby={`errors-${this.id}`}
+              autoComplete={this.autocomplete}
+              placeholder={this.placeholder}
+              class={`${this.isInputInvalid ? 'base-form-group__input_invalid' : ''} base-form-group__input textarea`}
+              ref='baseTextarea'
+              rows={1}
+              cols={1}
+            />
           ) : (
             <input
               type={this.type}
@@ -132,6 +165,7 @@ export default class BaseFormGroup extends VueComponent<IBaseFormGroupProps> {
               class={`${this.isInputInvalid ? 'base-form-group__input_invalid' : ''} base-form-group__input`}
             />
           )}
+
           {this.isInputInvalid ? (
             <ul class='base-form-group__errors list' id={`errors-${this.id}`}>
               {this.activeErrorMessages.slice(0, 1).map((error: string, index: number) => {

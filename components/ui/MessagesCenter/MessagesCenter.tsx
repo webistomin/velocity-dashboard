@@ -93,6 +93,20 @@ export default class MessagesCenter extends VueComponent {
     this.isMessagesVisible = false;
   }
 
+  public toggleModalVisibilityByKeyDown(event: KeyboardEvent) {
+    if (this.isMessagesVisible && event.key === 'Escape') {
+      this.onClickOutside();
+    }
+  }
+
+  public mounted(): void {
+    document.addEventListener('keydown', this.toggleModalVisibilityByKeyDown);
+  }
+
+  public beforeDestroy(): void {
+    document.removeEventListener('keydown', this.toggleModalVisibilityByKeyDown);
+  }
+
   public render(): VNode {
     return (
       <div class='messages-center' v-scroll-lock={this.shouldLockBody} v-click-outside={this.onClickOutside}>

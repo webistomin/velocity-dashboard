@@ -47,7 +47,13 @@ export default class UserProfile extends VueComponent<IUserProfileProps> {
     try {
       await this.$auth.logout();
     } catch (e) {
-      console.log(e);
+      this.$notify({
+        group: 'common',
+        type: 'error',
+        title: 'Error during logout',
+        text: e.message,
+        duration: 3000,
+      });
     }
   }
 
@@ -133,8 +139,8 @@ export default class UserProfile extends VueComponent<IUserProfileProps> {
                   aspectRatio: 1,
                   closeOnSave: true,
                   cropArea: 'circle',
-                  croppedHeight: 400,
-                  croppedWidth: 400,
+                  croppedHeight: 140,
+                  croppedWidth: 140,
                   cropperHeight: false,
                   dropareaMessage: 'Drop file here or use the button below.',
                   frameLineDash: [5, 3],
