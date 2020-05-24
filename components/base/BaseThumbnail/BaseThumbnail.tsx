@@ -47,10 +47,14 @@ export const BaseThumbnail = Vue.extend({
             alt={alt}
             class='base-thumbnail__img image'
             nativeOnError={(event: Event) => {
-              const image = event.target as HTMLImageElement;
-              if (image.src !== 'http://:0/' && image.src !== 'https://:0/') {
-                image.src = '/img/avatar-placeholder.svg';
-                image.classList.add('v-lazy-image-loaded');
+              // @ts-ignore
+              // eslint-disable-next-line no-undef
+              if ($nuxt.isOnline) {
+                const image = event.target as HTMLImageElement;
+                if (image.src !== 'http://:0/' && image.src !== 'https://:0/') {
+                  image.src = '/img/avatar-placeholder.svg';
+                  image.classList.add('v-lazy-image-loaded');
+                }
               }
             }}
           />

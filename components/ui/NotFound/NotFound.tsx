@@ -16,7 +16,6 @@ export const NotFound = Vue.extend({
               <video preload='auto' muted playsInline autoPlay='autoplay' loop='loop' class='not-found__video'>
                 <source src='/video/login-city.webm' type='video/webm; codecs="vp8, vorbis"' />
                 <source src='/video/login-city.mp4' type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
-                Video tag is not supported in this browser.
               </video>
             </div>
             <div class='not-found__mask' />

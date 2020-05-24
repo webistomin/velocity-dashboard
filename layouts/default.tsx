@@ -45,9 +45,36 @@ export default class DefaultLayout extends VueComponent {
     }
   }
 
+  @Watch('$nuxt.isOffline')
+  onOfflineMode(newValue: boolean) {
+    if (newValue) {
+      this.$notify({
+        group: 'common',
+        type: 'error',
+        title: 'Offline',
+        text: 'You are currently in offline mode, check your internet connection',
+        duration: 5000,
+      });
+    }
+  }
+
+  @Watch('$nuxt.isOnline')
+  onOnlineMode(newValue: boolean) {
+    if (newValue) {
+      this.$notify({
+        group: 'common',
+        type: 'success',
+        title: 'Online',
+        text: 'Connection has been restored, you can keep working',
+        duration: 5000,
+      });
+    }
+  }
+
   render(): VNode {
     return (
       <div class={`site-grid`} id='app'>
+        {this.$nuxt.isOffline ? <div>You are offline</div> : null}
         <notifications group='common' position='top left' animation-name='v-popup-fade-left' />
         <TheHeader onOpenNav={this.toggleNav} isNavOpened={this.isNavOpened} />
         <TheNavigation onOpenNav={this.toggleNav} isNavOpened={this.isNavOpened} v-scroll-lock={this.shouldLockBody} />
