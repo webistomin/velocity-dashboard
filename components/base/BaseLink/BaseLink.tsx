@@ -52,7 +52,7 @@ export default class BaseLink extends VueComponent<IConditionalBaseLinkProps> {
         click: this.onClick,
       },
     };
-    const linkComponentContent = <span className='base-link__content'>{this.$slots.default}</span>;
+    const linkComponentContent = <span class='base-link__content'>{this.$slots.default}</span>;
     const isButton = this.isButton;
     const url = this.to;
 

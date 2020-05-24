@@ -74,6 +74,14 @@ export function createRouter() {
         path: '/chat/:id',
         component: Chat,
       },
+      {
+        path: '/chat',
+        component: Chat,
+      },
+      // {
+      //   path: '*',
+      //   component: NotFound,
+      // },
     ],
   });
 }

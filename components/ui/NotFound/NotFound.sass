@@ -1,0 +1,66 @@
++b('not-found')
+  flex-grow: 1
+  display: flex
+  flex-direction: column
+
+  +e('container')
+    flex-grow: 1
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-direction: column
+
+  +e('content')
+    overflow: hidden
+    position: relative
+
+    +media($screen-sm)
+      max-width: 75%
+
+  +e('video')
+    display: block
+    width: 100%
+    height: 100%
+    background-color: currentColor
+
+  +e('mask')
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    position: absolute
+    background-image: url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 600 237" style="enable-background:new 0 0 600 237;" xml:space="preserve"><g><path style="fill:%23FFFFFF;" d="M319.2,83.7c-1.7-4.4-3.9-7.9-6.6-10.5c-2.8-2.6-6.3-3.9-10.8-3.9s-8.1,1.3-10.9,3.9c-2.9,2.6-5.1,6.1-6.6,10.5c-1.6,4.4-2.7,9.6-3.3,15.6c-0.6,6-1,12.4-1,19.2c0,6.8,0.3,13.2,1,19.2c0.6,6,1.7,11.2,3.3,15.6c1.6,4.4,3.8,7.9,6.6,10.5c2.9,2.6,6.5,3.9,10.9,3.9s8-1.3,10.8-3.9c2.8-2.6,5-6.1,6.6-10.5c1.7-4.4,2.8-9.6,3.5-15.6c0.6-6,1-12.4,1-19.2c0-6.8-0.3-13.2-1-19.2C322,93.3,320.9,88.1,319.2,83.7z"/><path style="fill:%23FFFFFF;" d="M0,0v237h600V0H0z M192,174h-18v33h-42v-33H54v-32.4L128.8,30H174v108h18V174z M366.8,155.7c-2.7,11.2-6.8,20.9-12.3,29c-5.5,8.1-12.7,14.4-21.4,18.8c-8.7,4.4-19.2,6.6-31.3,6.6c-11.4,0-21.4-2.2-30.1-6.6c-8.7-4.4-15.9-10.7-21.7-18.8c-5.8-8.1-10.2-17.8-13.1-29c-2.9-11.2-4.4-23.6-4.4-37.3c0-13.6,1.5-26,4.4-37.3c2.9-11.2,7.3-20.9,13.1-29c5.8-8.1,13-14.4,21.7-18.8c8.6-4.4,18.7-6.6,30.1-6.6c12.1,0,22.6,2.2,31.3,6.6c8.7,4.4,15.9,10.7,21.4,18.8c5.5,8.1,9.6,17.8,12.3,29c2.7,11.2,4,23.7,4,37.3C370.8,132.1,369.5,144.5,366.8,155.7z M546,174h-18v33h-42v-33h-78v-32.4L482.3,30H528v108h18V174z"/><polygon style="fill:%23FFFFFF;" points="486,138 486,86.2 450.2,138"/><polygon style="fill:%23FFFFFF;" points="132,138 132,86.2 96.8,138"/></g></svg>')
+    background-position: center
+    background-size: 100% 100%
+    background-repeat: no-repeat
+
+    &::before,
+    &::after
+      content: ''
+      width: 100%
+      height: 18%
+      background-color: rgb(var(--color-white))
+      position: absolute
+      left: 0
+
+    &::before
+      top: 0
+
+    &::after
+      bottom: 0
+
+  +e('actions')
+    text-align: center
+
+  +e('title')
+    &.title
+      margin-bottom: rem(24px)
+
+  +e('link')
+    &.link
+      color: rgb(var(--color-primary))
+      text-decoration: underline
+      font: var(--text-heading-2)
+
+      &:hover
+        text-decoration: none

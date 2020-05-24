@@ -12,7 +12,7 @@ import { detectUserInput } from '~/plugins/detectUserInput';
 @Component({
   name: 'DefaultLayout',
 })
-export default class Default extends VueComponent {
+export default class DefaultLayout extends VueComponent {
   isNavOpened: boolean = false;
 
   @State((state) => state.auth.user)
