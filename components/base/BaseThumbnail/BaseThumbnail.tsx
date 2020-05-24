@@ -42,7 +42,18 @@ export const BaseThumbnail = Vue.extend({
           isSquared ? 'base-thumbnail_squared' : ''
         }`}>
         <picture class='base-thumbnail__picture picture'>
-          <v-lazy-image src={image} alt={alt} class='base-thumbnail__img image' />
+          <v-lazy-image
+            src={image}
+            alt={alt}
+            class='base-thumbnail__img image'
+            nativeOnError={(event: Event) => {
+              const image = event.target as HTMLImageElement;
+              if (image.src !== 'http://:0/' && image.src !== 'https://:0/') {
+                image.src = '/img/avatar-placeholder.svg';
+                image.classList.add('v-lazy-image-loaded');
+              }
+            }}
+          />
         </picture>
       </span>
     );

@@ -1,0 +1,31 @@
++b('base-spinner')
+  display: block
+  box-sizing: border-box
+  border-radius: 50%
+  border: rem(4px) solid rgba(var(--color-white), 0.2)
+  position: relative
+
+  &::after
+    box-sizing: inherit
+    width: inherit
+    height: inherit
+    content: ''
+    +absolute-center()
+    border: rem(4px) solid rgba(var(--color-white), 0.2)
+    border-top: rem(4px) solid rgb(var(--color-primary))
+    border-radius: inherit
+    z-index: 1
+    animation: spin-loading 1s linear infinite
+
+  +m('size')
+    +v('xs')
+      width: rem(24px)
+      height: rem(24px)
+
+    +v('s')
+      width: rem(32px)
+      height: rem(32px)
+
+    +v('m')
+      width: rem(40px)
+      height: rem(40px)

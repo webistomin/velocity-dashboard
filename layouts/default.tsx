@@ -22,7 +22,7 @@ export default class Default extends VueComponent {
   }
 
   get shouldLockBody(): boolean {
-    return !!(this.isNavOpened && window.matchMedia('(max-width: 1023px)').matches);
+    return this.isNavOpened && window.matchMedia('(max-width: 1023px)').matches;
   }
 
   @Watch('$route')
@@ -35,6 +35,7 @@ export default class Default extends VueComponent {
   render(): VNode {
     return (
       <div class={`site-grid`} id='app'>
+        <notifications group='common' position='top left' animation-name='v-popup-fade-left' />
         <TheHeader onOpenNav={this.toggleNav} isNavOpened={this.isNavOpened} />
         <TheNavigation onOpenNav={this.toggleNav} isNavOpened={this.isNavOpened} v-scroll-lock={this.shouldLockBody} />
         <nuxt />
