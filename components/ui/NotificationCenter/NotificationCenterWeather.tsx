@@ -1,6 +1,4 @@
-import { VueComponent } from 'types/vue-components';
-import { Component, Prop } from 'nuxt-property-decorator';
-import { VNode } from 'vue';
+import Vue, { CreateElement, PropType, RenderContext, VNode } from 'vue';
 
 import BaseTitle from 'components/base/BaseTitle';
 import { ICurrentWeather } from 'common/types/weather/current';
@@ -12,37 +10,43 @@ export interface INotificationCenterWeatherProps {
   description: ICurrentWeather['weather']['description'];
 }
 
-@Component({
-  name: 'NotificationCenterWeather',
-})
-export default class NotificationCenterWeather extends VueComponent<INotificationCenterWeatherProps> {
-  @Prop({ default: '' })
-  private readonly city!: INotificationCenterWeatherProps['city'];
-
-  @Prop({ default: 0 })
-  private readonly temperature!: INotificationCenterWeatherProps['temperature'];
-
-  @Prop({ default: '' })
-  private readonly icon!: INotificationCenterWeatherProps['icon'];
-
-  @Prop({ default: '' })
-  private readonly description!: INotificationCenterWeatherProps['description'];
-
-  public render(): VNode {
+export const NotificationCenterWeather = Vue.extend({
+  functional: true,
+  props: {
+    city: {
+      type: String as PropType<INotificationCenterWeatherProps['city']>,
+      required: true,
+    },
+    temperature: {
+      type: Number as PropType<INotificationCenterWeatherProps['temperature']>,
+      required: true,
+    },
+    icon: {
+      type: String as PropType<INotificationCenterWeatherProps['icon']>,
+      required: true,
+    },
+    description: {
+      type: String as PropType<INotificationCenterWeatherProps['description']>,
+      required: true,
+    },
+  },
+  render(_h: CreateElement, ctx: RenderContext<INotificationCenterWeatherProps>): VNode {
+    const { staticClass, class: cls } = ctx.data;
+    const { city, temperature, icon, description } = ctx.props;
     return (
-      <div class='notification-center__weather' title={this.description}>
+      <div class={`notification-center__weather ${staticClass || ''} ${cls || ''}`} title={description}>
         <BaseTitle level={3} class='notification-center__weather-title'>
-          <span>{this.temperature}ºF</span>
+          <span>{temperature}ºF</span>
           <v-lazy-image
-            src={`/img/weather-icons/${this.icon}.png`}
-            alt={this.description}
+            src={`/img/weather-icons/${icon}.png`}
+            alt={description}
             width={48}
             height={48}
             class='notification-center__weather-icon image'
           />
         </BaseTitle>
-        <strong class='notification-center__city'>{this.city}</strong>
+        <strong class='notification-center__city'>{city}</strong>
       </div>
     );
-  }
-}
+  },
+});

@@ -2,7 +2,7 @@ import { VNode } from 'vue';
 import { BaseIcon } from 'components/base/BaseIcon/BaseIcon';
 import { VueComponent } from 'types/vue-components';
 import { BaseNotify } from 'components/base/BaseNotify/BaseNotify';
-import { Component, Prop } from '~/node_modules/nuxt-property-decorator';
+import { Component, Prop } from 'nuxt-property-decorator';
 
 export enum NotificationCenterItemTypes {
   MESSAGE = 'message',

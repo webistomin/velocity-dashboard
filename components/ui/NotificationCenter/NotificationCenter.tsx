@@ -13,7 +13,7 @@ import NotificationCenterItem, {
   INotificationCenterItemProps,
   NotificationCenterItemTypes,
 } from './NotificationCenterItem';
-import NotificationCenterWeather from './NotificationCenterWeather';
+import { NotificationCenterWeather } from './NotificationCenterWeather';
 
 import './NotificationCenter.sass';
 
