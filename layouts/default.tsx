@@ -1,12 +1,13 @@
 import { VueComponent } from 'types/vue-components';
 import { Component, Watch } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
-import { State } from 'vuex-class';
+import { State, Mutation } from 'vuex-class';
 
 import TheHeader from 'components/partials/TheHeader';
 import TheNavigation from 'components/partials/TheNavigation';
 import { IUserInterfaceDB } from 'common/types/user/user-schema';
 import { SiteThemes } from 'common/types/theme/site-themes';
+import { IWeatherCurrentCoordinates } from 'common/types/weather/current';
 import { detectUserInput } from '~/plugins/detectUserInput';
 
 @Component({
@@ -16,7 +17,9 @@ export default class DefaultLayout extends VueComponent {
   isNavOpened: boolean = false;
 
   @State((state) => state.auth.user)
-  getAuthUser!: IUserInterfaceDB;
+  private readonly getAuthUser!: IUserInterfaceDB;
+
+  @Mutation('weather/setUserCoordinates') setUserCoordinates!: (coords: IWeatherCurrentCoordinates) => void;
 
   public mounted(): void {
     detectUserInput();
@@ -27,6 +30,23 @@ export default class DefaultLayout extends VueComponent {
       const root = document.documentElement;
       root.className = `theme theme_${userTheme}`;
       localStorage.setItem('theme', userTheme || SiteThemes.SHELOB);
+    }
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position: Position) => {
+          const coords = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          };
+          this.setUserCoordinates(coords);
+        },
+        () => {},
+        {
+          enableHighAccuracy: true,
+          timeout: 5000,
+        }
+      );
     }
   }
 

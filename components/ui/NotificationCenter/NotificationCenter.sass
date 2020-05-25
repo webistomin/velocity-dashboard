@@ -122,15 +122,25 @@
       padding-right: rem(24px)
 
     +media($screen-lg)
+      box-sizing: border-box
       padding-top: rem(30px)
       padding-bottom: rem(30px)
+      min-height: rem(131px)
 
   +e('clear-btn')
     width: rem(90px)
+    margin-left: auto
 
   +e('city')
     color: rgb(var(--color-gray-3))
     font-weight: 400
 
   +e('weather-icon')
+    width: rem(48px)
+    height: rem(48px)
     margin-left: rem(14px)
+
+  +e('weather-title')
+    display: flex
+    align-items: center
+

@@ -1,11 +1,14 @@
 import { VueComponent } from 'types/vue-components';
-import { Component } from 'nuxt-property-decorator';
+import { Component, Watch } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
+import { Getter, Action, State } from 'vuex-class';
 
 import BaseNotify from 'components/base/BaseNotify';
 import BaseOverlay from 'components/base/BaseOverlay';
 import BaseSidebar from 'components/base/BaseSidebar';
 import BaseButton from 'components/base/BaseButton';
+import { IGetCurrentWeatherResult, IWeatherCurrentCoordinates } from 'common/types/weather/current';
+import { BaseSpinner } from 'components/base/BaseSpinner/BaseSpinner';
 import NotificationCenterItem, {
   INotificationCenterItemProps,
   NotificationCenterItemTypes,
@@ -13,7 +16,6 @@ import NotificationCenterItem, {
 import NotificationCenterWeather from './NotificationCenterWeather';
 
 import './NotificationCenter.sass';
-import { Watch } from '~/node_modules/nuxt-property-decorator';
 
 @Component({
   name: 'NotificationCenter',
@@ -80,7 +82,23 @@ export default class NotificationCenter extends VueComponent {
     },
   ];
 
+  @Action('weather/fetchCurrentWeather') private readonly fetchCurrentWeather!: () => void;
+
+  @Getter('weather/getCurrentWeather') getCurrentWeather!: IGetCurrentWeatherResult;
+
+  @State((state) => state.weather.coordinates)
+  private readonly getUserCoordinates!: IWeatherCurrentCoordinates;
+
+  @Watch('$route')
+  public onRouteChanged() {
+    this.isNotificationsVisible = false;
+  }
+
   public toggleNotificationVisibility() {
+    if (!this.isNotificationsVisible && !this.getCurrentWeather) {
+      this.fetchCurrentWeather();
+    }
+
     this.isNotificationsVisible = !this.isNotificationsVisible;
   }
 
@@ -89,11 +107,6 @@ export default class NotificationCenter extends VueComponent {
   }
 
   public onClickOutside(): void {
-    this.isNotificationsVisible = false;
-  }
-
-  @Watch('$route')
-  public onRouteChanged() {
     this.isNotificationsVisible = false;
   }
 
@@ -128,7 +141,16 @@ export default class NotificationCenter extends VueComponent {
         <BaseSidebar isVisible={this.isNotificationsVisible} class='notification-center__sidebar'>
           <div class='notification-center__heading'>
             <div class='notification-center__info'>
-              <NotificationCenterWeather temperature={181} city='New York, NY' />
+              {this.getCurrentWeather ? (
+                <NotificationCenterWeather
+                  temperature={this.getCurrentWeather.temperature}
+                  city={`${this.getCurrentWeather.cityName}, ${this.getCurrentWeather.countryCode}`}
+                  icon={this.getCurrentWeather.icon}
+                  description={this.getCurrentWeather.description}
+                />
+              ) : this.getUserCoordinates ? (
+                <BaseSpinner size='s' />
+              ) : null}
             </div>
             <BaseButton theme='gray' class='notification-center__clear-btn'>
               Clear

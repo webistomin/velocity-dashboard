@@ -14,4 +14,7 @@ export const serverUrls = {
     update: '/profile/update',
     uploadAvatar: '/profile/avatar',
   },
+  weather: {
+    current: '/weather/current',
+  },
 };

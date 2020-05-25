@@ -44,7 +44,7 @@ export default {
     secret: vars.JWT_SECRET,
   },
   /**
-   * GMAIL Secrets
+   * GMAIL secrets
    */
   gmail: {
     serviceName: vars.GMAIL_SERVICE_NAME,
@@ -53,5 +53,11 @@ export default {
     servicePort: vars.GMAIL_SERVICE_PORT,
     userName: vars.GMAIL_USER_NAME,
     userPassword: vars.GMAIL_USER_PASSWORD,
+  },
+  /**
+   * Weatherbit secrets
+   */
+  weatherbit: {
+    key: vars.WEATHERBIT_API_KEY,
   },
 };

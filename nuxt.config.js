@@ -46,6 +46,7 @@ module.exports = {
     { src: '~plugins/libs/vue-select.ts', ssr: true },
     { src: '~plugins/libs/vue-draggable.ts', ssr: true },
     { src: '~plugins/libs/vue-notifications.ts', ssr: true },
+    { src: '~plugins/axios-accessor.ts', ssr: true },
   ],
   buildModules: [
     '@nuxt/typescript-build',
@@ -83,6 +84,7 @@ module.exports = {
         return [['@nuxt/babel-preset-app', { loose: true }]];
       },
     },
+    transpile: ['vuex-module-decorators'],
     plugins: [
       new MomentLocalesPlugin({
         localesToKeep: ['es-us'],
