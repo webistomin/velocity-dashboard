@@ -1,6 +1,6 @@
-import { VueComponent } from 'types/vue-components';
 import { VNode } from 'vue';
 import { Component, Prop } from 'nuxt-property-decorator';
+import { VueComponent } from 'types/vue-components';
 
 import BaseThumbnail from 'components/base/BaseThumbnail';
 
@@ -23,7 +23,7 @@ export interface IBaseListProps {
   name: 'BaseList',
 })
 export default class BaseList extends VueComponent<IBaseListProps> {
-  @Prop()
+  @Prop({ required: true })
   private readonly list!: IBaseListProps['list'];
 
   @Prop({ default: 6 })

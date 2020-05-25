@@ -5,7 +5,7 @@ import { Pie } from 'vue-chartjs';
 
 export interface IBasePieGraphProps {
   chartData: ChartData;
-  options?: ChartOptions;
+  options: ChartOptions;
   fallbackText?: string;
 }
 
@@ -14,10 +14,10 @@ export interface IBasePieGraphProps {
   extends: Pie,
 })
 export default class BasePieGraph extends VueComponent<IBasePieGraphProps> {
-  @Prop()
+  @Prop({ required: true })
   private readonly chartData!: IBasePieGraphProps['chartData'];
 
-  @Prop()
+  @Prop({ required: true })
   private readonly options!: IBasePieGraphProps['options'];
 
   @Prop({ default: 'Pie graph' })

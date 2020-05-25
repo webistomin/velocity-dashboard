@@ -9,7 +9,7 @@ import './BaseSlider.sass';
 
 interface IBaseSliderProps {
   value: number;
-  onChange: (value: number) => number;
+  onChange?: (value: number) => number;
   min: number;
   max: number;
   labelStart: string;
@@ -21,19 +21,19 @@ interface IBaseSliderProps {
   components: { VueSlider },
 })
 export default class BaseSlider extends VueComponent<IBaseSliderProps> {
-  @Prop()
+  @Prop({ required: true })
   private readonly value!: IBaseSliderProps['value'];
 
-  @Prop()
+  @Prop({ required: true })
   private readonly min!: IBaseSliderProps['min'];
 
-  @Prop()
+  @Prop({ required: true })
   private readonly max!: IBaseSliderProps['max'];
 
-  @Prop()
+  @Prop({ required: true })
   private readonly labelStart!: IBaseSliderProps['labelStart'];
 
-  @Prop()
+  @Prop({ required: true })
   private readonly labelEnd!: IBaseSliderProps['labelEnd'];
 
   @Emit('change')
@@ -42,11 +42,13 @@ export default class BaseSlider extends VueComponent<IBaseSliderProps> {
   }
 
   public render(): VNode {
+    const { labelStart, labelEnd, min, max, onChange, value } = this;
+
     return (
       <div class='base-slider'>
         <div class='base-slider__heading'>
-          <span class='base-slider__text'>{this.labelStart}</span>
-          <span class='base-slider__max'>{this.labelEnd}</span>
+          <span class='base-slider__text'>{labelStart}</span>
+          <span class='base-slider__max'>{labelEnd}</span>
         </div>
         <VueSlider
           dotSize={16}
@@ -67,10 +69,10 @@ export default class BaseSlider extends VueComponent<IBaseSliderProps> {
             backgroundColor: 'rgb(var(--color-primary))',
             borderColor: 'rgb(var(--color-primary))',
           }}
-          min={this.min}
-          max={this.max}
-          value={this.value}
-          onChange={this.onChange}
+          min={min}
+          max={max}
+          value={value}
+          onChange={onChange}
           class='base-slider__slider'
         />
       </div>

@@ -18,6 +18,7 @@ export const Default = () => ({
     type: {
       type: String,
       default: text('type', 'radio'),
+      required: true,
     },
     label: {
       type: String,
@@ -26,14 +27,17 @@ export const Default = () => ({
     id: {
       type: String,
       default: text('id', 'base-form-group'),
+      required: true,
     },
     name: {
       type: String,
       default: text('name', 'storybook'),
+      required: true,
     },
     value: {
       type: String,
       default: text('value', ''),
+      required: true,
     },
     checked: {
       type: Boolean,

@@ -20,7 +20,7 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-env'],
-            plugins: ['transform-vue-jsx'],
+            plugins: ['transform-vue-jsx', '@babel/plugin-transform-modules-commonjs'],
           },
         },
         {

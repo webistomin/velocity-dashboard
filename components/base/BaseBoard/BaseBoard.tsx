@@ -29,7 +29,7 @@ export interface IBaseBoardProps {
   components: { Draggable },
 })
 export default class BaseBoard extends VueComponent<IBaseBoardProps> {
-  @Prop()
+  @Prop({ required: true })
   private readonly board!: IBaseBoardProps['board'];
 
   public currentBoard = this.board;

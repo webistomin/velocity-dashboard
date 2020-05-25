@@ -1,6 +1,6 @@
 import { text, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-import BaseLink from './BaseLink.tsx';
+import BaseLink from './BaseLink';
 
 export default {
   title: 'BaseLink',

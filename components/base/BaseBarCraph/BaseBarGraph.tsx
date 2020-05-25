@@ -1,11 +1,11 @@
-import { VueComponent } from 'types/vue-components';
 import { Component, Prop, mixins } from 'nuxt-property-decorator';
 import { ChartData, ChartOptions } from 'chart.js';
 import { Bar } from 'vue-chartjs';
+import { VueComponent } from 'types/vue-components';
 
 export interface IBaseBarGraphProps {
   chartData: ChartData;
-  options?: ChartOptions;
+  options: ChartOptions;
   fallbackText?: string;
 }
 
@@ -13,10 +13,10 @@ export interface IBaseBarGraphProps {
   name: 'BaseBarGraphWithProps',
 })
 class BaseBarGraphWithProps extends VueComponent<IBaseBarGraphProps> {
-  @Prop()
+  @Prop({ required: true })
   public readonly chartData!: IBaseBarGraphProps['chartData'];
 
-  @Prop()
+  @Prop({ required: true })
   public readonly options!: IBaseBarGraphProps['options'];
 
   @Prop({ default: 'Bar graph' })

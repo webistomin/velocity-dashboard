@@ -29,22 +29,27 @@ export const Default = () => ({
     value: {
       type: Number,
       default: number('value', 0),
+      required: true,
     },
     min: {
       type: Number,
       default: number('min', 0),
+      required: true,
     },
     max: {
       type: Number,
       default: number('max', 100),
+      required: true,
     },
     labelStart: {
       type: String,
       default: text('labelStart', 'start'),
+      required: true,
     },
     labelEnd: {
       type: String,
       default: text('labelEnd', 'end'),
+      required: true,
     },
   },
   methods: {

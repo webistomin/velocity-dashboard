@@ -140,6 +140,7 @@ export const Default = () => ({
     board: {
       type: Object,
       default: object('board', boardData),
+      required: true,
     },
   },
   methods: {

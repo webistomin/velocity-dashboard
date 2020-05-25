@@ -1,5 +1,6 @@
 import { VueComponent } from 'types/vue-components';
 import { Prop, Component, Emit } from 'nuxt-property-decorator';
+
 import { ButtonTypes } from 'common/types/button-types';
 
 import './BaseLink.sass';

@@ -13,7 +13,7 @@ export interface IBaseOverlayProps {
   name: 'BaseOverlay',
 })
 export default class BaseOverlay extends VueComponent<IBaseOverlayProps> {
-  @Prop({ default: false })
+  @Prop({ default: false, required: true })
   private readonly isVisible!: IBaseOverlayProps['isVisible'];
 
   @Emit('click')

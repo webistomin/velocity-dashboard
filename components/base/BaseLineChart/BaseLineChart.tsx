@@ -1,7 +1,7 @@
-import { VueComponent } from 'types/vue-components';
 import { Component, Prop } from 'nuxt-property-decorator';
 import { Line } from 'vue-chartjs';
 import { ChartData, ChartOptions } from 'chart.js';
+import { VueComponent } from 'types/vue-components';
 
 export interface IBaseLineChartGradient {
   red: number;
@@ -11,7 +11,7 @@ export interface IBaseLineChartGradient {
 
 export interface IBaseLineChartProps {
   chartData: ChartData;
-  options?: ChartOptions;
+  options: ChartOptions;
   gradients?: IBaseLineChartGradient[];
   fallbackText?: string;
 }
@@ -21,10 +21,10 @@ export interface IBaseLineChartProps {
   extends: Line,
 })
 export default class BaseLineChart extends VueComponent<IBaseLineChartProps> {
-  @Prop()
+  @Prop({ required: true })
   private readonly chartData!: IBaseLineChartProps['chartData'];
 
-  @Prop()
+  @Prop({ required: true })
   private readonly options!: IBaseLineChartProps['options'];
 
   @Prop()

@@ -241,7 +241,7 @@ export default class Reminders extends VueComponent {
             Service Reminders
           </BaseTitle>
           <div class='reminders__grid'>
-            <BaseBlock simple class='reminders__block'>
+            <BaseBlock isSimple class='reminders__block'>
               <BaseBoard board={this.board} onSetBoard={(board: ITaskBoard[]) => this.onSetBoard(board)} />
             </BaseBlock>
             <BaseBlock title='service center' class='reminders__block'>

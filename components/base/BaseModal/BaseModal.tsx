@@ -26,7 +26,7 @@ export default class BaseModal extends VueComponent<IBaseModalProps> {
   private readonly transitionName!: IBaseModalProps['transitionName'];
 
   @Emit('close')
-  public closeModal() {}
+  public closeModal(): void {}
 
   public toggleModalVisibilityByKeyDown(event: KeyboardEvent) {
     if (this.isVisible && event.key === 'Escape') {
@@ -43,11 +43,14 @@ export default class BaseModal extends VueComponent<IBaseModalProps> {
   }
 
   render(): VNode {
+    const { transitionName, isVisible } = this;
+
     return (
-      <transition name={this.transitionName}>
-        <div class='base-modal' vShow={this.isVisible}>
-          <BaseOverlay isVisible={this.isVisible} onClick={this.closeModal} />
-          <FocusTrap class='base-modal__locker' disabled={!this.isVisible}>
+      <transition name={transitionName}>
+        <div class='base-modal' vShow={isVisible}>
+          <button class='base-modal__close-btn btn' type='button' aria-label='Close modal' onClick={this.closeModal} />
+          <BaseOverlay isVisible={isVisible} onClick={this.closeModal} />
+          <FocusTrap class='base-modal__locker' disabled={!isVisible}>
             <div class='base-modal__wrapper'>
               <div class='base-modal__content'>{this.$slots.default}</div>
             </div>

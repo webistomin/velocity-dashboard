@@ -1,5 +1,5 @@
 import { VueComponent } from 'types/vue-components';
-import { Component, Watch } from 'nuxt-property-decorator';
+import { Component } from 'nuxt-property-decorator';
 import Vue, { VNode } from 'vue';
 import { State } from 'vuex-class';
 

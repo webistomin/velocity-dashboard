@@ -47,9 +47,7 @@ export const BaseThumbnail = Vue.extend({
             alt={alt}
             class='base-thumbnail__img image'
             nativeOnError={(event: Event) => {
-              // @ts-ignore
-              // eslint-disable-next-line no-undef
-              if ($nuxt.isOnline) {
+              if (ctx?.parent?.$nuxt?.isOnline) {
                 const image = event.target as HTMLImageElement;
                 if (image.src !== 'http://:0/' && image.src !== 'https://:0/') {
                   image.src = '/img/avatar-placeholder.svg';

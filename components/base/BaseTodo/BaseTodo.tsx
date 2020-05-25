@@ -23,7 +23,7 @@ export interface IBaseTodoProps {
   name: 'BaseTodo',
 })
 export default class BaseTodo extends VueComponent<IBaseTodoProps> {
-  @Prop()
+  @Prop({ required: true })
   private readonly todos!: IBaseTodoProps['todos'];
 
   @Prop({ default: 7 })
@@ -35,10 +35,12 @@ export default class BaseTodo extends VueComponent<IBaseTodoProps> {
   }
 
   public render(): VNode {
+    const { todos, limit, onInput } = this;
+
     return (
       <div class='base-todo'>
         <ul class='base-todo__list list'>
-          {this.todos.slice(0, this.limit).map((todo) => {
+          {todos.slice(0, limit).map((todo) => {
             return (
               <BaseTodoItem
                 title={todo.title}
@@ -46,7 +48,7 @@ export default class BaseTodo extends VueComponent<IBaseTodoProps> {
                 id={todo.id}
                 date={todo.date}
                 isDone={todo.isDone}
-                onInput={(event: Event) => this.onInput(event)}
+                onInput={(event: Event) => onInput(event)}
               />
             );
           })}

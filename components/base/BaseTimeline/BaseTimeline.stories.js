@@ -49,6 +49,7 @@ export const Default = () => ({
     timeline: {
       type: String,
       default: object('timeline', timeline),
+      required: true,
     },
   },
   render(h) {

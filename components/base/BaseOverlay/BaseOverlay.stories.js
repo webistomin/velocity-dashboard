@@ -18,6 +18,7 @@ export const Default = () => ({
     isVisible: {
       type: Boolean,
       default: boolean('isVisible', true),
+      required: true,
     },
   },
   methods: {

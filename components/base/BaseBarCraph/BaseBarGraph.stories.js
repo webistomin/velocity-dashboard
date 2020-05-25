@@ -122,14 +122,16 @@ export const Default = () => ({
     chartData: {
       type: Object,
       default: object('chartData', barGraphData),
+      required: true,
     },
     options: {
       type: Object,
       default: object('options', options),
+      required: true,
     },
     fallbackText: {
       type: String,
-      default: text('fallbackText', ''),
+      default: text('fallbackText', 'Bar Graph'),
     },
   },
   template: `<base-bar-graph :chartData='this.chartData' :options='this.options' :fallbackText='this.fallbackText' />`,

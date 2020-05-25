@@ -16,7 +16,7 @@ export interface IBaseSwitchProps {
   name: 'BaseSwitch',
 })
 export default class BaseSwitch extends VueComponent<IBaseSwitchProps> {
-  @Prop()
+  @Prop({ required: true })
   private readonly label!: IBaseSwitchProps['label'];
 
   @Prop()
@@ -34,19 +34,21 @@ export default class BaseSwitch extends VueComponent<IBaseSwitchProps> {
   }
 
   public render(): VNode {
+    const { id, onInput, checked, label, text } = this;
+
     return (
       <div class='base-switch'>
         <input
           type='checkbox'
-          id={this.id}
+          id={id}
           class='base-switch__checkbox visually-hidden'
-          onInput={this.onInput}
-          checked={this.checked}
+          onInput={onInput}
+          checked={checked}
         />
-        <label for={this.id} class='base-switch__label label'>
+        <label for={id} class='base-switch__label label'>
           <span class='base-switch__text'>
-            <strong class='base-switch__title'>{this.label}</strong>
-            <span class='base-switch__desc'>{this.text}</span>
+            <strong class='base-switch__title'>{label}</strong>
+            <span class='base-switch__desc'>{text}</span>
           </span>
           <span class='base-switch__slider' />
         </label>

@@ -13,26 +13,26 @@ export interface IBaseOptionProps {
   name: string;
   id: string;
   checked?: boolean;
-  onInput: (e: Event) => void;
+  onInput?: (e: Event) => void;
 }
 
 @Component({
   name: 'BaseOption',
 })
 export default class BaseOption extends VueComponent<IBaseOptionProps> {
-  @Prop()
+  @Prop({ required: true })
   private readonly type!: IBaseOptionProps['type'];
 
   @Prop()
   private readonly label!: IBaseOptionProps['label'];
 
-  @Prop()
+  @Prop({ required: true })
   private readonly value!: IBaseOptionProps['value'];
 
-  @Prop()
+  @Prop({ required: true })
   private readonly name!: IBaseOptionProps['name'];
 
-  @Prop()
+  @Prop({ required: true })
   private readonly id!: IBaseOptionProps['id'];
 
   @Prop()
@@ -44,19 +44,21 @@ export default class BaseOption extends VueComponent<IBaseOptionProps> {
   }
 
   public render(): VNode {
+    const { type, id, label, value, name, checked, onInput } = this;
+
     return (
       <div class={`base-option`}>
         <input
-          type={this.type}
-          id={this.id}
-          aria-label={this.label}
-          onInput={this.onInput}
-          value={this.value}
+          type={type}
+          id={id}
+          aria-label={label}
+          onInput={onInput}
+          value={value}
           class='base-option__input visually-hidden'
-          name={this.name}
-          checked={this.checked}
+          name={name}
+          checked={checked}
         />
-        <label class='base-option__label label' for={this.id}>
+        <label class='base-option__label label' for={id}>
           {this.$slots.default}
         </label>
       </div>

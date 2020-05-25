@@ -20,6 +20,7 @@ export const BaseTimeline = Vue.extend({
     timeline: {
       type: Array as PropType<IBaseTimelineProps['timeline']>,
       default: () => [],
+      required: true,
     },
   },
   render(_h: CreateElement, ctx: RenderContext<IBaseTimelineProps>): VNode {

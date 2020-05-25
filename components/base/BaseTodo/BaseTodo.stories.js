@@ -57,6 +57,7 @@ export const Default = () => ({
     todos: {
       type: Array,
       default: object('todos', todos),
+      required: true,
     },
     limit: {
       type: Number,

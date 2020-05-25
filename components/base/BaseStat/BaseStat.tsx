@@ -30,7 +30,7 @@ export interface IBaseStatProps {
 export default class BaseStat extends VueComponent<IBaseStatProps> {
   public animatedValue: IBaseStatProps['value'] = 0;
 
-  @Prop()
+  @Prop({ required: true })
   private readonly value!: IBaseStatProps['value'];
 
   @Prop({ default: 0 })
@@ -53,8 +53,8 @@ export default class BaseStat extends VueComponent<IBaseStatProps> {
   }
 
   public get getStat(): string {
-    // @ts-ignore
-    return (((this.value - this.prevValue) / this.prevValue) * 100).toFixed(1);
+    const prevValue = this.prevValue || 0;
+    return (((this.value - prevValue) / prevValue) * 100).toFixed(1);
   }
 
   public get getDynamic(): string {
@@ -76,25 +76,25 @@ export default class BaseStat extends VueComponent<IBaseStatProps> {
   }
 
   public render(): VNode {
+    const { align, icon, color, animatedValue, measure, prevValue, getDynamic, getIconName, getStat } = this;
+
     return (
-      <div class={`base-stat base-stat_align_${this.align}`}>
-        {this.icon ? <BaseIcon class='base-stat__icon' name={this.icon} color={this.color} /> : null}
+      <div class={`base-stat base-stat_align_${align}`}>
+        {icon ? <BaseIcon class='base-stat__icon' name={icon} color={color} /> : null}
         <div class='base-stat__holder'>
           <div class='base-stat__heading'>
             <BaseTitle level={2} class='base-stat__title'>
-              {this.animatedValue}
+              {animatedValue}
             </BaseTitle>
-            {this.measure ? <strong class='base-stat__measure'>{this.measure}</strong> : null}
+            {measure ? <strong class='base-stat__measure'>{measure}</strong> : null}
           </div>
-          {this.prevValue ? (
+          {prevValue ? (
             <span
               class={`base-stat__dynamic ${
-                this.getDynamic === DynamicTypes.POSITIVE
-                  ? 'base-stat__dynamic_positive'
-                  : 'base-stat__dynamic_negative'
+                getDynamic === DynamicTypes.POSITIVE ? 'base-stat__dynamic_positive' : 'base-stat__dynamic_negative'
               }`}>
-              <svg-icon name={this.getIconName} width={10} height={10} />
-              <span class='base-stat__percent'>{this.getStat}%</span>
+              <svg-icon name={getIconName} width={10} height={10} />
+              <span class='base-stat__percent'>{getStat}%</span>
             </span>
           ) : null}
         </div>

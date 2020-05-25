@@ -20,16 +20,16 @@ export interface IBaseThemeProps {
   name: 'BaseTheme',
 })
 export default class BaseTheme extends VueComponent<IBaseThemeProps> {
-  @Prop()
+  @Prop({ required: true })
   private readonly value!: IBaseThemeProps['value'];
 
-  @Prop()
+  @Prop({ required: true })
   private readonly id!: IBaseThemeProps['id'];
 
-  @Prop()
+  @Prop({ required: true })
   private readonly label!: IBaseThemeProps['label'];
 
-  @Prop()
+  @Prop({ required: true })
   private readonly theme!: IBaseThemeProps['theme'];
 
   @Prop()
@@ -41,20 +41,22 @@ export default class BaseTheme extends VueComponent<IBaseThemeProps> {
   }
 
   public render(): VNode {
+    const { id, value, onInput, checked, theme, label } = this;
+
     return (
       <div class='base-theme'>
         <input
           class='base-theme__radio visually-hidden'
           type='radio'
           name='theme-selection'
-          id={this.id}
-          value={this.value}
-          onInput={this.onInput}
-          checked={this.checked}
+          id={id}
+          value={value}
+          onInput={onInput}
+          checked={checked}
         />
-        <label for={this.id} class='base-theme__label label'>
-          <span class={`base-theme__theme base-theme__theme_${this.theme}`} />
-          <span class='base-theme__text'>{this.label}</span>
+        <label for={id} class='base-theme__label label'>
+          <span class={`base-theme__theme base-theme__theme_${theme}`} />
+          <span class='base-theme__text'>{label}</span>
         </label>
       </div>
     );

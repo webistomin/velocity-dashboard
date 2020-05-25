@@ -1,4 +1,5 @@
 import { addons } from '@storybook/addons';
+import velocityTheme from './theme-velocity';
 
 addons.setConfig({
   /**
@@ -46,7 +47,7 @@ addons.setConfig({
   /**
    * theme storybook, see link below
    */
-  theme: undefined,
+  theme: velocityTheme,
 
   /**
    * id to select an addon panel

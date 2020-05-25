@@ -22,11 +22,8 @@ export const Default = () => ({
     value: {
       type: Number,
       default: number('value', 50),
+      required: true,
     },
   },
-  template: `<base-circular-graph
-              :value='this.value'
-            >
-            </base-circular-graph>
-  `,
+  template: `<base-circular-graph :value='this.value' />`,
 });

@@ -7,11 +7,6 @@ export default {
     options: {
       showPanel: true,
       selectedPanel: 'storybook/knobs/panel',
-      previewTabs: {
-        actions: {
-          hidden: true,
-        },
-      },
     },
   },
 };

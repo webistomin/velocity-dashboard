@@ -9,7 +9,7 @@ import './BaseSelect.sass';
 export interface IBaseSelectProps {
   options: string[];
   value: string;
-  onInput: (value: string) => string;
+  onInput?: (value: string) => string;
   id: string;
   label: string;
   placeholder?: string;
@@ -20,16 +20,16 @@ export interface IBaseSelectProps {
   components: { VSelect },
 })
 export default class BaseSelect extends VueComponent<IBaseSelectProps> {
-  @Prop()
+  @Prop({ required: true })
   private readonly options!: IBaseSelectProps['options'];
 
-  @Prop()
+  @Prop({ required: true })
   private readonly value!: IBaseSelectProps['value'];
 
-  @Prop()
+  @Prop({ required: true })
   private readonly id!: IBaseSelectProps['id'];
 
-  @Prop()
+  @Prop({ required: true })
   private readonly label!: IBaseSelectProps['label'];
 
   @Prop()
@@ -41,18 +41,20 @@ export default class BaseSelect extends VueComponent<IBaseSelectProps> {
   }
 
   public render(): VNode {
+    const { id, label, value, onInput, options, placeholder } = this;
+
     return (
       <div class='base-select'>
-        <label for={this.id} class='base-select__label'>
-          {this.label}
+        <label for={id} class='base-select__label'>
+          {label}
         </label>
         <VSelect
-          value={this.value}
-          onInput={this.onInput}
-          options={this.options}
-          inputId={this.id}
+          value={value}
+          onInput={onInput}
+          options={options}
+          inputId={id}
           clearable={false}
-          placeholder={this.placeholder}
+          placeholder={placeholder}
           class='base-select__select'>
           <template slot='open-indicator'>
             <span />

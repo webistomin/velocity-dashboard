@@ -8,7 +8,7 @@ export interface IBaseBlockProps {
   title?: string;
   hasOptions?: boolean;
   contentMix?: string;
-  simple?: boolean;
+  isSimple?: boolean;
 }
 
 @Component({
@@ -25,15 +25,16 @@ export default class BaseBlock extends VueComponent<IBaseBlockProps> {
   private readonly contentMix!: IBaseBlockProps['contentMix'];
 
   @Prop()
-  private readonly simple!: IBaseBlockProps['simple'];
+  private readonly isSimple!: IBaseBlockProps['isSimple'];
 
   public render(): VNode {
+    const { title, hasOptions, contentMix, isSimple } = this;
     return (
-      <div class={`base-block ${this.simple ? 'base-block_simple' : ''}`}>
-        {this.title || this.hasOptions ? (
+      <div class={`base-block ${isSimple ? 'base-block_simple' : ''}`}>
+        {title || hasOptions ? (
           <div class='base-block__heading'>
-            {this.title ? <h3 class='base-block__title caption title'>{this.title}</h3> : null}
-            {this.hasOptions ? (
+            {title ? <h3 class='base-block__title caption title'>{title}</h3> : null}
+            {hasOptions ? (
               <div class='base-block__options-block'>
                 <button class='base-block__options-btn btn' aria-label='Toggle block options'>
                   <svg-icon name='icon-options' width={16} height={16} />
@@ -43,7 +44,7 @@ export default class BaseBlock extends VueComponent<IBaseBlockProps> {
             ) : null}
           </div>
         ) : null}
-        <div class={`base-block__content ${this.contentMix || ''}`}>{this.$slots.default}</div>
+        <div class={`base-block__content ${contentMix || ''}`}>{this.$slots.default}</div>
       </div>
     );
   }

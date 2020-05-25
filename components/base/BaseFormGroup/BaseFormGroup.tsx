@@ -1,10 +1,10 @@
 import { Component, Prop, Emit } from 'nuxt-property-decorator';
 import { VueComponent } from 'types/vue-components';
 import Vue, { VNode } from 'vue';
+import { Validation } from 'vuelidate';
 // @ts-ignore
 import { singleErrorExtractorMixin } from 'vuelidate-error-extractor';
 import { TheMask } from 'vue-the-mask';
-import { Validation } from '~/node_modules/@types/vuelidate';
 
 import './BaseFormGroup.sass';
 
@@ -59,7 +59,7 @@ export default class BaseFormGroup extends VueComponent<IBaseFormGroupProps> {
   @Prop()
   private readonly id!: IBaseFormGroupProps['id'];
 
-  @Prop()
+  @Prop({ required: true })
   private readonly value!: IBaseFormGroupProps['value'];
 
   @Prop()

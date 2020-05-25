@@ -123,7 +123,7 @@ export default class Vehicles extends VueComponent {
       <section class='vehicles'>
         <div class='vehicles__container container'>
           <div class='vehicles__grid'>
-            <BaseBlock class='vehicles__block' simple={true}>
+            <BaseBlock class='vehicles__block' isSimple={true}>
               <div class='vehicles__heading'>
                 <BaseTitle level={3}>
                   Vehicles Dashboard
@@ -190,7 +190,7 @@ export default class Vehicles extends VueComponent {
                 </div>
               </CollapseTransition>
             </BaseBlock>
-            <BaseBlock simple={true} class='vehicles__block' contentMix='vehicles__filter-block'>
+            <BaseBlock isSimple={true} class='vehicles__block' contentMix='vehicles__filter-block'>
               <BaseTable tableConfig={this.tableConfig} tableData={this.tableData} />
             </BaseBlock>
           </div>

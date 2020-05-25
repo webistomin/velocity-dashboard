@@ -31,7 +31,7 @@ export const Default = () => ({
       type: String,
       default: text('contentMix', 'mix'),
     },
-    simple: {
+    isSimple: {
       type: Boolean,
       default: boolean('simple', false),
     },
@@ -40,7 +40,7 @@ export const Default = () => ({
               :title='this.title'
               :hasOptions='this.hasOptions'
               :contentMix='this.contentMix'
-              :simple='this.simple'
+              :isSimple='this.isSimple'
             >
               Content
             </base-block>

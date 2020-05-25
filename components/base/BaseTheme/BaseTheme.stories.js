@@ -18,18 +18,22 @@ export const Default = () => ({
     label: {
       type: String,
       default: text('label', 'Text'),
+      required: true,
     },
     id: {
       type: String,
       default: text('id', 'base-form-group'),
+      required: true,
     },
     text: {
       type: String,
       default: text('text', ''),
+      required: true,
     },
     theme: {
       type: String,
       default: text('theme', ''),
+      required: true,
     },
     checked: {
       type: Boolean,

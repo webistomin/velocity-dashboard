@@ -29,18 +29,22 @@ export const Default = () => ({
     options: {
       type: Array,
       default: array('options', ['1', '2', '3']),
+      required: true,
     },
     value: {
       type: String,
       default: text('value', ''),
+      required: true,
     },
     label: {
       type: String,
       default: text('label', 'Text'),
+      required: true,
     },
     id: {
       type: String,
       default: text('id', 'base-form-group'),
+      required: true,
     },
     placeholder: {
       type: String,

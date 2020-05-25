@@ -108,7 +108,7 @@ export default class Profile extends VueComponent {
             <BaseBlock title='Median NPS' class='profile__block'>
               <BaseStat value={4.32} color='green' icon='icon-calendar' align='row' />
             </BaseBlock>
-            <BaseBlock simple={true} class='profile__block'>
+            <BaseBlock isSimple={true} class='profile__block'>
               <BaseTable tableConfig={this.tableConfig} tableData={this.tableData} />
             </BaseBlock>
           </div>

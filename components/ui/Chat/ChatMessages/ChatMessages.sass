@@ -102,11 +102,18 @@
     margin-bottom: rem(4px)
 
   +e('group-item')
-    border-radius: 17px
     padding: rem(18px) rem(18px) rem(6px)
+
+    &:first-of-type
+      border-top-left-radius: 17px
+      border-top-right-radius: 17px
 
     &:not(:last-of-type)
       margin-bottom: rem(6px)
+
+    &:last-of-type
+      border-bottom-left-radius: 17px
+      border-bottom-right-radius: 17px
 
   +e('date')
     display: inline-block
