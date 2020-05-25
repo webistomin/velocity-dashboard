@@ -1,5 +1,5 @@
 import { VueComponent } from 'types/vue-components';
-import { Component } from 'nuxt-property-decorator';
+import { Component, Watch } from 'nuxt-property-decorator';
 import Vue, { VNode } from 'vue';
 import { State } from 'vuex-class';
 
@@ -103,7 +103,6 @@ export default class Settings extends VueComponent {
     this.settingsForm.theme = theme;
     const root = document.documentElement;
     root.className = `theme theme_${theme}`;
-    localStorage.setItem('theme', theme);
   }
 
   public async onSubmit(event: Event) {
@@ -129,6 +128,8 @@ export default class Settings extends VueComponent {
         const response: IProfileUpdateResponseBody = await this.$axios.$post(serverUrls.profile.update, data);
 
         if (response.success) {
+          localStorage.setItem('theme', data.theme);
+
           if (response.token) {
             await this.$auth.setUserToken(response.token);
           } else {
@@ -157,6 +158,11 @@ export default class Settings extends VueComponent {
         });
       }
     }
+  }
+
+  public beforeDestroy(): void {
+    const theme = this.getAuthUser.theme;
+    this.onThemeSelect(theme);
   }
 
   public render(): VNode {
