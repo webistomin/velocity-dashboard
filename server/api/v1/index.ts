@@ -6,6 +6,7 @@ import weatherRoutes from './routes/weather';
 import statisticsRoutes from './routes/statistics';
 import tripsRoutes from './routes/trips';
 import passengerRoutes from './routes/passenger';
+import driverRoutes from './routes/driver';
 
 export default () => {
   const app = Router();
@@ -17,6 +18,7 @@ export default () => {
   statisticsRoutes(app);
   tripsRoutes(app);
   passengerRoutes(app);
+  driverRoutes(app);
 
   return app;
 };

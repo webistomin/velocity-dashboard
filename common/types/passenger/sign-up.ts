@@ -1,6 +1,6 @@
 import { Request } from 'express';
 import { IPassengerInterface } from './passenger-schema';
 
-export interface IPassengerAddRequest extends Request {
+export interface IPassengerSignUpRequest extends Request {
   body: IPassengerInterface;
 }

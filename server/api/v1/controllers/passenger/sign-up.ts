@@ -4,11 +4,11 @@ import HTTPStatuses from 'http-status-codes';
 import JWT from 'jsonwebtoken';
 
 import Passenger from 'server/models/passenger/passenger';
-import { IPassengerAddRequest } from 'common/types/passenger/add';
+import { IPassengerSignUpRequest } from 'common/types/passenger/sign-up';
 import config from 'server/config';
 import { ONE_WEEK_IN_SECONDS } from 'common/consts/times';
 
-export default async (req: IPassengerAddRequest, res: Response) => {
+export default async (req: IPassengerSignUpRequest, res: Response) => {
   try {
     let token;
     const { email, avatar, bio, firstName, lastName, location, password, payment, tel } = req.body;

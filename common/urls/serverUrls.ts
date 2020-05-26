@@ -26,4 +26,7 @@ export const serverUrls = {
   passenger: {
     signUp: '/passenger/sign-up',
   },
+  driver: {
+    signUp: '/driver/sign-up',
+  },
 };

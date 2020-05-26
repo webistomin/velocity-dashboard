@@ -1,5 +1,6 @@
 import { Document } from 'mongoose';
 import { DriverStatus } from 'common/types/driver/driver-status';
+import { SentMessageInfo } from 'nodemailer';
 
 /**
  * Default driver interface until it extended by Mongo
@@ -12,6 +13,7 @@ export interface IDriverInterface {
   location: string;
   tel: string;
   bio?: string;
+  avatar?: string;
   car: {
     id: string;
     manufacturer: string;
@@ -41,5 +43,7 @@ export interface IDriverDocumentInterface extends Document, IDriverInterface {}
  * Mongoose driver schema with methods
  */
 export interface IDriverSchema extends IDriverDocumentInterface {
-  comparePassword(driverPassword: string): Promise<boolean>;
+  comparePassword(userPassword: string): Promise<boolean>;
+  sendForgotPasswordMail(): Promise<SentMessageInfo>;
+  sendSignUpMail(): Promise<SentMessageInfo>;
 }

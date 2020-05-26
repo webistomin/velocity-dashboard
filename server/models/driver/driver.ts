@@ -1,9 +1,12 @@
 import { Schema, model } from 'mongoose';
-import bcrypt from 'bcrypt';
 import { nanoid } from 'nanoid';
 
 import { IDriverDocumentInterface, IDriverSchema } from 'common/types/driver/driver-schema';
 import { DriverStatus } from 'common/types/driver/driver-status';
+import cryptPassword from 'server/models/methods/crypt-password';
+import comparePassword from 'server/models/methods/compare-password';
+import sendForgotPasswordMail from 'server/models/methods/send-forgot-password-mail';
+import sendSignUpSuccessfulMail from 'server/models/methods/send-sign-up-mail';
 
 const DriverSchema: Schema = new Schema<IDriverDocumentInterface>({
   firstName: {
@@ -49,10 +52,6 @@ const DriverSchema: Schema = new Schema<IDriverDocumentInterface>({
       type: String,
       required: true,
     },
-    serviceDue: {
-      type: String,
-      required: true,
-    },
     dateOfPurchase: {
       type: String,
       required: true,
@@ -76,12 +75,18 @@ const DriverSchema: Schema = new Schema<IDriverDocumentInterface>({
     required: true,
     default: 0,
   },
+  avatar: {
+    type: String,
+    default: '',
+  },
 });
 
-DriverSchema.methods.comparePassword = async function(password: IDriverSchema['password']): Promise<Boolean> {
-  const driver = this;
-  const match = await bcrypt.compare(password, driver.password);
-  return match;
-};
+DriverSchema.pre<IDriverSchema>('save', cryptPassword);
+
+DriverSchema.methods.comparePassword = comparePassword;
+
+DriverSchema.methods.sendForgotPasswordMail = sendForgotPasswordMail;
+
+DriverSchema.methods.sendSignUpMail = sendSignUpSuccessfulMail;
 
 export default model<IDriverSchema>('Driver', DriverSchema);
