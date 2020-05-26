@@ -1,12 +1,12 @@
 import { VueComponent } from 'types/vue-components';
 import { Component, Prop } from 'nuxt-property-decorator';
 import Vue, { VNode } from 'vue';
+import { nanoid } from 'nanoid';
 
 import BaseTitle from 'components/base/BaseTitle';
 import { animateValue } from '~/utils/animate-value';
 
 import './BaseCirclularGraph.sass';
-import { nanoid } from 'nanoid';
 
 export interface IBaseCircularGraphProps {
   value: number;

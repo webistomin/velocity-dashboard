@@ -17,4 +17,7 @@ export const serverUrls = {
   weather: {
     current: '/weather/current',
   },
+  statistics: {
+    tripsByType: '/statistics/trips-by-type',
+  },
 };
