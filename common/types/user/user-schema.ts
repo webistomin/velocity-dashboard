@@ -27,6 +27,7 @@ export interface IUserInterface {
   location: string;
   bio: string;
   dob: string;
+  lastLogin?: Date;
 }
 
 /**

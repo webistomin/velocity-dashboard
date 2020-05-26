@@ -20,4 +20,10 @@ export const serverUrls = {
   statistics: {
     tripsByType: '/statistics/trips-by-type',
   },
+  trips: {
+    add: '/trips/add',
+  },
+  passenger: {
+    signUp: '/passenger/sign-up',
+  },
 };

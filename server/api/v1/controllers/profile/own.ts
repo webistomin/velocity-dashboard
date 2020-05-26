@@ -9,7 +9,7 @@ export default async (req: IVerifiedUserRequest, res: Response<IOwnUserProfileRe
   try {
     const userId = req.decodedUser._id;
 
-    const foundUser = await User.findOne({ _id: userId });
+    const foundUser = await User.findOneAndUpdate({ _id: userId }, { lastLogin: new Date() }, { new: true });
 
     if (foundUser) {
       return await res.status(HTTPStatuses.OK).json({

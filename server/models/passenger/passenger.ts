@@ -1,7 +1,11 @@
 import { Schema, model } from 'mongoose';
-import bcrypt from 'bcrypt';
 
 import { IPassengerDocumentInterface, IPassengerSchema } from 'common/types/passenger/passenger-schema';
+
+import cryptPassword from '../methods/crypt-password';
+import comparePassword from '../methods/compare-password';
+import sendForgotPasswordMail from '../methods/send-forgot-password-mail';
+import sendSignUpSuccessfulMail from '../methods/send-sign-up-mail';
 
 const PassengerSchema: Schema = new Schema<IPassengerDocumentInterface>({
   firstName: {
@@ -33,6 +37,10 @@ const PassengerSchema: Schema = new Schema<IPassengerDocumentInterface>({
     type: String,
     default: '',
   },
+  avatar: {
+    type: String,
+    default: '',
+  },
   payment: {
     visa: {
       type: String,
@@ -58,10 +66,12 @@ const PassengerSchema: Schema = new Schema<IPassengerDocumentInterface>({
   },
 });
 
-PassengerSchema.methods.comparePassword = async function(password: IPassengerSchema['password']): Promise<Boolean> {
-  const driver = this;
-  const match = await bcrypt.compare(password, driver.password);
-  return match;
-};
+PassengerSchema.pre<IPassengerSchema>('save', cryptPassword);
 
-export default model<IPassengerSchema>('Driver', PassengerSchema);
+PassengerSchema.methods.comparePassword = comparePassword;
+
+PassengerSchema.methods.sendForgotPasswordMail = sendForgotPasswordMail;
+
+PassengerSchema.methods.sendSignUpMail = sendSignUpSuccessfulMail;
+
+export default model<IPassengerSchema>('Passenger', PassengerSchema);

@@ -42,7 +42,7 @@ export default function verifyToken(req: IVerifiedUserRequest, res: Response, ne
   } else {
     return res.status(HTTPStatuses.BAD_REQUEST).json({
       success: false,
-      message: 'No token provided',
+      message: 'No token provided or token invalid',
     });
   }
 }

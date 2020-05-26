@@ -1,4 +1,5 @@
 import { Document } from 'mongoose';
+import { SentMessageInfo } from 'nodemailer';
 
 /**
  * Default passenger interface until it extended by Mongo
@@ -11,13 +12,14 @@ export interface IPassengerInterface {
   location: string;
   tel: string;
   bio?: string;
+  avatar?: string;
   payment: {
     visa: string;
     mastercard: string;
     paypal: string;
     applepay: string;
   };
-  tripsTaken: number;
+  tripsTaken?: number;
 }
 
 /**
@@ -37,5 +39,7 @@ export interface IPassengerDocumentInterface extends Document, IPassengerInterfa
  * Mongoose passenger schema with methods
  */
 export interface IPassengerSchema extends IPassengerDocumentInterface {
-  comparePassword(passengerPassword: string): Promise<boolean>;
+  comparePassword(userPassword: string): Promise<boolean>;
+  sendForgotPasswordMail(): Promise<SentMessageInfo>;
+  sendSignUpMail(): Promise<SentMessageInfo>;
 }
