@@ -11,7 +11,7 @@ import Vehicles from 'components/ui/Vehicles';
 export default class VehiclesPage extends VueComponent {
   render(): VNode {
     return (
-      <main class='page-content page-content_offset'>
+      <main class='page-content page-content_offset-top'>
         <Vehicles />
       </main>
     );

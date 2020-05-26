@@ -80,6 +80,60 @@ export default class Vehicles extends VueComponent {
       date: '01/04/2019',
       status: 'Unresolved',
     },
+    {
+      id: '#2188',
+      subject: 'Refund request',
+      date: '02/04/2019',
+      status: 'Resolved',
+    },
+    {
+      id: '#2189',
+      subject: 'Refund request',
+      date: '05/04/2019',
+      status: 'Resolved',
+    },
+    {
+      id: '#2190',
+      subject: 'Refund request',
+      date: '01/04/2019',
+      status: 'Unresolved',
+    },
+    {
+      id: '#2191',
+      subject: 'Refund request',
+      date: '01/04/2019',
+      status: 'Unresolved',
+    },
+    {
+      id: '#2192',
+      subject: 'Refund request',
+      date: '02/04/2019',
+      status: 'Resolved',
+    },
+    {
+      id: '#2193',
+      subject: 'Refund request',
+      date: '05/04/2019',
+      status: 'Resolved',
+    },
+    {
+      id: '#2194',
+      subject: 'Refund request',
+      date: '01/04/2019',
+      status: 'Unresolved',
+    },
+    {
+      id: '#2195',
+      subject: 'Refund request',
+      date: '05/04/2019',
+      status: 'Resolved',
+    },
+    {
+      id: '#2196',
+      subject: 'Refund request',
+      date: '01/04/2019',
+      status: 'Unresolved',
+    },
   ];
 
   public tableConfig = [

@@ -1,18 +1,9 @@
 +b('base-table')
   +e('scroller')
     +scrollbar(5px, rgb(var(--color-primary)), rgb(var(--color-secondary)))
-    height: calc(100vh - 350px)
-
-    .vue-recycle-scroller__slot
-      padding-top: rem(10px)
-      padding-bottom: rem(10px)
-      position: sticky
-      top: 0
-      z-index: 1
-
-    .vue-recycle-scroller__item-wrapper
-      overflow-x: auto
-      overflow-y: hidden
+    height: calc(100vh - 276px)
+    overflow-y: auto
+    +scroll-overflow()
 
   +e('table')
     position: relative
@@ -22,6 +13,11 @@
   +e('row')
     display: flex
     background-color: rgb(var(--color-white))
+    overflow: auto
+
+  +e('scroller-item')
+    &:not(:last-of-type)
+      margin-bottom: rem(14px)
 
   +e('head')
     display: flex
@@ -62,6 +58,7 @@
 
   +e('cell')
     flex: 23 1 0
+    white-space: nowrap
 
     &:first-of-type
       flex: 8 1 0

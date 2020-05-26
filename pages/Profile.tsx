@@ -11,7 +11,7 @@ import Profile from 'components/ui/Profile';
 export default class ProfilePage extends VueComponent {
   render(): VNode {
     return (
-      <main class='page-content page-content_offset'>
+      <main class='page-content page-content_offset-top'>
         <Profile />
       </main>
     );

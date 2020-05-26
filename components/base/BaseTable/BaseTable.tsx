@@ -1,9 +1,10 @@
 import { VueComponent } from 'types/vue-components';
 import { Component, Prop } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
-
 // @ts-ignore
-import { DynamicScroller } from 'vue-virtual-scroller';
+import VirtualList from 'vue-virtual-scroll-list';
+
+import { BaseTableItem } from './BaseTableItem';
 
 import './BaseTable.sass';
 
@@ -15,11 +16,12 @@ export interface IBaseTableConfig {
 export interface IBaseTableProps {
   tableConfig: IBaseTableConfig[];
   tableData: object[];
+  scrollerMix?: string;
 }
 
 @Component({
   name: 'BaseTable',
-  components: { DynamicScroller },
+  components: { VirtualList },
 })
 export default class BaseTable extends VueComponent<IBaseTableProps> {
   @Prop()
@@ -28,19 +30,10 @@ export default class BaseTable extends VueComponent<IBaseTableProps> {
   @Prop()
   private readonly tableData!: IBaseTableProps['tableData'];
 
-  public onSortClick(_field: IBaseTableConfig['key']) {}
+  @Prop()
+  private readonly scrollerMix!: IBaseTableProps['scrollerMix'];
 
-  public get getTableRows() {
-    return this.tableData.map((row) => {
-      return (
-        <div class='base-table__row'>
-          {Object.values(row).map((field) => {
-            return <span class='base-table__body-data base-table__cell'>{field}</span>;
-          })}
-        </div>
-      );
-    });
-  }
+  public onSortClick(_field: IBaseTableConfig['key']) {}
 
   public render(): VNode {
     return (
@@ -61,19 +54,16 @@ export default class BaseTable extends VueComponent<IBaseTableProps> {
               );
             })}
           </div>
-          <DynamicScroller
-            class='base-table__scroller'
-            items={this.tableData}
-            item-size={95}
-            minItemSize={75}
-            key-field='id'>
-            <div class='base-table__row'>
-              <span class='base-table__body-data base-table__cell'>#2178</span>
-              <span class='base-table__body-data base-table__cell'>Refund request</span>
-              <span class='base-table__body-data base-table__cell'>05/04/2018</span>
-              <span class='base-table__body-data base-table__cell'>Active</span>
-            </div>
-          </DynamicScroller>
+
+          <VirtualList
+            class={`base-table__scroller ${this.scrollerMix || ''}`}
+            data-key='id'
+            data-sources={this.tableData}
+            data-component={BaseTableItem}
+            wrap-class='base-table__scroller-wrapper'
+            item-class='base-table__scroller-item'
+            estimate-size={82}
+          />
         </div>
       </div>
     );

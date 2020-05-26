@@ -73,6 +73,7 @@ export default class BaseSlider extends VueComponent<IBaseSliderProps> {
           max={max}
           value={value}
           onChange={onChange}
+          contained
           class='base-slider__slider'
         />
       </div>
