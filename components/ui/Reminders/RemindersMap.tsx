@@ -765,6 +765,10 @@ export default class RemindersMap extends VueComponent {
             <strong class='reminders__map-city'>Chicago</strong>
             <span class='reminders__map-state'>IL</span>
           </li>
+          <li class='reminders__map-item list-item'>
+            <strong class='reminders__map-city'>Chicago</strong>
+            <span class='reminders__map-state'>IL</span>
+          </li>
         </ul>
       </div>
     );

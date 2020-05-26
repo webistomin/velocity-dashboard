@@ -1,11 +1,12 @@
 import { VueComponent } from 'types/vue-components';
 import { Component, Prop } from 'nuxt-property-decorator';
-import { VNode } from 'vue';
+import Vue, { VNode } from 'vue';
 
 import BaseTitle from 'components/base/BaseTitle';
 import { animateValue } from '~/utils/animate-value';
 
 import './BaseCirclularGraph.sass';
+import { nanoid } from 'nanoid';
 
 export interface IBaseCircularGraphProps {
   value: number;
@@ -15,77 +16,114 @@ export interface IBaseCircularGraphProps {
   name: 'BaseCircularGraph',
 })
 export default class BaseCircularGraph extends VueComponent<IBaseCircularGraphProps> {
+  public $refs!: Vue['$refs'] & {
+    progressBar: SVGPathElement;
+  };
+
   @Prop({ default: 0, required: true })
   private readonly value!: IBaseCircularGraphProps['value'];
 
+  duration: number = 2000;
+  percent: number = this.value / 100;
+  startValue: number = 0;
+  id: string = 'base-circular-graph-mask';
+
   public animatedValue: IBaseCircularGraphProps['value'] = 0;
 
+  created() {
+    this.id = `base-circular-graph-mask-${nanoid()}`;
+  }
+
   public mounted(): void {
-    animateValue.call(this, 'animatedValue', 0, this.value, 2000);
+    animateValue.call(this, 'animatedValue', this.startValue, this.value, this.duration);
+    this.startCircularProgress(this.percent, this.duration);
+  }
+
+  public startCircularProgress(percentage: number, speed: number) {
+    let startTimestamp: number = 0;
+    let x = this.startValue;
+    const step = (timestamp: number) => {
+      if (!startTimestamp) {
+        startTimestamp = timestamp;
+      }
+      const progress = Math.min((timestamp - startTimestamp) / speed, 1);
+      x = progress * percentage;
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+        this.drawProgress(x);
+      }
+    };
+    window.requestAnimationFrame(step);
+  }
+
+  public clamp(n: number, min: number, max: number) {
+    return Math.max(min, Math.min(max, n));
+  }
+
+  public drawProgress(percent: number) {
+    if (isNaN(percent)) {
+      return;
+    }
+
+    percent = this.clamp(parseFloat(String(percent)), 0, 1);
+
+    const angle = this.clamp(percent * 180, 0, 359.99999);
+    const paddedRadius = 49 + 1;
+    const radians = (angle * Math.PI) / 180;
+    const x = Math.sin(radians) * paddedRadius;
+    const y = Math.cos(radians) * -paddedRadius;
+    const mid = angle > 180 ? 1 : 0;
+    const pathData = 'M 0 0 v -%@ A %@ %@ 1 '.replace(/%@/gi, String(paddedRadius)) + mid + ' 1 ' + x + ' ' + y + ' z';
+
+    const bar = this.$refs.progressBar;
+    bar.setAttribute('d', pathData);
   }
 
   render(): VNode {
     return (
       <div class='base-circular-graph'>
-        <svg xmlns='http://www.w3.org/2000/svg' width={223} viewBox='0 0 223 140.5' class='base-circular-graph__base'>
-          <defs>
-            <clipPath id='base-circular-graph-clip-path-1'>
-              <path
-                d='M0,124,4.5,36,76,0h62l74.5,42.5,10.5,45L211,139l-45.5-9L51,128,0,140.5Z'
-                transform='translate(0.5)'
-                fill='#fff'
-              />
-            </clipPath>
-          </defs>
-          <g transform='translate(-0.5)' clip-path='url(#base-circular-graph-clip-path-1)'>
-            <g
-              transform='translate(32.6 40.6)'
-              fill='none'
-              stroke='#e0e7ff'
-              stroke-miterlimit='10'
-              stroke-width='24'
-              stroke-dasharray='1.6 5'>
-              <circle cx='76' cy='76' r='76' stroke='none' />
-              <circle cx='76' cy='76' r='88' fill='none' />
-            </g>
-            <g
-              transform='translate(41 48.6)'
-              fill='none'
-              stroke='#e0e7ff'
-              stroke-miterlimit='10'
-              stroke-width='2'
-              stroke-dasharray='1 4.8'>
-              <circle cx='68' cy='68' r='68' stroke='none' />
-              <circle cx='68' cy='68' r='67' fill='none' />
-            </g>
-          </g>
-        </svg>
-        <div class='base-circular-graph__fill' style={{ width: `${this.value}%` }}>
-          <svg xmlns='http://www.w3.org/2000/svg' width={223} viewBox='0 0 223 140.5'>
+        <div class='base-circular-graph__wrapper'>
+          <svg
+            class='base-circular-graph__progress'
+            viewBox='0 0 100 100'
+            width={223}
+            height={223}
+            shape-rendering='geometricPrecision'>
             <defs>
-              <clipPath id='base-circular-graph-clip-path-2'>
-                <path
-                  d='M0,124,4.5,36,76,0h62l74.5,42.5,10.5,45L211,139l-45.5-9L51,128,0,140.5Z'
-                  transform='translate(0.5)'
-                  fill='#fff'
+              <mask id={this.id} x='0' y='0' width='120' height='120' maskUnits='userSpaceOnUse'>
+                <circle cx='50' cy='50' r='51' stroke-width='0' fill='black' opacity='1' />
+                <circle
+                  id='bar'
+                  r='50'
+                  cx='50'
+                  cy='50'
+                  fill='transparent'
+                  stroke-dasharray='1'
+                  stroke-dashoffset='1000'
+                  stroke='white'
+                  stroke-width='16'
                 />
-              </clipPath>
+                <circle
+                  class='base-circular-graph__progress-inner'
+                  cx='50'
+                  cy='50'
+                  r='40'
+                  stroke-width='0'
+                  fill='black'
+                  opacity='1'
+                />
+              </mask>
             </defs>
-            <g transform='translate(-0.5)' clip-path='url(#base-circular-graph-clip-path-1)'>
-              <g transform='translate(3 -5)'>
-                <g>
-                  <g
-                    transform='translate(30 45.6)'
-                    fill='none'
-                    stroke='rgb(var(--color-primary))'
-                    stroke-miterlimit='10'
-                    stroke-width='24'
-                    stroke-dasharray='1.6 5'>
-                    <circle cx='76' cy='76' r='76' stroke='none' />
-                    <circle cx='76' cy='76' r='88' fill='none' />
-                  </g>
-                </g>
-              </g>
+            <g mask={`url(#${this.id})`}>
+              <circle
+                class='base-circular-graph__track'
+                cx='50'
+                cy='50'
+                r='50'
+                opacity='1'
+                fill='rgba(var(--color-primary), 0.2)'
+              />
+              <path class='base-circular-graph__bar' ref='progressBar' d='M 0 0' fill='rgb(var(--color-primary))' />
             </g>
           </svg>
         </div>
