@@ -18,6 +18,7 @@ import { IBaseTodo } from 'components/base/BaseTodo/BaseTodo';
 import { IPageHome } from 'common/types/pages/home';
 
 import './Overview.sass';
+import { IReminder } from 'common/types/reminders/reminder';
 
 export interface IHomePageProps {
   content: IPageHome | null;
@@ -81,50 +82,16 @@ export default class Overview extends VueComponent<IHomePageProps> {
     },
   };
 
-  public todos: IBaseTodo[] = [
-    {
-      title: 'Vehicle #11283',
-      date: Date.now(),
-      id: '1',
-      isDone: false,
-    },
-    {
-      title: 'Vehicle #11283',
-      date: Date.now(),
-      id: '2',
-      isDone: false,
-    },
-    {
-      title: 'Vehicle #11283',
-      date: Date.now(),
-      id: '3',
-      isDone: false,
-    },
-    {
-      title: 'Vehicle #11283',
-      date: Date.now(),
-      id: '4',
-      isDone: false,
-    },
-    {
-      title: 'Vehicle #11283',
-      date: Date.now(),
-      id: '5',
-      isDone: false,
-    },
-    {
-      title: 'Vehicle #11283',
-      date: Date.now(),
-      id: '6',
-      isDone: false,
-    },
-  ];
+  public todos: IReminder[] | undefined = this.content?.reminders.todos;
 
   public updateTodo(event: Event): void {
     const target = event.target as HTMLInputElement;
     const id = target.value;
-    const index = this.todos.findIndex((todo) => todo.id === id);
-    this.todos[index].isDone = !this.todos[index].isDone;
+
+    if (this.todos) {
+      const index = this.todos.findIndex((todo) => todo.id === id);
+      this.todos[index].isDone = !this.todos[index].isDone;
+    }
   }
 
   public get getTopDrivers(): IBaseList[] | undefined {
@@ -235,6 +202,23 @@ export default class Overview extends VueComponent<IHomePageProps> {
     return barGraphData;
   }
 
+  public get getTodoList(): IBaseTodo[] | undefined {
+    const reminders = this.todos;
+
+    if (!reminders) {
+      return undefined;
+    }
+
+    return reminders.map((todo) => {
+      return {
+        title: todo.title,
+        dueDate: todo.dueDate,
+        id: todo.id,
+        isDone: todo.isDone,
+      };
+    });
+  }
+
   public render(): VNode {
     return (
       <section class='overview'>
@@ -299,9 +283,11 @@ export default class Overview extends VueComponent<IHomePageProps> {
                 />
               </BaseBlock>
             ) : null}
-            <BaseBlock class='overview__block' title='vehicles on track' hasOptions={true}>
-              <BaseMap class='overview__map' />
-            </BaseBlock>
+            {this.content?.trips ? (
+              <BaseBlock class='overview__block' title='vehicles on track' hasOptions={true}>
+                <BaseMap trips={this.content.trips.onTrack} class='overview__map' />
+              </BaseBlock>
+            ) : null}
             {this.getTopDrivers ? (
               <BaseBlock class='overview__block' title='Top drivers'>
                 <BaseList list={this.getTopDrivers} />
@@ -312,9 +298,11 @@ export default class Overview extends VueComponent<IHomePageProps> {
                 <BaseBarGraph chartData={this.getTripsTypeStat} options={this.chartOptions} />
               </BaseBlock>
             ) : null}
-            <BaseBlock class='overview__block' title='Service Reminders'>
-              <BaseTodo todos={this.todos} onInput={(event: Event) => this.updateTodo(event)} />
-            </BaseBlock>
+            {this.getTodoList ? (
+              <BaseBlock class='overview__block' title='Service Reminders'>
+                <BaseTodo todos={this.getTodoList} onInput={(event: Event) => this.updateTodo(event)} />
+              </BaseBlock>
+            ) : null}
           </div>
         </div>
       </section>

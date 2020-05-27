@@ -2,8 +2,8 @@ import { VueComponent } from 'types/vue-components';
 import { Component, Prop, Emit } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
 
+import { add, compareAsc } from 'date-fns';
 import { IBaseTodo } from './BaseTodo';
-import { addDaysToDate } from '~/utils/add-days';
 
 export interface IBaseTodoItem extends IBaseTodo {
   onInput?: (event: Event) => void;
@@ -20,19 +20,22 @@ export default class BaseTodoItem extends VueComponent<IBaseTodoItem> {
   private readonly title!: IBaseTodo['title'];
 
   @Prop()
-  private readonly date!: IBaseTodo['date'];
+  private readonly dueDate!: IBaseTodo['dueDate'];
 
   @Prop()
   private readonly isDone!: IBaseTodo['isDone'];
 
   public get getDeadline(): string {
-    const taskDate = this.date;
-    const today = Date.now();
-    const onTimeDate = addDaysToDate(new Date(today), 5);
+    const taskDate = new Date(this.dueDate);
+    const today = new Date();
+    const onTimeDate = add(new Date(), { days: 5 });
 
-    if (new Date(today) > new Date(taskDate)) {
+    /* Compare the two dates and return 1 if the first date is after the second,
+     * -1 if the first date is before the second
+     * or 0 if dates are equal. */
+    if (compareAsc(today, taskDate) === 1) {
       return 'overdue';
-    } else if (new Date(taskDate) > onTimeDate) {
+    } else if (compareAsc(onTimeDate, taskDate) === 1) {
       return 'due-soon';
     }
 
@@ -62,7 +65,7 @@ export default class BaseTodoItem extends VueComponent<IBaseTodoItem> {
         <nuxt-link to={this.id} class='base-todo__content link'>
           <strong class='base-todo__name'>{this.title}</strong>
           <time class={`base-todo__date base-todo__date_deadline_${this.getDeadline}`}>
-            Due {new Date(this.date).toLocaleString()}
+            Due {new Date(this.dueDate).toLocaleString()}
           </time>
         </nuxt-link>
       </li>

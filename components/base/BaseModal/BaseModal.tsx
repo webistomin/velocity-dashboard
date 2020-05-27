@@ -7,6 +7,7 @@ import FocusTrap from 'vue-focus-lock';
 import BaseOverlay from 'components/base/BaseOverlay';
 
 import './BaseModal.sass';
+import BaseClose from 'components/base/BaseClose';
 
 export interface IBaseModalProps {
   isVisible: boolean;
@@ -48,7 +49,7 @@ export default class BaseModal extends VueComponent<IBaseModalProps> {
     return (
       <transition name={transitionName}>
         <div class='base-modal' vShow={isVisible}>
-          <button class='base-modal__close-btn btn' type='button' aria-label='Close modal' onClick={this.closeModal} />
+          <BaseClose onClick={this.closeModal} />
           <BaseOverlay isVisible={isVisible} onClick={this.closeModal} />
           <FocusTrap class='base-modal__locker' disabled={!isVisible}>
             <div class='base-modal__wrapper'>

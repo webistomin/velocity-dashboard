@@ -9,7 +9,7 @@ import './BaseTodo.sass';
 export interface IBaseTodo {
   id: string;
   title: string;
-  date: DOMTimeStamp;
+  dueDate: Date;
   isDone: boolean;
 }
 
@@ -46,7 +46,7 @@ export default class BaseTodo extends VueComponent<IBaseTodoProps> {
                 title={todo.title}
                 key={todo.id}
                 id={todo.id}
-                date={todo.date}
+                dueDate={todo.dueDate}
                 isDone={todo.isDone}
                 onInput={(event: Event) => onInput(event)}
               />

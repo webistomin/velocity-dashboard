@@ -1,12 +1,18 @@
 +b('base-map')
-  &.vue2leaflet-map
-    .leaflet-marker-icon.marker-cluster
-      background-color: rgb(var(--color-primary))
+  position: relative
+  z-index: 1
+  height: 100%
+  overflow: hidden
 
-      div
-        font: var(--text-link)
-        color: rgb(var(--color-white))
-        background-color: inherit
+  +e('map')
+    &.vue2leaflet-map
+      .leaflet-marker-icon.marker-cluster
+        background-color: rgb(var(--color-primary))
+
+        div
+          font: var(--text-link)
+          color: rgb(var(--color-white))
+          background-color: inherit
 
   +e('marker')
     position: relative
@@ -15,5 +21,50 @@
       content: ''
       width: 8px
       height: 8px
-      background-color: red
       +absolute-center()
+
+  +e('sidebar')
+    display: flex
+    flex-direction: column
+    box-sizing: border-box
+    position: absolute
+    right: 0
+    top: 0
+    background-color: rgb(var(--color-white))
+    border-left: rem(1px) solid rgba(var(--color-primary), 0.2)
+    border-top: rem(1px) solid rgba(var(--color-primary), 0.2)
+    width: 30%
+    padding: rem(24px)
+    height: 100%
+    z-index: var(--z-index-base-modal)
+    transition: transform 0.2s ease-out, visibility 0.2s ease-out
+    transform: translateX(calc(100% + 6.1rem))
+    visibility: hidden
+
+    +m('visible')
+      transform: none
+      visibility: visible
+
+  +e('link')
+    margin-top: auto
+
+  +e('close')
+    &.base-close
+      right: auto
+      left: 0
+      top: rem(-1px)
+      transform: translateX(calc(-100% - 0.1rem))
+      background-color: rgb(var(--color-white))
+      border: rem(1px) solid rgba(var(--color-primary), 0.2)
+      border-right: none
+
+      &::before,
+      &::after
+        background-color: rgb(var(--color-primary))
+
+  +e('holder')
+    width: 100%
+    display: flex
+    flex-direction: column
+    flex-grow: 1
+    align-items: flex-start

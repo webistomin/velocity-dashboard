@@ -1,0 +1,31 @@
++b('base-close')
+  width: rem(60px)
+  height: rem(60px)
+  position: absolute
+  top: 0
+  right: 0
+  z-index: 1
+
+  &::before,
+  &::after
+    content: ''
+    width: 50%
+    height: rem(2px)
+    position: absolute
+    background-color: rgb(var(--color-white))
+    left: 50%
+    top: 50%
+    transition: transform 0.2s ease-out
+
+  &::before
+    transform: translate(-50%, -50%) rotate(45deg)
+
+  &::after
+    transform: translate(-50%, -50%) rotate(-45deg)
+
+  &:hover
+    &::before
+      transform: translate(-50%, -50%) rotate(135deg)
+
+    &::after
+      transform: translate(-50%, -50%) rotate(45deg)

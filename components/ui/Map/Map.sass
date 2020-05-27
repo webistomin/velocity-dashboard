@@ -108,63 +108,6 @@
         grid-column: 5 span
         grid-row: 1 span
 
-  +e('destination-heading')
-    display: flex
-    justify-content: space-between
-    padding-bottom: rem(32px)
-    border-bottom: rem(1px) solid rgb(var(--color-gray-4))
-    position: relative
-
-
-  +e('destination-content')
-    padding-top: rem(24px)
-
-  +e('destination-point')
-    display: flex
-    flex-direction: column
-    position: relative
-
-    &:not(:last-of-type)
-      width: 100%
-
-      &::before
-        content: ''
-        position: absolute
-        top: rem(16px)
-        left: rem(40px)
-        width: calc(100% - 4.8rem)
-        height: rem(2px)
-        background-color: rgba(var(--color-primary), 0.2)
-
-    &:last-of-type
-      flex-shrink: 0
-
-  +e('destination-icon')
-    margin-bottom: rem(10px)
-
-  +e('destination-name')
-    font-weight: 500
-    margin-bottom: rem(4px)
-
-  +e('destination-street')
-    color: rgb(var(--color-gray-3))
-
-  +e('destination-info')
-    display: grid
-    grid-gap: rem(24px)
-    grid-template-columns: repeat(auto-fill, minmax(20%, 1fr))
-
-  +e('destination-item')
-    display: flex
-    flex-direction: column
-
-  +e('destination-value')
-    font-weight: 500
-    margin-bottom: rem(4px)
-
-  +e('destination-key')
-    color: rgb(var(--color-gray-3))
-
   +e('video')
     display: flex
     flex-direction: column

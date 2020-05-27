@@ -1,0 +1,59 @@
++b('map-destination')
+  width: 100%
+
+  +e('heading')
+    display: flex
+    justify-content: space-between
+    padding-bottom: rem(32px)
+    border-bottom: rem(1px) solid rgb(var(--color-gray-4))
+    position: relative
+
+  +e('content')
+    padding-top: rem(24px)
+
+  +e('point')
+    display: flex
+    flex-direction: column
+    position: relative
+    width: 50%
+    flex-shrink: 0
+
+    &:not(:last-of-type)
+      &::before
+        content: ''
+        position: absolute
+        top: rem(16px)
+        left: rem(40px)
+        width: calc(100% - 4.8rem)
+        height: rem(2px)
+        background-color: rgba(var(--color-primary), 0.2)
+
+    &:last-of-type
+      flex-shrink: 0
+
+  +e('icon')
+    margin-bottom: rem(10px)
+
+  +e('name')
+    font-weight: 500
+    margin-bottom: rem(4px)
+
+  +e('street')
+    color: rgb(var(--color-gray-3))
+
+  +e('info')
+    display: grid
+    grid-gap: rem(24px)
+    grid-template-columns: repeat(auto-fill, minmax(20%, 1fr))
+
+  +e('item')
+    display: flex
+    flex-direction: column
+
+  +e('value')
+    font-weight: 500
+    margin-bottom: rem(4px)
+    text-transform: capitalize
+
+  +e('key')
+    color: rgb(var(--color-gray-3))

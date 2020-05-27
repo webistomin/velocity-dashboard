@@ -1,5 +1,6 @@
 import { IDriverInterfaceDB } from 'common/types/driver/driver-schema';
 import { IReminder } from 'common/types/reminders/reminder';
+import { ITripInterfaceDB } from 'common/types/trip/trip-schema';
 
 export interface IPageHome {
   operating: {
@@ -33,6 +34,9 @@ export interface IPageHome {
   };
   reminders: {
     todos: IReminder[];
+  };
+  trips: {
+    onTrack: ITripInterfaceDB[];
   };
 }
 
