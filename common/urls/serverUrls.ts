@@ -31,4 +31,7 @@ export const serverUrls = {
   driver: {
     signUp: '/driver/sign-up',
   },
+  pages: {
+    home: '/pages/home',
+  },
 };

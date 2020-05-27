@@ -87,6 +87,14 @@ const DriverSchema: Schema = new Schema<IDriverDocumentInterface>({
     default: DriverStatus.INACTIVE,
     required: true,
   },
+  moneyYearned: {
+    type: Number,
+    default: 0,
+  },
+  milesDriven: {
+    type: Number,
+    default: 0,
+  },
 });
 
 DriverSchema.pre<IDriverSchema>('save', cryptPassword);

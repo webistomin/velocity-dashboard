@@ -1,0 +1,310 @@
+import random from 'random';
+// @ts-ignore
+import randomName from 'node-random-name';
+
+import { IPageHome } from 'common/types/pages/home';
+import { DriverServiceStatus } from 'common/types/driver/driver-service-status';
+import { DriverStatus } from 'common/types/driver/driver-status';
+import { nanoid } from 'nanoid';
+
+export const HOME_PAGE_MOCKED_RESPONSE = (): IPageHome => {
+  return {
+    operating: {
+      score: random.int(0, 100),
+      tripsCount: random.int(100, 1000),
+    },
+    tripsComparison: {
+      today: [
+        {
+          x: 0,
+          y: random.int(0, 100),
+        },
+        {
+          x: 1,
+          y: random.int(0, 100),
+        },
+        {
+          x: 2,
+          y: random.int(0, 100),
+        },
+        {
+          x: 3,
+          y: random.int(0, 100),
+        },
+        {
+          x: 4,
+          y: random.int(0, 100),
+        },
+        {
+          x: 5,
+          y: random.int(0, 100),
+        },
+        {
+          x: 6,
+          y: random.int(0, 100),
+        },
+        {
+          x: 7,
+          y: random.int(0, 100),
+        },
+        {
+          x: 8,
+          y: random.int(0, 100),
+        },
+      ],
+      yesterday: [
+        {
+          x: 0,
+          y: random.int(0, 100),
+        },
+        {
+          x: 1,
+          y: random.int(0, 100),
+        },
+        {
+          x: 2,
+          y: random.int(0, 100),
+        },
+        {
+          x: 3,
+          y: random.int(0, 100),
+        },
+        {
+          x: 4,
+          y: random.int(0, 100),
+        },
+        {
+          x: 5,
+          y: random.int(0, 100),
+        },
+        {
+          x: 6,
+          y: random.int(0, 100),
+        },
+        {
+          x: 6.8,
+          y: random.int(0, 100),
+        },
+        {
+          x: 8,
+          y: random.int(0, 100),
+        },
+      ],
+    },
+    vehiclesOnTrack: {
+      todayCount: random.int(0, 100),
+      yesterdayCount: random.int(0, 100),
+    },
+    distanceDriver: {
+      todayCount: random.int(0, 1000),
+      yesterdayCount: random.int(0, 1000),
+    },
+    topDrivers: {
+      drivers: [
+        {
+          __v: 0,
+          _id: nanoid(),
+          firstName: randomName({ first: true }),
+          lastName: randomName({ last: true }),
+          password: '123',
+          email: '123@mail.ru',
+          location: 'New York, NY',
+          tel: '+123456789',
+          bio: 'I am a driver in Velocity',
+          avatar: 'https://picsum.photos/140',
+          car: {
+            id: nanoid(),
+            manufacturer: 'BMW',
+            model: 'X5',
+            dateOfPurchase: '01-01-2001',
+            status: DriverServiceStatus.FULLY_SERVICES,
+            mileage: random.int(0, 1000),
+          },
+          tripsTaken: random.int(0, 1000),
+          mileageDone: random.int(0, 1000),
+          status: DriverStatus.ACTIVE,
+          moneyYearned: random.int(0, 1000),
+          milesDriven: random.int(0, 1000),
+        },
+        {
+          __v: 1,
+          _id: nanoid(),
+          firstName: randomName({ first: true }),
+          lastName: randomName({ last: true }),
+          password: '123',
+          email: '123@mail.ru',
+          location: 'New York, NY',
+          tel: '+123456789',
+          bio: 'I am a driver in Velocity',
+          avatar: 'https://picsum.photos/140',
+          car: {
+            id: nanoid(),
+            manufacturer: 'BMW',
+            model: 'X5',
+            dateOfPurchase: '01-01-2001',
+            status: DriverServiceStatus.FULLY_SERVICES,
+            mileage: random.int(0, 1000),
+          },
+          tripsTaken: random.int(0, 1000),
+          mileageDone: random.int(0, 1000),
+          status: DriverStatus.ACTIVE,
+          moneyYearned: random.int(0, 1000),
+          milesDriven: random.int(0, 1000),
+        },
+        {
+          __v: 3,
+          _id: nanoid(),
+          firstName: randomName({ first: true }),
+          lastName: randomName({ last: true }),
+          password: '123',
+          email: '123@mail.ru',
+          location: 'New York, NY',
+          tel: '+123456789',
+          bio: 'I am a driver in Velocity',
+          avatar: 'https://picsum.photos/140',
+          car: {
+            id: nanoid(),
+            manufacturer: 'BMW',
+            model: 'X5',
+            dateOfPurchase: '01-01-2001',
+            status: DriverServiceStatus.FULLY_SERVICES,
+            mileage: random.int(0, 1000),
+          },
+          tripsTaken: random.int(0, 1000),
+          mileageDone: random.int(0, 1000),
+          status: DriverStatus.ACTIVE,
+          moneyYearned: random.int(0, 1000),
+          milesDriven: random.int(0, 1000),
+        },
+        {
+          __v: 4,
+          _id: nanoid(),
+          firstName: randomName({ first: true }),
+          lastName: randomName({ last: true }),
+          password: '123',
+          email: '123@mail.ru',
+          location: 'New York, NY',
+          tel: '+123456789',
+          bio: 'I am a driver in Velocity',
+          avatar: 'https://picsum.photos/140',
+          car: {
+            id: nanoid(),
+            manufacturer: 'BMW',
+            model: 'X5',
+            dateOfPurchase: '01-01-2001',
+            status: DriverServiceStatus.FULLY_SERVICES,
+            mileage: random.int(0, 1000),
+          },
+          tripsTaken: random.int(0, 1000),
+          mileageDone: random.int(0, 1000),
+          status: DriverStatus.ACTIVE,
+          moneyYearned: random.int(0, 1000),
+          milesDriven: random.int(0, 1000),
+        },
+        {
+          __v: 5,
+          _id: nanoid(),
+          firstName: randomName({ first: true }),
+          lastName: randomName({ last: true }),
+          password: '123',
+          email: '123@mail.ru',
+          location: 'New York, NY',
+          tel: '+123456789',
+          bio: 'I am a driver in Velocity',
+          avatar: 'https://picsum.photos/140',
+          car: {
+            id: nanoid(),
+            manufacturer: 'BMW',
+            model: 'X5',
+            dateOfPurchase: '01-01-2001',
+            status: DriverServiceStatus.FULLY_SERVICES,
+            mileage: random.int(0, 1000),
+          },
+          tripsTaken: random.int(0, 1000),
+          mileageDone: random.int(0, 1000),
+          status: DriverStatus.ACTIVE,
+          moneyYearned: random.int(0, 1000),
+          milesDriven: random.int(0, 1000),
+        },
+        {
+          __v: 6,
+          _id: nanoid(),
+          firstName: randomName({ first: true }),
+          lastName: randomName({ last: true }),
+          password: '123',
+          email: '123@mail.ru',
+          location: 'New York, NY',
+          tel: '+123456789',
+          bio: 'I am a driver in Velocity',
+          avatar: 'https://picsum.photos/140',
+          car: {
+            id: nanoid(),
+            manufacturer: 'BMW',
+            model: 'X5',
+            dateOfPurchase: '01-01-2001',
+            status: DriverServiceStatus.FULLY_SERVICES,
+            mileage: random.int(0, 1000),
+          },
+          tripsTaken: random.int(0, 1000),
+          mileageDone: random.int(0, 1000),
+          status: DriverStatus.ACTIVE,
+          moneyYearned: random.int(0, 1000),
+          milesDriven: random.int(0, 1000),
+        },
+      ],
+    },
+    tripsTypeStatistics: {
+      labels: ['April', 'May', 'June'],
+      data: [
+        [random.int(0, 100), random.int(0, 100), random.int(0, 100)],
+        [random.int(0, 100), random.int(0, 100), random.int(0, 100)],
+      ],
+    },
+    reminders: {
+      todos: [
+        {
+          id: nanoid(),
+          title: 'Meet George',
+          description: 'Office #5 in 05:00PM',
+          dueDate: new Date(),
+          isDone: false,
+        },
+        {
+          id: nanoid(),
+          title: 'Call peter for TPS reports',
+          description: '',
+          dueDate: new Date(),
+          isDone: false,
+        },
+        {
+          id: nanoid(),
+          title: 'Reply to customers',
+          description: '',
+          dueDate: new Date(),
+          isDone: false,
+        },
+        {
+          id: nanoid(),
+          title: "Review Anna's new article",
+          description: '',
+          dueDate: new Date(),
+          isDone: false,
+        },
+        {
+          id: nanoid(),
+          title: 'Meet Pete',
+          description: 'Office #1 in 06:00PM',
+          dueDate: new Date(),
+          isDone: false,
+        },
+        {
+          id: nanoid(),
+          title: 'Call mom',
+          description: '',
+          dueDate: new Date(),
+          isDone: false,
+        },
+      ],
+    },
+  };
+};

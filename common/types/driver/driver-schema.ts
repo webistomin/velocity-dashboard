@@ -26,6 +26,8 @@ export interface IDriverInterface {
   tripsTaken: number;
   mileageDone: number;
   status: DriverStatus;
+  moneyYearned: number;
+  milesDriven: number;
 }
 
 /**
