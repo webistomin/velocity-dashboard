@@ -22,6 +22,8 @@ export const serverUrls = {
   },
   trips: {
     add: '/trips/add',
+    start: '/trips/start',
+    end: '/trips/end',
   },
   passenger: {
     signUp: '/passenger/sign-up',

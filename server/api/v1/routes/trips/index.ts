@@ -11,4 +11,8 @@ export default (app: Router) => {
   app.use(router);
 
   router.post(serverUrls.trips.add, tripsControllers.add);
+
+  router.patch(serverUrls.trips.start, tripsControllers.start);
+
+  router.patch(serverUrls.trips.end, tripsControllers.end);
 };

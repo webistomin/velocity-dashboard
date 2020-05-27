@@ -1,20 +1,23 @@
 import { Schema, model } from 'mongoose';
 import { ITripDocumentInterface, ITripSchema } from 'common/types/trip/trip-schema';
+import { TripStatus } from 'common/types/trip/trip-status';
 
 const TripSchema: Schema = new Schema<ITripDocumentInterface>({
-  passenger: {
+  passengerId: {
     type: Schema.Types.ObjectId,
     ref: 'User',
     required: true,
   },
-  driver: {
+  driverId: {
     type: Schema.Types.ObjectId,
     ref: 'Driver',
-    required: true,
+    default: null,
   },
   paymentDetails: {
-    type: String,
-    required: true,
+    type: {
+      type: String,
+      required: true,
+    },
   },
   trip: {
     distance: {
@@ -38,12 +41,12 @@ const TripSchema: Schema = new Schema<ITripDocumentInterface>({
       required: true,
     },
     startTime: {
-      type: Number,
-      required: true,
+      type: Date,
+      default: null,
     },
     endTime: {
-      type: Number,
-      required: true,
+      type: Date,
+      default: null,
     },
   },
   path: [
@@ -58,6 +61,11 @@ const TripSchema: Schema = new Schema<ITripDocumentInterface>({
       },
     },
   ],
+  status: {
+    type: TripStatus,
+    required: true,
+    default: TripStatus.NOT_STARTED,
+  },
 });
 
 export default model<ITripSchema>('Trip', TripSchema);

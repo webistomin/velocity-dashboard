@@ -2,11 +2,12 @@ import { Schema, model } from 'mongoose';
 import { nanoid } from 'nanoid';
 
 import { IDriverDocumentInterface, IDriverSchema } from 'common/types/driver/driver-schema';
-import { DriverStatus } from 'common/types/driver/driver-status';
+import { DriverServiceStatus } from 'common/types/driver/driver-service-status';
 import cryptPassword from 'server/models/methods/crypt-password';
 import comparePassword from 'server/models/methods/compare-password';
 import sendForgotPasswordMail from 'server/models/methods/send-forgot-password-mail';
 import sendSignUpSuccessfulMail from 'server/models/methods/send-sign-up-mail';
+import { DriverStatus } from 'common/types/driver/driver-status';
 
 const DriverSchema: Schema = new Schema<IDriverDocumentInterface>({
   firstName: {
@@ -57,7 +58,7 @@ const DriverSchema: Schema = new Schema<IDriverDocumentInterface>({
       required: true,
     },
     status: {
-      type: DriverStatus,
+      type: DriverServiceStatus,
       required: true,
     },
     mileage: {
@@ -78,6 +79,11 @@ const DriverSchema: Schema = new Schema<IDriverDocumentInterface>({
   avatar: {
     type: String,
     default: '',
+  },
+  status: {
+    type: DriverStatus,
+    default: DriverStatus.INACTIVE,
+    required: true,
   },
 });
 

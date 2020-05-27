@@ -1,14 +1,24 @@
-import { Response, Request } from 'express';
+import { Response } from 'express';
 import HTTPStatuses from 'http-status-codes';
 import Trip from 'server/models/trip/trip';
+import { ITripAddRequest } from 'common/types/trip/trip-add';
 
-export default (_req: Request, res: Response) => {
+export default async (req: ITripAddRequest, res: Response) => {
   try {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars,no-unused-vars
+    const data = req.body;
     const newTrip = new Trip();
 
-    return res.json({
+    newTrip.passengerId = data.passengerId;
+    newTrip.trip = data.trip;
+    newTrip.paymentDetails = data.paymentDetails;
+    newTrip.path = data.path;
+    newTrip.path = data.path;
+
+    await newTrip.save();
+
+    return res.status(HTTPStatuses.CREATED).json({
       success: true,
+      message: 'Trip created',
     });
   } catch (error) {
     return res.status(HTTPStatuses.INTERNAL_SERVER_ERROR).json({

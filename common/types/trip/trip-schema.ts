@@ -1,4 +1,5 @@
 import { Document } from 'mongoose';
+import { TripStatus } from 'common/types/trip/trip-status';
 import { IPassengerInterfaceDB } from '../passenger/passenger-schema';
 import { IDriverInterfaceDB } from '../driver/driver-schema';
 
@@ -11,8 +12,8 @@ export interface ITripPathInterface {
  * Default trip interface until it extended by Mongo
  */
 export interface ITripInterface {
-  passenger: IPassengerInterfaceDB;
-  driver: IDriverInterfaceDB;
+  passengerId: IPassengerInterfaceDB['_id'];
+  driverId: IDriverInterfaceDB['_id'] | null;
   paymentDetails: {
     type: string;
   };
@@ -22,10 +23,11 @@ export interface ITripInterface {
     price: number;
     startAddress: string;
     endAddress: string;
-    startTime: string;
-    endTime: string;
+    startTime: Date | null;
+    endTime: Date | null;
   };
   path: ITripPathInterface[];
+  status: TripStatus;
 }
 
 /**

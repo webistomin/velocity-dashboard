@@ -1,6 +1,7 @@
 import { Document } from 'mongoose';
-import { DriverStatus } from 'common/types/driver/driver-status';
+import { DriverServiceStatus } from 'common/types/driver/driver-service-status';
 import { SentMessageInfo } from 'nodemailer';
+import { DriverStatus } from 'common/types/driver/driver-status';
 
 /**
  * Default driver interface until it extended by Mongo
@@ -19,11 +20,12 @@ export interface IDriverInterface {
     manufacturer: string;
     model: string;
     dateOfPurchase: string;
-    status: DriverStatus;
+    status: DriverServiceStatus;
     mileage: number;
   };
   tripsTaken: number;
   mileageDone: number;
+  status: DriverStatus;
 }
 
 /**
