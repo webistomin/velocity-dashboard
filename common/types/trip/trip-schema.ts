@@ -1,5 +1,6 @@
 import { Document } from 'mongoose';
 import { TripStatus } from 'common/types/trip/trip-status';
+import { TripTypes } from 'common/types/trip/trip-types';
 import { IPassengerInterfaceDB } from '../passenger/passenger-schema';
 import { IDriverInterfaceDB } from '../driver/driver-schema';
 
@@ -18,6 +19,7 @@ export interface ITripInterface {
     type: string;
   };
   trip: {
+    type: TripTypes;
     distance: number;
     approximateTime: number;
     price: number;

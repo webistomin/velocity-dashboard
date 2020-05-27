@@ -1,4 +1,3 @@
-import crypto from 'crypto';
 import { Request, Response } from 'express';
 import HTTPStatuses from 'http-status-codes';
 import JWT from 'jsonwebtoken';
@@ -8,6 +7,8 @@ import config from 'server/config';
 import { ONE_WEEK_IN_SECONDS } from 'common/consts/times';
 import { DUPLICATE_RECORD_ERROR } from 'common/consts/mongoose-errors';
 import { IAuthSignUpResponseBody } from 'common/types/auth/sign-up';
+import { generateMd5Hash } from 'server/utils/generate-md5-hash';
+import { getGravatarUrl } from 'server/utils/getGravatarUrl';
 
 export default async (req: Request, res: Response<IAuthSignUpResponseBody>) => {
   try {
@@ -27,15 +28,12 @@ export default async (req: Request, res: Response<IAuthSignUpResponseBody>) => {
     /**
      * Generate md5 email hash
      */
-    const emailHash = crypto
-      .createHash('md5')
-      .update(email)
-      .digest('hex');
+    const emailHash = generateMd5Hash(email);
 
     /**
      * Add gravatar avatar
      */
-    newUser.avatar = `https://www.gravatar.com/avatar/${emailHash}?s=140`;
+    newUser.avatar = getGravatarUrl(emailHash);
 
     await newUser.save().then(async () => {
       await newUser.sendSignUpMail();

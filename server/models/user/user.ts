@@ -32,6 +32,7 @@ const UserSchema: Schema = new Schema<IUserDocumentInterface>({
   },
   theme: {
     type: String,
+    enum: Object.values(SiteThemes),
     default: SiteThemes.SHELOB,
   },
   notifications: {

@@ -413,10 +413,10 @@ export default class Analytics extends VueComponent {
             <BaseBlock class='analytics__block' title='Total drive time'>
               <BaseStat value={24.2} measure='h' icon='icon-graph' color='yellow' align='row' />
             </BaseBlock>
-            <BaseBlock class='analytics__block'>
+            <BaseBlock class='analytics__block' title='Latest trips'>
               <BaseList list={this.trips} />
             </BaseBlock>
-            <BaseBlock class='analytics__block'>
+            <BaseBlock class='analytics__block' title='Trips by weekday'>
               <BaseBarGraph chartData={this.dataCollectionMixed} options={this.mixedOptions} />
             </BaseBlock>
           </div>

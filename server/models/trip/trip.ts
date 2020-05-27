@@ -1,6 +1,7 @@
 import { Schema, model } from 'mongoose';
 import { ITripDocumentInterface, ITripSchema } from 'common/types/trip/trip-schema';
 import { TripStatus } from 'common/types/trip/trip-status';
+import { TripTypes } from 'common/types/trip/trip-types';
 
 const TripSchema: Schema = new Schema<ITripDocumentInterface>({
   passengerId: {
@@ -20,6 +21,11 @@ const TripSchema: Schema = new Schema<ITripDocumentInterface>({
     },
   },
   trip: {
+    type: {
+      type: String,
+      enum: Object.values(TripTypes),
+      required: true,
+    },
     distance: {
       type: Number,
       required: true,
@@ -62,7 +68,8 @@ const TripSchema: Schema = new Schema<ITripDocumentInterface>({
     },
   ],
   status: {
-    type: TripStatus,
+    type: String,
+    enum: Object.values(TripStatus),
     required: true,
     default: TripStatus.NOT_STARTED,
   },

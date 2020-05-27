@@ -7,3 +7,8 @@ export interface ITripEndRequest extends Request {
     endTime: Date;
   };
 }
+
+export interface ITripEndResponse {
+  success: boolean;
+  message: string;
+}

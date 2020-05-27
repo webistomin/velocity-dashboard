@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
-import { IAuthLogoutResponseBody } from 'common/types/auth/logout';
 import HTTPStatuses from 'http-status-codes';
+
+import { IAuthLogoutResponseBody } from 'common/types/auth/logout';
 
 export default (_req: Request, res: Response<IAuthLogoutResponseBody>) => {
   try {

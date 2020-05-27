@@ -1,11 +1,11 @@
 import { Response } from 'express';
 import HTTPStatuses from 'http-status-codes';
 
-import { ITripStartRequest } from 'common/types/trip/trip-start';
+import { ITripStartRequest, ITripStartResponse } from 'common/types/trip/trip-start';
 import Trip from 'server/models/trip/trip';
 import { TripStatus } from 'common/types/trip/trip-status';
 
-export default async (req: ITripStartRequest, res: Response) => {
+export default async (req: ITripStartRequest, res: Response<ITripStartResponse>) => {
   try {
     const { driverId, startTime, tripId } = req.body;
 
@@ -22,7 +22,7 @@ export default async (req: ITripStartRequest, res: Response) => {
 
     return res.json({
       success: true,
-      message: 'Trip updated',
+      message: 'Trip has been started',
     });
   } catch (error) {
     return res.status(HTTPStatuses.INTERNAL_SERVER_ERROR).json({

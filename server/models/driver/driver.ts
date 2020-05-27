@@ -58,7 +58,8 @@ const DriverSchema: Schema = new Schema<IDriverDocumentInterface>({
       required: true,
     },
     status: {
-      type: DriverServiceStatus,
+      type: String,
+      enum: Object.values(DriverServiceStatus),
       required: true,
     },
     mileage: {
@@ -81,7 +82,8 @@ const DriverSchema: Schema = new Schema<IDriverDocumentInterface>({
     default: '',
   },
   status: {
-    type: DriverStatus,
+    type: String,
+    emum: Object.values(DriverStatus),
     default: DriverStatus.INACTIVE,
     required: true,
   },

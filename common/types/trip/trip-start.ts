@@ -9,3 +9,8 @@ export interface ITripStartRequest extends Request {
     startTime: Date;
   };
 }
+
+export interface ITripStartResponse {
+  success: boolean;
+  message: string;
+}

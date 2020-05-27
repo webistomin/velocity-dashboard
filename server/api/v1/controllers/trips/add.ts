@@ -1,9 +1,10 @@
 import { Response } from 'express';
 import HTTPStatuses from 'http-status-codes';
-import Trip from 'server/models/trip/trip';
-import { ITripAddRequest } from 'common/types/trip/trip-add';
 
-export default async (req: ITripAddRequest, res: Response) => {
+import Trip from 'server/models/trip/trip';
+import { ITripAddRequest, ITripAddResponse } from 'common/types/trip/trip-add';
+
+export default async (req: ITripAddRequest, res: Response<ITripAddResponse>) => {
   try {
     const data = req.body;
     const newTrip = new Trip();
@@ -11,7 +12,6 @@ export default async (req: ITripAddRequest, res: Response) => {
     newTrip.passengerId = data.passengerId;
     newTrip.trip = data.trip;
     newTrip.paymentDetails = data.paymentDetails;
-    newTrip.path = data.path;
     newTrip.path = data.path;
 
     await newTrip.save();

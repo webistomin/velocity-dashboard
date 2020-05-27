@@ -3,9 +3,9 @@ import HTTPStatuses from 'http-status-codes';
 
 import Trip from 'server/models/trip/trip';
 import { TripStatus } from 'common/types/trip/trip-status';
-import { ITripEndRequest } from 'common/types/trip/trip-end';
+import { ITripEndRequest, ITripEndResponse } from 'common/types/trip/trip-end';
 
-export default async (req: ITripEndRequest, res: Response) => {
+export default async (req: ITripEndRequest, res: Response<ITripEndResponse>) => {
   try {
     const { endTime, tripId } = req.body;
 
@@ -21,7 +21,7 @@ export default async (req: ITripEndRequest, res: Response) => {
 
     return res.json({
       success: true,
-      message: 'Trip updated',
+      message: 'Trip has been completed',
     });
   } catch (error) {
     return res.status(HTTPStatuses.INTERNAL_SERVER_ERROR).json({
