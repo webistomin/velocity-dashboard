@@ -81,6 +81,17 @@ export default class BaseMap extends VueComponent<IBaseMapProps> {
     return SiteThemes.SHELOB;
   }
 
+  public get getIcon() {
+    return {
+      iconUrl: `/img/map-marker-${this.getCurrentTheme}.svg`,
+      iconRetinaUrl: `/img/map-marker-${this.getCurrentTheme}.svg`,
+      shadowUrl: '',
+      iconSize: [24, 24],
+      shadowSize: [0, 0],
+      iconAnchor: [12, 12],
+    };
+  }
+
   public render(): VNode {
     return (
       <div class='base-map'>
@@ -113,9 +124,12 @@ export default class BaseMap extends VueComponent<IBaseMapProps> {
                 return (
                   <L-Marker lat-lng={trip.path[0]} onClick={() => this.onMarkerClick(trip._id)}>
                     <L-Icon
-                      icon-url={`/img/map-marker-${this.getCurrentTheme}.svg`}
-                      icon-size={[24, 24]}
-                      icon-anchor={[12, 12]}
+                      iconUrl={`/img/map-marker-${this.getCurrentTheme}.svg`}
+                      iconRetinaUrl={`/img/map-marker-${this.getCurrentTheme}.svg`}
+                      shadowUrl=''
+                      iconSize={[24, 24]}
+                      shadowSize={[0, 0]}
+                      iconAnchor={[12, 12]}
                     />
                   </L-Marker>
                 );

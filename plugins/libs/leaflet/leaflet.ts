@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import { LMap, LTileLayer, LCircle, LCircleMarker, LMarker, LPolyline, LIcon } from 'vue2-leaflet';
-// import { Icon } from 'leaflet';
+import { Icon } from 'leaflet';
 // @ts-ignore
 import Vue2LeafletMarkercluster from 'vue2-leaflet-markercluster';
 // @ts-ignore
@@ -16,13 +16,13 @@ Vue.component('L-Icon', LIcon);
 Vue.component('L-Marker-Cluster', Vue2LeafletMarkercluster);
 Vue.component('L-Hotline', LHotline);
 
-// delete Icon.Default.prototype._getIconUrl;
-//
-// Icon.Default.mergeOptions({
-//   iconUrl: require('../../../static/img/map-marker.svg'),
-//   iconRetinaUrl: require('../../../static/img/map-marker.svg'),
-//   shadowUrl: '',
-//   iconSize: [24, 24],
-//   shadowSize: [0, 0],
-//   iconAnchor: [12, 12],
-// });
+delete Icon.Default.prototype._getIconUrl;
+
+Icon.Default.mergeOptions({
+  iconUrl: require('../../../static/img/map-marker.svg'),
+  iconRetinaUrl: require('../../../static/img/map-marker.svg'),
+  shadowUrl: '',
+  iconSize: [24, 24],
+  shadowSize: [0, 0],
+  iconAnchor: [12, 12],
+});
