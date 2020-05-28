@@ -6,6 +6,7 @@ import { ITripInterfaceDB } from 'common/types/trip/trip-schema';
 import MapDestination from 'components/ui/Map/MapDestination/';
 import BaseLink from 'components/base/BaseLink';
 import BaseClose from 'components/base/BaseClose';
+import { SiteThemes } from 'common/types/theme/site-themes';
 
 import './BaseMap.sass';
 
@@ -72,6 +73,14 @@ export default class BaseMap extends VueComponent<IBaseMapProps> {
     };
   }
 
+  public get getCurrentTheme(): SiteThemes | null {
+    if (process.client) {
+      return localStorage.getItem('theme') as SiteThemes;
+    }
+
+    return SiteThemes.SHELOB;
+  }
+
   public render(): VNode {
     return (
       <div class='base-map'>
@@ -101,7 +110,15 @@ export default class BaseMap extends VueComponent<IBaseMapProps> {
                 showCoverageOnHover: false,
               }}>
               {this.trips.map((trip) => {
-                return <L-Marker lat-lng={trip.path[0]} onClick={() => this.onMarkerClick(trip._id)} />;
+                return (
+                  <L-Marker lat-lng={trip.path[0]} onClick={() => this.onMarkerClick(trip._id)}>
+                    <L-Icon
+                      icon-url={`/img/map-marker-${this.getCurrentTheme}.svg`}
+                      icon-size={[24, 24]}
+                      icon-anchor={[12, 12]}
+                    />
+                  </L-Marker>
+                );
               })}
             </L-Marker-Cluster>
             {/* <L-Hotline */}
