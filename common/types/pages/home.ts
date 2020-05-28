@@ -19,11 +19,11 @@ export interface IPageHome {
   };
   vehiclesOnTrack: {
     todayCount: number;
-    yesterdayCount: number;
+    yesterdayCount?: number;
   };
   distanceDriver: {
     todayCount: number;
-    yesterdayCount: number;
+    yesterdayCount?: number;
   };
   topDrivers: {
     drivers: IDriverInterfaceDB[];

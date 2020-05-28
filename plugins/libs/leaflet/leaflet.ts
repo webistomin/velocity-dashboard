@@ -1,7 +1,9 @@
 import Vue from 'vue';
 import { LMap, LTileLayer, LCircle, LCircleMarker, LMarker, LPolyline, LIcon } from 'vue2-leaflet';
 // import { Icon } from 'leaflet';
+// @ts-ignore
 import Vue2LeafletMarkercluster from 'vue2-leaflet-markercluster';
+// @ts-ignore
 import LHotline from './LHotline.vue';
 
 Vue.component('L-Map', LMap);

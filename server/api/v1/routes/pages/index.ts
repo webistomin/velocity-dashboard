@@ -11,4 +11,6 @@ export default (app: Router) => {
   app.use(router);
 
   router.get(serverUrls.pages.home, pageControllers.home);
+
+  router.get(serverUrls.pages.analytics, pageControllers.analytics);
 };

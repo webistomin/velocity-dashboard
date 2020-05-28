@@ -12,9 +12,9 @@ import { IPageHome, IPageHomeResponse } from 'common/types/pages/home';
   middleware: ['auth-guard'],
 })
 export default class MainPage extends VueComponent {
-  content: IPageHome | null = null;
+  public content: IPageHome | null = null;
 
-  async asyncData(context: Context) {
+  public async asyncData(context: Context) {
     try {
       const data: IPageHomeResponse = await context.$axios.$get(serverUrls.pages.home);
       return { content: data.content };
