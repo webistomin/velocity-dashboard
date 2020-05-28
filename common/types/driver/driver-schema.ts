@@ -19,7 +19,7 @@ export interface IDriverInterface {
     id: string;
     manufacturer: string;
     model: string;
-    dateOfPurchase: string;
+    dateOfPurchase: Date;
     status: DriverServiceStatus;
     mileage: number;
   };

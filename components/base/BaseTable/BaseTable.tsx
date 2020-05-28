@@ -1,5 +1,5 @@
 import { VueComponent } from 'types/vue-components';
-import { Component, Prop } from 'nuxt-property-decorator';
+import { Component, Emit, Prop } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
 // @ts-ignore
 import VirtualList from 'vue-virtual-scroll-list';
@@ -17,6 +17,8 @@ export interface IBaseTableProps {
   tableConfig: IBaseTableConfig[];
   tableData: object[];
   scrollerMix?: string;
+  onSort?: (field: IBaseTableConfig['key']) => void;
+  currentSort?: string;
 }
 
 @Component({
@@ -24,16 +26,22 @@ export interface IBaseTableProps {
   components: { VirtualList },
 })
 export default class BaseTable extends VueComponent<IBaseTableProps> {
-  @Prop()
+  @Prop({ required: true })
   private readonly tableConfig!: IBaseTableProps['tableConfig'];
 
-  @Prop()
+  @Prop({ required: true })
   private readonly tableData!: IBaseTableProps['tableData'];
 
   @Prop()
   private readonly scrollerMix!: IBaseTableProps['scrollerMix'];
 
-  public onSortClick(_field: IBaseTableConfig['key']) {}
+  @Prop()
+  private readonly currentSort!: IBaseTableProps['currentSort'];
+
+  @Emit('sort')
+  public onSortClick(field: IBaseTableConfig['key']) {
+    return field;
+  }
 
   public render(): VNode {
     return (
@@ -44,7 +52,9 @@ export default class BaseTable extends VueComponent<IBaseTableProps> {
               return (
                 <div class='base-table__head-data base-table__cell'>
                   <button
-                    class='base-table__sort btn caption'
+                    class={`base-table__sort btn caption ${
+                      this.currentSort === config.key ? 'base-table__sort_active' : ''
+                    }`}
                     type='button'
                     onClick={() => this.onSortClick(config.key)}>
                     <span class='base-table__sort-name'>{config.title}</span>

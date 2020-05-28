@@ -54,7 +54,7 @@ const DriverSchema: Schema = new Schema<IDriverDocumentInterface>({
       required: true,
     },
     dateOfPurchase: {
-      type: String,
+      type: Date,
       required: true,
     },
     status: {

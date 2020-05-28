@@ -51,7 +51,7 @@ export default class BaseSelect extends VueComponent<IBaseSelectProps> {
         <VSelect
           value={value}
           onInput={onInput}
-          options={options}
+          options={options.sort()}
           inputId={id}
           clearable={false}
           placeholder={placeholder}

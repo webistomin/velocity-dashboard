@@ -98,7 +98,7 @@ export default class DefaultLayout extends VueComponent {
         <notifications group='common' position='top left' animation-name='v-popup-fade-left' />
         <TheHeader onOpenNav={this.toggleNav} isNavOpened={this.isNavOpened} />
         <TheNavigation onOpenNav={this.toggleNav} isNavOpened={this.isNavOpened} v-scroll-lock={this.shouldLockBody} />
-        <nuxt />
+        <nuxt keep-alive keep-alive-props={{ max: 2 }} />
       </div>
     );
   }

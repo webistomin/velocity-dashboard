@@ -5,15 +5,11 @@
     overflow-y: auto
     +scroll-overflow()
 
-  +e('table')
-    position: relative
-    width: 100%
-    border-spacing: 0 rem(10px)
-
   +e('row')
     display: flex
     background-color: rgb(var(--color-white))
     overflow: auto
+    +scrollbar(5px, rgb(var(--color-primary)), rgb(var(--color-secondary)))
 
   +e('scroller-item')
     &:not(:last-of-type)
@@ -25,12 +21,8 @@
     padding-bottom: rem(10px)
     overflow-x: auto
     overflow-y: hidden
-
-  +e('head-data')
-    padding-right: rem(24px)
-
-    &:first-of-type
-      padding-left: rem(24px)
+    padding-right: 5px
+    +scrollbar(5px, rgb(var(--color-primary)), rgb(var(--color-secondary)))
 
   +e('sort')
     display: flex
@@ -39,26 +31,40 @@
 
     .icon
       flex-shrink: 0
+      transition: transform 0.2s ease-out
 
     &:hover
       color: rgb(var(--color-primary))
 
+    +m('active')
+      color: rgb(var(--color-primary))
+
+      .icon
+        transform: rotate(180deg)
+
   +e('sort-name')
     margin-right: rem(10px)
+    text-align: left
 
   +e('body-data')
     box-sizing: border-box
-    display: inline-block
+    display: inline-flex
+    align-items: center
     padding-top: rem(30px)
     padding-bottom: rem(30px)
-    padding-right: rem(24px)
-
-    &:first-of-type
-      padding-left: rem(24px)
 
   +e('cell')
-    flex: 23 1 0
-    white-space: nowrap
+    box-sizing: border-box
+    flex-shrink: 0
+    width: 130px
+    padding-right: rem(12px)
+    padding-left: rem(12px)
+    overflow: hidden
 
-    &:first-of-type
-      flex: 8 1 0
+    &:first-of-type,
+    &:last-of-type
+      width: 80px
+
+    &:nth-of-type(2),
+    &:nth-of-type(6)
+      width: 180px

@@ -16,6 +16,7 @@ Vue.component('L-Icon', LIcon);
 Vue.component('L-Marker-Cluster', Vue2LeafletMarkercluster);
 Vue.component('L-Hotline', LHotline);
 
+// @ts-ignore
 delete Icon.Default.prototype._getIconUrl;
 
 Icon.Default.mergeOptions({

@@ -34,5 +34,6 @@ export const serverUrls = {
   pages: {
     home: '/pages/home',
     analytics: '/pages/analytics',
+    vehicles: '/pages/vehicles',
   },
 };
