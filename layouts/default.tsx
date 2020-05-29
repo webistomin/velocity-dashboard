@@ -94,11 +94,10 @@ export default class DefaultLayout extends VueComponent {
   render(): VNode {
     return (
       <div class={`site-grid`} id='app'>
-        {this.$nuxt.isOffline ? <div>You are offline</div> : null}
         <notifications group='common' position='top left' animation-name='v-popup-fade-left' />
         <TheHeader onOpenNav={this.toggleNav} isNavOpened={this.isNavOpened} />
         <TheNavigation onOpenNav={this.toggleNav} isNavOpened={this.isNavOpened} v-scroll-lock={this.shouldLockBody} />
-        <nuxt keep-alive keep-alive-props={{ max: 2 }} />
+        <nuxt />
       </div>
     );
   }

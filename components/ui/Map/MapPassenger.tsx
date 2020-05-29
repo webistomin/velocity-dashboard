@@ -38,15 +38,19 @@ export default class MapPassenger extends VueComponent {
           <ul class='map__passenger-payments list'>
             <li class='map__passenger-payment list-item'>
               <img src='/img/visa.svg' alt='Visa' class='map__passenger-payment-logo image' />
+              <div class='map__passenger-payment-details'>1111 1111 1111 1111</div>
             </li>
             <li class='map__passenger-payment list-item'>
               <img src='/img/visa.svg' alt='Visa' class='map__passenger-payment-logo image' />
+              <div class='map__passenger-payment-details'>1111 1111 1111 1111</div>
             </li>
             <li class='map__passenger-payment list-item'>
               <img src='/img/visa.svg' alt='Visa' class='map__passenger-payment-logo image' />
+              <div class='map__passenger-payment-details'>1111 1111 1111 1111</div>
             </li>
             <li class='map__passenger-payment list-item'>
               <img src='/img/visa.svg' alt='Visa' class='map__passenger-payment-logo image' />
+              <div class='map__passenger-payment-details'>1111 1111 1111 1111</div>
             </li>
           </ul>
         </div>

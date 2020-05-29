@@ -224,9 +224,9 @@ export default class Overview extends VueComponent<IHomePageProps> {
       <section class='overview'>
         <div class='container'>
           <div class='overview__grid'>
-            {this.getOperatingScores ? (
-              <BaseBlock class='overview__block' contentMix='overview__welcome'>
-                <BaseCircularGraph value={this.getOperatingScores.score} />
+            <BaseBlock class='overview__block' contentMix='overview__welcome'>
+              {this.getOperatingScores ? <BaseCircularGraph value={this.getOperatingScores.score} /> : null}
+              {this.getOperatingScores ? (
                 <div class='overview__desc'>
                   <BaseTitle level={3} class='overview__welcome-title'>
                     Welcome <br /> to Velocity
@@ -236,10 +236,11 @@ export default class Overview extends VueComponent<IHomePageProps> {
                     login.
                   </p>
                 </div>
-              </BaseBlock>
-            ) : null}
-            {this.getTodayTripsData ? (
-              <BaseBlock class='overview__block' title={`Today's Trips`}>
+              ) : null}
+            </BaseBlock>
+
+            <BaseBlock class='overview__block' title={`Today's Trips`}>
+              {this.getTodayTripsData ? (
                 <BaseLineChart
                   chartData={this.getTodayTripsData}
                   options={this.chartOptions}
@@ -257,10 +258,11 @@ export default class Overview extends VueComponent<IHomePageProps> {
                   ]}
                   fallbackText={`Today's Trips`}
                 />
-              </BaseBlock>
-            ) : null}
-            {this.getVehiclesOnTrack ? (
-              <BaseBlock class='overview__block' title='Vehicles on track'>
+              ) : null}
+            </BaseBlock>
+
+            <BaseBlock class='overview__block' title='Vehicles on track'>
+              {this.getVehiclesOnTrack ? (
                 <BaseStat
                   value={this.getVehiclesOnTrack.todayCount}
                   prevValue={this.getVehiclesOnTrack.yesterdayCount}
@@ -269,10 +271,11 @@ export default class Overview extends VueComponent<IHomePageProps> {
                   color='green'
                   align='row'
                 />
-              </BaseBlock>
-            ) : null}
-            {this.getDistanceDriven ? (
-              <BaseBlock class='overview__block' title='Distance driven'>
+              ) : null}
+            </BaseBlock>
+
+            <BaseBlock class='overview__block' title='Distance driven'>
+              {this.getDistanceDriven ? (
                 <BaseStat
                   value={this.getDistanceDriven.todayCount}
                   prevValue={this.getDistanceDriven.yesterdayCount}
@@ -281,28 +284,28 @@ export default class Overview extends VueComponent<IHomePageProps> {
                   color='blue'
                   align='row'
                 />
-              </BaseBlock>
-            ) : null}
-            {this.content?.trips ? (
-              <BaseBlock class='overview__block' title='vehicles on track' hasOptions={true}>
-                <BaseMap trips={this.content.trips.onTrack} class='overview__map' />
-              </BaseBlock>
-            ) : null}
-            {this.getTopDrivers ? (
-              <BaseBlock class='overview__block' title='Top drivers'>
-                <BaseList list={this.getTopDrivers} />
-              </BaseBlock>
-            ) : null}
-            {this.getTripsTypeStat ? (
-              <BaseBlock class='overview__block' title='Trips by type'>
+              ) : null}
+            </BaseBlock>
+
+            <BaseBlock class='overview__block' title='vehicles on track'>
+              {this.content?.trips ? <BaseMap trips={this.content.trips.onTrack} class='overview__map' /> : null}
+            </BaseBlock>
+
+            <BaseBlock class='overview__block' title='Top drivers'>
+              {this.getTopDrivers ? <BaseList list={this.getTopDrivers} /> : null}
+            </BaseBlock>
+
+            <BaseBlock class='overview__block' title='Trips by type'>
+              {this.getTripsTypeStat ? (
                 <BaseBarGraph chartData={this.getTripsTypeStat} options={this.chartOptions} />
-              </BaseBlock>
-            ) : null}
-            {this.getTodoList ? (
-              <BaseBlock class='overview__block' title='Service Reminders'>
+              ) : null}
+            </BaseBlock>
+
+            <BaseBlock class='overview__block' title='Service Reminders'>
+              {this.getTodoList ? (
                 <BaseTodo todos={this.getTodoList} onInput={(event: Event) => this.updateTodo(event)} />
-              </BaseBlock>
-            ) : null}
+              ) : null}
+            </BaseBlock>
           </div>
         </div>
       </section>

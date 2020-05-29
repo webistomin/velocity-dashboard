@@ -1,5 +1,5 @@
 import { VueComponent } from 'types/vue-components';
-import { Component, Prop } from 'nuxt-property-decorator';
+import { Component, Emit, Prop } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
 
 import { ITripInterfaceDB } from 'common/types/trip/trip-schema';
@@ -12,6 +12,9 @@ import './BaseMap.sass';
 
 export interface IBaseMapProps {
   trips: ITripInterfaceDB[];
+  shouldOpenSidebar?: boolean;
+  onMarkerClick?: (tripId: ITripInterfaceDB['_id']) => void;
+  initialTripId?: ITripInterfaceDB['_id'] | null;
 }
 
 @Component({
@@ -21,10 +24,59 @@ export default class BaseMap extends VueComponent<IBaseMapProps> {
   @Prop({ required: true })
   private readonly trips!: IBaseMapProps['trips'];
 
+  @Prop({ default: true })
+  private readonly shouldOpenSidebar!: IBaseMapProps['shouldOpenSidebar'];
+
+  @Prop()
+  private readonly initialTripId!: IBaseMapProps['initialTripId'];
+
   public mapUrl: string = 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png';
 
   public isSidebarVisible: boolean = false;
-  public currentTripId: ITripInterfaceDB['_id'] | null = null;
+  public currentTripId: ITripInterfaceDB['_id'] | null = this.initialTripId || null;
+  public zoomLevel: number = 10;
+
+  public created(): void {
+    if (this.currentTripId) {
+      this.zoomLevel = 18;
+    }
+  }
+
+  public mounted(): void {
+    document.addEventListener('keydown', this.closeSidebarByEsc);
+  }
+
+  public beforeDestroy() {
+    document.removeEventListener('keydown', this.closeSidebarByEsc);
+  }
+
+  @Emit('markerClick')
+  public onMarkerClick(tripId: ITripInterfaceDB['_id']) {
+    const isIdsEqual = tripId === this.currentTripId;
+
+    if ((isIdsEqual || this.currentTripId === null) && this.shouldOpenSidebar) {
+      this.isSidebarVisible = !this.isSidebarVisible;
+    }
+
+    if (isIdsEqual) {
+      this.currentTripId = null;
+    } else {
+      this.currentTripId = tripId;
+    }
+
+    return tripId;
+  }
+
+  public closeSidebarByEsc(event: KeyboardEvent) {
+    if (this.isSidebarVisible && event.key === 'Escape') {
+      this.closeSidebar();
+    }
+  }
+
+  public closeSidebar(): void {
+    this.isSidebarVisible = false;
+    this.currentTripId = null;
+  }
 
   public get getPrimaryColor(): string {
     if (process.client) {
@@ -34,19 +86,6 @@ export default class BaseMap extends VueComponent<IBaseMapProps> {
     }
 
     return 'rgb(46, 91, 255)';
-  }
-
-  public onMarkerClick(tripId: ITripInterfaceDB['_id']) {
-    if (tripId === this.currentTripId || this.currentTripId === null) {
-      this.isSidebarVisible = !this.isSidebarVisible;
-    }
-
-    this.currentTripId = tripId;
-  }
-
-  public closeSidebar(): void {
-    this.isSidebarVisible = false;
-    this.currentTripId = null;
   }
 
   public get getCurrentTrip() {
@@ -71,6 +110,16 @@ export default class BaseMap extends VueComponent<IBaseMapProps> {
       startAddress: trip.trip.startAddress,
       endAddress: trip.trip.endAddress,
     };
+  }
+
+  public get getCurrentTripPath(): number[][] | undefined {
+    const info = this.getCurrentTrip;
+
+    if (!info) {
+      return undefined;
+    }
+
+    return info.path.map((point) => [point.lat, point.lng, 1]);
   }
 
   public get getCurrentTheme(): SiteThemes | null {
@@ -114,7 +163,7 @@ export default class BaseMap extends VueComponent<IBaseMapProps> {
           ) : null}
         </div>
         <client-only>
-          <L-Map zoom={10} center={[50.516518, 6.993713]} class='base-map__map'>
+          <L-Map zoom={this.zoomLevel} center={[50.516518, 6.993713]} class='base-map__map'>
             <L-Tile-Layer url={this.mapUrl} subdomains='abcd' maxZoom={20} />
             <L-Marker-Cluster
               options={{
@@ -135,21 +184,19 @@ export default class BaseMap extends VueComponent<IBaseMapProps> {
                 );
               })}
             </L-Marker-Cluster>
-            {/* <L-Hotline */}
-            {/*  weight={2} */}
-            {/*  outline-width={0} */}
-            {/*  outline-color={this.getPrimaryColor} */}
-            {/*  palette={{ */}
-            {/*    0.0: this.getPrimaryColor, */}
-            {/*    0.5: this.getPrimaryColor, */}
-            {/*    1.0: this.getPrimaryColor, */}
-            {/*  }} */}
-            {/*  latLngs={[ */}
-            {/*    [55.751244, 37.618423, 1], */}
-            {/*    [55.851244, 37.618423, 1], */}
-            {/*    [55.851244, 37.118423, 1], */}
-            {/*  ]} */}
-            {/* /> */}
+            {this.getCurrentTripPath ? (
+              <L-Hotline
+                weight={2}
+                outline-width={0}
+                outline-color={this.getPrimaryColor}
+                palette={{
+                  0.0: this.getPrimaryColor,
+                  0.5: this.getPrimaryColor,
+                  1.0: this.getPrimaryColor,
+                }}
+                latLngs={this.getCurrentTripPath}
+              />
+            ) : null}
           </L-Map>
         </client-only>
       </div>

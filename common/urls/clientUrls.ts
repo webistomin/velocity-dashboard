@@ -6,6 +6,7 @@ export const clientUrls = {
   vehicles: '/vehicles',
   reminders: '/reminders',
   map: '/map',
+  mapWithId: '/map/:id',
   chat: '/chat',
   chatWithUserById: '/chat/:id',
   settings: '/settings',

@@ -319,7 +319,7 @@ export const HOME_PAGE_MOCKED_RESPONSE = (): IPageHome => {
     trips: {
       onTrack: [
         {
-          _id: nanoid(),
+          _id: 'abc123',
           __v: 0,
           passengerId: nanoid(),
           driverId: nanoid(),
@@ -481,7 +481,7 @@ export const HOME_PAGE_MOCKED_RESPONSE = (): IPageHome => {
           status: TripStatus.IN_PROGRESS,
         },
         {
-          _id: nanoid(),
+          _id: 'bcd345',
           __v: 1,
           passengerId: nanoid(),
           driverId: nanoid(),

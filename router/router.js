@@ -67,6 +67,10 @@ export function createRouter() {
         component: Map,
       },
       {
+        path: clientUrls.mapWithId,
+        component: Map,
+      },
+      {
         path: clientUrls.chatWithUserById,
         component: Chat,
       },
@@ -78,10 +82,6 @@ export function createRouter() {
         path: '/chat',
         component: Chat,
       },
-      // {
-      //   path: '*',
-      //   component: NotFound,
-      // },
     ],
   });
 }

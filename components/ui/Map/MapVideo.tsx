@@ -1,15 +1,22 @@
 import { VueComponent } from 'types/vue-components';
-import { Component } from 'nuxt-property-decorator';
+import { Component, Emit } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
+
+export interface IMapVideoProps {
+  onVideoClick?: () => void;
+}
 
 @Component({
   name: 'MapVideo',
 })
-export default class MapVideo extends VueComponent {
+export default class MapVideo extends VueComponent<IMapVideoProps> {
+  @Emit('videoClick')
+  public onVideoClick() {}
+
   public render(): VNode {
     return (
       <div class='map__video'>
-        <button class='map__video-play-btn btn'>
+        <button class='map__video-play-btn btn' type='button' onClick={this.onVideoClick}>
           <img class='map__video-play-image image' src='/img/interior.jpg' alt='Video' />
           <svg-icon name='icon-play' width={18} height={20} />
         </button>
