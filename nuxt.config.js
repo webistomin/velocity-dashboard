@@ -1,8 +1,6 @@
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 
-console.log(process.env);
-
 module.exports = {
   dev: process.env.NODE_ENV !== 'production',
   mode: 'universal',
