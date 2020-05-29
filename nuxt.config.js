@@ -1,6 +1,8 @@
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 
+console.log(process.env);
+
 module.exports = {
   dev: process.env.NODE_ENV !== 'production',
   mode: 'universal',
@@ -74,7 +76,7 @@ module.exports = {
     },
   },
   axios: {
-    baseURL: `${process.env.BASE_URL}/api/v1`,
+    baseURL: `${process.env.BASE_URL || 'http://localhost:3000'}/api/v1`,
   },
   build: {
     extractCSS: true,
