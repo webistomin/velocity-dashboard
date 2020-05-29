@@ -24,34 +24,34 @@ export default class Reminders extends VueComponent {
       color: 'blue',
       tasks: [
         {
-          title: 'Spire1',
-          text: 'Tire replacement',
+          title: 'Invest in the Stock Market',
+          text: 'People who insist on picking their teeth with their elbows are so annoying!',
           date: 'June 12',
         },
         {
-          title: 'Spire2',
-          text: 'Tire replacement',
+          title: 'Group the users',
+          text: 'She saw the brake lights, but not in time.',
           date: 'June 12',
         },
         {
-          title: 'Spire3',
-          text: 'Tire replacement',
+          title: 'Create a list of contacts',
+          text: 'He quietly entered the museum as the super bowl started.',
+          date: 'June 1',
+        },
+        {
+          title: 'Import contacts from a spreadsheet',
+          text: 'The delicious aroma from the kitchen was ruined by cigarette smoke.',
+          date: 'June 5',
+        },
+        {
+          title: "Calculate employee's tax deduction",
+          text: 'He uses onomatopoeia as a weapon of mental destruction.',
           date: 'June 12',
         },
         {
-          title: 'Spire4',
-          text: 'Tire replacement',
-          date: 'June 12',
-        },
-        {
-          title: 'Spire4',
-          text: 'Tire replacement',
-          date: 'June 12',
-        },
-        {
-          title: 'Spire4',
-          text: 'Tire replacement',
-          date: 'June 12',
+          title: 'Manage contacts',
+          text: 'The swirled lollipop had issues with the pop rock candy.',
+          date: 'June 11',
         },
       ],
     },
@@ -60,24 +60,14 @@ export default class Reminders extends VueComponent {
       color: 'purple',
       tasks: [
         {
-          title: 'Spire5',
-          text: 'Tire replacement',
-          date: 'June 12',
+          title: 'Check cars',
+          text: 'My Mum tries to be cool by saying that she likes all the same things that I do.',
+          date: 'May 12',
         },
         {
-          title: 'Spire6',
-          text: 'Tire replacement',
-          date: 'June 12',
-        },
-        {
-          title: 'Spire7',
-          text: 'Tire replacement',
-          date: 'June 12',
-        },
-        {
-          title: 'Spire8',
-          text: 'Tire replacement',
-          date: 'June 12',
+          title: 'Add avatar',
+          text: 'He poured rocks in the dungeon of his mind.',
+          date: 'June 1',
         },
       ],
     },
@@ -86,24 +76,9 @@ export default class Reminders extends VueComponent {
       color: 'darkturquoise',
       tasks: [
         {
-          title: 'Spire9',
-          text: 'Tire replacement',
-          date: 'June 12',
-        },
-        {
-          title: 'Spire10',
-          text: 'Tire replacement',
-          date: 'June 12',
-        },
-        {
-          title: 'Spire11',
-          text: 'Tire replacement',
-          date: 'June 12',
-        },
-        {
-          title: 'Spire12',
-          text: 'Tire replacement',
-          date: 'June 12',
+          title: 'Assign tasks to Anna',
+          text: 'He put heat on the wound to see what would grow.',
+          date: 'June 3',
         },
       ],
     },
@@ -112,24 +87,9 @@ export default class Reminders extends VueComponent {
       color: 'yellow',
       tasks: [
         {
-          title: 'Spire13',
-          text: 'Tire replacement',
-          date: 'June 12',
-        },
-        {
-          title: 'Spire14',
-          text: 'Tire replacement',
-          date: 'June 12',
-        },
-        {
-          title: 'Spire15',
-          text: 'Tire replacement',
-          date: 'June 12',
-        },
-        {
-          title: 'Spire16',
-          text: 'Tire replacement',
-          date: 'June 12',
+          title: 'Send follow-up emails to the group of users',
+          text: 'We will not allow you to bring your pet armadillo along.',
+          date: 'June 10',
         },
       ],
     },
