@@ -7,10 +7,11 @@ import BaseMap from 'components/base/BaseMap';
 import { IPageMap } from 'common/types/pages/map';
 import { ITripInterfaceDB } from 'common/types/trip/trip-schema';
 import BaseModal from 'components/base/BaseModal';
+import BaseTitle from 'components/base/BaseTitle';
+import BaseEmpty from 'components/base/BaseEmpty';
 import MapPassenger from './MapPassenger';
 import MapDestination from './MapDestination';
 import MapVideo from './MapVideo';
-import BaseTitle from 'components/base/BaseTitle';
 
 import './Map.sass';
 
@@ -111,7 +112,9 @@ export default class Map extends VueComponent<IMapPageProps> {
                     startAddress={this.getCurrentTripInfo.startAddress}
                     endAddress={this.getCurrentTripInfo.endAddress}
                   />
-                ) : null}
+                ) : (
+                  <BaseEmpty />
+                )}
               </BaseBlock>
               <BaseBlock class='map__block'>
                 <MapVideo onVideoClick={this.onVideoClick} />
