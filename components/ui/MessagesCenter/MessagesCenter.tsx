@@ -1,15 +1,15 @@
 import { VueComponent } from 'types/vue-components';
-import { Component } from 'nuxt-property-decorator';
+import { Component, Watch } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
+import { formatDistance } from 'date-fns';
 
 import BaseNotify from 'components/base/BaseNotify';
 import BaseSidebar from 'components/base/BaseSidebar';
 import BaseOverlay from 'components/base/BaseOverlay';
 import ChatList from 'components/ui/Chat/ChatList';
-import { IChat } from 'common/types/chat/chat-list';
+import { IChatFormatted } from 'common/types/chat/chat-list';
 
 import './MessagesCenter.sass';
-import { Watch } from '~/node_modules/nuxt-property-decorator';
 
 @Component({
   name: 'MessagesCenter',
@@ -17,62 +17,14 @@ import { Watch } from '~/node_modules/nuxt-property-decorator';
 export default class MessagesCenter extends VueComponent {
   public isMessagesVisible: boolean = false;
 
-  public chats: IChat[] = [
+  public chats: IChatFormatted[] = [
     {
       name: 'Alexey Istomin',
       avatar: '/img/avatar.png',
       message: 'You are most welcome Kathey! You are most welcome Kathey! You are most welcome Kathey!',
-      id: String(Math.random()),
-      time: Date.now(),
-    },
-    {
-      name: 'Alexey Istomin',
-      avatar: '/img/avatar.png',
-      message: 'You are most welcome Kathey! You are most welcome Kathey! You are most welcome Kathey!',
-      id: String(Math.random()),
-      time: Date.now(),
-    },
-    {
-      name: 'Alexey Istomin',
-      avatar: '/img/avatar.png',
-      message: 'You are most welcome Kathey! You are most welcome Kathey! You are most welcome Kathey!',
-      id: String(Math.random()),
-      time: Date.now(),
-    },
-    {
-      name: 'Alexey Istomin',
-      avatar: '/img/avatar.png',
-      message: 'You are most welcome Kathey! You are most welcome Kathey! You are most welcome Kathey!',
-      id: String(Math.random()),
-      time: Date.now(),
-    },
-    {
-      name: 'Alexey Istomin',
-      avatar: '/img/avatar.png',
-      message: 'You are most welcome Kathey! You are most welcome Kathey! You are most welcome Kathey!',
-      id: String(Math.random()),
-      time: Date.now(),
-    },
-    {
-      name: 'Alexey Istomin',
-      avatar: '/img/avatar.png',
-      message: 'You are most welcome Kathey! You are most welcome Kathey! You are most welcome Kathey!',
-      id: String(Math.random()),
-      time: Date.now(),
-    },
-    {
-      name: 'Alexey Istomin',
-      avatar: '/img/avatar.png',
-      message: 'You are most welcome Kathey! You are most welcome Kathey! You are most welcome Kathey!',
-      id: String(Math.random()),
-      time: Date.now(),
-    },
-    {
-      name: 'Alexey Istomin',
-      avatar: '/img/avatar.png',
-      message: 'You are most welcome Kathey! You are most welcome Kathey! You are most welcome Kathey!',
-      id: String(Math.random()),
-      time: Date.now(),
+      id: 'abc132',
+      time: new Date(),
+      formattedTime: formatDistance(new Date(), new Date()),
     },
   ];
 
@@ -81,7 +33,7 @@ export default class MessagesCenter extends VueComponent {
   }
 
   public get shouldLockBody(): boolean {
-    return !!(this.isMessagesVisible && window.matchMedia('(max-width: 1023px)').matches);
+    return this.isMessagesVisible && window.matchMedia('(max-width: 1023px)').matches;
   }
 
   public onClickOutside(): void {

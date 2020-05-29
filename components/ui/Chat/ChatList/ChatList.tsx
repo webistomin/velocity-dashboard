@@ -1,6 +1,6 @@
 import { VueComponent } from 'types/vue-components';
 import { Component, Prop } from 'nuxt-property-decorator';
-import { IChat } from 'common/types/chat/chat-list';
+import { IChatFormatted } from 'common/types/chat/chat-list';
 import { VNode } from 'vue';
 
 import BaseThumbnail from 'components/base/BaseThumbnail';
@@ -9,7 +9,7 @@ import BaseNotify from 'components/base/BaseNotify';
 import './ChatList.sass';
 
 export interface IChatListProps {
-  chats: IChat[] | null;
+  chats: IChatFormatted[] | null;
 }
 
 @Component({
@@ -32,7 +32,7 @@ export default class ChatList extends VueComponent<IChatListProps> {
                 <span class='chat-list__col chat-list__col_right'>
                   <span class='chat-list__heading'>
                     <strong class='chat-list__name'>{chat.name}</strong>
-                    <time class='chat-list__time'>{chat.time}</time>
+                    <time class='chat-list__time'>{chat.formattedTime}</time>
                   </span>
                   <span class='chat-list__message'>{chat.message}</span>
                 </span>

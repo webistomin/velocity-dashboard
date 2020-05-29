@@ -1,15 +1,26 @@
 import { VueComponent } from 'types/vue-components';
-import { Component } from 'nuxt-property-decorator';
+import { Component, Prop } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
+// @ts-ignore
+import VirtualList from 'vue-virtual-scroll-list';
 
-import BaseThumbnail from 'components/base/BaseThumbnail';
+import { IChatMessage } from 'common/types/chat/chat-list';
+import { ChatMessagesItem } from './ChatMessagesItem';
 
 import './ChatMessages.sass';
 
+export interface IChatMessagesProps {
+  messages: IChatMessage[];
+}
+
 @Component({
   name: 'ChatMessages',
+  components: { VirtualList },
 })
-export default class ChatMessages extends VueComponent {
+export default class ChatMessages extends VueComponent<IChatMessagesProps> {
+  @Prop({ required: true })
+  private readonly messages!: IChatMessagesProps['messages'];
+
   $refs!: {
     chatMessagesContent: HTMLDivElement;
   };
@@ -25,168 +36,14 @@ export default class ChatMessages extends VueComponent {
     return (
       <div class='chat-messages'>
         <div class='chat-messages__content' ref='chatMessagesContent'>
-          <ul class='chat-messages__list list'>
-            <li class='chat-messages__item chat-messages__item_own list-item'>
-              <BaseThumbnail class='chat-messages__avatar' image='/img/avatar.png' size='s' alt='Me' />
-              <div class='chat-messages__holder'>
-                <strong class='chat-messages__name'>Anna</strong>
-                <ul class='chat-messages__group-messages list'>
-                  <li class='chat-messages__group-item list-item'>
-                    <p class='chat-messages__message paragraph'>
-                      Hello John, thank you for calling Provide Support. How may I help you?
-                    </p>
-                    <time class='chat-messages__date'>18:54</time>
-                  </li>
-                  <li class='chat-messages__group-item list-item'>
-                    <p class='chat-messages__message paragraph'>
-                      Hello John, thank you for calling Provide Support. How may I help you?
-                    </p>
-                    <time class='chat-messages__date'>18:54</time>
-                  </li>
-                  <li class='chat-messages__group-item list-item'>
-                    <p class='chat-messages__message paragraph'>
-                      Hello John, thank you for calling Provide Support. How may I help you?
-                    </p>
-                    <time class='chat-messages__date'>18:54</time>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class='chat-messages__item chat-messages__item_other list-item'>
-              <BaseThumbnail class='chat-messages__avatar' image='/img/avatar.png' size='s' alt='Me' />
-              <div class='chat-messages__holder'>
-                <strong class='chat-messages__name'>Nora</strong>
-                <ul class='chat-messages__group-messages list'>
-                  <li class='chat-messages__group-item list-item'>
-                    <p class='chat-messages__message paragraph'>
-                      Hello John, thank you for calling Provide Support. How may I help you?
-                    </p>
-                    <time class='chat-messages__date'>18:54</time>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class='chat-messages__item chat-messages__item_own list-item'>
-              <BaseThumbnail class='chat-messages__avatar' image='/img/avatar.png' size='s' alt='Me' />
-              <div class='chat-messages__holder'>
-                <strong class='chat-messages__name'>Anna</strong>
-                <ul class='chat-messages__group-messages list'>
-                  <li class='chat-messages__group-item list-item'>
-                    <p class='chat-messages__message paragraph'>
-                      Hello John, thank you for calling Provide Support. How may I help you?
-                    </p>
-                    <time class='chat-messages__date'>18:54</time>
-                  </li>
-                  <li class='chat-messages__group-item list-item'>
-                    <p class='chat-messages__message paragraph'>
-                      Hello John, thank you for calling Provide Support. How may I help you?
-                    </p>
-                    <time class='chat-messages__date'>18:54</time>
-                  </li>
-                  <li class='chat-messages__group-item list-item'>
-                    <p class='chat-messages__message paragraph'>
-                      Hello John, thank you for calling Provide Support. How may I help you?
-                    </p>
-                    <time class='chat-messages__date'>18:54</time>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class='chat-messages__item chat-messages__item_other list-item'>
-              <BaseThumbnail class='chat-messages__avatar' image='/img/avatar.png' size='s' alt='Me' />
-              <div class='chat-messages__holder'>
-                <strong class='chat-messages__name'>Nora</strong>
-                <ul class='chat-messages__group-messages list'>
-                  <li class='chat-messages__group-item list-item'>
-                    <p class='chat-messages__message paragraph'>
-                      Hello John, thank you for calling Provide Support. How may I help you?
-                    </p>
-                    <time class='chat-messages__date'>18:54</time>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class='chat-messages__item chat-messages__item_own list-item'>
-              <BaseThumbnail class='chat-messages__avatar' image='/img/avatar.png' size='s' alt='Me' />
-              <div class='chat-messages__holder'>
-                <strong class='chat-messages__name'>Anna</strong>
-                <ul class='chat-messages__group-messages list'>
-                  <li class='chat-messages__group-item list-item'>
-                    <p class='chat-messages__message paragraph'>
-                      Hello John, thank you for calling Provide Support. How may I help you?
-                    </p>
-                    <time class='chat-messages__date'>18:54</time>
-                  </li>
-                  <li class='chat-messages__group-item list-item'>
-                    <p class='chat-messages__message paragraph'>
-                      Hello John, thank you for calling Provide Support. How may I help you?
-                    </p>
-                    <time class='chat-messages__date'>18:54</time>
-                  </li>
-                  <li class='chat-messages__group-item list-item'>
-                    <p class='chat-messages__message paragraph'>
-                      Hello John, thank you for calling Provide Support. How may I help you?
-                    </p>
-                    <time class='chat-messages__date'>18:54</time>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class='chat-messages__item chat-messages__item_other list-item'>
-              <BaseThumbnail class='chat-messages__avatar' image='/img/avatar.png' size='s' alt='Me' />
-              <div class='chat-messages__holder'>
-                <strong class='chat-messages__name'>Nora</strong>
-                <ul class='chat-messages__group-messages list'>
-                  <li class='chat-messages__group-item list-item'>
-                    <p class='chat-messages__message paragraph'>
-                      Hello John, thank you for calling Provide Support. How may I help you?
-                    </p>
-                    <time class='chat-messages__date'>18:54</time>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class='chat-messages__item chat-messages__item_own list-item'>
-              <BaseThumbnail class='chat-messages__avatar' image='/img/avatar.png' size='s' alt='Me' />
-              <div class='chat-messages__holder'>
-                <strong class='chat-messages__name'>Anna</strong>
-                <ul class='chat-messages__group-messages list'>
-                  <li class='chat-messages__group-item list-item'>
-                    <p class='chat-messages__message paragraph'>
-                      Hello John, thank you for calling Provide Support. How may I help you?
-                    </p>
-                    <time class='chat-messages__date'>18:54</time>
-                  </li>
-                  <li class='chat-messages__group-item list-item'>
-                    <p class='chat-messages__message paragraph'>
-                      Hello John, thank you for calling Provide Support. How may I help you?
-                    </p>
-                    <time class='chat-messages__date'>18:54</time>
-                  </li>
-                  <li class='chat-messages__group-item list-item'>
-                    <p class='chat-messages__message paragraph'>
-                      Hello John, thank you for calling Provide Support. How may I help you?
-                    </p>
-                    <time class='chat-messages__date'>18:54</time>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class='chat-messages__item chat-messages__item_other list-item'>
-              <BaseThumbnail class='chat-messages__avatar' image='/img/avatar.png' size='s' alt='Me' />
-              <div class='chat-messages__holder'>
-                <strong class='chat-messages__name'>Nora</strong>
-                <ul class='chat-messages__group-messages list'>
-                  <li class='chat-messages__group-item list-item'>
-                    <p class='chat-messages__message paragraph'>
-                      Hello John, thank you for calling Provide Support. How may I help you?
-                    </p>
-                    <time class='chat-messages__date'>18:54</time>
-                  </li>
-                </ul>
-              </div>
-            </li>
-          </ul>
+          <VirtualList
+            class={`chat-messages__list list`}
+            data-key='id'
+            data-sources={this.messages}
+            data-component={ChatMessagesItem}
+            wrap-class='chat-messages__scroller-wrapper'
+            item-class='chat-messages__scroller-item'
+          />
         </div>
         <div class='chat-messages__controls'>
           <div class='chat-messages__inputs'>
