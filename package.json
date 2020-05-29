@@ -4,6 +4,9 @@
   "description": "My badass Nuxt.js project",
   "author": "webistomin",
   "private": true,
+  "engines" : {
+    "node" : "10.15.3"
+  },
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon server/index.ts --watch server",
     "build": "nuxt build -m",
