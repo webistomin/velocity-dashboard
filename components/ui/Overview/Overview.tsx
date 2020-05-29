@@ -16,9 +16,10 @@ import BaseBarGraph from 'components/base/BaseBarCraph';
 import BaseTodo from 'components/base/BaseTodo';
 import { IBaseTodo } from 'components/base/BaseTodo/BaseTodo';
 import { IPageHome } from 'common/types/pages/home';
+import { IReminder } from 'common/types/reminders/reminder';
+import BaseEmpty from 'components/base/BaseEmpty';
 
 import './Overview.sass';
-import { IReminder } from 'common/types/reminders/reminder';
 
 export interface IHomePageProps {
   content: IPageHome | null;
@@ -236,7 +237,9 @@ export default class Overview extends VueComponent<IHomePageProps> {
                     login.
                   </p>
                 </div>
-              ) : null}
+              ) : (
+                <BaseEmpty />
+              )}
             </BaseBlock>
 
             <BaseBlock class='overview__block' title={`Today's Trips`}>
@@ -258,7 +261,9 @@ export default class Overview extends VueComponent<IHomePageProps> {
                   ]}
                   fallbackText={`Today's Trips`}
                 />
-              ) : null}
+              ) : (
+                <BaseEmpty />
+              )}
             </BaseBlock>
 
             <BaseBlock class='overview__block' title='Vehicles on track'>
@@ -271,7 +276,9 @@ export default class Overview extends VueComponent<IHomePageProps> {
                   color='green'
                   align='row'
                 />
-              ) : null}
+              ) : (
+                <BaseEmpty />
+              )}
             </BaseBlock>
 
             <BaseBlock class='overview__block' title='Distance driven'>
@@ -284,27 +291,37 @@ export default class Overview extends VueComponent<IHomePageProps> {
                   color='blue'
                   align='row'
                 />
-              ) : null}
+              ) : (
+                <BaseEmpty />
+              )}
             </BaseBlock>
 
             <BaseBlock class='overview__block' title='vehicles on track'>
-              {this.content?.trips ? <BaseMap trips={this.content.trips.onTrack} class='overview__map' /> : null}
+              {this.content?.trips ? (
+                <BaseMap trips={this.content.trips.onTrack} class='overview__map' />
+              ) : (
+                <BaseEmpty />
+              )}
             </BaseBlock>
 
             <BaseBlock class='overview__block' title='Top drivers'>
-              {this.getTopDrivers ? <BaseList list={this.getTopDrivers} /> : null}
+              {this.getTopDrivers ? <BaseList list={this.getTopDrivers} /> : <BaseEmpty />}
             </BaseBlock>
 
             <BaseBlock class='overview__block' title='Trips by type'>
               {this.getTripsTypeStat ? (
                 <BaseBarGraph chartData={this.getTripsTypeStat} options={this.chartOptions} />
-              ) : null}
+              ) : (
+                <BaseEmpty />
+              )}
             </BaseBlock>
 
             <BaseBlock class='overview__block' title='Service Reminders'>
               {this.getTodoList ? (
                 <BaseTodo todos={this.getTodoList} onInput={(event: Event) => this.updateTodo(event)} />
-              ) : null}
+              ) : (
+                <BaseEmpty />
+              )}
             </BaseBlock>
           </div>
         </div>

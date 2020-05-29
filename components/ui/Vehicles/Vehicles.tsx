@@ -13,6 +13,7 @@ import BaseSlider from 'components/base/BaseSlider';
 import BaseSelect from 'components/base/BaseSelect';
 import { IPageVehicles } from 'common/types/pages/vehicles';
 import { IBaseTableConfig } from 'components/base/BaseTable/BaseTable';
+import BaseEmpty from 'components/base/BaseEmpty';
 
 import './Vehicles.sass';
 
@@ -299,7 +300,9 @@ export default class Vehicles extends VueComponent<IVehiclesPageProps> {
                   onSort={(field) => this.onTableSort(field)}
                   currentSort={this.currentSortKey}
                 />
-              ) : null}
+              ) : (
+                <BaseEmpty />
+              )}
             </BaseBlock>
           </div>
         </div>

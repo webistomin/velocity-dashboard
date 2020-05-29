@@ -10,6 +10,7 @@ import BaseModal from 'components/base/BaseModal';
 import MapPassenger from './MapPassenger';
 import MapDestination from './MapDestination';
 import MapVideo from './MapVideo';
+import BaseTitle from 'components/base/BaseTitle';
 
 import './Map.sass';
 
@@ -116,7 +117,11 @@ export default class Map extends VueComponent<IMapPageProps> {
                 <MapVideo onVideoClick={this.onVideoClick} />
               </BaseBlock>
             </div>
-          ) : null}
+          ) : (
+            <BaseBlock class='map__placeholder' title='Hint'>
+              <BaseTitle level={3}>Information about trip will be available after click on marker</BaseTitle>
+            </BaseBlock>
+          )}
         </div>
         <BaseModal isVisible={this.isVideoModalVisible} onClose={this.onVideoClose}>
           <video preload='auto' muted playsInline autoPlay='autoplay' loop='loop' class='map__driver-video'>

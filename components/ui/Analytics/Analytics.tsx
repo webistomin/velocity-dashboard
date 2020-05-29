@@ -11,6 +11,7 @@ import BaseList from 'components/base/BaseList';
 import BaseBarGraph from 'components/base/BaseBarCraph';
 import { IPageAnalytics } from 'common/types/pages/analytics';
 import { IBaseList } from 'components/base/BaseList/BaseList';
+import BaseEmpty from 'components/base/BaseEmpty';
 
 import './Analytics.sass';
 
@@ -230,7 +231,9 @@ export default class Analytics extends VueComponent<IAnalyticsPageProps> {
                     },
                   ]}
                 />
-              ) : null}
+              ) : (
+                <BaseEmpty />
+              )}
             </BaseBlock>
 
             <BaseBlock class='analytics__block' title='Vehicles on track'>
@@ -243,7 +246,9 @@ export default class Analytics extends VueComponent<IAnalyticsPageProps> {
                   color='green'
                   align='row'
                 />
-              ) : null}
+              ) : (
+                <BaseEmpty />
+              )}
             </BaseBlock>
 
             <BaseBlock class='analytics__block' title='Distance driven'>
@@ -256,7 +261,9 @@ export default class Analytics extends VueComponent<IAnalyticsPageProps> {
                   color='blue'
                   align='row'
                 />
-              ) : null}
+              ) : (
+                <BaseEmpty />
+              )}
             </BaseBlock>
 
             <BaseBlock class='analytics__block' title='Energy consumed'>
@@ -269,7 +276,9 @@ export default class Analytics extends VueComponent<IAnalyticsPageProps> {
                   color='purple'
                   align='row'
                 />
-              ) : null}
+              ) : (
+                <BaseEmpty />
+              )}
             </BaseBlock>
 
             <BaseBlock class='analytics__block' title='Total drive time'>
@@ -282,17 +291,21 @@ export default class Analytics extends VueComponent<IAnalyticsPageProps> {
                   color='yellow'
                   align='row'
                 />
-              ) : null}
+              ) : (
+                <BaseEmpty />
+              )}
             </BaseBlock>
 
             <BaseBlock class='analytics__block' title='Latest trips'>
-              {this.getLatestTrips ? <BaseList list={this.getLatestTrips} /> : null}
+              {this.getLatestTrips ? <BaseList list={this.getLatestTrips} /> : <BaseEmpty />}
             </BaseBlock>
 
             <BaseBlock class='analytics__block' title='Trips by weekday'>
               {this.getTripsByWeekdayChartData ? (
                 <BaseBarGraph chartData={this.getTripsByWeekdayChartData} options={this.mixedOptions} />
-              ) : null}
+              ) : (
+                <BaseEmpty />
+              )}
             </BaseBlock>
           </div>
         </div>

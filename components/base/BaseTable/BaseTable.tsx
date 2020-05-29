@@ -4,6 +4,7 @@ import { VNode } from 'vue';
 // @ts-ignore
 import VirtualList from 'vue-virtual-scroll-list';
 
+import BaseEmpty from 'components/base/BaseEmpty';
 import { BaseTableItem } from './BaseTableItem';
 
 import './BaseTable.sass';
@@ -65,15 +66,19 @@ export default class BaseTable extends VueComponent<IBaseTableProps> {
             })}
           </div>
 
-          <VirtualList
-            class={`base-table__scroller ${this.scrollerMix || ''}`}
-            data-key='id'
-            data-sources={this.tableData}
-            data-component={BaseTableItem}
-            wrap-class='base-table__scroller-wrapper'
-            item-class='base-table__scroller-item'
-            estimate-size={82}
-          />
+          {this.tableData.length > 0 ? (
+            <VirtualList
+              class={`base-table__scroller ${this.scrollerMix || ''}`}
+              data-key='id'
+              data-sources={this.tableData}
+              data-component={BaseTableItem}
+              wrap-class='base-table__scroller-wrapper'
+              item-class='base-table__scroller-item'
+              estimate-size={82}
+            />
+          ) : (
+            <BaseEmpty />
+          )}
         </div>
       </div>
     );
