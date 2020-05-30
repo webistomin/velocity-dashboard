@@ -2,6 +2,7 @@ import { VueComponent } from 'types/vue-components';
 import { Component, Emit, Prop } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
 
+import { LeafletKeyboardEvent } from 'leaflet';
 import { ITripInterfaceDB } from 'common/types/trip/trip-schema';
 import MapDestination from 'components/ui/Map/MapDestination/';
 import BaseLink from 'components/base/BaseLink';
@@ -70,6 +71,12 @@ export default class BaseMap extends VueComponent<IBaseMapProps> {
   public closeSidebarByEsc(event: KeyboardEvent) {
     if (this.isSidebarVisible && event.key === 'Escape') {
       this.closeSidebar();
+    }
+  }
+
+  public onMarkerKeyDown(event: LeafletKeyboardEvent, tripId: ITripInterfaceDB['_id']) {
+    if (event.originalEvent.key === 'Enter') {
+      this.onMarkerClick(tripId);
     }
   }
 
@@ -166,12 +173,16 @@ export default class BaseMap extends VueComponent<IBaseMapProps> {
           <L-Map zoom={this.zoomLevel} center={[50.516518, 6.993713]} class='base-map__map'>
             <L-Tile-Layer url={this.mapUrl} subdomains='abcd' maxZoom={20} />
             <L-Marker-Cluster
+              onClusterkeydown={(cluster: any) => cluster.layer.zoomToBounds({ padding: [20, 20] })}
               options={{
                 showCoverageOnHover: false,
               }}>
               {this.trips.map((trip) => {
                 return (
-                  <L-Marker lat-lng={trip.path[0]} onClick={() => this.onMarkerClick(trip._id)}>
+                  <L-Marker
+                    lat-lng={trip.path[0]}
+                    onClick={() => this.onMarkerClick(trip._id)}
+                    onKeydown={(event: LeafletKeyboardEvent) => this.onMarkerKeyDown(event, trip._id)}>
                     <L-Icon
                       iconUrl={`/img/map-marker-${this.getCurrentTheme}.svg`}
                       iconRetinaUrl={`/img/map-marker-${this.getCurrentTheme}.svg`}

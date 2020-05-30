@@ -37,6 +37,7 @@ export default class ChatMessages extends VueComponent<IChatMessagesProps> {
       <div class='chat-messages'>
         <div class='chat-messages__content' ref='chatMessagesContent'>
           <VirtualList
+            tabindex={0}
             class={`chat-messages__list list`}
             data-key='id'
             data-sources={this.messages}
@@ -52,10 +53,10 @@ export default class ChatMessages extends VueComponent<IChatMessagesProps> {
             </button>
             <input type='text' class='chat-messages__input' placeholder='Message' />
             <div class='chat-messages__attach'>
+              <input type='file' id='chat-attach' class='chat-messages__attach-input visually-hidden' />
               <label for='chat-attach' class='chat-messages__attach-label label'>
                 <svg-icon name='icon-attach' width={23} height={20} />
               </label>
-              <input type='file' id='chat-attach' class='chat-messages__attach-input visually-hidden' />
             </div>
           </div>
         </div>

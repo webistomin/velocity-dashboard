@@ -9,6 +9,12 @@ import Login from 'components/ui/Login';
   layout: 'login',
 })
 export default class LoginPage extends VueComponent {
+  public head() {
+    return {
+      title: 'Velocity:: Authentication',
+    };
+  }
+
   render(): VNode {
     return (
       <main class='page-content'>

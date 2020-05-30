@@ -14,6 +14,12 @@ import { IPageMap, IPageMapResponse } from 'common/types/pages/map';
 export default class MapPage extends VueComponent {
   public content: IPageMap | null = null;
 
+  public head() {
+    return {
+      title: 'Velocity:: Map',
+    };
+  }
+
   public async asyncData(context: Context) {
     try {
       const data: IPageMapResponse = await context.$axios.$get(serverUrls.pages.map);

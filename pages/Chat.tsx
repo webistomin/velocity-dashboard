@@ -9,6 +9,12 @@ import Chat from 'components/ui/Chat';
   middleware: ['auth-guard'],
 })
 export default class VehiclesPage extends VueComponent {
+  public head() {
+    return {
+      title: 'Velocity:: Chat',
+    };
+  }
+
   render(): VNode {
     return (
       <main class='page-content'>

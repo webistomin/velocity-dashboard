@@ -14,6 +14,12 @@ import { IPageVehicles, IPageVehiclesResponse } from 'common/types/pages/vehicle
 export default class VehiclesPage extends VueComponent {
   public content: IPageVehicles | null = null;
 
+  public head() {
+    return {
+      title: 'Velocity:: Vehicles',
+    };
+  }
+
   public async asyncData(context: Context) {
     try {
       const data: IPageVehiclesResponse = await context.$axios.$get(serverUrls.pages.vehicles);

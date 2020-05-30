@@ -13,6 +13,12 @@ import { IPageAnalytics, IPageAnalyticsResponse } from 'common/types/pages/analy
 export default class AnalyticsPage extends VueComponent {
   public content: IPageAnalytics | null = null;
 
+  public head() {
+    return {
+      title: 'Velocity:: Analytics',
+    };
+  }
+
   public async asyncData(context: Context) {
     try {
       const data: IPageAnalyticsResponse = await context.$axios.$get(serverUrls.pages.analytics);

@@ -9,6 +9,12 @@ import Reminders from 'components/ui/Reminders';
   middleware: ['auth-guard', 'auth-admin'],
 })
 export default class RemindersPage extends VueComponent {
+  public head() {
+    return {
+      title: 'Velocity:: Service',
+    };
+  }
+
   render(): VNode {
     return (
       <main class='page-content page-content_offset'>

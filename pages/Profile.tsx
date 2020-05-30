@@ -9,6 +9,12 @@ import Profile from 'components/ui/Profile';
   middleware: ['auth-guard', 'auth-admin'],
 })
 export default class ProfilePage extends VueComponent {
+  public head() {
+    return {
+      title: 'Velocity:: Profile',
+    };
+  }
+
   render(): VNode {
     return (
       <main class='page-content page-content_offset-top'>

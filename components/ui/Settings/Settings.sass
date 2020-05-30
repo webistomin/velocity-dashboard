@@ -58,6 +58,10 @@
     grid-gap: rem(20px)
     max-width: rem(346px)
 
+    &:focus-within
+      outline: rem(1px) solid rgb(var(--color-primary))
+      outline-offset: 1rem
+
   +e('theme-group')
     display: grid
     grid-gap: rem(25px)

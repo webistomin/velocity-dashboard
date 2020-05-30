@@ -8,6 +8,12 @@ import Settings from 'components/ui/Settings';
   middleware: ['auth-guard'],
 })
 export default class SettingsPage extends VueComponent {
+  public head() {
+    return {
+      title: 'Velocity:: Settings',
+    };
+  }
+
   render(): VNode {
     return (
       <main class='page-content page-content_offset'>

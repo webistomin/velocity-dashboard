@@ -47,3 +47,10 @@
     &:checked ~ .base-theme__label
       .base-theme__text::before
         border: rem(4px) solid rgb(var(--color-primary))
+
+body.using-keyboard
+  .base-theme:focus-within
+    outline: rem(1px) solid rgb(var(--color-primary))
+
+  .base-theme__radio:focus ~ .base-radio__label
+    outline: rem(1px) solid rgb(var(--color-primary))

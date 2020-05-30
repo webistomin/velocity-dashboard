@@ -42,8 +42,11 @@
     border: rem(1px) solid rgba(var(--color-primary), 0.2)
     max-width: rem(140px)
     position: relative
+    outline: none
+    outline-offset: 1rem
 
-    &:hover .map__passenger-payment-details
+    &:hover .map__passenger-payment-details,
+    &:focus  .map__passenger-payment-details
       opacity: 1
       visibility: visible
 
@@ -154,6 +157,7 @@
     margin-bottom: rem(24px)
     max-width: rem(120px)
     flex-shrink: 0
+    outline-offset: 1rem
 
     &:hover
       color: rgb(var(--color-primary))
@@ -187,6 +191,11 @@
 
   +e('driver-video')
     width: 100%
+
+body.using-keyboard .map__passenger-payment:focus
+  outline: rem(1px) solid rgb(var(--color-primary))
+
+
 
 
 

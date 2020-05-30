@@ -14,6 +14,12 @@ import { IPageHome, IPageHomeResponse } from 'common/types/pages/home';
 export default class MainPage extends VueComponent {
   public content: IPageHome | null = null;
 
+  public head() {
+    return {
+      title: 'Velocity:: Home',
+    };
+  }
+
   public async asyncData(context: Context) {
     try {
       const data: IPageHomeResponse = await context.$axios.$get(serverUrls.pages.home);

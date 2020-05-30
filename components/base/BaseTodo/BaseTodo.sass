@@ -36,10 +36,6 @@
     &:hover
       background-color: rgb(var(--color-gray-5))
 
-  +e('checkbox')
-    &:focus ~ .base-todo__label
-      outline: rem(1px) solid rgb(var(--color-primary))
-
   +e('actions')
     margin-right: rem(14px)
 
@@ -94,3 +90,6 @@
 
       +v('due-soon')
         color: rgb(var(--color-yellow))
+
+body.using-keyboard .base-todo__checkbox:focus ~ .base-todo__label
+  outline: rem(1px) solid rgb(var(--color-primary))

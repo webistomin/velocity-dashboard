@@ -125,3 +125,13 @@
     top: 0
     flex-shrink: 0
 
+  +e('list')
+    outline: none
+
+body.using-keyboard
+  .chat-messages__list:focus
+    outline: rem(1px) solid rgb(var(--color-primary))
+
+  .chat-messages__attach-input:focus ~ .chat-messages__attach-label
+    outline: rem(1px) solid rgb(var(--color-primary))
+
