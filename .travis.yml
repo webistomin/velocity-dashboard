@@ -1,0 +1,18 @@
+language: node_js
+
+node_js:
+  - "10.15.3"
+
+branches:
+  only:
+    - master
+
+install:
+  - npm ci
+
+script:
+  - npm run build
+  - npm run test
+
+notifications:
+  email: false
