@@ -2,7 +2,8 @@ import { VueComponent } from 'types/vue-components';
 import { Component, Prop } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
 import { ChartData, ChartOptions } from 'chart.js';
-import { eachHourOfInterval, format } from 'date-fns';
+import eachHourOfInterval from 'date-fns/eachHourOfInterval';
+import format from 'date-fns/format';
 // @ts-ignore
 import LazyHydrate from 'vue-lazy-hydration';
 

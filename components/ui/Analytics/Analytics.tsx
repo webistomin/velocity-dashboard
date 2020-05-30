@@ -2,8 +2,7 @@ import { VueComponent } from 'types/vue-components';
 import { Component, Prop } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
 import { ChartData, ChartOptions } from 'chart.js';
-// @ts-ignore
-import { formatDistance } from 'date-fns';
+import formatDistance from 'date-fns/formatDistance';
 // @ts-ignore
 import LazyHydrate from 'vue-lazy-hydration';
 

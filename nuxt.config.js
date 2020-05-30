@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 
@@ -40,7 +41,6 @@ module.exports = {
     { src: '~/plugins/libs/v-scroll-lock.ts', ssr: false },
     { src: '~plugins/libs/leaflet/leaflet.ts', ssr: false },
     { src: '~plugins/libs/v-click-outside.ts', ssr: true },
-    { src: '~plugins/libs/vue-virtual-scroll.ts', ssr: true },
     { src: '~plugins/libs/vue-slider.ts', ssr: true },
     { src: '~plugins/libs/vue-select.ts', ssr: true },
     { src: '~plugins/libs/vue-draggable.ts', ssr: true },
@@ -103,6 +103,7 @@ module.exports = {
     },
     transpile: ['vuex-module-decorators'],
     plugins: [
+      new webpack.ContextReplacementPlugin(/date-fns[/\\]/, new RegExp(`[/\\\\](${['en'].join('|')})[/\\\\]`)),
       new MomentLocalesPlugin({
         localesToKeep: ['es-us'],
       }),
@@ -119,9 +120,15 @@ module.exports = {
 
       config.resolve.plugins.push(new TsconfigPathsPlugin({ configFile: './tsconfig.json' }));
 
+      config.resolve.alias['chart.js'] = 'chart.js/dist/Chart.js';
+
       // if (ctx && ctx.isClient) {
       //   config.optimization.splitChunks.maxSize = 51200;
       // }
+
+      config.externals = {
+        moment: 'moment',
+      };
     },
   },
   auth: {

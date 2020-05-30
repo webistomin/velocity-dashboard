@@ -1,4 +1,6 @@
-import { eachWeekOfInterval, format, sub } from 'date-fns';
+import eachWeekOfInterval from 'date-fns/eachWeekOfInterval';
+import format from 'date-fns/format';
+import sub from 'date-fns/sub';
 import random from 'random';
 
 import { IPageAnalytics } from 'common/types/pages/analytics';

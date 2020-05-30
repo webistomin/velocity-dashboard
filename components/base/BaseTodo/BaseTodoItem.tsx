@@ -1,7 +1,8 @@
 import { VueComponent } from 'types/vue-components';
 import { Component, Prop, Emit } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
-import { add, compareAsc } from 'date-fns';
+import add from 'date-fns/add';
+import compareAsc from 'date-fns/compareAsc';
 
 import { clientUrls } from 'common/urls/clientUrls';
 import { IBaseTodo } from './BaseTodo';

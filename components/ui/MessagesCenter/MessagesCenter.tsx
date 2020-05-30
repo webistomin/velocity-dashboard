@@ -1,7 +1,7 @@
 import { VueComponent } from 'types/vue-components';
 import { Component, Watch } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
-import { formatDistance } from 'date-fns';
+import formatDistance from 'date-fns/formatDistance';
 
 import BaseNotify from 'components/base/BaseNotify';
 import BaseSidebar from 'components/base/BaseSidebar';

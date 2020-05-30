@@ -1,7 +1,8 @@
 import { VueComponent } from 'types/vue-components';
 import { Component } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
-import { formatDistance, format } from 'date-fns';
+import formatDistance from 'date-fns/formatDistance';
+import format from 'date-fns/format';
 
 import { IChat, IChatFormatted, IChatMessage } from 'common/types/chat/chat-list';
 import BaseIcon from 'components/base/BaseIcon';
