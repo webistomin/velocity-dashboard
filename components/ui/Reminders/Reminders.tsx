@@ -2,6 +2,8 @@ import { VueComponent } from 'types/vue-components';
 import { Component } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
 import { ChartData, ChartOptions } from 'chart.js';
+// @ts-ignore
+import LazyHydrate from 'vue-lazy-hydration';
 
 import BaseBlock from 'components/base/BaseBlock';
 import BaseBoard from 'components/base/BaseBoard';
@@ -16,6 +18,7 @@ import './Reminders.sass';
 
 @Component({
   name: 'Reminders',
+  components: { LazyHydrate },
 })
 export default class Reminders extends VueComponent {
   public board: ITaskBoard[] = [
@@ -201,19 +204,29 @@ export default class Reminders extends VueComponent {
           <BaseTitle level={3} class='reminders__title'>
             Service Reminders
           </BaseTitle>
+
           <div class='reminders__grid'>
             <BaseBlock isSimple class='reminders__block'>
               <BaseBoard board={this.board} onSetBoard={(board: ITaskBoard[]) => this.onSetBoard(board)} />
             </BaseBlock>
-            <BaseBlock title='service center' class='reminders__block'>
-              <RemindersMap />
-            </BaseBlock>
-            <BaseBlock title='Vehicle Service Status' class='reminders__block'>
-              <BasePieGraph chartData={this.pieData} options={this.pieOptions} />
-            </BaseBlock>
-            <BaseBlock title='Top drivers' class='reminders__block'>
-              <BaseList list={this.drivers} limit={3} />
-            </BaseBlock>
+
+            <LazyHydrate when-visible>
+              <BaseBlock title='service center' class='reminders__block'>
+                <RemindersMap />
+              </BaseBlock>
+            </LazyHydrate>
+
+            <LazyHydrate when-visible>
+              <BaseBlock title='Vehicle Service Status' class='reminders__block'>
+                <BasePieGraph chartData={this.pieData} options={this.pieOptions} />
+              </BaseBlock>
+            </LazyHydrate>
+
+            <LazyHydrate when-visible>
+              <BaseBlock title='Top drivers' class='reminders__block'>
+                <BaseList list={this.drivers} limit={3} />
+              </BaseBlock>
+            </LazyHydrate>
           </div>
         </div>
       </section>

@@ -3,6 +3,8 @@ import { Component, Prop } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
 import { ChartData, ChartOptions } from 'chart.js';
 import { eachHourOfInterval, format } from 'date-fns';
+// @ts-ignore
+import LazyHydrate from 'vue-lazy-hydration';
 
 import BaseBlock from 'components/base/BaseBlock';
 import BaseCircularGraph from 'components/base/BaseCircularGraph';
@@ -27,6 +29,7 @@ export interface IHomePageProps {
 
 @Component({
   name: 'Overview',
+  components: { LazyHydrate },
 })
 export default class Overview extends VueComponent<IHomePageProps> {
   @Prop()
@@ -146,7 +149,7 @@ export default class Overview extends VueComponent<IHomePageProps> {
       end: new Date().setHours(23, 0, 0, 0),
     });
 
-    const hoursIntervals = dayTimeIntervals.map((time) => format(time, 'hh:mm bb'));
+    const hoursIntervals = dayTimeIntervals.map((time: any) => format(time, 'hh:mm bb'));
     const currentHour = format(new Date(), 'hh:00 bb');
     const currentHourIndex = hoursIntervals.indexOf(currentHour);
     const startIndex = currentHourIndex - trips.today.length > 0 ? currentHourIndex - trips.today.length : 0;
@@ -304,25 +307,31 @@ export default class Overview extends VueComponent<IHomePageProps> {
               )}
             </BaseBlock>
 
-            <BaseBlock class='overview__block' title='Top drivers'>
-              {this.getTopDrivers ? <BaseList list={this.getTopDrivers} /> : <BaseEmpty />}
-            </BaseBlock>
+            <LazyHydrate when-visible>
+              <BaseBlock class='overview__block' title='Top drivers'>
+                {this.getTopDrivers ? <BaseList list={this.getTopDrivers} /> : <BaseEmpty />}
+              </BaseBlock>
+            </LazyHydrate>
 
-            <BaseBlock class='overview__block' title='Trips by type'>
-              {this.getTripsTypeStat ? (
-                <BaseBarGraph chartData={this.getTripsTypeStat} options={this.chartOptions} />
-              ) : (
-                <BaseEmpty />
-              )}
-            </BaseBlock>
+            <LazyHydrate when-visible>
+              <BaseBlock class='overview__block' title='Trips by type'>
+                {this.getTripsTypeStat ? (
+                  <BaseBarGraph chartData={this.getTripsTypeStat} options={this.chartOptions} />
+                ) : (
+                  <BaseEmpty />
+                )}
+              </BaseBlock>
+            </LazyHydrate>
 
-            <BaseBlock class='overview__block' title='Service Reminders'>
-              {this.getTodoList ? (
-                <BaseTodo todos={this.getTodoList} onInput={(event: Event) => this.updateTodo(event)} />
-              ) : (
-                <BaseEmpty />
-              )}
-            </BaseBlock>
+            <LazyHydrate when-visible>
+              <BaseBlock class='overview__block' title='Service Reminders'>
+                {this.getTodoList ? (
+                  <BaseTodo todos={this.getTodoList} onInput={(event: Event) => this.updateTodo(event)} />
+                ) : (
+                  <BaseEmpty />
+                )}
+              </BaseBlock>
+            </LazyHydrate>
           </div>
         </div>
       </section>

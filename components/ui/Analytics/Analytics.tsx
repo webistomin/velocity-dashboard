@@ -2,7 +2,10 @@ import { VueComponent } from 'types/vue-components';
 import { Component, Prop } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
 import { ChartData, ChartOptions } from 'chart.js';
+// @ts-ignore
 import { formatDistance } from 'date-fns';
+// @ts-ignore
+import LazyHydrate from 'vue-lazy-hydration';
 
 import BaseBlock from 'components/base/BaseBlock';
 import BaseLineChart from 'components/base/BaseLineChart';
@@ -21,6 +24,7 @@ export interface IAnalyticsPageProps {
 
 @Component({
   name: 'Analytics',
+  components: { LazyHydrate },
 })
 export default class Analytics extends VueComponent<IAnalyticsPageProps> {
   @Prop({ required: true })
@@ -296,17 +300,21 @@ export default class Analytics extends VueComponent<IAnalyticsPageProps> {
               )}
             </BaseBlock>
 
-            <BaseBlock class='analytics__block' title='Latest trips'>
-              {this.getLatestTrips ? <BaseList list={this.getLatestTrips} /> : <BaseEmpty />}
-            </BaseBlock>
+            <LazyHydrate when-visible>
+              <BaseBlock class='analytics__block' title='Latest trips'>
+                {this.getLatestTrips ? <BaseList list={this.getLatestTrips} /> : <BaseEmpty />}
+              </BaseBlock>
+            </LazyHydrate>
 
-            <BaseBlock class='analytics__block' title='Trips by weekday'>
-              {this.getTripsByWeekdayChartData ? (
-                <BaseBarGraph chartData={this.getTripsByWeekdayChartData} options={this.mixedOptions} />
-              ) : (
-                <BaseEmpty />
-              )}
-            </BaseBlock>
+            <LazyHydrate when-visible>
+              <BaseBlock class='analytics__block' title='Trips by weekday'>
+                {this.getTripsByWeekdayChartData ? (
+                  <BaseBarGraph chartData={this.getTripsByWeekdayChartData} options={this.mixedOptions} />
+                ) : (
+                  <BaseEmpty />
+                )}
+              </BaseBlock>
+            </LazyHydrate>
           </div>
         </div>
       </section>

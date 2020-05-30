@@ -23,8 +23,8 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'preconnect', href: 'https://cartodb-basemaps-c.global.ssl.fastly.net' },
-      { rel: 'preconnect', href: 'https://cdn.jsdelivr.nett' },
+      { rel: 'preconnect', href: 'https://cartodb-basemaps-c.global.ssl.fastly.net', crossorigin: 'true' },
+      { rel: 'preconnect', href: 'https://velocity-bucket1.s3.eu-central-1.amazonaws.com', crossorigin: 'true' },
     ],
   },
   loading: { color: '#fff' },
@@ -87,6 +87,12 @@ module.exports = {
             chunks: 'all',
             enforce: true,
           },
+          // scripts: {
+          //   name: 'scripts',
+          //   test: /\.(js)$/,
+          //   chunks: 'all',
+          //   maxSize: 256000,
+          // },
         },
       },
     },
@@ -102,7 +108,7 @@ module.exports = {
       }),
     ],
 
-    extend(config) {
+    extend(config, _ctx) {
       if (!config.resolve) {
         config.resolve = {};
       }
@@ -112,6 +118,10 @@ module.exports = {
       }
 
       config.resolve.plugins.push(new TsconfigPathsPlugin({ configFile: './tsconfig.json' }));
+
+      // if (ctx && ctx.isClient) {
+      //   config.optimization.splitChunks.maxSize = 51200;
+      // }
     },
   },
   auth: {

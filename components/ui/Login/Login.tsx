@@ -43,11 +43,11 @@ export default class Login extends VueComponent {
   public render(): VNode {
     return (
       <section class='login'>
-        <h2 class='visually-hidden'>Authorization</h2>
         <div class='login__container container'>
           <div class='login__inner'>
             <div class='login__col login__col_left'>
               <LoginHeader />
+              <h2 class='visually-hidden'>Authorization</h2>
               <transition name='login-fade' mode='out-in'>
                 {this.currentForm === FormTypes.SIGN_IN && (
                   <LoginSignIn onSetFormName={(formName) => this.setFormType(formName)} />
