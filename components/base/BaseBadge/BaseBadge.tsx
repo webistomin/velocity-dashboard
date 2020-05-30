@@ -2,8 +2,10 @@ import Vue, { CreateElement, RenderContext, VNode, PropType } from 'vue';
 
 import './BaseBadge.sass';
 
+export type IBaseBadgeColor = 'default' | 'blue' | 'yellow' | 'purple' | 'darkturquoise';
+
 export interface IBaseBadgeProps {
-  color?: string;
+  color?: IBaseBadgeColor;
 }
 
 export const BaseBadge = Vue.extend({

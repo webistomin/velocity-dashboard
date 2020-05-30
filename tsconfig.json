@@ -9,7 +9,7 @@
       "dom"
     ],
     "jsx": "preserve",
-    "jsxFactory": "h",
+//    "jsxFactory": "h",
     "esModuleInterop": true,
     "allowJs": true,
     "sourceMap": true,
@@ -36,7 +36,8 @@
       "@types/nuxtjs__auth",
       "@nuxtjs/axios",
       "vuelidate",
-      "vue-notification"
+      "vue-notification",
+      "jest"
     ]
   },
   "include": [

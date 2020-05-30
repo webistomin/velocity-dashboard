@@ -17,6 +17,12 @@
               "node": "current"
             }
           }
+        ],
+        [
+          "@vue/babel-preset-jsx",
+          {
+            "injectH": true
+          }
         ]
       ]
     }
