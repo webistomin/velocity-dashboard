@@ -1,4 +1,5 @@
 import { SentMessageInfo } from 'nodemailer';
+
 import config from 'server/config';
 import { IAuthPasswordReset } from 'common/types/auth/reset';
 import { IUserInterface } from 'common/types/user/user-schema';
