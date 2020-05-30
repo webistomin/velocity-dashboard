@@ -11,7 +11,7 @@ import Profile from 'components/ui/Profile';
 export default class ProfilePage extends VueComponent {
   public head() {
     return {
-      title: 'Velocity:: Profile',
+      title: 'Velocity :: Profile',
     };
   }
 

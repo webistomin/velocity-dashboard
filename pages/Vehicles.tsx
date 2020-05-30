@@ -16,7 +16,7 @@ export default class VehiclesPage extends VueComponent {
 
   public head() {
     return {
-      title: 'Velocity:: Vehicles',
+      title: 'Velocity :: Vehicles',
     };
   }
 

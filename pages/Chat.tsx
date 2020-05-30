@@ -11,7 +11,7 @@ import Chat from 'components/ui/Chat';
 export default class VehiclesPage extends VueComponent {
   public head() {
     return {
-      title: 'Velocity:: Chat',
+      title: 'Velocity :: Chat',
     };
   }
 

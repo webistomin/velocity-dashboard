@@ -16,7 +16,7 @@ export default class MainPage extends VueComponent {
 
   public head() {
     return {
-      title: 'Velocity:: Home',
+      title: 'Velocity :: Home',
     };
   }
 

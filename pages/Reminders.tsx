@@ -11,7 +11,7 @@ import Reminders from 'components/ui/Reminders';
 export default class RemindersPage extends VueComponent {
   public head() {
     return {
-      title: 'Velocity:: Service',
+      title: 'Velocity :: Service',
     };
   }
 

@@ -15,7 +15,7 @@ export default class AnalyticsPage extends VueComponent {
 
   public head() {
     return {
-      title: 'Velocity:: Analytics',
+      title: 'Velocity :: Analytics',
     };
   }
 

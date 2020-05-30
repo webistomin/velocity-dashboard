@@ -16,7 +16,7 @@ export default class MapPage extends VueComponent {
 
   public head() {
     return {
-      title: 'Velocity:: Map',
+      title: 'Velocity :: Map',
     };
   }
 

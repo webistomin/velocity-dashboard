@@ -10,7 +10,7 @@ import Settings from 'components/ui/Settings';
 export default class SettingsPage extends VueComponent {
   public head() {
     return {
-      title: 'Velocity:: Settings',
+      title: 'Velocity :: Settings',
     };
   }
 
