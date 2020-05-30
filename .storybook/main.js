@@ -12,6 +12,7 @@ module.exports = {
     config.resolve.alias['~'] = rootPath;
     config.resolve.alias['types'] = path.resolve(rootPath, 'types');
     config.resolve.alias['components'] = path.resolve(rootPath, 'components');
+    config.resolve.alias['common'] = path.resolve(rootPath, 'common');
 
     config.module.rules.push({
       test: /\.tsx?$/,
