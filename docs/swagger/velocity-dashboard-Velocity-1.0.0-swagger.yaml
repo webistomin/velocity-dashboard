@@ -1,0 +1,249 @@
+openapi: 3.0.0
+# Added by API Auto Mocking Plugin
+servers:
+# Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/velocity-dashboard/Velocity/1.0.0
+  - description: SwaggerHub API Auto Mocking
+    url: https://stormy-ocean-88138.herokuapp.com/api/v1
+info:
+  description: |
+        Swagger API for velocity dashboard
+        https://github.com/webistomin/velocity-dashboard
+  version: "1.0.0"
+  title: Velocity dashboard
+  contact:
+    email: webistomin@gmail.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+tags:
+  - name: Auth
+    description: Operations for user authorization
+paths:
+  /sign-in:
+    post:
+      tags:
+        - Auth
+      summary: Authorize user
+      operationId: signIn
+      description: |
+        By passing in the appropriate options, user can login through website form
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserSignInSchema'
+      responses:
+        '200':
+          description: User successfully logged in
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserSignInSchemaSuccess'
+          
+        '401':
+          description: Wrong email or password 
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserSignInSchemaFailure'
+                
+        '422':
+          description: Validation error 
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityError'          
+                
+        '500':
+          description: Internal server error 
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'        
+                
+  /sign-up:
+    post:
+      tags:
+        - Auth
+      summary: Sign up user
+      operationId: signUp
+      description: |
+        By passing in the appropriate options, user can create new account for work
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserSignUpSchema'
+      responses:
+        '201':
+          description: User account created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserSignUpSchemaSuccess'
+    
+                
+        '409':
+          description: User with provided email already exists
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserSignUpSchemaFailure'        
+                
+        '422':
+          description: Validation error 
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityError'        
+                
+        '500':
+          description: Internal server error 
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'                      
+components:
+  schemas:
+    InternalServerError:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: false
+        message:
+          type: string
+          example: Something went wrong
+          
+    UnprocessableEntityError:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: false
+        message:
+          type: string
+          example: Invalid validation      
+  
+    UserSignInSchema:
+      type: object
+      required:
+        - email
+        - password
+      properties:
+        email:
+          type: string
+          example: example@example.com
+        password:
+          type: string
+          example: 123
+          
+    UserSignInSchemaFailure:
+     type: object
+     properties:
+       success:
+         type: boolean
+         example: false
+       message:
+         type: string
+         example: Wrong email or password, please try again
+         
+    UserSignInSchemaSuccess:
+     type: object
+     properties:
+       success:
+         type: boolean
+         example: true
+       token:
+         type: string
+         example: g8789fg789dgkjdfgkhd 
+         
+    UserSignUpSchema:
+      type: object
+      required:
+        - firstName
+        - lastName
+        - role
+        - email
+        - password
+      properties:
+        firstName:
+          type: string
+          example: Alexey 
+        lastName:
+          type: string
+          example: Istomin
+        role:
+          type: string
+          enum: ['operator', 'admin']
+          example: operator
+        email:
+          type: string
+          example: example@example.com
+        password:
+          type: string
+          example: 123 
+        theme:
+          type: string
+          enum: ['shelob', 'shadowfax', 'denethor', 'grima', 'quickbeam']
+          example: shelob 
+        notifications:
+          type: object
+          properties:
+              isEmailNotificationsEnabled:
+                type: boolean
+                example: false
+              isPushNotificationsEnabled:
+                type: boolean
+                example: false  
+              isMonthlyNotificationsEnabled:
+                type: boolean
+                example: false  
+              isQuarterNotificationsEnabled:
+                type: boolean
+                example: false 
+        phone:
+          type: string
+          example: +7(999)-99-99
+        socials:
+          type: object
+          properties:
+            twitter:
+              type: string
+              example: https://twitter.com/
+        location:
+          type: string
+          example: 'New York, NY'  
+        bio:
+          type: string
+          example: 'Just a man' 
+        dob:
+          type: string
+          example: '10.02.1997'  
+          
+    UserSignUpSchemaFailure:
+     type: object
+     properties:
+       success:
+         type: boolean
+         example: false
+       message:
+         type: string
+         example: Email address already registered
+         
+    UserSignUpSchemaSuccess:
+     type: object
+     properties:
+       success:
+         type: boolean
+         example: true
+       token:
+         type: string
+         example: g8789fg789dgkjdfgkhd
+       message:
+         type: string
+         example: User created
