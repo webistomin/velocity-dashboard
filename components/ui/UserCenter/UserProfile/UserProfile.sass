@@ -13,6 +13,8 @@
   +e('avatar-cropper')
     .ankaCropper.light
       font: var(--text-button)
+      box-shadow: none
+      background-color: rgb(var(--color-white))
 
       .ankaCropper__droparea
         border-color: rgb(var(--color-primary))
@@ -31,7 +33,28 @@
           margin-right: rem(6px)
 
       .ankaCropper__selectButton
-        margin: rem(10px) auto
+        margin: rem(24px) auto rem(10px)
+        font: inherit
+        font-weight: 500
+
+      .ankaCropper__droparea
+        div:first-child
+          font: var(--text-caption)
+          +letter-spacing(94px)
+          text-transform: uppercase
+          color: rgb(var(--color-gray-3))
+
+      .ankaCropper__navigation
+        box-shadow: none
+        background-color: rgb(var(--color-white))
+        border-bottom: rem(1px) solid rgb(var(--color-lavender))
+        border-radius: 0
+
+      .ankaCropper__navButton, .ankaCropper__saveButton
+        box-shadow: none
+
+      .ankaCropper__navButton svg
+        stroke: rgb(var(--color-primary))
 
   +e('avatar-block')
     position: relative

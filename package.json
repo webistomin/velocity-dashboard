@@ -11,7 +11,7 @@
     "dev": "cross-env NODE_ENV=development nodemon server/index.ts --watch server",
     "build": "nuxt build -m",
     "analyze": "nuxt build --analyze",
-    "start": "cross-env NODE_ENV=production ts-node --project './tsconfig.json' server/index.ts",
+    "start": "cross-env NODE_ENV=production ts-node --project './tsconfig.json' server/index.ts --max-old-space-size=4096",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue,.tsx,.ts --ignore-path .gitignore .",
     "lint:write": "eslint --ext .js,.vue,.tsx,.ts --ignore-path .gitignore . --fix",

@@ -19,19 +19,23 @@ export interface IHeaderProps {
   name: 'TheHeader',
 })
 export default class TheHeader extends VueComponent<IHeaderProps> {
-  @Prop({ default: false })
+  @Prop({ default: false, required: true })
   private readonly isNavOpened!: IHeaderProps['isNavOpened'];
 
   @Emit('openNav')
   public onToggleClick(): void {}
 
+  get getPageTitle(): string {
+    return this.$route.meta?.title || '';
+  }
+
   public render(): VNode {
     return (
-      <header class='page-header' id='js-page-header'>
+      <header class='page-header'>
         <div class='page-header__container container'>
           <BaseToggle class='page-header__nav-toggle' onClick={this.onToggleClick} isActive={this.isNavOpened} />
           <BaseLogo class='page-header__logo' />
-          <h2 class='page-header__title title'>Page title</h2>
+          <h2 class='page-header__title title'>{this.getPageTitle}</h2>
           <ul class='page-header__user-list list'>
             <li class='page-header__user-item page-header__user-item_notification list-item'>
               <NotificationCenter />

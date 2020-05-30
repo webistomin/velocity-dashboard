@@ -33,7 +33,7 @@
     background-color: rgb(var(--color-white))
     border-left: rem(1px) solid rgba(var(--color-primary), 0.2)
     border-top: rem(1px) solid rgba(var(--color-primary), 0.2)
-    width: 30%
+    width: calc(100% - 6rem)
     padding: rem(24px)
     height: 100%
     z-index: var(--z-index-base-modal)
@@ -44,6 +44,9 @@
     +m('visible')
       transform: none
       visibility: visible
+
+    +media($screen-sm)
+      width: 30%
 
   +e('link')
     margin-top: auto

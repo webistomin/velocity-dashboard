@@ -41,10 +41,6 @@ async function start(): Promise<void> {
 
   const { host, port } = nuxt.options.server;
 
-  console.log('host:', host);
-  console.log('port:', port);
-  console.log('config:', config);
-
   await nuxt.ready();
   /**
    * Build only in dev mode
