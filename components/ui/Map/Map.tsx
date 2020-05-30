@@ -1,6 +1,6 @@
 import { VueComponent } from 'types/vue-components';
 import { Component, Prop } from 'nuxt-property-decorator';
-import { VNode } from 'vue';
+import Vue, { VNode } from 'vue';
 
 import BaseBlock from 'components/base/BaseBlock';
 import BaseMap from 'components/base/BaseMap';
@@ -23,6 +23,10 @@ export interface IMapPageProps {
   name: 'Map',
 })
 export default class Map extends VueComponent<IMapPageProps> {
+  public $refs!: Vue['$refs'] & {
+    driverVideo: HTMLVideoElement;
+  };
+
   @Prop({ required: true })
   private readonly content!: IMapPageProps['content'];
 
@@ -48,10 +52,14 @@ export default class Map extends VueComponent<IMapPageProps> {
 
   public onVideoClick(): void {
     this.isVideoModalVisible = true;
+    this.$refs.driverVideo.play();
+    this.$refs.driverVideo.volume = 1;
   }
 
   public onVideoClose(): void {
     this.isVideoModalVisible = false;
+    this.$refs.driverVideo.pause();
+    this.$refs.driverVideo.volume = 0;
   }
 
   public get getCurrentTrip(): ITripInterfaceDB | undefined {
@@ -127,7 +135,7 @@ export default class Map extends VueComponent<IMapPageProps> {
           )}
         </div>
         <BaseModal isVisible={this.isVideoModalVisible} onClose={this.onVideoClose}>
-          <video preload='auto' muted playsInline autoPlay='autoplay' loop='loop' class='map__driver-video'>
+          <video preload='auto' playsInline loop='loop' class='map__driver-video' ref='driverVideo'>
             <source src='/video/car-driving.webm' type='video/webm; codecs="vp8, vorbis"' />
             <source src='/video/car-driving.mp4' type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
             Video tag is not supported in this browser.

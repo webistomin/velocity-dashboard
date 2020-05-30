@@ -101,6 +101,14 @@ export function createRouter() {
         },
       },
       {
+        path: clientUrls.remindersById,
+        component: Reminders,
+        name: 'reminders-id',
+        meta: {
+          title: 'Service',
+        },
+      },
+      {
         path: clientUrls.map,
         component: Map,
         name: 'map',

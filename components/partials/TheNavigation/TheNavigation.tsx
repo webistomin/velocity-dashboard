@@ -6,9 +6,9 @@ import { State } from 'vuex-class';
 import BaseToggle from 'components/base/BaseToggle';
 import BaseThumbnail from 'components/base/BaseThumbnail';
 import BaseOverlay from 'components/base/BaseOverlay';
+import { IUserInterfaceDB } from 'common/types/user/user-schema';
 
 import './TheNavigation.sass';
-import { IUserInterfaceDB } from 'common/types/user/user-schema';
 
 export interface INavigationProps {
   isNavOpened: boolean;
@@ -116,7 +116,12 @@ export default class TheNavigation extends VueComponent<INavigationProps> {
               {this.getFilteredLinks.map((link) => {
                 return (
                   <li class='main-nav__item list-item' key={link.name}>
-                    <nuxt-link class='main-nav__link link' to={link.to} aria-label={link.name} title={link.name}>
+                    <nuxt-link
+                      class='main-nav__link link'
+                      to={link.to}
+                      aria-label={link.name}
+                      title={link.name}
+                      exact={link.to === '/'}>
                       <svg-icon name={link.icon} width={24} height={24} />
                       <span class={`main-nav__link-name ${this.isNavOpened ? 'main-nav__link-name_visible' : ''}`}>
                         {link.name}

@@ -178,11 +178,6 @@ export default class UserProfile extends VueComponent<IUserProfileProps> {
           </BaseTitle>
           <strong class='user-profile__post'>{this.getFullRoleName}</strong>
           <div class='user-profile__actions'>
-            <BaseButton>
-              <nuxt-link class='link' to='/profile'>
-                Edit profile
-              </nuxt-link>
-            </BaseButton>
             <BaseButton theme='light' onClick={this.logoutHandler}>
               Logout
             </BaseButton>

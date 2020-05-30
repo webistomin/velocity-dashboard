@@ -53,7 +53,7 @@ export default class NotificationCenterItem extends VueComponent<INotificationCe
   public render(): VNode {
     return (
       <div class='notification-center__item'>
-        <nuxt-link to='/test' class='notification-center__item-link link'>
+        <nuxt-link to='#' class='notification-center__item-link link'>
           <div class='notification-center__col notification-center__col_left'>
             {this.isNew ? <BaseNotify /> : null}
             <BaseIcon

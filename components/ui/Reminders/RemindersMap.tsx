@@ -750,8 +750,8 @@ export default class RemindersMap extends VueComponent {
             <span class='reminders__map-state'>NY</span>
           </li>
           <li class='reminders__map-item list-item'>
-            <strong class='reminders__map-city'>San Francicso</strong>
-            <span class='reminders__map-state'>CA</span>
+            <strong class='reminders__map-city'>San Francisco</strong>
+            <span class='reminders__map-state'>SF</span>
           </li>
           <li class='reminders__map-item list-item'>
             <strong class='reminders__map-city'>Austin</strong>
@@ -766,8 +766,8 @@ export default class RemindersMap extends VueComponent {
             <span class='reminders__map-state'>IL</span>
           </li>
           <li class='reminders__map-item list-item'>
-            <strong class='reminders__map-city'>Chicago</strong>
-            <span class='reminders__map-state'>IL</span>
+            <strong class='reminders__map-city'>California</strong>
+            <span class='reminders__map-state'>CA</span>
           </li>
         </ul>
       </div>

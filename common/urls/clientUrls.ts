@@ -5,6 +5,7 @@ export const clientUrls = {
   analytics: '/analytics',
   vehicles: '/vehicles',
   reminders: '/reminders',
+  remindersById: '/reminders/:id',
   map: '/map',
   mapWithId: '/map/:id',
   chat: '/chat',

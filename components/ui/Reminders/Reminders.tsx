@@ -125,7 +125,8 @@ export default class Reminders extends VueComponent {
         boxWidth: 10,
         usePointStyle: true,
         padding: 30,
-        fontColor: '#2e384d',
+        fontColor: '#B0BAC9',
+        fontFamily: 'Rubik, system-ui, sans-serif',
       },
     },
   };

@@ -1,8 +1,9 @@
 import { VueComponent } from 'types/vue-components';
 import { Component, Prop, Emit } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
-
 import { add, compareAsc } from 'date-fns';
+
+import { clientUrls } from 'common/urls/clientUrls';
 import { IBaseTodo } from './BaseTodo';
 
 export interface IBaseTodoItem extends IBaseTodo {
@@ -62,7 +63,7 @@ export default class BaseTodoItem extends VueComponent<IBaseTodoItem> {
           />
           <label for={this.id} class='base-todo__label label' />
         </div>
-        <nuxt-link to={this.id} class='base-todo__content link'>
+        <nuxt-link to={`${clientUrls.reminders}/${this.id}`} class='base-todo__content link'>
           <strong class='base-todo__name'>{this.title}</strong>
           <time class={`base-todo__date base-todo__date_deadline_${this.getDeadline}`}>
             Due {new Date(this.dueDate).toLocaleString()}
