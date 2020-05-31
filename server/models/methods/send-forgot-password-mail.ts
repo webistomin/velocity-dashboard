@@ -8,7 +8,7 @@ import PasswordReset from 'server/models/auth/password-reset';
 export default async function sendForgotPasswordMail(): Promise<SentMessageInfo> {
   const token = nanoid(72);
 
-  return await new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     sendResetMail(this.email, token)
       .then(async (info) => {
         await PasswordReset.create({

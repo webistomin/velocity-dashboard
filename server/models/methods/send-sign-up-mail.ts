@@ -4,7 +4,7 @@ import consola from 'consola';
 import { sendSignUpMail } from 'server/services/mailer/reset-mail';
 
 export default async function sendSignUpSuccessfulMail(): Promise<SentMessageInfo> {
-  return await new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     sendSignUpMail(this)
       .then((info) => {
         resolve(info);
