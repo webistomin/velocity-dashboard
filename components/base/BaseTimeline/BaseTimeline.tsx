@@ -19,7 +19,6 @@ export const BaseTimeline = Vue.extend({
   props: {
     timeline: {
       type: Array as PropType<IBaseTimelineProps['timeline']>,
-      default: () => [],
       required: true,
     },
   },

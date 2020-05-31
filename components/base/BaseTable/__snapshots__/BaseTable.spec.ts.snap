@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseTable Matches snapshot 1`] = `
+"<div class=\\"base-table\\">
+  <div class=\\"base-table__wrapper\\">
+    <div class=\\"base-table__head\\">
+      <div class=\\"base-table__head-data base-table__cell\\"><button type=\\"button\\" class=\\"base-table__sort btn caption \\"><span class=\\"base-table__sort-name\\">Id</span>
+          <svg-icon-stub name=\\"icon-dropdown\\" width=\\"16\\" height=\\"16\\" class=\\"base-table__icon\\"></svg-icon-stub></button></div>
+      <div class=\\"base-table__head-data base-table__cell\\"><button type=\\"button\\" class=\\"base-table__sort btn caption \\"><span class=\\"base-table__sort-name\\">Manufacturer</span>
+          <svg-icon-stub name=\\"icon-dropdown\\" width=\\"16\\" height=\\"16\\" class=\\"base-table__icon\\"></svg-icon-stub></button></div>
+      <div class=\\"base-table__head-data base-table__cell\\"><button type=\\"button\\" class=\\"base-table__sort btn caption \\"><span class=\\"base-table__sort-name\\">Model</span>
+          <svg-icon-stub name=\\"icon-dropdown\\" width=\\"16\\" height=\\"16\\" class=\\"base-table__icon\\"></svg-icon-stub></button></div>
+      <div class=\\"base-table__head-data base-table__cell\\"><button type=\\"button\\" class=\\"base-table__sort btn caption \\"><span class=\\"base-table__sort-name\\">Location</span>
+          <svg-icon-stub name=\\"icon-dropdown\\" width=\\"16\\" height=\\"16\\" class=\\"base-table__icon\\"></svg-icon-stub></button></div>
+      <div class=\\"base-table__head-data base-table__cell\\"><button type=\\"button\\" class=\\"base-table__sort btn caption \\"><span class=\\"base-table__sort-name\\">Mileage</span>
+          <svg-icon-stub name=\\"icon-dropdown\\" width=\\"16\\" height=\\"16\\" class=\\"base-table__icon\\"></svg-icon-stub></button></div>
+      <div class=\\"base-table__head-data base-table__cell\\"><button type=\\"button\\" class=\\"base-table__sort btn caption \\"><span class=\\"base-table__sort-name\\">Date of purchase</span>
+          <svg-icon-stub name=\\"icon-dropdown\\" width=\\"16\\" height=\\"16\\" class=\\"base-table__icon\\"></svg-icon-stub></button></div>
+      <div class=\\"base-table__head-data base-table__cell\\"><button type=\\"button\\" class=\\"base-table__sort btn caption \\"><span class=\\"base-table__sort-name\\">Status</span>
+          <svg-icon-stub name=\\"icon-dropdown\\" width=\\"16\\" height=\\"16\\" class=\\"base-table__icon\\"></svg-icon-stub></button></div>
+      <div class=\\"base-table__head-data base-table__cell\\"><button type=\\"button\\" class=\\"base-table__sort btn caption \\"><span class=\\"base-table__sort-name\\">Trips taken</span>
+          <svg-icon-stub name=\\"icon-dropdown\\" width=\\"16\\" height=\\"16\\" class=\\"base-table__icon\\"></svg-icon-stub></button></div>
+    </div>
+    <div class=\\"base-table__scroller \\">
+      <div role=\\"group\\" class=\\"base-table__scroller-wrapper\\" style=\\"padding: 0px 0px 0px;\\">
+        <div role=\\"item\\" class=\\"base-table__scroller-item\\">
+          <div class=\\"base-table__row  \\"><span class=\\"base-table__body-data base-table__cell\\">Niuq1</span><span class=\\"base-table__body-data base-table__cell\\">Mercedes-Benz</span><span class=\\"base-table__body-data base-table__cell\\">C1</span><span class=\\"base-table__body-data base-table__cell\\">Texas, TX</span><span class=\\"base-table__body-data base-table__cell\\">97856</span><span class=\\"base-table__body-data base-table__cell\\">2006-03-03T21:00:00.000Z</span><span class=\\"base-table__body-data base-table__cell\\">fully serviced</span><span class=\\"base-table__body-data base-table__cell\\">541</span></div>
+        </div>
+        <div role=\\"item\\" class=\\"base-table__scroller-item\\">
+          <div class=\\"base-table__row  \\"><span class=\\"base-table__body-data base-table__cell\\">bTArp</span><span class=\\"base-table__body-data base-table__cell\\">BMW</span><span class=\\"base-table__body-data base-table__cell\\">A2</span><span class=\\"base-table__body-data base-table__cell\\">Washington DC, DC</span><span class=\\"base-table__body-data base-table__cell\\">24412</span><span class=\\"base-table__body-data base-table__cell\\">2008-04-30T20:00:00.000Z</span><span class=\\"base-table__body-data base-table__cell\\">waiting</span><span class=\\"base-table__body-data base-table__cell\\">761</span></div>
+        </div>
+        <div role=\\"item\\" class=\\"base-table__scroller-item\\">
+          <div class=\\"base-table__row  \\"><span class=\\"base-table__body-data base-table__cell\\">bwnVE</span><span class=\\"base-table__body-data base-table__cell\\">Ford</span><span class=\\"base-table__body-data base-table__cell\\">B1</span><span class=\\"base-table__body-data base-table__cell\\">Texas, TX</span><span class=\\"base-table__body-data base-table__cell\\">14475</span><span class=\\"base-table__body-data base-table__cell\\">2002-02-04T21:00:00.000Z</span><span class=\\"base-table__body-data base-table__cell\\">service needed</span><span class=\\"base-table__body-data base-table__cell\\">958</span></div>
+        </div>
+        <div role=\\"item\\" class=\\"base-table__scroller-item\\">
+          <div class=\\"base-table__row  \\"><span class=\\"base-table__body-data base-table__cell\\">mMTzR</span><span class=\\"base-table__body-data base-table__cell\\">Mazda</span><span class=\\"base-table__body-data base-table__cell\\">C2</span><span class=\\"base-table__body-data base-table__cell\\">Washington DC, DC</span><span class=\\"base-table__body-data base-table__cell\\">72493</span><span class=\\"base-table__body-data base-table__cell\\">2005-03-06T21:00:00.000Z</span><span class=\\"base-table__body-data base-table__cell\\">service needed</span><span class=\\"base-table__body-data base-table__cell\\">176</span></div>
+        </div>
+      </div>
+      <div style=\\"width: 100%; height: 0px;\\"></div>
+    </div>
+  </div>
+</div>"
+`;

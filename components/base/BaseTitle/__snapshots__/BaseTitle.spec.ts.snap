@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseTitle Matches snapshot 1`] = `"<h1 class=\\"title base-title base-title_level-1  \\"></h1>"`;

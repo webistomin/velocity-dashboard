@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseTheme Matches snapshot 1`] = `"<div class=\\"base-theme\\"><input type=\\"radio\\" name=\\"theme-selection\\" id=\\"id\\" class=\\"base-theme__radio visually-hidden\\" value=\\"\\"><label for=\\"id\\" class=\\"base-theme__label label\\"><span class=\\"base-theme__theme base-theme__theme_shelob\\"></span><span class=\\"base-theme__text\\">label</span></label></div>"`;

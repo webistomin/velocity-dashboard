@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseSwitch Matches snapshot 1`] = `"<div class=\\"base-switch\\" value=\\"\\"><input type=\\"checkbox\\" class=\\"base-switch__checkbox visually-hidden\\"><label class=\\"base-switch__label label\\"><span class=\\"base-switch__text\\"><strong class=\\"base-switch__title\\">label</strong><span class=\\"base-switch__desc\\"></span></span><span class=\\"base-switch__slider\\"></span></label></div>"`;

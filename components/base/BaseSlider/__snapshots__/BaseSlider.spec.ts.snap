@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseSlider Matches snapshot 1`] = `
+"<div class=\\"base-slider\\">
+  <div class=\\"base-slider__heading\\"><span class=\\"base-slider__text\\">start</span><span class=\\"base-slider__max\\">end</span></div>
+  <div class=\\"vue-slider vue-slider-ltr base-slider__slider\\" style=\\"padding: 8px 8px; width: auto; height: 4px;\\">
+    <div class=\\"vue-slider-rail\\" style=\\"border-radius: 99px;\\">
+      <div class=\\"vue-slider-process\\" style=\\"height: 100%; top: 0px; left: 0%; width: 0%; transition-property: width,left; transition-duration: 0.5s;\\"></div>
+      <div class=\\"vue-slider-dot vue-slider-dot-hover\\" style=\\"width: 16px; height: 16px; transform: translate(-50%, -50%); top: 50%; left: 0%; transition: left 0.5s;\\">
+        <div class=\\"vue-slider-dot-handle\\" style=\\"box-shadow: none;\\"></div>
+        <div class=\\"vue-slider-dot-tooltip vue-slider-dot-tooltip-bottom\\">
+          <div class=\\"vue-slider-dot-tooltip-inner vue-slider-dot-tooltip-inner-bottom\\"><span class=\\"vue-slider-dot-tooltip-text\\">0</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>"
+`;

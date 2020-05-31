@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseOption Matches snapshot 1`] = `"<div class=\\"base-option\\"><input type=\\"radio\\" id=\\"jest-options\\" name=\\"jest-options\\" class=\\"base-option__input visually-hidden\\" value=\\"\\"><label for=\\"jest-options\\" class=\\"base-option__label label\\"></label></div>"`;

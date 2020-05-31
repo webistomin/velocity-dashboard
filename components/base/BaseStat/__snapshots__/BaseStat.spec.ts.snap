@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseStat Matches snapshot 1`] = `
+"<div class=\\"base-stat base-stat_align_col\\">
+  <div class=\\"base-stat__holder\\">
+    <div class=\\"base-stat__heading\\">
+      <h2 class=\\"title base-title base-title_level-2  base-stat__title\\">0</h2>
+    </div>
+  </div>
+</div>"
+`;

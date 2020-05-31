@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseTimeline Matches snapshot 1`] = `
+"<div class=\\"base-timeline  \\">
+  <ul class=\\"base-timeline__list list\\">
+    <li class=\\"base-timeline__item list-item\\"><span class=\\"base-icon base-icon_size_xs base-icon_color_blue  \\"><svg-icon-stub name=\\"icon-mail\\" class=\\"icon base-icon__icon\\"></svg-icon-stub></span><span class=\\"base-timeline__text\\">Conversation started</span></li>
+    <li class=\\"base-timeline__item list-item\\"><span class=\\"base-icon base-icon_size_xs base-icon_color_darkturquoise  \\"><svg-icon-stub name=\\"icon-graph\\" class=\\"icon base-icon__icon\\"></svg-icon-stub></span><span class=\\"base-timeline__text\\">Trip #12422</span></li>
+    <li class=\\"base-timeline__item list-item\\"><span class=\\"base-icon base-icon_size_xs base-icon_color_red  \\"><svg-icon-stub name=\\"icon-forbidden\\" class=\\"icon base-icon__icon\\"></svg-icon-stub></span><span class=\\"base-timeline__text\\">Refund issue #12422</span></li>
+    <li class=\\"base-timeline__item list-item\\"><span class=\\"base-icon base-icon_size_xs base-icon_color_green  \\"><svg-icon-stub name=\\"icon-check\\" class=\\"icon base-icon__icon\\"></svg-icon-stub></span><span class=\\"base-timeline__text\\">Conversation resolved</span></li>
+    <li class=\\"base-timeline__item list-item\\"><span class=\\"base-icon base-icon_size_xs base-icon_color_blue  \\"><svg-icon-stub name=\\"icon-mail\\" class=\\"icon base-icon__icon\\"></svg-icon-stub></span><span class=\\"base-timeline__text\\">Conversation reopened</span></li>
+  </ul>
+</div>"
+`;
