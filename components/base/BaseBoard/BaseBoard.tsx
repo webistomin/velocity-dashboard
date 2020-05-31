@@ -37,7 +37,6 @@ export default class BaseBoard extends VueComponent<IBaseBoardProps> {
 
   @Emit('setBoard')
   public setBoard(): IBaseBoardProps['board'] {
-    console.log('run run run');
     return this.currentBoard;
   }
 
