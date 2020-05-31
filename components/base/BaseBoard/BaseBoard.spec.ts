@@ -43,7 +43,7 @@ describe('BaseBoard', () => {
     expect(wrapper.vm.collapsed).toEqual(true);
   });
 
-  it('Have 4 element is column if is collapsed', () => {
+  it('Have 4 elements is column if is collapsed', () => {
     const wrapper = factory(
       {},
       {
@@ -60,7 +60,7 @@ describe('BaseBoard', () => {
     expect(draggableItems.length).toEqual(4);
   });
 
-  it('Have more than 4 element is column if is not collapsed', () => {
+  it('Have more than 4 elements is column if is not collapsed', () => {
     const wrapper = factory(
       {},
       {

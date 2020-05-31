@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseFormGroup Matches snapshot 1`] = `
+"<div class=\\"base-form-group\\">
+  <div class=\\"base-form-group__heading\\"></div>
+  <div class=\\"base-form-group__content\\"><input type=\\"text\\" aria-describedby=\\"errors-undefined\\" class=\\" base-form-group__input\\"></div>
+</div>"
+`;

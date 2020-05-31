@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseEmpty Matches snapshot 1`] = `
+"<div class=\\"base-empty  \\">
+  <v-lazy-image-stub src=\\"/img/empty.svg\\" width=\\"184\\" height=\\"152\\" alt=\\"Empty box\\" class=\\"base-empty__img image\\"></v-lazy-image-stub><strong class=\\"base-empty__title caption\\">No data was provided</strong>
+</div>"
+`;

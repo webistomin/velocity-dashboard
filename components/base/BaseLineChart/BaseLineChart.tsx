@@ -22,13 +22,13 @@ export interface IBaseLineChartProps {
 })
 export default class BaseLineChart extends VueComponent<IBaseLineChartProps> {
   @Prop({ required: true })
-  private readonly chartData!: IBaseLineChartProps['chartData'];
+  readonly chartData!: IBaseLineChartProps['chartData'];
 
   @Prop({ required: true })
   private readonly options!: IBaseLineChartProps['options'];
 
   @Prop()
-  private readonly gradients!: IBaseLineChartProps['gradients'];
+  readonly gradients!: IBaseLineChartProps['gradients'];
 
   @Prop({ default: 'Linear graph' })
   private readonly fallbackText: IBaseLineChartProps['fallbackText'];

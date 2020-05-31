@@ -10,6 +10,7 @@ import './BaseCirclularGraph.sass';
 
 export interface IBaseCircularGraphProps {
   value: number;
+  graphId?: string;
 }
 
 @Component({
@@ -23,6 +24,9 @@ export default class BaseCircularGraph extends VueComponent<IBaseCircularGraphPr
   @Prop({ default: 0, required: true })
   private readonly value!: IBaseCircularGraphProps['value'];
 
+  @Prop()
+  private readonly graphId!: IBaseCircularGraphProps['graphId'];
+
   duration: number = 2000;
   percent: number = this.value / 100;
   startValue: number = 0;
@@ -31,7 +35,11 @@ export default class BaseCircularGraph extends VueComponent<IBaseCircularGraphPr
   public animatedValue: IBaseCircularGraphProps['value'] = 0;
 
   created() {
-    this.id = `base-circular-graph-mask-${nanoid()}`;
+    if (this.graphId) {
+      this.id = `base-circular-graph-mask-${this.graphId}`;
+    } else {
+      this.id = `base-circular-graph-mask-${nanoid()}`;
+    }
   }
 
   public mounted(): void {
@@ -40,13 +48,9 @@ export default class BaseCircularGraph extends VueComponent<IBaseCircularGraphPr
   }
 
   public startCircularProgress(percentage: number, speed: number) {
-    let startTimestamp: number = 0;
     let x = this.startValue;
     const step = (timestamp: number) => {
-      if (!startTimestamp) {
-        startTimestamp = timestamp;
-      }
-      const progress = Math.min((timestamp - startTimestamp) / speed, 1);
+      const progress = Math.min(timestamp / speed, 1);
       x = progress * percentage;
       if (progress < 1) {
         window.requestAnimationFrame(step);

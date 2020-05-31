@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseEmpty Matches snapshot 1`] = `"<span class=\\"base-icon base-icon_size_s base-icon_color_default  \\"><svg-icon-stub name=\\"icon-bubble\\" class=\\"icon base-icon__icon\\"></svg-icon-stub></span>"`;

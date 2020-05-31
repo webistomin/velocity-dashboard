@@ -5,7 +5,7 @@ import { VNode } from 'vue';
 import './BaseClose.sass';
 
 export interface IBaseCloseProps {
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 @Component({
