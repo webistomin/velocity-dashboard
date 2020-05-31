@@ -5,6 +5,9 @@ module.exports = {
     '\\.(css|less|sass|scss)$': '<rootDir>/test/__mocks__/styleMock.js',
     '\\.(gif|ttf|eot|svg)$': '<rootDir>/test/__mocks__/fileMock.js',
     '^vue$': 'vue/dist/vue.common.js',
+    '^types(.*)$': '<rootDir>/types/$1',
+    '^components(.*)$': '<rootDir>/components/$1',
+    '^common(.*)$': '<rootDir>/common/$1',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'vue', 'json'],
   transform: {
@@ -19,4 +22,5 @@ module.exports = {
       babelConfig: true,
     },
   },
+  setupFiles: ['jest-canvas-mock'],
 };

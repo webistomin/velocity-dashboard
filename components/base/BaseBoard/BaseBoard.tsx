@@ -1,8 +1,8 @@
 import { VueComponent } from 'types/vue-components';
 import { Component, Emit, Prop } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
-
 import Draggable from 'vuedraggable';
+
 import BaseBadge from 'components/base/BaseBadge';
 
 import './BaseBoard.sass';
@@ -37,6 +37,7 @@ export default class BaseBoard extends VueComponent<IBaseBoardProps> {
 
   @Emit('setBoard')
   public setBoard(): IBaseBoardProps['board'] {
+    console.log('run run run');
     return this.currentBoard;
   }
 

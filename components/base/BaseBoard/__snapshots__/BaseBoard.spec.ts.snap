@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseBoard Matches snapshot 1`] = `
+"<div class=\\"base-board\\">
+  <div class=\\"base-board__wrapper\\">
+    <div class=\\"base-board__col\\">
+      <div class=\\"base-board__heading\\"><strong class=\\"base-board__caption caption\\">Backlog</strong><span class=\\"base-badge base-badge_color_blue  \\">6</span></div>
+      <div class=\\"base-board__draggable\\">
+        <div class=\\"base-board__item base-board__item_color_blue\\">
+          <div class=\\"base-board__item-row\\"><strong class=\\"base-board__name\\">Spire1</strong></div>
+          <div class=\\"base-board__item-row\\"><span class=\\"base-board__text\\">Tire replacement</span><time class=\\"base-board__date\\">June 12</time></div>
+        </div>
+        <div class=\\"base-board__item base-board__item_color_blue\\">
+          <div class=\\"base-board__item-row\\"><strong class=\\"base-board__name\\">Spire2</strong></div>
+          <div class=\\"base-board__item-row\\"><span class=\\"base-board__text\\">Tire replacement</span><time class=\\"base-board__date\\">June 12</time></div>
+        </div>
+        <div class=\\"base-board__item base-board__item_color_blue\\">
+          <div class=\\"base-board__item-row\\"><strong class=\\"base-board__name\\">Spire3</strong></div>
+          <div class=\\"base-board__item-row\\"><span class=\\"base-board__text\\">Tire replacement</span><time class=\\"base-board__date\\">June 12</time></div>
+        </div>
+        <div class=\\"base-board__item base-board__item_color_blue\\">
+          <div class=\\"base-board__item-row\\"><strong class=\\"base-board__name\\">Spire4</strong></div>
+          <div class=\\"base-board__item-row\\"><span class=\\"base-board__text\\">Tire replacement</span><time class=\\"base-board__date\\">June 12</time></div>
+        </div>
+      </div>
+    </div>
+    <div class=\\"base-board__col\\">
+      <div class=\\"base-board__heading\\"><strong class=\\"base-board__caption caption\\">In progress</strong><span class=\\"base-badge base-badge_color_purple  \\">4</span></div>
+      <div class=\\"base-board__draggable\\">
+        <div class=\\"base-board__item base-board__item_color_purple\\">
+          <div class=\\"base-board__item-row\\"><strong class=\\"base-board__name\\">Spire5</strong></div>
+          <div class=\\"base-board__item-row\\"><span class=\\"base-board__text\\">Tire replacement</span><time class=\\"base-board__date\\">June 12</time></div>
+        </div>
+        <div class=\\"base-board__item base-board__item_color_purple\\">
+          <div class=\\"base-board__item-row\\"><strong class=\\"base-board__name\\">Spire6</strong></div>
+          <div class=\\"base-board__item-row\\"><span class=\\"base-board__text\\">Tire replacement</span><time class=\\"base-board__date\\">June 12</time></div>
+        </div>
+        <div class=\\"base-board__item base-board__item_color_purple\\">
+          <div class=\\"base-board__item-row\\"><strong class=\\"base-board__name\\">Spire7</strong></div>
+          <div class=\\"base-board__item-row\\"><span class=\\"base-board__text\\">Tire replacement</span><time class=\\"base-board__date\\">June 12</time></div>
+        </div>
+        <div class=\\"base-board__item base-board__item_color_purple\\">
+          <div class=\\"base-board__item-row\\"><strong class=\\"base-board__name\\">Spire8</strong></div>
+          <div class=\\"base-board__item-row\\"><span class=\\"base-board__text\\">Tire replacement</span><time class=\\"base-board__date\\">June 12</time></div>
+        </div>
+      </div>
+    </div>
+    <div class=\\"base-board__col\\">
+      <div class=\\"base-board__heading\\"><strong class=\\"base-board__caption caption\\">Validate</strong><span class=\\"base-badge base-badge_color_darkturquoise  \\">4</span></div>
+      <div class=\\"base-board__draggable\\">
+        <div class=\\"base-board__item base-board__item_color_darkturquoise\\">
+          <div class=\\"base-board__item-row\\"><strong class=\\"base-board__name\\">Spire9</strong></div>
+          <div class=\\"base-board__item-row\\"><span class=\\"base-board__text\\">Tire replacement</span><time class=\\"base-board__date\\">June 12</time></div>
+        </div>
+        <div class=\\"base-board__item base-board__item_color_darkturquoise\\">
+          <div class=\\"base-board__item-row\\"><strong class=\\"base-board__name\\">Spire10</strong></div>
+          <div class=\\"base-board__item-row\\"><span class=\\"base-board__text\\">Tire replacement</span><time class=\\"base-board__date\\">June 12</time></div>
+        </div>
+        <div class=\\"base-board__item base-board__item_color_darkturquoise\\">
+          <div class=\\"base-board__item-row\\"><strong class=\\"base-board__name\\">Spire11</strong></div>
+          <div class=\\"base-board__item-row\\"><span class=\\"base-board__text\\">Tire replacement</span><time class=\\"base-board__date\\">June 12</time></div>
+        </div>
+        <div class=\\"base-board__item base-board__item_color_darkturquoise\\">
+          <div class=\\"base-board__item-row\\"><strong class=\\"base-board__name\\">Spire12</strong></div>
+          <div class=\\"base-board__item-row\\"><span class=\\"base-board__text\\">Tire replacement</span><time class=\\"base-board__date\\">June 12</time></div>
+        </div>
+      </div>
+    </div>
+    <div class=\\"base-board__col\\">
+      <div class=\\"base-board__heading\\"><strong class=\\"base-board__caption caption\\">Complete</strong><span class=\\"base-badge base-badge_color_yellow  \\">4</span></div>
+      <div class=\\"base-board__draggable\\">
+        <div class=\\"base-board__item base-board__item_color_yellow\\">
+          <div class=\\"base-board__item-row\\"><strong class=\\"base-board__name\\">Spire13</strong></div>
+          <div class=\\"base-board__item-row\\"><span class=\\"base-board__text\\">Tire replacement</span><time class=\\"base-board__date\\">June 12</time></div>
+        </div>
+        <div class=\\"base-board__item base-board__item_color_yellow\\">
+          <div class=\\"base-board__item-row\\"><strong class=\\"base-board__name\\">Spire14</strong></div>
+          <div class=\\"base-board__item-row\\"><span class=\\"base-board__text\\">Tire replacement</span><time class=\\"base-board__date\\">June 12</time></div>
+        </div>
+        <div class=\\"base-board__item base-board__item_color_yellow\\">
+          <div class=\\"base-board__item-row\\"><strong class=\\"base-board__name\\">Spire15</strong></div>
+          <div class=\\"base-board__item-row\\"><span class=\\"base-board__text\\">Tire replacement</span><time class=\\"base-board__date\\">June 12</time></div>
+        </div>
+        <div class=\\"base-board__item base-board__item_color_yellow\\">
+          <div class=\\"base-board__item-row\\"><strong class=\\"base-board__name\\">Spire16</strong></div>
+          <div class=\\"base-board__item-row\\"><span class=\\"base-board__text\\">Tire replacement</span><time class=\\"base-board__date\\">June 12</time></div>
+        </div>
+      </div>
+    </div>
+  </div><button type=\\"button\\" class=\\"base-board__toggle btn caption\\"><span class=\\"base-board__toggle-text\\">Expand boards</span></button>
+</div>"
+`;

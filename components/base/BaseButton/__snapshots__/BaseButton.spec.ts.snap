@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseButton Matches snapshot 1`] = `"<button type=\\"button\\" class=\\"base-button btn base-button_theme_default\\"><span class=\\"base-button__wrapper\\"><span class=\\"base-button__content\\"></span></span></button>"`;

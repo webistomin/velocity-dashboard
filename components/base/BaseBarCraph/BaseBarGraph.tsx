@@ -32,7 +32,7 @@ export default class BaseBarGraph extends mixins(Bar, BaseBarGraphWithProps) {
 
     this.$nextTick(() => {
       const canvas = this.$refs.canvas as HTMLCanvasElement;
-      canvas.setAttribute('aria-label', this.fallbackText || 'Bar graph');
+      canvas.setAttribute('aria-label', this.fallbackText as string);
       canvas.setAttribute('role', 'img');
     });
   }
