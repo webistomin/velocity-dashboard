@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseLink Matches snapshot 1`] = `"<nuxt-link-stub to=\\"/\\" class=\\"link base-link base-link_theme_default \\"><span class=\\"base-link__content\\"></span></nuxt-link-stub>"`;

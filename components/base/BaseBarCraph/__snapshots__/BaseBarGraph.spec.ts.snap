@@ -1,5 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BaseBadge Matches snapshot 1`] = `"<div class=\\"\\"><canvas id=\\"bar-chart\\" width=\\"0\\" height=\\"0\\" style=\\"display: block;\\" class=\\"chartjs-render-monitor\\"></canvas></div>"`;
-
 exports[`BaseBarGraph Matches snapshot 1`] = `"<div class=\\"\\"><canvas id=\\"bar-chart\\" width=\\"0\\" height=\\"0\\" style=\\"display: block;\\" class=\\"chartjs-render-monitor\\"></canvas></div>"`;

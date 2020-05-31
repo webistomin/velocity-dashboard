@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseMap Matches snapshot 1`] = `
+"<div class=\\"base-map\\">
+  <div class=\\"base-map__sidebar \\"><button type=\\"button\\" aria-label=\\"Close\\" class=\\"base-close btn base-map__close\\"></button></div>
+  <client-only-stub>
+    <l-map-stub zoom=\\"10\\" center=\\"50.516518,6.993713\\" class=\\"base-map__map\\">
+      <l-tile-layer-stub url=\\"https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png\\" subdomains=\\"abcd\\" maxzoom=\\"20\\"></l-tile-layer-stub>
+      <l-marker-cluster-stub options=\\"[object Object]\\">
+        <l-marker-stub lat-lng=\\"[object Object]\\">
+          <l-icon-stub iconurl=\\"/img/map-marker-shelob.svg\\" iconretinaurl=\\"/img/map-marker-shelob.svg\\" shadowurl=\\"\\" iconsize=\\"24,24\\" shadowsize=\\"0,0\\" iconanchor=\\"12,12\\"></l-icon-stub>
+        </l-marker-stub>
+        <l-marker-stub lat-lng=\\"[object Object]\\">
+          <l-icon-stub iconurl=\\"/img/map-marker-shelob.svg\\" iconretinaurl=\\"/img/map-marker-shelob.svg\\" shadowurl=\\"\\" iconsize=\\"24,24\\" shadowsize=\\"0,0\\" iconanchor=\\"12,12\\"></l-icon-stub>
+        </l-marker-stub>
+      </l-marker-cluster-stub>
+    </l-map-stub>
+  </client-only-stub>
+</div>"
+`;

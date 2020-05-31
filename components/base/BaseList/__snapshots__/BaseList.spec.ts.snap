@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseList Matches snapshot 1`] = `
+"<div class=\\"base-list\\">
+  <ul class=\\"base-list__list list\\">
+    <li class=\\"base-list__item list-item\\">
+      <div class=\\"base-list__col base-list__col_left\\"><span class=\\"base-thumbnail base-thumbnail_size_m   \\"><picture class=\\"base-thumbnail__picture picture\\"><v-lazy-image-stub src=\\"/img/avatar.png\\" alt=\\"Bebop\\" class=\\"base-thumbnail__img image\\"></v-lazy-image-stub></picture></span></div>
+      <div class=\\"base-list__col base-list__col_right\\">
+        <div class=\\"base-list__row\\"><strong class=\\"base-list__name\\">Bebop</strong><span class=\\"base-list__price\\">$6,432</span></div>
+        <div class=\\"base-list__row\\"><strong class=\\"base-list__text\\">Volvo Intellisafe</strong><span class=\\"base-list__stat\\">1,232 miles</span></div>
+      </div>
+    </li>
+    <li class=\\"base-list__item list-item\\">
+      <div class=\\"base-list__col base-list__col_left\\"><span class=\\"base-thumbnail base-thumbnail_size_m   \\"><picture class=\\"base-thumbnail__picture picture\\"><v-lazy-image-stub src=\\"/img/avatar.png\\" alt=\\"Bebop\\" class=\\"base-thumbnail__img image\\"></v-lazy-image-stub></picture></span></div>
+      <div class=\\"base-list__col base-list__col_right\\">
+        <div class=\\"base-list__row\\"><strong class=\\"base-list__name\\">Bebop</strong><span class=\\"base-list__price\\">$6,432</span></div>
+        <div class=\\"base-list__row\\"><strong class=\\"base-list__text\\">Volvo Intellisafe</strong><span class=\\"base-list__stat\\">1,232 miles</span></div>
+      </div>
+    </li>
+    <li class=\\"base-list__item list-item\\">
+      <div class=\\"base-list__col base-list__col_left\\"><span class=\\"base-thumbnail base-thumbnail_size_m   \\"><picture class=\\"base-thumbnail__picture picture\\"><v-lazy-image-stub src=\\"/img/avatar.png\\" alt=\\"Bebop\\" class=\\"base-thumbnail__img image\\"></v-lazy-image-stub></picture></span></div>
+      <div class=\\"base-list__col base-list__col_right\\">
+        <div class=\\"base-list__row\\"><strong class=\\"base-list__name\\">Bebop</strong><span class=\\"base-list__price\\">$6,432</span></div>
+        <div class=\\"base-list__row\\"><strong class=\\"base-list__text\\">Volvo Intellisafe</strong><span class=\\"base-list__stat\\">1,232 miles</span></div>
+      </div>
+    </li>
+    <li class=\\"base-list__item list-item\\">
+      <div class=\\"base-list__col base-list__col_left\\"><span class=\\"base-thumbnail base-thumbnail_size_m   \\"><picture class=\\"base-thumbnail__picture picture\\"><v-lazy-image-stub src=\\"/img/avatar.png\\" alt=\\"Bebop\\" class=\\"base-thumbnail__img image\\"></v-lazy-image-stub></picture></span></div>
+      <div class=\\"base-list__col base-list__col_right\\">
+        <div class=\\"base-list__row\\"><strong class=\\"base-list__name\\">Bebop</strong><span class=\\"base-list__price\\">$6,432</span></div>
+        <div class=\\"base-list__row\\"><strong class=\\"base-list__text\\">Volvo Intellisafe</strong><span class=\\"base-list__stat\\">1,232 miles</span></div>
+      </div>
+    </li>
+    <li class=\\"base-list__item list-item\\">
+      <div class=\\"base-list__col base-list__col_left\\"><span class=\\"base-thumbnail base-thumbnail_size_m   \\"><picture class=\\"base-thumbnail__picture picture\\"><v-lazy-image-stub src=\\"/img/avatar.png\\" alt=\\"Bebop\\" class=\\"base-thumbnail__img image\\"></v-lazy-image-stub></picture></span></div>
+      <div class=\\"base-list__col base-list__col_right\\">
+        <div class=\\"base-list__row\\"><strong class=\\"base-list__name\\">Bebop</strong><span class=\\"base-list__price\\">$6,432</span></div>
+        <div class=\\"base-list__row\\"><strong class=\\"base-list__text\\">Volvo Intellisafe</strong><span class=\\"base-list__stat\\">1,232 miles</span></div>
+      </div>
+    </li>
+    <li class=\\"base-list__item list-item\\">
+      <div class=\\"base-list__col base-list__col_left\\"><span class=\\"base-thumbnail base-thumbnail_size_m   \\"><picture class=\\"base-thumbnail__picture picture\\"><v-lazy-image-stub src=\\"/img/avatar.png\\" alt=\\"Bebop\\" class=\\"base-thumbnail__img image\\"></v-lazy-image-stub></picture></span></div>
+      <div class=\\"base-list__col base-list__col_right\\">
+        <div class=\\"base-list__row\\"><strong class=\\"base-list__name\\">Bebop</strong><span class=\\"base-list__price\\">$6,432</span></div>
+        <div class=\\"base-list__row\\"><strong class=\\"base-list__text\\">Volvo Intellisafe</strong><span class=\\"base-list__stat\\">1,232 miles</span></div>
+      </div>
+    </li>
+  </ul>
+</div>"
+`;

@@ -1,5 +1,6 @@
 import { object, number } from '@storybook/addon-knobs';
 import BaseList from './BaseList';
+import { listData } from './mocks/data';
 
 export default {
   title: 'BaseList',
@@ -10,65 +11,6 @@ export default {
     },
   },
 };
-
-const listData = [
-  {
-    image: '/img/avatar.png',
-    name: 'Bebop',
-    text: 'Volvo Intellisafe',
-    statistic: '1,232 miles',
-    price: '$6,432',
-  },
-  {
-    image: '/img/avatar.png',
-    name: 'Bebop',
-    text: 'Volvo Intellisafe',
-    statistic: '1,232 miles',
-    price: '$6,432',
-  },
-  {
-    image: '/img/avatar.png',
-    name: 'Bebop',
-    text: 'Volvo Intellisafe',
-    statistic: '1,232 miles',
-    price: '$6,432',
-  },
-  {
-    image: '/img/avatar.png',
-    name: 'Bebop',
-    text: 'Volvo Intellisafe',
-    statistic: '1,232 miles',
-    price: '$6,432',
-  },
-  {
-    image: '/img/avatar.png',
-    name: 'Bebop',
-    text: 'Volvo Intellisafe',
-    statistic: '1,232 miles',
-    price: '$6,432',
-  },
-  {
-    image: '/img/avatar.png',
-    name: 'Bebop',
-    text: 'Volvo Intellisafe',
-    statistic: '1,232 miles',
-    price: '$6,432',
-  },
-  {
-    image: '/img/avatar.png',
-    name: 'Bebop',
-    text: 'Volvo Intellisafe',
-    statistic: '1,232 miles',
-    price: '$6,432',
-  },
-  {
-    image: '/img/avatar.png',
-    name: 'Bebop',
-    text: 'Volvo Intellisafe',
-    statistic: '1,232 miles',
-    price: '$6,432',
-  },
-];
 
 export const Default = () => ({
   components: { BaseList },

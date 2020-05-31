@@ -89,7 +89,7 @@ export default class BaseMap extends VueComponent<IBaseMapProps> {
     if (process.client) {
       return `rgb(${getComputedStyle(document.documentElement)
         .getPropertyValue('--color-primary')
-        .trim()})`;
+        .trim() || '46, 91, 255'})`;
     }
 
     return 'rgb(46, 91, 255)';

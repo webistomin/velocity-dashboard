@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BaseBadge Matches snapshot 1`] = `
+exports[`BaseBlock Matches snapshot 1`] = `
 "<div class=\\"base-block \\">
   <div class=\\"base-block__content \\"></div>
 </div>"
