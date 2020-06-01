@@ -58,7 +58,7 @@
     "random": "^2.2.0",
     "v-click-outside": "^3.0.1",
     "v-lazy-image": "^1.4.0",
-    "v-scroll-lock": "^1.1.1",
+    "v-scroll-lock": "^1.2.0",
     "vue": "^2.6.11",
     "vue-anka-cropper": "^1.1.0",
     "vue-chartjs": "^3.5.0",
