@@ -17,11 +17,11 @@
 </p>
 
 <p align="center">
-  <a href="#description-">Description</a> •
+  <a href="#description-%EF%B8%8F">Description</a> •
   <a href="#demo-">Demo</a> •
-  <a href="#tech-stack-">Tech stack</a> •
-  <a href="#documentation-">Documentation</a> •
-  <a href="#license-">License</a> •
+  <a href="#tech-stack-%EF%B8%8F">Tech stack</a> •
+  <a href="#documentation-%EF%B8%8F">Documentation</a> •
+  <a href="#license-%EF%B8%8F">License</a>
 </p>
 
 ## Description 🖊️
