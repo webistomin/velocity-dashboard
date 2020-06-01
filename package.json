@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Beep beep. Meet Velocity",
   "author": "webistomin",
-  "private": true,
+  "private": false,
   "engines": {
     "node": "10.15.3"
   },
@@ -18,7 +18,8 @@
     "prettier:write": "prettier --write \"**/*.+(vue|js|ts|tsx)\" --ignore-path .gitignore",
     "test": "jest -u",
     "storybook": "start-storybook -p 6006 -s ./static -c .storybook",
-    "build-storybook": "build-storybook",
+    "build-storybook": "build-storybook -s ./static -c .storybook",
+    "deploy-storybook": "now --prod",
     "heroku-postbuild": "npm run build"
   },
   "dependencies": {

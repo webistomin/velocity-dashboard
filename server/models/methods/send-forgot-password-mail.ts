@@ -5,7 +5,7 @@ import consola from 'consola';
 import { sendResetMail } from 'server/services/mailer/reset-mail';
 import PasswordReset from 'server/models/auth/password-reset';
 
-export default async function sendForgotPasswordMail(): Promise<SentMessageInfo> {
+export default function sendForgotPasswordMail(): Promise<SentMessageInfo> {
   const token = nanoid(72);
 
   return new Promise((resolve, reject) => {
