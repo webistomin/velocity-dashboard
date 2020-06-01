@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Chat UI Matches snapshot 1`] = `
+"<div class=\\"chat\\">
+  <chatlist-stub chats=\\"[object Object]\\" class=\\"chat__user-list\\"></chatlist-stub>
+</div>"
+`;

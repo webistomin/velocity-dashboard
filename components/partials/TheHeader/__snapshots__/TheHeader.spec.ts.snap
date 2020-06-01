@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TheHeader Matches snapshot 1`] = `
+"<header class=\\"page-header\\">
+  <div class=\\"page-header__container container\\">
+    <basetoggle-stub size=\\"xs\\" class=\\"page-header__nav-toggle\\"></basetoggle-stub>
+    <vuecomponent-stub class=\\"page-header__logo\\"></vuecomponent-stub>
+    <h2 class=\\"page-header__title title\\"></h2>
+    <ul class=\\"page-header__user-list list\\">
+      <li class=\\"page-header__user-item page-header__user-item_notification list-item\\">
+        <notificationcenter-stub></notificationcenter-stub>
+      </li>
+      <li class=\\"page-header__user-item page-header__user-item_messages list-item\\">
+        <messagescenter-stub></messagescenter-stub>
+      </li>
+      <li class=\\"page-header__user-item page-header__user-item_user list-item\\">
+        <usercenter-stub></usercenter-stub>
+      </li>
+    </ul>
+  </div>
+</header>"
+`;

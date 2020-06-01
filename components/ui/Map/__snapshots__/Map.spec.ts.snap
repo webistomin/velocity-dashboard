@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Map Matches snapshot 1`] = `
+"<section class=\\"map\\">
+  <div class=\\"map__container container\\">
+    <baseblock-stub title=\\"Hint\\" class=\\"map__placeholder\\">
+      <vuecomponent-stub level=\\"3\\">Information about trip will be available after click on marker</vuecomponent-stub>
+    </baseblock-stub>
+  </div>
+  <basemodal-stub transitionname=\\"modal-fade\\"><video preload=\\"auto\\" playsinline=\\"true\\" loop=\\"loop\\" class=\\"map__driver-video\\">
+      <source src=\\"/video/car-driving.webm\\" type=\\"video/webm; codecs=&quot;vp8, vorbis&quot;\\">
+      <source src=\\"/video/car-driving.mp4\\" type=\\"video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;\\">Video tag is not supported in this browser.</video></basemodal-stub>
+</section>"
+`;

@@ -210,7 +210,7 @@ module.exports = {
         return [['@nuxt/babel-preset-app', { loose: true }]];
       },
     },
-    transpile: ['vuex-module-decorators'],
+    transpile: ['vuex-module-decorators', 'nanoid'],
     /**
      * Remove all locale files except EN from date libraries
      */

@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Settings page Matches snapshot 1`] = `
+"<main class=\\"page-content page-content_offset\\">
+  <settings-stub></settings-stub>
+  <notifications-stub group=\\"settings\\" position=\\"top left\\" animation-name=\\"v-popup-fade-left\\"></notifications-stub>
+</main>"
+`;

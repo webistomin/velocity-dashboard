@@ -4,28 +4,28 @@ exports[`BaseTodo Matches snapshot 1`] = `
 "<div class=\\"base-todo\\">
   <ul class=\\"base-todo__list list\\">
     <li class=\\"list-item base-todo__item \\">
-      <div class=\\"base-todo__actions\\"><input type=\\"checkbox\\" id=\\"-8VesbJwG44j_TsnakP4w\\" aria-label=\\"Toggle task with name: Meet George\\" class=\\"base-todo__checkbox visually-hidden\\" value=\\"-8VesbJwG44j_TsnakP4w\\"><label for=\\"-8VesbJwG44j_TsnakP4w\\" class=\\"base-todo__label label\\"></label></div>
-      <nuxt-link-stub to=\\"/reminders/-8VesbJwG44j_TsnakP4w\\" class=\\"base-todo__content link\\"><strong class=\\"base-todo__name\\">Meet George</strong><time class=\\"base-todo__date base-todo__date_deadline_overdue\\">Due 2020-5-29 00:00:00</time></nuxt-link-stub>
+      <div class=\\"base-todo__actions\\"><input type=\\"checkbox\\" id=\\"1\\" aria-label=\\"Toggle task with name: Meet George\\" class=\\"base-todo__checkbox visually-hidden\\" value=\\"1\\"><label for=\\"1\\" class=\\"base-todo__label label\\"></label></div>
+      <nuxt-link-stub to=\\"/reminders/1\\" class=\\"base-todo__content link\\"><strong class=\\"base-todo__name\\">Meet George</strong><time class=\\"base-todo__date base-todo__date_deadline_overdue\\">Due 2020-5-29 00:00:00</time></nuxt-link-stub>
     </li>
     <li class=\\"list-item base-todo__item \\">
-      <div class=\\"base-todo__actions\\"><input type=\\"checkbox\\" id=\\"kdBo22LCehjr1hczvHeGk\\" aria-label=\\"Toggle task with name: Call peter for TPS reports\\" class=\\"base-todo__checkbox visually-hidden\\" value=\\"kdBo22LCehjr1hczvHeGk\\"><label for=\\"kdBo22LCehjr1hczvHeGk\\" class=\\"base-todo__label label\\"></label></div>
-      <nuxt-link-stub to=\\"/reminders/kdBo22LCehjr1hczvHeGk\\" class=\\"base-todo__content link\\"><strong class=\\"base-todo__name\\">Call peter for TPS reports</strong><time class=\\"base-todo__date base-todo__date_deadline_on-time\\">Due 2020-6-29 00:00:00</time></nuxt-link-stub>
+      <div class=\\"base-todo__actions\\"><input type=\\"checkbox\\" id=\\"1\\" aria-label=\\"Toggle task with name: Call peter for TPS reports\\" class=\\"base-todo__checkbox visually-hidden\\" value=\\"1\\"><label for=\\"1\\" class=\\"base-todo__label label\\"></label></div>
+      <nuxt-link-stub to=\\"/reminders/1\\" class=\\"base-todo__content link\\"><strong class=\\"base-todo__name\\">Call peter for TPS reports</strong><time class=\\"base-todo__date base-todo__date_deadline_on-time\\">Due 2020-6-29 00:00:00</time></nuxt-link-stub>
     </li>
     <li class=\\"list-item base-todo__item \\">
-      <div class=\\"base-todo__actions\\"><input type=\\"checkbox\\" id=\\"3YHv-RyyeMXOxSMf19Sdc\\" aria-label=\\"Toggle task with name: Reply to customers\\" class=\\"base-todo__checkbox visually-hidden\\" value=\\"3YHv-RyyeMXOxSMf19Sdc\\"><label for=\\"3YHv-RyyeMXOxSMf19Sdc\\" class=\\"base-todo__label label\\"></label></div>
-      <nuxt-link-stub to=\\"/reminders/3YHv-RyyeMXOxSMf19Sdc\\" class=\\"base-todo__content link\\"><strong class=\\"base-todo__name\\">Reply to customers</strong><time class=\\"base-todo__date base-todo__date_deadline_due-soon\\">Due 2020-6-1 00:00:00</time></nuxt-link-stub>
+      <div class=\\"base-todo__actions\\"><input type=\\"checkbox\\" id=\\"1\\" aria-label=\\"Toggle task with name: Reply to customers\\" class=\\"base-todo__checkbox visually-hidden\\" value=\\"1\\"><label for=\\"1\\" class=\\"base-todo__label label\\"></label></div>
+      <nuxt-link-stub to=\\"/reminders/1\\" class=\\"base-todo__content link\\"><strong class=\\"base-todo__name\\">Reply to customers</strong><time class=\\"base-todo__date base-todo__date_deadline_overdue\\">Due 2020-6-1 00:00:00</time></nuxt-link-stub>
     </li>
     <li class=\\"list-item base-todo__item \\">
-      <div class=\\"base-todo__actions\\"><input type=\\"checkbox\\" id=\\"TPjMYp6emiUtOZjwlqoxM\\" aria-label=\\"Toggle task with name: Review Anna's new article\\" class=\\"base-todo__checkbox visually-hidden\\" value=\\"TPjMYp6emiUtOZjwlqoxM\\"><label for=\\"TPjMYp6emiUtOZjwlqoxM\\" class=\\"base-todo__label label\\"></label></div>
-      <nuxt-link-stub to=\\"/reminders/TPjMYp6emiUtOZjwlqoxM\\" class=\\"base-todo__content link\\"><strong class=\\"base-todo__name\\">Review Anna's new article</strong><time class=\\"base-todo__date base-todo__date_deadline_overdue\\">Due 2020-5-30 00:00:00</time></nuxt-link-stub>
+      <div class=\\"base-todo__actions\\"><input type=\\"checkbox\\" id=\\"1\\" aria-label=\\"Toggle task with name: Review Anna's new article\\" class=\\"base-todo__checkbox visually-hidden\\" value=\\"1\\"><label for=\\"1\\" class=\\"base-todo__label label\\"></label></div>
+      <nuxt-link-stub to=\\"/reminders/1\\" class=\\"base-todo__content link\\"><strong class=\\"base-todo__name\\">Review Anna's new article</strong><time class=\\"base-todo__date base-todo__date_deadline_overdue\\">Due 2020-5-30 00:00:00</time></nuxt-link-stub>
     </li>
     <li class=\\"list-item base-todo__item \\">
-      <div class=\\"base-todo__actions\\"><input type=\\"checkbox\\" id=\\"u6fH5zJ05siHqTa84Pdqe\\" aria-label=\\"Toggle task with name: Meet Pete\\" class=\\"base-todo__checkbox visually-hidden\\" value=\\"u6fH5zJ05siHqTa84Pdqe\\"><label for=\\"u6fH5zJ05siHqTa84Pdqe\\" class=\\"base-todo__label label\\"></label></div>
-      <nuxt-link-stub to=\\"/reminders/u6fH5zJ05siHqTa84Pdqe\\" class=\\"base-todo__content link\\"><strong class=\\"base-todo__name\\">Meet Pete</strong><time class=\\"base-todo__date base-todo__date_deadline_overdue\\">Due 2020-5-31 17:41:59</time></nuxt-link-stub>
+      <div class=\\"base-todo__actions\\"><input type=\\"checkbox\\" id=\\"1\\" aria-label=\\"Toggle task with name: Meet Pete\\" class=\\"base-todo__checkbox visually-hidden\\" value=\\"1\\"><label for=\\"1\\" class=\\"base-todo__label label\\"></label></div>
+      <nuxt-link-stub to=\\"/reminders/1\\" class=\\"base-todo__content link\\"><strong class=\\"base-todo__name\\">Meet Pete</strong><time class=\\"base-todo__date base-todo__date_deadline_overdue\\">Due 2020-6-1 00:00:00</time></nuxt-link-stub>
     </li>
     <li class=\\"list-item base-todo__item \\">
-      <div class=\\"base-todo__actions\\"><input type=\\"checkbox\\" id=\\"QwYZHW-ONRJvU0u7BwyrH\\" aria-label=\\"Toggle task with name: Call mom\\" class=\\"base-todo__checkbox visually-hidden\\" value=\\"QwYZHW-ONRJvU0u7BwyrH\\"><label for=\\"QwYZHW-ONRJvU0u7BwyrH\\" class=\\"base-todo__label label\\"></label></div>
-      <nuxt-link-stub to=\\"/reminders/QwYZHW-ONRJvU0u7BwyrH\\" class=\\"base-todo__content link\\"><strong class=\\"base-todo__name\\">Call mom</strong><time class=\\"base-todo__date base-todo__date_deadline_overdue\\">Due 2020-5-31 17:41:59</time></nuxt-link-stub>
+      <div class=\\"base-todo__actions\\"><input type=\\"checkbox\\" id=\\"1\\" aria-label=\\"Toggle task with name: Call mom\\" class=\\"base-todo__checkbox visually-hidden\\" value=\\"1\\"><label for=\\"1\\" class=\\"base-todo__label label\\"></label></div>
+      <nuxt-link-stub to=\\"/reminders/1\\" class=\\"base-todo__content link\\"><strong class=\\"base-todo__name\\">Call mom</strong><time class=\\"base-todo__date base-todo__date_deadline_overdue\\">Due 2020-6-1 00:00:00</time></nuxt-link-stub>
     </li>
   </ul>
 </div>"

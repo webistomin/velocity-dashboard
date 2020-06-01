@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Reminders page Matches snapshot 1`] = `
+"<main class=\\"page-content page-content_offset\\">
+  <reminders-stub></reminders-stub>
+</main>"
+`;

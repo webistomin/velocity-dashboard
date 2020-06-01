@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Settings UI Matches snapshot 1`] = `
+"<section class=\\"settings\\">
+  <div class=\\"container settings__container\\">
+    <vuecomponent-stub level=\\"3\\" class=\\"settings__title\\">Settings</vuecomponent-stub>
+    <form class=\\"settings__grid\\">
+      <baseblock-stub title=\\"Personal Data\\">
+        <settingsdata-stub info=\\"[object Object]\\"></settingsdata-stub>
+      </baseblock-stub>
+      <baseblock-stub title=\\"Notifications\\">
+        <settingnotification-stub notifications=\\"[object Object]\\"></settingnotification-stub>
+      </baseblock-stub>
+      <baseblock-stub title=\\"Theme\\">
+        <settingstheme-stub theme=\\"shelob\\"></settingstheme-stub>
+      </baseblock-stub>
+      <basebutton-stub type=\\"submit\\" icon=\\"\\" theme=\\"default\\" class=\\"settings__submit\\">Save changes</basebutton-stub><pre></pre>
+    </form>
+  </div>
+</section>"
+`;

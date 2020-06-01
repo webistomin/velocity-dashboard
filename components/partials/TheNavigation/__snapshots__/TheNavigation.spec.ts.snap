@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TheNavigation Matches snapshot 1`] = `
+"<aside class=\\"main-nav \\">
+  <div class=\\"main-nav__wrapper\\">
+    <basetoggle-stub size=\\"s\\" class=\\"main-nav__toggle\\"></basetoggle-stub>
+    <div class=\\"main-nav__user\\">
+      <vuecomponent-stub image=\\"\\" alt=\\"user\\" size=\\"xs\\" issquared=\\"true\\" class=\\"main-nav__thumb\\"></vuecomponent-stub><span class=\\"main-nav__info \\"><strong class=\\"main-nav__welcome\\">Welcome</strong><strong class=\\"main-nav__username\\">Alexey Istomin</strong></span>
+    </div>
+    <nav class=\\"main-nav__nav\\">
+      <ul class=\\"main-nav__list list\\">
+        <li class=\\"main-nav__item list-item\\">
+          <nuxt-link-stub to=\\"/\\" aria-label=\\"Overview\\" title=\\"Overview\\" exact=\\"true\\" class=\\"main-nav__link link\\">
+            <svg-icon-stub name=\\"icon-grid\\" width=\\"24\\" height=\\"24\\"></svg-icon-stub><span class=\\"main-nav__link-name \\">Overview</span>
+          </nuxt-link-stub>
+        </li>
+        <li class=\\"main-nav__item list-item\\">
+          <nuxt-link-stub to=\\"/analytics\\" aria-label=\\"Analytics\\" title=\\"Analytics\\" class=\\"main-nav__link link\\">
+            <svg-icon-stub name=\\"icon-histograms\\" width=\\"24\\" height=\\"24\\"></svg-icon-stub><span class=\\"main-nav__link-name \\">Analytics</span>
+          </nuxt-link-stub>
+        </li>
+        <li class=\\"main-nav__item list-item\\">
+          <nuxt-link-stub to=\\"/vehicles\\" aria-label=\\"Vehicles\\" title=\\"Vehicles\\" class=\\"main-nav__link link\\">
+            <svg-icon-stub name=\\"icon-car\\" width=\\"24\\" height=\\"24\\"></svg-icon-stub><span class=\\"main-nav__link-name \\">Vehicles</span>
+          </nuxt-link-stub>
+        </li>
+        <li class=\\"main-nav__item list-item\\">
+          <nuxt-link-stub to=\\"/reminders\\" aria-label=\\"Service\\" title=\\"Service\\" class=\\"main-nav__link link\\">
+            <svg-icon-stub name=\\"icon-service\\" width=\\"24\\" height=\\"24\\"></svg-icon-stub><span class=\\"main-nav__link-name \\">Service</span>
+          </nuxt-link-stub>
+        </li>
+        <li class=\\"main-nav__item list-item\\">
+          <nuxt-link-stub to=\\"/map\\" aria-label=\\"Map\\" title=\\"Map\\" class=\\"main-nav__link link\\">
+            <svg-icon-stub name=\\"icon-map\\" width=\\"24\\" height=\\"24\\"></svg-icon-stub><span class=\\"main-nav__link-name \\">Map</span>
+          </nuxt-link-stub>
+        </li>
+        <li class=\\"main-nav__item list-item\\">
+          <nuxt-link-stub to=\\"/chat\\" aria-label=\\"Chat\\" title=\\"Chat\\" class=\\"main-nav__link link\\">
+            <svg-icon-stub name=\\"icon-mail\\" width=\\"24\\" height=\\"24\\"></svg-icon-stub><span class=\\"main-nav__link-name \\">Chat</span>
+          </nuxt-link-stub>
+        </li>
+        <li class=\\"main-nav__item list-item\\">
+          <nuxt-link-stub to=\\"/settings\\" aria-label=\\"Settings\\" title=\\"Settings\\" class=\\"main-nav__link link\\">
+            <svg-icon-stub name=\\"icon-settings\\" width=\\"24\\" height=\\"24\\"></svg-icon-stub><span class=\\"main-nav__link-name \\">Settings</span>
+          </nuxt-link-stub>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <baseoverlay-stub class=\\"main-nav__overlay\\"></baseoverlay-stub>
+</aside>"
+`;

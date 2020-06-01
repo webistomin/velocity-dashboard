@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Vehicles UI Matches snapshot 1`] = `
+"<section class=\\"vehicles\\">
+  <div class=\\"vehicles__container container\\">
+    <div class=\\"vehicles__grid\\">
+      <baseblock-stub issimple=\\"true\\" class=\\"vehicles__block\\">
+        <div class=\\"vehicles__heading\\">
+          <vuecomponent-stub level=\\"3\\">Vehicles Dashboard</vuecomponent-stub>
+        </div>
+      </baseblock-stub>
+      <baseblock-stub title=\\"filter\\" contentmix=\\"vehicles__filter-block\\" class=\\"vehicles__block\\">
+        <basebutton-stub type=\\"button\\" icon=\\"\\" theme=\\"light\\" class=\\"vehicles__filters-toggle\\">Show filter</basebutton-stub>
+        <collapse-transition-stub duration=\\"300\\" delay=\\"0\\" tag=\\"span\\" origin=\\"\\" styles=\\"[object Object]\\">
+          <div class=\\"vehicles__filters\\" style=\\"display: none;\\"></div>
+        </collapse-transition-stub>
+      </baseblock-stub>
+      <baseblock-stub contentmix=\\"vehicles__filter-block\\" issimple=\\"true\\" class=\\"vehicles__block\\">
+        <vuecomponent-stub text=\\"No data was provided\\"></vuecomponent-stub>
+      </baseblock-stub>
+    </div>
+  </div>
+</section>"
+`;

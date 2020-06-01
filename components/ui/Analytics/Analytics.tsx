@@ -164,7 +164,7 @@ export default class Analytics extends VueComponent<IAnalyticsPageProps> {
   }
 
   public get getLatestTrips(): IBaseList[] | undefined {
-    return this.content?.latestTrips.trips.map((trip) => {
+    return this.content?.latestTrips?.trips?.map((trip) => {
       return {
         image: '/img/avatar-placeholder.svg',
         name: `${trip.trip.startAddress} ${trip.trip.endAddress}`,

@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login UI Matches snapshot 1`] = `
+"<section class=\\"login\\">
+  <div class=\\"login__container container\\">
+    <div class=\\"login__inner\\">
+      <div class=\\"login__col login__col_left\\">
+        <loginheader-stub></loginheader-stub>
+        <h2 class=\\"visually-hidden\\">Authorization</h2>
+        <transition-stub name=\\"login-fade\\" mode=\\"out-in\\">
+          <loginsignin-stub></loginsignin-stub>
+        </transition-stub>
+      </div>
+      <div class=\\"login__col login__col_right\\">
+        <vuecomponent-stub></vuecomponent-stub>
+      </div>
+    </div>
+  </div>
+</section>"
+`;

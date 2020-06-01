@@ -8,6 +8,7 @@ module.exports = {
     '^types(.*)$': '<rootDir>/types/$1',
     '^components(.*)$': '<rootDir>/components/$1',
     '^common(.*)$': '<rootDir>/common/$1',
+    '^server(.*)$': '<rootDir>/server/$1',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'vue', 'json'],
   transform: {

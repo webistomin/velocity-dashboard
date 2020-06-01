@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Analytics page Matches snapshot 1`] = `
+"<main class=\\"page-content page-content_offset\\">
+  <analytics-stub></analytics-stub>
+</main>"
+`;

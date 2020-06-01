@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Overview UI Matches snapshot 1`] = `
+"<section class=\\"overview\\">
+  <div class=\\"container\\">
+    <div class=\\"overview__grid\\">
+      <baseblock-stub contentmix=\\"overview__welcome\\" class=\\"overview__block\\">
+        <vuecomponent-stub text=\\"No data was provided\\"></vuecomponent-stub>
+      </baseblock-stub>
+      <baseblock-stub title=\\"Today's Trips\\" class=\\"overview__block\\">
+        <vuecomponent-stub text=\\"No data was provided\\"></vuecomponent-stub>
+      </baseblock-stub>
+      <baseblock-stub title=\\"Vehicles on track\\" class=\\"overview__block\\">
+        <vuecomponent-stub text=\\"No data was provided\\"></vuecomponent-stub>
+      </baseblock-stub>
+      <baseblock-stub title=\\"Distance driven\\" class=\\"overview__block\\">
+        <vuecomponent-stub text=\\"No data was provided\\"></vuecomponent-stub>
+      </baseblock-stub>
+      <baseblock-stub title=\\"vehicles on track\\" class=\\"overview__block\\">
+        <vuecomponent-stub text=\\"No data was provided\\"></vuecomponent-stub>
+      </baseblock-stub>
+      <anonymous-stub idletimeout=\\"2000\\" whenvisible=\\"true\\">
+        <baseblock-stub title=\\"Top drivers\\" class=\\"overview__block\\">
+          <vuecomponent-stub text=\\"No data was provided\\"></vuecomponent-stub>
+        </baseblock-stub>
+      </anonymous-stub>
+      <anonymous-stub idletimeout=\\"2000\\" whenvisible=\\"true\\">
+        <baseblock-stub title=\\"Trips by type\\" class=\\"overview__block\\">
+          <vuecomponent-stub text=\\"No data was provided\\"></vuecomponent-stub>
+        </baseblock-stub>
+      </anonymous-stub>
+      <anonymous-stub idletimeout=\\"2000\\" whenvisible=\\"true\\">
+        <baseblock-stub title=\\"Service Reminders\\" class=\\"overview__block\\">
+          <vuecomponent-stub text=\\"No data was provided\\"></vuecomponent-stub>
+        </baseblock-stub>
+      </anonymous-stub>
+    </div>
+  </div>
+</section>"
+`;

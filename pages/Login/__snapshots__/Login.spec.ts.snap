@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login page Matches snapshot 1`] = `
+"<main class=\\"page-content\\">
+  <login-stub></login-stub>
+  <notifications-stub group=\\"auth\\" position=\\"top left\\" animation-name=\\"v-popup-fade-left\\"></notifications-stub>
+</main>"
+`;

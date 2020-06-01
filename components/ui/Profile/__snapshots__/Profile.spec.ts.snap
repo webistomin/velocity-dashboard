@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Profile UI Matches snapshot 1`] = `
+"<section class=\\"profile\\">
+  <div class=\\"profile__container container\\">
+    <div class=\\"profile__grid\\">
+      <baseblock-stub title=\\"Resolved tickets\\" class=\\"profile__block\\">
+        <basestat-stub value=\\"1233\\" prevvalue=\\"0\\" icon=\\"icon-mail\\" color=\\"purple\\" align=\\"row\\"></basestat-stub>
+      </baseblock-stub>
+      <baseblock-stub title=\\"Average response\\" class=\\"profile__block\\">
+        <basestat-stub value=\\"12\\" prevvalue=\\"0\\" measure=\\"m\\" icon=\\"icon-bubble\\" color=\\"darkturquoise\\" align=\\"row\\"></basestat-stub>
+      </baseblock-stub>
+      <baseblock-stub title=\\"Median NPS\\" class=\\"profile__block\\">
+        <basestat-stub value=\\"4.32\\" prevvalue=\\"0\\" icon=\\"icon-calendar\\" color=\\"green\\" align=\\"row\\"></basestat-stub>
+      </baseblock-stub>
+      <baseblock-stub issimple=\\"true\\" class=\\"profile__block\\">
+        <basetable-stub tableconfig=\\"[object Object],[object Object],[object Object],[object Object]\\" tabledata=\\"[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]\\" scrollermix=\\"profile__scroller\\"></basetable-stub>
+      </baseblock-stub>
+    </div>
+  </div>
+</section>"
+`;
