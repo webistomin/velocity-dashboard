@@ -13,6 +13,13 @@
          alt="Travis CI">
   </a>
   <a href="https://www.codefactor.io/repository/github/webistomin/velocity-dashboard"><img src="https://www.codefactor.io/repository/github/webistomin/velocity-dashboard/badge" alt="CodeFactor" /></a>
+  <a href="https://codecov.io/gh/webistomin/velocity-dashboard">
+    <img src="https://codecov.io/gh/webistomin/velocity-dashboard/branch/master/graph/badge.svg" />
+  </a>
+  <a href="https://david-dm.org/webistomin/velocity-dashboard">
+  <img src="https://david-dm.org/webistomin/velocity-dashboard/dev-status.svg" alt="Dependencies">
+  </a>
+  <a href="https://david-dm.org/webistomin/velocity-dashboard" title="dependencies status"><img src="https://david-dm.org/webistomin/velocity-dashboard/status.svg" alt="dev dependencies"/></a>
   <img alt="npm type definitions" src="https://img.shields.io/npm/types/nanogram.js">
 </p>
 
