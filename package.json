@@ -16,7 +16,7 @@
     "lint": "eslint --ext .js,.vue,.tsx,.ts --ignore-path .gitignore .",
     "lint:write": "eslint --ext .js,.vue,.tsx,.ts --ignore-path .gitignore . --fix",
     "prettier:write": "prettier --write \"**/*.+(vue|js|ts|tsx)\" --ignore-path .gitignore",
-    "test": "jest",
+    "test": "jest --silent",
     "storybook": "start-storybook -p 6006 -s ./static -c .storybook",
     "build-storybook": "build-storybook -s ./static -c .storybook",
     "deploy-storybook": "now --prod",
