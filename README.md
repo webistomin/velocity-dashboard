@@ -95,6 +95,14 @@ Heroku will spin down app to save resources, if it's not accessed for a certain 
       <td><a href="https://leafletjs.com/">Leaflet</a></td>
       <td>Open-source JavaScript library for mobile-friendly interactive maps</td>
     </tr>
+    <tr>
+      <td><a href="https://jestjs.io/">Jest</a></td>
+      <td>Framework for unit testing</td>
+    </tr>
+    <tr>
+      <td><a href="https://storybook.js.org/">Storybook</a></td>
+      <td>Storybook is an open source tool for developing UI components in isolation for React, Vue, and Angular. It makes building stunning UIs organized and efficient.</td>
+    </tr>
   </tbody>
 </table>
 
