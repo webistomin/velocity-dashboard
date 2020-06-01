@@ -48,9 +48,13 @@ export default class BaseCircularGraph extends VueComponent<IBaseCircularGraphPr
   }
 
   public startCircularProgress(percentage: number, speed: number) {
+    let startTimestamp: number = 0;
     let x = this.startValue;
     const step = (timestamp: number) => {
-      const progress = Math.min(timestamp / speed, 1);
+      if (!startTimestamp) {
+        startTimestamp = timestamp;
+      }
+      const progress = Math.min((timestamp - startTimestamp) / speed, 1);
       x = progress * percentage;
       if (progress < 1) {
         window.requestAnimationFrame(step);
@@ -65,6 +69,7 @@ export default class BaseCircularGraph extends VueComponent<IBaseCircularGraphPr
   }
 
   public drawProgress(percent: number) {
+    console.log('draw?');
     if (isNaN(percent)) {
       return;
     }
@@ -79,7 +84,9 @@ export default class BaseCircularGraph extends VueComponent<IBaseCircularGraphPr
     const mid = angle > 180 ? 1 : 0;
     const pathData = 'M 0 0 v -%@ A %@ %@ 1 '.replace(/%@/gi, String(paddedRadius)) + mid + ' 1 ' + x + ' ' + y + ' z';
 
+    console.log('start2?');
     const bar = this.$refs.progressBar;
+    console.log(bar);
     bar.setAttribute('d', pathData);
   }
 

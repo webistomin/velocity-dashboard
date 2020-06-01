@@ -11,15 +11,16 @@ module.exports = {
   head: {
     htmlAttrs: {
       lang: 'en',
+      dir: 'ltr',
     },
-    title: process.env.npm_package_name || '',
+    title: 'Velocity',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover' },
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || '',
+        content: 'Beep beep. Meet Velocity',
       },
       { name: 'format-detection', content: 'telephone=no' },
       { name: 'format-detection', content: 'date=no' },
@@ -27,20 +28,67 @@ module.exports = {
       { name: 'format-detection', content: 'email=no' },
       { name: 'google', content: 'notranslate' },
       { 'http-equiv': 'x-ua-compatible', content: 'ie=edge' },
+      {
+        hid: 'twitter:image',
+        name: 'twitter:image',
+        content: '/img/sharing/tw-sharing.jpg',
+      },
+      {
+        hid: 'twitter:title',
+        name: 'twitter:title',
+        content: 'Velocity',
+      },
+      {
+        hid: 'twitter:description',
+        name: 'twitter:description',
+        content: 'Beep beep. Meet Velocity',
+      },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'preconnect', href: 'https://cartodb-basemaps-c.global.ssl.fastly.net', crossOrigin: 'true' },
       { rel: 'preconnect', href: 'https://velocity-bucket1.s3.eu-central-1.amazonaws.com', crossOrigin: 'true' },
+      { rel: 'preload', as: 'font', href: '/fonts/Rubik-300-normal.woff2', crossOrigin: 'true' },
       { rel: 'preload', as: 'font', href: '/fonts/Rubik-400-normal.woff2', crossOrigin: 'true' },
       { rel: 'preload', as: 'font', href: '/fonts/Rubik-500-normal.woff2', crossOrigin: 'true' },
-      { rel: 'preload', as: 'font', href: '/fonts/Rubik-700-normal.woff2', crossOrigin: 'true' },
     ],
   },
   /**
    * Loading bar
    */
   loading: { color: 'rgb(var(--color-primary))' },
+  /**
+   * PWA settings
+   */
+  pwa: {
+    meta: {
+      name: 'Velocity',
+      description: 'Beep beep. Meet Velocity',
+      theme_color: '#ffffff',
+      ogType: 'website',
+      ogSiteName: 'Velocity',
+      ogTitle: 'Velocity',
+      ogDescription: 'Beep beep. Meet Velocity',
+      ogHost: 'https://stormy-ocean-88138.herokuapp.com/',
+      ogUrl: 'https://stormy-ocean-88138.herokuapp.com/',
+      ogImage: {
+        path: '/img/sharing/fb-sharing.jpg',
+        width: 1200,
+        height: 628,
+      },
+      twitterCard: 'summary_large_image',
+      twitterCreator: 'webistomin',
+      twitterSite: 'https://stormy-ocean-88138.herokuapp.com/',
+    },
+    manifest: {
+      name: 'Velocity',
+      short_name: 'Velocity',
+      description: 'Beep beep. Meet Velocity',
+      lang: 'en',
+      background_color: '#ffffff',
+      theme_color: '#ffffff',
+    },
+  },
   /**
    * Global css
    */
@@ -68,20 +116,43 @@ module.exports = {
   /**
    * Nuxt modules
    */
-  buildModules: [
-    '@nuxt/typescript-build',
-    '@nuxtjs/sitemap',
-    '@nuxtjs/robots',
-    '@nuxtjs/svg-sprite',
-    '@nuxtjs/style-resources',
-  ],
+  buildModules: ['@nuxt/typescript-build', '@nuxtjs/svg-sprite'],
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/dotenv',
+    '@nuxtjs/robots',
+    [
+      '@nuxtjs/sitemap',
+      {
+        hostname: 'https://stormy-ocean-88138.herokuapp.com/',
+        generate: false,
+        routes: [
+          '/',
+          '/login',
+          '/reset-password',
+          '/analytics',
+          '/vehicles',
+          '/reminders',
+          '/map',
+          '/chat',
+          '/settings',
+          '/profile',
+        ],
+      },
+    ],
+    '@nuxtjs/style-resources',
     ['@nuxtjs/router', { path: 'router', DefaultRouter: true }],
     '@nuxtjs/auth',
   ],
+  /**
+   * robots.txt content
+   */
+  robots: {
+    UserAgent: '*',
+    Allow: '*',
+    Sitemap: (req) => `https://${req.headers.host}/sitemap.xml`,
+  },
   /**
    * Global sass variables
    */
