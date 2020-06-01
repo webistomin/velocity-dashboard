@@ -37,6 +37,10 @@ As a result, I realized that Vue in conjunction with TypeScript is still not rea
 
 ## Demo 👀
 
+**If app is taking a long time to load – please wait.** 
+
+Heroku will spin down app to save resources, if it's not accessed for a certain amount of time. Thus the slowness is caused by having to start up the entire app again.
+
 ### [DEMO](https://stormy-ocean-88138.herokuapp.com/)
 
 ## Tech stack ⚙️
