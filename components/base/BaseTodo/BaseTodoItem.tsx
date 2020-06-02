@@ -28,25 +28,43 @@ export default class BaseTodoItem extends VueComponent<IBaseTodoItem> {
   @Prop()
   private readonly isDone!: IBaseTodo['isDone'];
 
-  public get getDeadline(): string {
-    const taskDate = new Date(this.dueDate);
-    const today = new Date();
-    const onTimeDate = add(new Date(), { days: 5 });
+  public get getDeadline(): string | undefined {
+    if (this.dueDate) {
+      const taskDate = new Date(this.dueDate);
+      const today = new Date();
+      const onTimeDate = add(new Date(), { days: 5 });
 
-    /* Compare the two dates and return 1 if the first date is after the second,
-     * -1 if the first date is before the second
-     * or 0 if dates are equal. */
-    if (compareAsc(today, taskDate) === 1) {
-      return 'overdue';
-    } else if (compareAsc(onTimeDate, taskDate) === 1) {
-      return 'due-soon';
+      /* Compare the two dates and return 1 if the first date is after the second,
+       * -1 if the first date is before the second
+       * or 0 if dates are equal. */
+      if (compareAsc(today, taskDate) === 1) {
+        return 'overdue';
+      } else if (compareAsc(onTimeDate, taskDate) === 1) {
+        return 'due-soon';
+      }
+
+      return 'on-time';
     }
 
-    return 'on-time';
+    return undefined;
   }
 
-  public get getFormattedDate() {
-    return format(new Date(this.dueDate), 'd MMM hh:mm');
+  public get getDeadlineClass(): string {
+    const deadline = this.getDeadline;
+
+    if (deadline) {
+      return `base-todo__date_deadline_${deadline}`;
+    }
+
+    return '';
+  }
+
+  public get getFormattedDate(): string | undefined {
+    if (this.dueDate) {
+      return format(new Date(this.dueDate), 'd MMM hh:mm');
+    }
+
+    return undefined;
   }
 
   @Emit('input')
@@ -71,9 +89,9 @@ export default class BaseTodoItem extends VueComponent<IBaseTodoItem> {
         </div>
         <nuxt-link to={`${clientUrls.reminders}/${this.id}`} class='base-todo__content link'>
           <strong class='base-todo__name'>{this.title}</strong>
-          <time class={`base-todo__date base-todo__date_deadline_${this.getDeadline}`}>
-            Due {this.getFormattedDate}
-          </time>
+          {this.dueDate ? (
+            <time class={`base-todo__date ${this.getDeadlineClass}`}>Due {this.getFormattedDate}</time>
+          ) : null}
         </nuxt-link>
       </li>
     );

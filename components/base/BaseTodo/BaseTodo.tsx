@@ -9,7 +9,7 @@ import './BaseTodo.sass';
 export interface IBaseTodo {
   id: string;
   title: string;
-  dueDate: Date;
+  dueDate?: Date;
   isDone: boolean;
 }
 
