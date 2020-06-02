@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginSignIn Matches snapshot 1`] = `
+"<div class=\\"not-found  \\">
+  <div class=\\"not-found__container container\\">
+    <div class=\\"not-found__content\\">
+      <div class=\\"not-found__video-block\\"><video preload=\\"auto\\" muted=\\"muted\\" playsinline=\\"true\\" autoplay=\\"autoplay\\" loop=\\"loop\\" class=\\"not-found__video\\">
+          <source src=\\"/video/login-city.webm\\" type=\\"video/webm; codecs=&quot;vp8, vorbis&quot;\\">
+          <source src=\\"/video/login-city.mp4\\" type=\\"video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;\\"></video></div>
+      <div class=\\"not-found__mask\\"></div>
+    </div>
+    <div class=\\"not-found__actions\\">
+      <h1 class=\\"title base-title base-title_level-1  not-found__title\\">Oops, sorry we can't find that page!</h1>
+      <nuxt-link to=\\"/\\" class=\\"not-found__link link\\">To home page</nuxt-link>
+    </div>
+  </div>
+</div>"
+`;

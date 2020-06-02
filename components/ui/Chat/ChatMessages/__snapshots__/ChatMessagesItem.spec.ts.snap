@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChatMessagesItem Matches snapshot 1`] = `
+"<div class=\\"chat-messages__item chat-messages__item_other list-item  \\"><span class=\\"base-thumbnail base-thumbnail_size_s chat-messages__avatar  \\"><picture class=\\"base-thumbnail__picture picture\\"><v-lazy-image-stub src=\\"/img/avatar.png\\" alt=\\"Alexey Istomin\\" class=\\"base-thumbnail__img image\\"></v-lazy-image-stub></picture></span>
+  <div class=\\"chat-messages__holder\\"><strong class=\\"chat-messages__name\\">Alexey Istomin</strong>
+    <ul class=\\"chat-messages__group-messages list\\">
+      <li class=\\"chat-messages__group-item list-item\\">
+        <p class=\\"chat-messages__message paragraph\\">Hi, I have trouble with trip #12422</p><time class=\\"chat-messages__date\\">10:00</time>
+      </li>
+    </ul>
+  </div>
+</div>"
+`;

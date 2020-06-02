@@ -35,7 +35,7 @@ describe('Analytics UI', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('Return undefined if no revenue in content.revenue', () => {
+  it('Return undefined if revenue is not provided', () => {
     const wrapper = factory({
       content: {
         ...ANALYTICS_PAGE_MOCKED_RESPONSE(),
@@ -46,7 +46,7 @@ describe('Analytics UI', () => {
     expect(revenue).toEqual(undefined);
   });
 
-  it('Return undefined if no tripsByWeekday in content.tripsByWeekday', () => {
+  it('Return undefined if trips by weekday are not provided', () => {
     const wrapper = factory({
       content: {
         ...ANALYTICS_PAGE_MOCKED_RESPONSE(),
@@ -57,7 +57,7 @@ describe('Analytics UI', () => {
     expect(revenue).toEqual(undefined);
   });
 
-  it('Hide BaseBarGraph if TripsByWeekday is not provided', () => {
+  it('Hide BaseBarGraph if trips by weekday are not provided', () => {
     const wrapper = factory({
       content: {
         ...ANALYTICS_PAGE_MOCKED_RESPONSE(),
@@ -68,7 +68,7 @@ describe('Analytics UI', () => {
     expect(bar.exists()).toBe(false);
   });
 
-  it('Show BaseBarGraph if TripsByWeekday is provided', () => {
+  it('Show BaseBarGraph if  trips by weekday are provided', () => {
     const wrapper = factory();
     const bar = wrapper.find(BaseBarGraphSelector);
     expect(bar.exists()).toBe(true);
@@ -85,7 +85,7 @@ describe('Analytics UI', () => {
     expect(list.exists()).toBe(false);
   });
 
-  it('Show BaseList if latest trips are provided', () => {
+  it('Show BaseList with trips if latest trips are provided', () => {
     const wrapper = factory();
     const list = wrapper.find(BaseListSelector);
     expect(list.exists()).toBe(true);

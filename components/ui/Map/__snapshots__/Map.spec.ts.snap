@@ -2,6 +2,7 @@
 
 exports[`Map Matches snapshot 1`] = `
 "<section class=\\"map\\">
+  <basemap-stub trips=\\"[object Object]\\" class=\\"map__map\\"></basemap-stub>
   <div class=\\"map__container container\\">
     <baseblock-stub title=\\"Hint\\" class=\\"map__placeholder\\">
       <vuecomponent-stub level=\\"3\\">Information about trip will be available after click on marker</vuecomponent-stub>

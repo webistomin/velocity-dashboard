@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginVideo Matches snapshot 1`] = `
+"<div class=\\"login__video-block\\"><video preload=\\"auto\\" muted=\\"muted\\" playsinline=\\"true\\" autoplay=\\"autoplay\\" loop=\\"loop\\" class=\\"login__video\\">
+    <source src=\\"/video/login-city.webm\\" type=\\"video/webm; codecs=&quot;vp8, vorbis&quot;\\">
+    <source src=\\"/video/login-city.mp4\\" type=\\"video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;\\">Video tag is not supported in this browser.</video></div>"
+`;

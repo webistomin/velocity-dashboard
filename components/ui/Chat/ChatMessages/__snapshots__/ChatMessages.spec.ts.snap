@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChatMessages Matches snapshot 1`] = `
+"<div class=\\"chat-messages\\">
+  <div class=\\"chat-messages__content\\">
+    <vuecomponent-stub datakey=\\"id\\" datasources=\\"[object Object]\\" datacomponent=\\"function VueComponent (options) {
+      this._init(options);
+    }\\" keeps=\\"30\\" estimatesize=\\"50\\" direction=\\"vertical\\" start=\\"0\\" offset=\\"0\\" topthreshold=\\"0\\" bottomthreshold=\\"0\\" roottag=\\"div\\" wraptag=\\"div\\" wrapclass=\\"chat-messages__scroller-wrapper\\" itemtag=\\"div\\" itemclass=\\"chat-messages__scroller-item\\" headertag=\\"div\\" headerclass=\\"\\" footertag=\\"div\\" footerclass=\\"\\" tabindex=\\"0\\" class=\\"chat-messages__list list\\"></vuecomponent-stub>
+  </div>
+  <div class=\\"chat-messages__controls\\">
+    <div class=\\"chat-messages__inputs\\"><button type=\\"button\\" class=\\"chat-messages__emoji-picker btn\\">
+        <svg-icon-stub name=\\"icon-smile\\" width=\\"20\\" height=\\"20\\"></svg-icon-stub>
+      </button><input type=\\"text\\" placeholder=\\"Message\\" class=\\"chat-messages__input\\">
+      <div class=\\"chat-messages__attach\\"><input type=\\"file\\" id=\\"chat-attach\\" class=\\"chat-messages__attach-input visually-hidden\\"><label for=\\"chat-attach\\" class=\\"chat-messages__attach-label label\\">
+          <svg-icon-stub name=\\"icon-attach\\" width=\\"23\\" height=\\"20\\"></svg-icon-stub>
+        </label></div>
+    </div>
+  </div>
+</div>"
+`;

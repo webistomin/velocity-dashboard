@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginSignUp Matches snapshot 1`] = `
+"<div class=\\"login__holder\\">
+  <div class=\\"login__heading\\">
+    <vuecomponent-stub level=\\"3\\" class=\\"login__title\\">Get started for free</vuecomponent-stub>
+    <p class=\\"login__desc paragraph paragraph_color_darkgray\\">Free forever. No credit card needed.</p>
+  </div>
+  <form class=\\"login__form\\">
+    <ul class=\\"login__list list\\">
+      <li class=\\"login__item list-item\\">
+        <baseoption-stub type=\\"radio\\" value=\\"admin\\" name=\\"login-role\\" id=\\"login-role-admin\\" class=\\"login__option\\"><span class=\\"login__option-content\\"><vuecomponent-stub size=\\"s\\" name=\\"icon-lightning\\" color=\\"default\\" class=\\"login__option-icon\\"></vuecomponent-stub><strong class=\\"login__option-name\\">Administrator</strong><span class=\\"login__option-desc paragraph paragraph_color_darkgray\\">Full access to all settings</span></span></baseoption-stub>
+      </li>
+      <li class=\\"login__item list-item\\">
+        <baseoption-stub type=\\"radio\\" value=\\"operator\\" name=\\"login-role\\" id=\\"login-role-operator\\" checked=\\"true\\" class=\\"login__option\\"><span class=\\"login__option-content\\"><vuecomponent-stub size=\\"s\\" name=\\"icon-bubble\\" color=\\"default\\" class=\\"login__option-icon\\"></vuecomponent-stub><strong class=\\"login__option-name\\">Operator</strong><span class=\\"login__option-desc paragraph paragraph_color_darkgray\\">Service desk and chat permissions</span></span></baseoption-stub>
+      </li>
+    </ul>
+    <div class=\\"login__form-inputs\\">
+      <baseformgroup-stub validator=\\"[object Object]\\" messages=\\"[object Object]\\" label=\\"First name\\" attribute=\\"\\" validatorparams=\\"[object Object]\\" type=\\"text\\" id=\\"sign-up-first-name\\" value=\\"\\" placeholder=\\"Enter your first name\\" class=\\"login__form-group\\"></baseformgroup-stub>
+      <baseformgroup-stub validator=\\"[object Object]\\" messages=\\"[object Object]\\" label=\\"Last name\\" attribute=\\"\\" validatorparams=\\"[object Object]\\" type=\\"text\\" id=\\"sign-up-last-name\\" value=\\"\\" placeholder=\\"Enter your last name\\" class=\\"login__form-group\\"></baseformgroup-stub>
+      <baseformgroup-stub validator=\\"[object Object]\\" messages=\\"[object Object]\\" label=\\"Email address\\" attribute=\\"\\" validatorparams=\\"[object Object]\\" type=\\"email\\" id=\\"sign-up-email\\" value=\\"\\" placeholder=\\"Enter your email\\" class=\\"login__form-group\\"></baseformgroup-stub>
+      <baseformgroup-stub validator=\\"[object Object]\\" messages=\\"[object Object]\\" label=\\"Password\\" attribute=\\"\\" validatorparams=\\"[object Object]\\" type=\\"password\\" id=\\"sign-up-password\\" value=\\"\\" placeholder=\\"Enter your password\\" class=\\"login__form-group\\"></baseformgroup-stub>
+    </div>
+    <basebutton-stub type=\\"submit\\" icon=\\"\\" theme=\\"default\\" class=\\"login__submit\\">Create Account</basebutton-stub>
+    <p class=\\"login__text paragraph\\">Already have an account?<baselink-stub theme=\\"default\\" isbutton=\\"true\\" type=\\"button\\" class=\\"login__changer\\">Sign in</baselink-stub>
+    </p>
+  </form>
+</div>"
+`;

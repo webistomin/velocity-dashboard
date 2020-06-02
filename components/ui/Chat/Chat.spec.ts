@@ -16,6 +16,7 @@ describe('Chat UI', () => {
           removeEventListener: jest.fn(),
         };
       }),
+      writable: true,
     });
   });
 
@@ -26,6 +27,7 @@ describe('Chat UI', () => {
       propsData: {
         ...propsData,
       },
+      stubs: ['nuxt-link'],
       ...options,
     });
   };
@@ -42,5 +44,54 @@ describe('Chat UI', () => {
     });
     wrapper.vm.hideChat();
     expect(wrapper.vm.isMobileChatVisible).toEqual(false);
+  });
+
+  it('Set chat id if it exists in params', () => {
+    const wrapper = factory(
+      {},
+      {
+        beforeCreate() {
+          this._route = {
+            params: {
+              id: 1,
+            },
+          };
+        },
+      }
+    );
+    expect(wrapper.vm.isMobileChatVisible).toEqual(true);
+    expect(wrapper.vm.selectedChat).toEqual(1);
+  });
+
+  it('Return false if not on mobile device and chat selected', () => {
+    const wrapper = factory();
+    wrapper.setData({
+      isMobile: false,
+      selectedChat: '1',
+    });
+    expect(wrapper.vm.isEmptyBlockVisible).toEqual(false);
+  });
+
+  it('Return true if not on mobile device and chat is not selected', () => {
+    const wrapper = factory();
+    wrapper.setData({
+      isMobile: false,
+      selectedChat: null,
+    });
+    expect(wrapper.vm.isEmptyBlockVisible).toEqual(true);
+  });
+
+  it('Detect mobile devices', () => {
+    Object.defineProperty(window, 'matchMedia', {
+      value: jest.fn(() => {
+        return {
+          matches: false,
+          addEventListener: jest.fn(),
+          removeEventListener: jest.fn(),
+        };
+      }),
+    });
+    const wrapper = factory();
+    expect(wrapper.vm.isMobile).toEqual(true);
   });
 });

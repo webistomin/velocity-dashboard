@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChatInfo Matches snapshot 1`] = `
+"<aside class=\\"chat__info\\">
+  <div class=\\"chat__actions\\">
+    <basebutton-stub type=\\"button\\" icon=\\"\\" theme=\\"success\\" class=\\"chat__info-btn\\">Mark resolved</basebutton-stub>
+    <basebutton-stub type=\\"button\\" icon=\\"\\" theme=\\"light\\" class=\\"chat__info-btn\\">Report</basebutton-stub>
+  </div>
+  <ul class=\\"chat__info-list list\\">
+    <li class=\\"chat__info-item list-item\\"><strong class=\\"chat__caption caption\\">Client info</strong>
+      <div class=\\"chat__user-info\\">
+        <div class=\\"chat__user-heading\\">
+          <vuecomponent-stub image=\\"/img/avatar.png\\" alt=\\"1\\" size=\\"m\\"></vuecomponent-stub>
+          <div class=\\"chat__user\\"><strong class=\\"chat__username\\">Nora M. Buchanan</strong><span class=\\"chat__count\\">4 interactions</span></div>
+        </div>
+        <p class=\\"chat__text paragraph\\">This theme adds additional client and channel information. It's useful for Admins when you need a user's ID without wanting to waste time searching for it.</p>
+      </div>
+    </li>
+    <li class=\\"chat__info-item list-item\\"><strong class=\\"chat__caption caption\\">Interactions timeline</strong>
+      <vuecomponent-stub timeline=\\"[object Object],[object Object],[object Object],[object Object],[object Object]\\"></vuecomponent-stub>
+    </li>
+    <li class=\\"chat__info-item list-item\\"><strong class=\\"chat__caption caption\\">Email</strong><a href=\\"mailto:123\\" class=\\"link\\">invision@invisionapp.com</a></li>
+    <li class=\\"chat__info-item list-item\\"><strong class=\\"chat__caption caption\\">Phone</strong><a href=\\"tel:123\\" class=\\"link\\">+144–3412–4422</a></li>
+  </ul>
+</aside>"
+`;

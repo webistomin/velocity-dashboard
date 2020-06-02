@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginSignIn Matches snapshot 1`] = `
+"<div class=\\"login__holder\\">
+  <div class=\\"login__heading\\">
+    <vuecomponent-stub level=\\"3\\" class=\\"login__title\\">Sign in to Velocity</vuecomponent-stub>
+    <p class=\\"login__desc paragraph paragraph_color_darkgray\\">Please enter your credentials to proceed.</p>
+  </div>
+  <form class=\\"login__form\\">
+    <div class=\\"login__form-inputs\\">
+      <baseformgroup-stub validator=\\"[object Object]\\" messages=\\"[object Object]\\" label=\\"Email address\\" attribute=\\"\\" validatorparams=\\"[object Object]\\" type=\\"email\\" id=\\"sign-in-email\\" value=\\"\\" placeholder=\\"Enter your email\\" class=\\"login__form-group\\"></baseformgroup-stub>
+      <baseformgroup-stub validator=\\"[object Object]\\" messages=\\"[object Object]\\" label=\\"Password\\" attribute=\\"\\" validatorparams=\\"[object Object]\\" type=\\"password\\" id=\\"sign-in-password\\" value=\\"\\" placeholder=\\"Enter your password\\" class=\\"login__form-group\\"><template></template></baseformgroup-stub>
+    </div>
+    <basebutton-stub type=\\"submit\\" icon=\\"\\" theme=\\"default\\" class=\\"login__submit\\">Sign in</basebutton-stub>
+    <p class=\\"login__text paragraph\\">Don’t have an account?<baselink-stub theme=\\"default\\" isbutton=\\"true\\" type=\\"button\\" class=\\"login__changer\\">Sign up</baselink-stub>
+    </p>
+  </form>
+</div>"
+`;

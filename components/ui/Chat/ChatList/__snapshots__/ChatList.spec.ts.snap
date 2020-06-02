@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChatList Matches snapshot 1`] = `
+"<div class=\\"chat-list\\">
+  <ul class=\\"chat-list__list list\\">
+    <li class=\\"chat-list__item list-item\\">
+      <nuxt-link-stub to=\\"/chat/abc132\\" class=\\"chat-list__link link\\"><span class=\\"chat-list__col chat-list__col_left\\"><vuecomponent-stub></vuecomponent-stub><vuecomponent-stub image=\\"/img/avatar.png\\" alt=\\"Alexey Istomin\\" size=\\"m\\"></vuecomponent-stub></span><span class=\\"chat-list__col chat-list__col_right\\"><span class=\\"chat-list__heading\\"><strong class=\\"chat-list__name\\">Alexey Istomin</strong><time class=\\"chat-list__time\\"></time></span><span class=\\"chat-list__message\\">You are most welcome Kathey! You are most welcome Kathey! You are most welcome Kathey!</span></span></nuxt-link-stub>
+    </li>
+  </ul>
+</div>"
+`;
