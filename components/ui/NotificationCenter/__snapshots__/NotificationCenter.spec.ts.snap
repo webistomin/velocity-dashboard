@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotificationCenter UI Matches snapshot 1`] = `
+"<div class=\\"notification-center\\"><button type=\\"button\\" aria-label=\\"Toggle notification center\\" class=\\"notification-center__btn btn \\"><span class=\\"notification-center__btn-content\\"><vuecomponent-stub class=\\"notification-center__status\\"></vuecomponent-stub><svg-icon-stub name=\\"icon-bell\\" width=\\"20\\" height=\\"22\\"></svg-icon-stub></span></button>
+  <vuecomponent-stub class=\\"notification-center__sidebar\\">
+    <div class=\\"notification-center__heading\\">
+      <div class=\\"notification-center__info\\">
+        <vuecomponent-stub city=\\", \\" temperature=\\"1\\" icon=\\"\\" description=\\"\\"></vuecomponent-stub>
+      </div>
+      <basebutton-stub type=\\"button\\" icon=\\"\\" theme=\\"gray\\" class=\\"notification-center__clear-btn\\">Clear</basebutton-stub>
+    </div>
+    <ul class=\\"notification-center__list list\\">
+      <li class=\\"notification-center__list-item list-item\\">
+        <notificationcenteritem-stub type=\\"message\\" text=\\"How may we assist you today?\\" time=\\"1591086090152\\" id=\\"1\\" isnew=\\"true\\"></notificationcenteritem-stub>
+      </li>
+      <li class=\\"notification-center__list-item list-item\\">
+        <notificationcenteritem-stub type=\\"application\\" text=\\"How may we assist you today?\\" time=\\"1591086090152\\" id=\\"2\\"></notificationcenteritem-stub>
+      </li>
+      <li class=\\"notification-center__list-item list-item\\">
+        <notificationcenteritem-stub type=\\"complaint\\" text=\\"How may we assist you today?\\" time=\\"1591086090152\\" id=\\"3\\" isnew=\\"true\\"></notificationcenteritem-stub>
+      </li>
+      <li class=\\"notification-center__list-item list-item\\">
+        <notificationcenteritem-stub type=\\"message\\" text=\\"How may we assist you today?\\" time=\\"1591086090152\\" id=\\"4\\" isnew=\\"true\\"></notificationcenteritem-stub>
+      </li>
+      <li class=\\"notification-center__list-item list-item\\">
+        <notificationcenteritem-stub type=\\"application\\" text=\\"How may we assist you today?\\" time=\\"1591086090152\\" id=\\"5\\" isnew=\\"true\\"></notificationcenteritem-stub>
+      </li>
+      <li class=\\"notification-center__list-item list-item\\">
+        <notificationcenteritem-stub type=\\"application\\" text=\\"How may we assist you today?\\" time=\\"1591086090152\\" id=\\"6\\"></notificationcenteritem-stub>
+      </li>
+      <li class=\\"notification-center__list-item list-item\\">
+        <notificationcenteritem-stub type=\\"message\\" text=\\"How may we assist you today?\\" time=\\"1591086090152\\" id=\\"7\\" isnew=\\"true\\"></notificationcenteritem-stub>
+      </li>
+      <li class=\\"notification-center__list-item list-item\\">
+        <notificationcenteritem-stub type=\\"complaint\\" text=\\"How may we assist you today?\\" time=\\"1591086090152\\" id=\\"8\\"></notificationcenteritem-stub>
+      </li>
+    </ul>
+  </vuecomponent-stub>
+  <baseoverlay-stub class=\\"notification-center__overlay\\"></baseoverlay-stub>
+</div>"
+`;

@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserCenter UI Matches snapshot 1`] = `
+"<div class=\\"user-center\\"><button class=\\"user-center__btn btn\\">
+    <vuecomponent-stub image=\\"\\" alt=\\"User\\" size=\\"s\\"></vuecomponent-stub>
+  </button>
+  <vuecomponent-stub class=\\"user-center__sidebar\\">
+    <userprofile-stub info=\\"[object Object]\\" class=\\"user-center__profile\\"></userprofile-stub>
+  </vuecomponent-stub>
+  <baseoverlay-stub class=\\"user-center__overlay\\"></baseoverlay-stub>
+</div>"
+`;

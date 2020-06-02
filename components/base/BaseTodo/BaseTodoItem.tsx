@@ -3,6 +3,7 @@ import { Component, Prop, Emit } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
 import add from 'date-fns/add';
 import compareAsc from 'date-fns/compareAsc';
+import format from 'date-fns/format';
 
 import { clientUrls } from 'common/urls/clientUrls';
 import { IBaseTodo } from './BaseTodo';
@@ -44,6 +45,10 @@ export default class BaseTodoItem extends VueComponent<IBaseTodoItem> {
     return 'on-time';
   }
 
+  public get getFormattedDate() {
+    return format(new Date(this.dueDate), 'd MMM hh:mm');
+  }
+
   @Emit('input')
   public onInput(event: Event): Event {
     return event;
@@ -67,7 +72,7 @@ export default class BaseTodoItem extends VueComponent<IBaseTodoItem> {
         <nuxt-link to={`${clientUrls.reminders}/${this.id}`} class='base-todo__content link'>
           <strong class='base-todo__name'>{this.title}</strong>
           <time class={`base-todo__date base-todo__date_deadline_${this.getDeadline}`}>
-            Due {new Date(this.dueDate).toLocaleString()}
+            Due {this.getFormattedDate}
           </time>
         </nuxt-link>
       </li>

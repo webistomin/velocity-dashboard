@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserProfile UI Matches snapshot 1`] = `
+"<div class=\\"user-profile\\">
+  <div class=\\"user-profile__heading\\">
+    <basemodal-stub transitionname=\\"modal-fade\\" class=\\"user-profile__avatar-modal\\">
+      <ankacropper-stub options=\\"[object Object]\\" class=\\"user-profile__avatar-cropper\\"></ankacropper-stub>
+    </basemodal-stub>
+    <div class=\\"user-profile__avatar-block\\"><button type=\\"button\\" class=\\"user-profile__avatar-changer btn\\">Change avatar</button>
+      <vuecomponent-stub image=\\"\\" alt=\\"Alexey Istomin\\" size=\\"xl\\" id=\\"profile-avatar\\" class=\\"user-profile__avatar\\"></vuecomponent-stub>
+    </div>
+    <vuecomponent-stub level=\\"3\\" class=\\"user-profile__title\\">Alexey Istomin</vuecomponent-stub><strong class=\\"user-profile__post\\">Administrator</strong>
+    <div class=\\"user-profile__actions\\">
+      <basebutton-stub type=\\"button\\" icon=\\"\\" theme=\\"light\\">Logout</basebutton-stub>
+    </div>
+  </div>
+  <ul class=\\"user-profile__list list\\">
+    <li class=\\"user-profile__item list-item\\"><strong class=\\"user-profile__key caption\\">Email</strong><span class=\\"user-profile__value\\">mail@mail.ru</span></li>
+    <li class=\\"user-profile__item list-item\\" style=\\"display: none;\\"><strong class=\\"user-profile__key caption\\">Location</strong><span class=\\"user-profile__value\\"></span></li>
+    <li class=\\"user-profile__item list-item\\" style=\\"display: none;\\"><strong class=\\"user-profile__key caption\\">Bio</strong><span class=\\"user-profile__value\\"></span></li>
+  </ul>
+</div>"
+`;

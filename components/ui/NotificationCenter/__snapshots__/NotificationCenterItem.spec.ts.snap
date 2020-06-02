@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotificationCenterItem Matches snapshot 1`] = `
+"<div class=\\"notification-center__item\\">
+  <nuxt-link-stub to=\\"#\\" class=\\"notification-center__item-link link\\">
+    <div class=\\"notification-center__col notification-center__col_left\\">
+      <vuecomponent-stub></vuecomponent-stub>
+      <vuecomponent-stub size=\\"xs\\" name=\\"icon-bubble\\" color=\\"default\\" class=\\"notification-center__item-icon notification-center__item-icon_new\\"></vuecomponent-stub>
+    </div>
+    <div class=\\"notification-center__col notification-center__col_right\\"><strong class=\\"notification-center__caption caption\\">MESSAGE</strong>
+      <p class=\\"notification-center__text paragraph\\"></p><time class=\\"notification-center__time\\">1591086090152</time></div>
+  </nuxt-link-stub>
+</div>"
+`;

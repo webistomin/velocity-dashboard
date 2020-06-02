@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessagesCenter UI Matches snapshot 1`] = `
+"<div class=\\"messages-center\\"><button type=\\"button\\" aria-label=\\"Toggle messages center\\" class=\\"messages-center__btn btn \\"><span class=\\"messages-center__btn-content\\"><vuecomponent-stub class=\\"messages-center__status\\"></vuecomponent-stub><svg-icon-stub name=\\"icon-mail\\" width=\\"23\\" height=\\"18\\"></svg-icon-stub></span></button>
+  <vuecomponent-stub class=\\"messages-center__sidebar\\">
+    <chatlist-stub chats=\\"[object Object]\\"></chatlist-stub>
+  </vuecomponent-stub>
+  <baseoverlay-stub class=\\"messages-center__overlay\\"></baseoverlay-stub>
+</div>"
+`;

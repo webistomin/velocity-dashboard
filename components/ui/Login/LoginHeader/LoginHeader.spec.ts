@@ -1,11 +1,10 @@
 import { shallowMount } from '@vue/test-utils';
-import Overview from './Overview';
+import LoginHeader from './LoginHeader';
 
-describe('Overview UI', () => {
+describe('LoginHeader', () => {
   const factory = (propsData = {}, options = {}) => {
-    return shallowMount(Overview, {
+    return shallowMount(LoginHeader, {
       propsData: {
-        content: null,
         ...propsData,
       },
       ...options,

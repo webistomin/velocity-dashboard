@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginHeader Matches snapshot 1`] = `
+"<header class=\\"login__header\\">
+  <div class=\\"login__header-container container\\">
+    <vuecomponent-stub></vuecomponent-stub>
+  </div>
+</header>"
+`;

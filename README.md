@@ -37,7 +37,7 @@ Beep beep. Meet Velocity – app for taxi company. It's not totally complete bec
 
 All components are ready on the client side, it remains only to write the logic. The server uses stubs to respond to pages. Only the logic for working with the user is ready: registration, authorization, password recovery, changing information about yourself, loading the avatar on S3.
 
-For unit tests I used Jest. Tests cover only the basic components, approximately 30% of the entire code. Also, the application was not tested in most browsers, since I did not have a goal to make applications for production, I wanted to learn more about new things.
+For unit tests I used Jest. Tests cover only client components, approximately 80% of the entire code. Also, the application was not tested in most browsers, since I did not have a goal to make applications for production, I wanted to learn more about new things.
 
 As a result, I realized that Vue in conjunction with TypeScript is still not reaching React. Poor IDE support, not working templates with prop types highlighting. It forced me to switch from templates to JSX, where I met new problems. Small community, poor documentation, etc.
 
