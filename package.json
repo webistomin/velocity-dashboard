@@ -150,7 +150,7 @@
     "nodemon": "^1.18.9",
     "postcss-focus": "^4.0.0",
     "postcss-initial": "^3.0.2",
-    "postcss-momentum-scrolling": "^2.5.17",
+    "postcss-momentum-scrolling": "^2.6.17",
     "postcss-object-fit-images": "^1.1.2",
     "prettier": "^1.19.1",
     "pug": "^2.0.4",
