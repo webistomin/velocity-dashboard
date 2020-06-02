@@ -11,7 +11,9 @@ exports[`BaseSelect Matches snapshot 1`] = `
         <div class=\\"vs__spinner\\" style=\\"display: none;\\">Loading...</div>
       </div>
     </div>
-    <ul id=\\"vs1__listbox\\" role=\\"listbox\\" style=\\"display: none; visibility: hidden;\\"></ul>
+    <transition-stub name=\\"vs__fade\\">
+      <ul id=\\"vs1__listbox\\" role=\\"listbox\\" style=\\"display: none; visibility: hidden;\\"></ul>
+    </transition-stub>
   </div>
 </div>"
 `;
