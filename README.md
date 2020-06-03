@@ -27,6 +27,7 @@
   <a href="#description-%EF%B8%8F">Description</a> •
   <a href="#demo-">Demo</a> •
   <a href="#Pages-">Pages</a> •
+  <a href="#Installation-">Installation</a> •
   <a href="#tech-stack-%EF%B8%8F">Tech stack</a> •
   <a href="#documentation-%EF%B8%8F">Documentation</a> •
   <a href="#license-%EF%B8%8F">License</a>
@@ -96,6 +97,51 @@ Heroku will spin down app to save resources, if it's not accessed for a certain 
     <tr>
       <td><a href="https://stormy-ocean-88138.herokuapp.com/settings">Settings</a></td>
       <td>This is a page where the user can change information about himself, choose a theme for the site</td>
+    </tr>
+  </tbody>
+</table>
+
+## Installation 🚀
+
+<table>
+  <thead>
+    <tr>
+      <th>Page</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>npm ci</code></td>
+      <td>Install dependencies from package-lock.json</td>
+    </tr>
+    <tr>
+      <td><code>npm run dev</code></td>
+      <td>Run dev server with HMR</td>
+    </tr>
+    <tr>
+      <td><code>npm run build</code></td>
+      <td>Build app for production</td>
+    </tr>
+    <tr>
+      <td><code>npm run start</code></td>
+      <td>Serve production build locally</td>
+    </tr>
+    <tr>
+      <td><code>npm run analyze</code></td>
+      <td>Analyze webpack bundle</td>
+    </tr>
+    <tr>
+      <td><code>npm run test</code></td>
+      <td>Run unit tests</td>
+    </tr>
+    <tr>
+      <td><code>npm run lint:write</code></td>
+      <td>Lint and fix all files</td>
+    </tr>
+    <tr>
+      <td><code>npm run prettier:write</code></td>
+      <td>Run prettier</td>
     </tr>
   </tbody>
 </table>
