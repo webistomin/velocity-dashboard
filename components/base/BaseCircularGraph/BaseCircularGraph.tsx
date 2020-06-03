@@ -30,6 +30,7 @@ export default class BaseCircularGraph extends VueComponent<IBaseCircularGraphPr
   duration: number = 2000;
   percent: number = this.value / 100;
   startValue: number = 0;
+  isDone: boolean = false;
   id: string = 'base-circular-graph-mask';
 
   public animatedValue: IBaseCircularGraphProps['value'] = 0;
@@ -47,6 +48,10 @@ export default class BaseCircularGraph extends VueComponent<IBaseCircularGraphPr
     this.startCircularProgress(this.percent, this.duration);
   }
 
+  public beforeDestroy(): void {
+    this.isDone = true;
+  }
+
   public startCircularProgress(percentage: number, speed: number) {
     let startTimestamp: number = 0;
     let x = this.startValue;
@@ -59,6 +64,8 @@ export default class BaseCircularGraph extends VueComponent<IBaseCircularGraphPr
       if (progress < 1) {
         window.requestAnimationFrame(step);
         this.drawProgress(x);
+      } else {
+        this.isDone = true;
       }
     };
     window.requestAnimationFrame(step);
@@ -69,7 +76,7 @@ export default class BaseCircularGraph extends VueComponent<IBaseCircularGraphPr
   }
 
   public drawProgress(percent: number) {
-    if (isNaN(percent)) {
+    if (isNaN(percent) || this.isDone) {
       return;
     }
 

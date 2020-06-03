@@ -2,6 +2,7 @@ import { VueComponent } from 'types/vue-components';
 import { Component, Prop } from 'nuxt-property-decorator';
 import { VNode } from 'vue';
 import HTTPStatuses from 'http-status-codes';
+
 import NotFound from 'components/ui/NotFound';
 
 export interface INuxtError {
@@ -22,11 +23,11 @@ export default class ErrorLayout extends VueComponent<IErrorLayoutProps> {
   @Prop()
   private readonly error!: IErrorLayoutProps['error'];
 
-  mounted(): void {
+  public mounted(): void {
     console.log(this.error);
   }
 
-  render(): VNode | null {
+  public render(): VNode | null {
     return this.error.statusCode === HTTPStatuses.NOT_FOUND ? <NotFound /> : null;
   }
 }

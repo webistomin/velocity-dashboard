@@ -1,6 +1,6 @@
 import { VueComponent } from 'types/vue-components';
 import { Component, Prop, Emit } from 'nuxt-property-decorator';
-import { VNode } from 'vue';
+import Vue, { VNode } from 'vue';
 
 // @ts-ignore
 import VueSlider from 'vue-slider-component/dist-css/vue-slider-component.umd.min.js';
@@ -21,6 +21,10 @@ interface IBaseSliderProps {
   components: { VueSlider },
 })
 export default class BaseSlider extends VueComponent<IBaseSliderProps> {
+  public $refs!: Vue['$refs'] & {
+    baseSlider: HTMLElement;
+  };
+
   @Prop({ required: true })
   private readonly value!: IBaseSliderProps['value'];
 
@@ -41,16 +45,25 @@ export default class BaseSlider extends VueComponent<IBaseSliderProps> {
     return value;
   }
 
+  public onFocus() {
+    this.$refs.baseSlider.focus();
+  }
+
+  public onBlur() {
+    this.$refs.baseSlider.blur();
+  }
+
   public render(): VNode {
     const { labelStart, labelEnd, min, max, onChange, value } = this;
 
     return (
-      <div class='base-slider'>
+      <div class='base-slider' tabIndex={0} onFocus={this.onFocus} onBlur={this.onBlur}>
         <div class='base-slider__heading'>
           <span class='base-slider__text'>{labelStart}</span>
           <span class='base-slider__max'>{labelEnd}</span>
         </div>
         <VueSlider
+          ref='baseSlider'
           dotSize={16}
           tooltipPlacement='bottom'
           useKeyboard

@@ -98,6 +98,10 @@ Heroku will spin down app to save resources, if it's not accessed for a certain 
       <td><a href="https://stormy-ocean-88138.herokuapp.com/settings">Settings</a></td>
       <td>This is a page where the user can change information about himself, choose a theme for the site</td>
     </tr>
+    <tr>
+      <td><a href="https://stormy-ocean-88138.herokuapp.com/404">Not found</a></td>
+      <td>Not found page for 404 error</td>
+    </tr>
   </tbody>
 </table>
 

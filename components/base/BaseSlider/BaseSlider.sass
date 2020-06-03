@@ -1,4 +1,6 @@
 +b('base-slider')
+  outline: none
+
   +e('heading')
     display: flex
     justify-content: space-between
@@ -7,3 +9,6 @@
 
   +e('max')
     color: rgb(var(--color-gray-3))
+
+body.using-keyboard .base-slider:focus
+  outline: rem(2px) solid rgb(var(--color-primary))

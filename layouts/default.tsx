@@ -14,7 +14,7 @@ import { detectUserInput } from '~/plugins/detectUserInput';
   name: 'DefaultLayout',
 })
 export default class DefaultLayout extends VueComponent {
-  isNavOpened: boolean = false;
+  public isNavOpened: boolean = false;
 
   @State((state) => state.auth.user)
   private readonly getAuthUser!: IUserInterfaceDB;
@@ -50,23 +50,23 @@ export default class DefaultLayout extends VueComponent {
     }
   }
 
-  toggleNav() {
+  public toggleNav() {
     this.isNavOpened = !this.isNavOpened;
   }
 
-  get shouldLockBody(): boolean {
+  public get shouldLockBody(): boolean {
     return this.isNavOpened && window.matchMedia('(max-width: 1023px)').matches;
   }
 
   @Watch('$route')
-  onRouteChanged() {
+  public onRouteChanged() {
     if (window.matchMedia('(max-width: 1023px)').matches) {
       this.isNavOpened = false;
     }
   }
 
   @Watch('$nuxt.isOffline')
-  onOfflineMode(newValue: boolean) {
+  public onOfflineMode(newValue: boolean) {
     if (newValue) {
       this.$notify({
         group: 'common',
@@ -79,7 +79,7 @@ export default class DefaultLayout extends VueComponent {
   }
 
   @Watch('$nuxt.isOnline')
-  onOnlineMode(newValue: boolean) {
+  public onOnlineMode(newValue: boolean) {
     if (newValue) {
       this.$notify({
         group: 'common',
@@ -91,7 +91,7 @@ export default class DefaultLayout extends VueComponent {
     }
   }
 
-  render(): VNode {
+  public render(): VNode {
     return (
       <div class={`site-grid`} id='app'>
         <notifications group='common' position='top left' animation-name='v-popup-fade-left' />

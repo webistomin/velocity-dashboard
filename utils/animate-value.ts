@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const animateValue = function (property: string, start: number, end: number, duration: DOMTimeStamp): void {
   let startTimestamp: number = 0;
   const step = (timestamp: number) => {
