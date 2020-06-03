@@ -91,7 +91,9 @@ export default class BaseTodoItem extends VueComponent<IBaseTodoItem> {
         <nuxt-link to={`${clientUrls.reminders}/${this.id}`} class='base-todo__content link'>
           <strong class='base-todo__name'>{this.title}</strong>
           {this.dueDate ? (
-            <time data-jest='base-todo__date' class={`base-todo__date ${this.getDeadlineClass}`}>Due {this.getFormattedDate}</time>
+            <time data-jest='base-todo__date' class={`base-todo__date ${this.getDeadlineClass}`}>
+              Due {this.getFormattedDate}
+            </time>
           ) : null}
         </nuxt-link>
       </li>

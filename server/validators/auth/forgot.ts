@@ -7,9 +7,7 @@ import User from 'server/models/user/user';
 import PasswordReset from 'server/models/auth/password-reset';
 
 const ForgotSchema = Yup.object({
-  email: Yup.string()
-    .required()
-    .email(),
+  email: Yup.string().required().email(),
 });
 
 export default async (

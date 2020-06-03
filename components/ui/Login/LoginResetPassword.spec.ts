@@ -20,26 +20,8 @@ describe('LoginResetPassword', () => {
     });
   };
 
-  it('Matches snapshot', () => {
-    const wrapper = factory().html();
-    expect(wrapper).toMatchSnapshot();
-  });
-
-  it('Prevent submit if form has errors', async () => {
-    const fakeEvent = { preventDefault: () => {} };
-    const wrapper = factory();
-    await wrapper.vm.onSubmit(fakeEvent as Event);
-    expect(wrapper.vm.isLoading).toEqual(false);
-  });
-
-  it('Make API call if form does not have errors', async () => {
-    const fakeEvent = { preventDefault: () => {} };
-    const mockAxiosGetResult = {
-      success: true,
-    };
-    const mockedAxios = jest.fn().mockImplementationOnce(() => Promise.resolve(mockAxiosGetResult));
-    const mockedNotify = jest.fn();
-    const wrapper = factory(
+  const validComponentWrapper = (mockedAxios: any, mockedNotify: any) =>
+    factory(
       {},
       {
         beforeCreate() {
@@ -67,12 +49,35 @@ describe('LoginResetPassword', () => {
       }
     );
 
-    wrapper.setData({
-      resetForm: {
-        password: '123',
-        token: 'Bearer 456',
-      },
-    });
+  const validFormData = {
+    resetForm: {
+      password: '123',
+      token: 'Bearer 456',
+    },
+  };
+
+  const fakeEvent = { preventDefault: () => {} };
+
+  it('Matches snapshot', () => {
+    const wrapper = factory().html();
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('Prevent submit if form has errors', async () => {
+    const wrapper = factory();
+    await wrapper.vm.onSubmit(fakeEvent as Event);
+    expect(wrapper.vm.isLoading).toEqual(false);
+  });
+
+  it('Make API call if form does not have errors', async () => {
+    const mockAxiosGetResult = {
+      success: true,
+    };
+    const mockedAxios = jest.fn().mockImplementationOnce(() => Promise.resolve(mockAxiosGetResult));
+    const mockedNotify = jest.fn();
+    const wrapper = validComponentWrapper(mockedAxios, mockedNotify);
+
+    wrapper.setData(validFormData);
 
     await wrapper.vm.onSubmit(fakeEvent as Event);
     expect(mockedAxios).toHaveBeenCalled();
@@ -81,46 +86,14 @@ describe('LoginResetPassword', () => {
   });
 
   it('Does not show notification if API call return false', async () => {
-    const fakeEvent = { preventDefault: () => {} };
     const mockAxiosGetResult = {
       success: false,
     };
     const mockedAxios = jest.fn().mockImplementationOnce(() => Promise.resolve(mockAxiosGetResult));
     const mockedNotify = jest.fn();
-    const wrapper = factory(
-      {},
-      {
-        beforeCreate() {
-          this._route = {
-            params: {
-              token: 'token123',
-            },
-          };
-        },
-        mocks: {
-          $v: {
-            resetForm: {
-              password: {
-                $touch: () => {},
-              },
-            },
-            $touch: () => {},
-            $anyError: false,
-          },
-          $axios: {
-            $post: mockedAxios,
-          },
-          $notify: mockedNotify,
-        },
-      }
-    );
+    const wrapper = validComponentWrapper(mockedAxios, mockedNotify);
 
-    wrapper.setData({
-      resetForm: {
-        password: '123',
-        token: 'Bearer 456',
-      },
-    });
+    wrapper.setData(validFormData);
 
     await wrapper.vm.onSubmit(fakeEvent as Event);
     expect(mockedAxios).toHaveBeenCalled();
@@ -129,7 +102,6 @@ describe('LoginResetPassword', () => {
   });
 
   it('Show error notification if API call failed', async () => {
-    const fakeEvent = { preventDefault: () => {} };
     const mockAxiosGetResult = {
       response: {
         data: {
@@ -139,40 +111,9 @@ describe('LoginResetPassword', () => {
     };
     const mockedAxios = jest.fn().mockImplementationOnce(() => Promise.reject(mockAxiosGetResult));
     const mockedNotify = jest.fn();
-    const wrapper = factory(
-      {},
-      {
-        beforeCreate() {
-          this._route = {
-            params: {
-              token: 'token123',
-            },
-          };
-        },
-        mocks: {
-          $v: {
-            resetForm: {
-              password: {
-                $touch: () => {},
-              },
-            },
-            $touch: () => {},
-            $anyError: false,
-          },
-          $axios: {
-            $post: mockedAxios,
-          },
-          $notify: mockedNotify,
-        },
-      }
-    );
+    const wrapper = validComponentWrapper(mockedAxios, mockedNotify);
 
-    wrapper.setData({
-      resetForm: {
-        password: '123',
-        token: 'Bearer 456',
-      },
-    });
+    wrapper.setData(validFormData);
 
     await wrapper.vm.onSubmit(fakeEvent as Event);
     expect(mockedAxios).toHaveBeenCalled();

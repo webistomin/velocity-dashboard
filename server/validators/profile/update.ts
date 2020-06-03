@@ -7,15 +7,13 @@ import { IProfileUpdateRequest, IProfileUpdateResponseBody } from 'common/types/
 
 const UpdateProfileSchema = Yup.object({
   info: Yup.object({
-    email: Yup.string()
-      .required()
-      .email(),
+    email: Yup.string().required().email(),
     firstName: Yup.string().required(),
     lastName: Yup.string().required(),
     dob: Yup.string(),
     currentPassword: Yup.string(),
     newPassword: Yup.string(),
-    confirmPassword: Yup.mixed().test('match', 'Passwords do not match', function() {
+    confirmPassword: Yup.mixed().test('match', 'Passwords do not match', function () {
       return this.parent.newPassword === this.parent.confirmPassword;
     }),
     bio: Yup.string(),

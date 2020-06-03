@@ -6,9 +6,7 @@ import { IAuthSignInValidatorRequest, IAuthSignInValidatorResponseBody } from 'c
 import User from 'server/models/user/user';
 
 const SignInSchema = Yup.object({
-  email: Yup.string()
-    .required()
-    .email(),
+  email: Yup.string().required().email(),
   password: Yup.string().required(),
 });
 

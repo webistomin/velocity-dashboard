@@ -1,7 +1,7 @@
 export const detectUserInput = (): void => {
   document.body.addEventListener(
     'mousedown',
-    function() {
+    function () {
       document.body.classList.add('using-mouse');
       document.body.classList.remove('using-keyboard');
     },
@@ -10,7 +10,7 @@ export const detectUserInput = (): void => {
 
   document.body.addEventListener(
     'keydown',
-    function(e) {
+    function (e) {
       const target = e.target as HTMLElement;
 
       if (target.tagName !== 'INPUT' && target.tagName !== 'TEXTAREA') {
