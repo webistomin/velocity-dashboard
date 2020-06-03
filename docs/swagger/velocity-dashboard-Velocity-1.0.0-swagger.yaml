@@ -1,7 +1,5 @@
 openapi: 3.0.0
-# Added by API Auto Mocking Plugin
 servers:
-# Added by API Auto Mocking Plugin
   - description: SwaggerHub API Auto Mocking
     url: https://virtserver.swaggerhub.com/velocity-dashboard/Velocity/1.0.0
   - description: SwaggerHub API Auto Mocking
@@ -20,8 +18,17 @@ info:
 tags:
   - name: Auth
     description: Operations for user authorization
+    
+  - name: Profile
+    description: Operations for user profile  
+    
+  - name: Healthcheck
+    description: Operations for check server status
+    
+  - name: Driver
+    description: Operations for drivers
 paths:
-  /sign-in:
+  /auth/signin:
     post:
       tags:
         - Auth
@@ -64,7 +71,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalServerError'        
                 
-  /sign-up:
+  /auth/signup:
     post:
       tags:
         - Auth
@@ -107,8 +114,312 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalServerError'                      
+                
+  /auth/logout:
+    post:
+      tags:
+        - Auth
+      summary: Logout user
+      operationId: logOut
+      responses:
+        '200':
+          description: User logged out
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserLoggedOutSchemaSuccess'
+    
+                
+        '500':
+          description: Internal server error 
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'                                    
+                
+  /auth/forgot:
+    post:
+      tags:
+        - Auth
+      summary: Reset user password
+      operationId: authForgot
+      description: |
+        By passing in the appropriate options, user can get email with reset link
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserForgotSchema'
+      responses:
+        '200':
+          description: Password reset link sent
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserForgotSchemaSuccess'
+          
+        '401':
+          description: Wrong email
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserForgotSchemaFailure'
+                
+        '422':
+          description: Validation error 
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityError'          
+                
+        '500':
+          description: Internal server error 
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'        
+                
+  /auth/reset:
+    post:
+      tags:
+        - Auth
+      summary: Set new user password
+      operationId: authReset
+      description: |
+        By passing in the appropriate options, user can change password
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserResetSchema'
+      responses:
+        '200':
+          description: Password reset link sent
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResetSchemaSuccess'
+          
+                
+        '422':
+          description: Validation error 
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityError'          
+                
+        '500':
+          description: Internal server error 
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'                      
+                
+  /profile/own:
+    get:
+      tags:
+        - Profile
+      summary: Get user profile object
+      operationId: profileOwn
+      description: |
+        By passing in the appropriate options, user can get profile
+      parameters:
+         - in: header
+           name: authorization
+           schema:
+            type: string
+            format: string
+            example: Bearer 423gfdjglkj5l34
+           required: true  
+      responses:
+        '200':
+          description: Return user object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfileOwnSchema'
+                
+        '400':
+          description: Can't verify token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfileOwnSchemaFailure'        
+                
+        '404':
+          description: User is not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfileOwnSchemaFailure'        
+          
+                
+        '500':
+          description: Internal server error 
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'                      
+                
+  /profile/update:
+    post:
+      tags:
+        - Profile
+      summary: Update user profile
+      operationId: profileUpdate
+      description: |
+        By passing in the appropriate options, user can update profile
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProfileUpdateSchema'
+      responses:
+        '200':
+          description: Profile successfully updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfileUpdateSchemaSuccess'
+    
+                
+        '401':
+          description: Account does not exist
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfileUpdateSchemaFailure'        
+                
+        '422':
+          description: Validation error 
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityError'        
+                
+        '500':
+          description: Internal server error 
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'                                    
+                
+  /profile/avatar:
+    post:
+      tags:
+        - Profile
+      summary: Update user avatar
+      operationId: profileAvatar
+      description: |
+        By passing in the appropriate options, user can update avatar
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProfileAvatarSchema'
+      responses:
+        '200':
+          description: Profile successfully updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfileAvatarSchemaSuccess'
+    
+                
+                
+        '500':
+          description: Internal server error 
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'                                                  
+                
+  /status:
+    get:
+      tags:
+        - Healthcheck
+      summary: Get server status
+      operationId: healthCheckGet
+      description: Get server status
+      responses:
+        '200':
+          description: Return server status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Healthcheck'
+                
+    head:
+      tags:
+        - Healthcheck
+      summary: Get server status
+      operationId: healthCheckHead
+      description: Get server status
+      responses:
+        '200':
+          description: Return server status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Healthcheck'              
+                
+  /driver/signup:
+    post:
+      tags:
+        - Driver
+      summary: Sign up driver
+      operationId: driverSignUp
+      description: |
+        By passing in the appropriate options, driver can create new account for work
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DriverSignUpSchema'
+      responses:
+        '201':
+          description: Driver account created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DriverSignUpSchemaSuccess'
+    
+                
+        '409':
+          description: Driver with provided email already exists
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DriverSignUpSchemaFailure'        
+                
+        '422':
+          description: Validation error 
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityError'        
+                
+        '500':
+          description: Internal server error 
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'                                    
+                
 components:
   schemas:
+    Healthcheck:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: true
+  
     InternalServerError:
       type: object
       properties:
@@ -236,6 +547,356 @@ components:
          example: Email address already registered
          
     UserSignUpSchemaSuccess:
+     type: object
+     properties:
+       success:
+         type: boolean
+         example: true
+       token:
+         type: string
+         example: g8789fg789dgkjdfgkhd
+       message:
+         type: string
+         example: User created
+         
+    UserLoggedOutSchemaSuccess:
+     type: object
+     properties:
+       success:
+         type: boolean
+         example: true
+         
+    UserForgotSchema:
+      type: object
+      required:
+        - email
+      properties:
+        email:
+          type: string
+          example: example@example.com
+          
+    UserForgotSchemaFailure:
+     type: object
+     properties:
+       success:
+         type: boolean
+         example: false
+       message:
+         type: string
+         example: Account does not exist
+         
+    UserForgotSchemaSuccess:
+     type: object
+     properties:
+       success:
+         type: boolean
+         example: true
+       message:
+         type: string
+         example: Password reset link sent      
+         
+    UserResetSchema:
+      type: object
+      required:
+        - password
+        - token
+      properties:
+        password:
+          type: string
+          example: 123
+        token:
+          type: string
+          example: ffsdfsdf4523  
+         
+    UserResetSchemaSuccess:
+     type: object
+     properties:
+       success:
+         type: boolean
+         example: true
+       message:
+         type: string
+         example: Password has been successfully reset           
+         
+    ProfileOwnSchema:
+      type: object
+      required:
+        - password
+        - token
+      properties:
+        firstName:
+          type: string
+          example: Alexey 
+        lastName:
+          type: string
+          example: Istomin
+        role:
+          type: string
+          enum: ['operator', 'admin']
+          example: operator
+        email:
+          type: string
+          example: example@example.com
+        password:
+          type: string
+          example: 123 
+        theme:
+          type: string
+          enum: ['shelob', 'shadowfax', 'denethor', 'grima', 'quickbeam']
+          example: shelob 
+        notifications:
+          type: object
+          properties:
+              isEmailNotificationsEnabled:
+                type: boolean
+                example: false
+              isPushNotificationsEnabled:
+                type: boolean
+                example: false  
+              isMonthlyNotificationsEnabled:
+                type: boolean
+                example: false  
+              isQuarterNotificationsEnabled:
+                type: boolean
+                example: false 
+        phone:
+          type: string
+          example: +7(999)-99-99
+        socials:
+          type: object
+          properties:
+            twitter:
+              type: string
+              example: https://twitter.com/
+        location:
+          type: string
+          example: 'New York, NY'  
+        bio:
+          type: string
+          example: 'Just a man' 
+        dob:
+          type: string
+          example: '10.02.1997'   
+          
+    ProfileOwnSchemaFailure:
+     type: object
+     properties:
+       success:
+         type: boolean
+         example: false
+       message:
+         type: string
+         example: User is not found
+         
+    ProfileUpdateSchema:
+      type: object
+      required:
+        - firstName
+        - lastName
+        - role
+        - email
+        - password
+      properties:
+        firstName:
+          type: string
+          example: Alexey 
+        lastName:
+          type: string
+          example: Istomin
+        role:
+          type: string
+          enum: ['operator', 'admin']
+          example: operator
+        email:
+          type: string
+          example: example@example.com
+        password:
+          type: string
+          example: 123 
+        theme:
+          type: string
+          enum: ['shelob', 'shadowfax', 'denethor', 'grima', 'quickbeam']
+          example: shelob 
+        notifications:
+          type: object
+          properties:
+              isEmailNotificationsEnabled:
+                type: boolean
+                example: false
+              isPushNotificationsEnabled:
+                type: boolean
+                example: false  
+              isMonthlyNotificationsEnabled:
+                type: boolean
+                example: false  
+              isQuarterNotificationsEnabled:
+                type: boolean
+                example: false 
+        phone:
+          type: string
+          example: +7(999)-99-99
+        socials:
+          type: object
+          properties:
+            twitter:
+              type: string
+              example: https://twitter.com/
+        location:
+          type: string
+          example: 'New York, NY'  
+        bio:
+          type: string
+          example: 'Just a man' 
+        dob:
+          type: string
+          example: '10.02.1997'  
+          
+    ProfileUpdateSchemaFailure:
+     type: object
+     properties:
+       success:
+         type: boolean
+         example: false
+       message:
+         type: string
+         example: Account does not exist
+         
+    ProfileUpdateSchemaSuccess:
+     type: object
+     properties:
+       success:
+         type: boolean
+         example: true
+       token:
+         type: string
+         example: g8789fg789dgkjdfgkhd
+       message:
+         type: string
+         example: Profile successfully updated    
+         
+    ProfileAvatarSchema:
+      type: object
+      required:
+        - file
+      properties:
+        file:
+          type: object
+          properties:
+            lastModified:
+              type: number
+              example: 24523534534534
+            name:
+              type: string
+              example: 'avatar.jpg'
+            size:
+              type: number
+              example: 6 
+            type:
+              type: string
+              example: ''
+         
+    ProfileAvatarSchemaSuccess:
+     type: object
+     properties:
+       success:
+         type: boolean
+         example: true
+       message:
+         type: string
+         example: Avatar has been updated        
+         
+    DriverSignUpSchema:
+      type: object
+      required:
+        - firstName
+        - lastName
+        - role
+        - email
+        - password
+        - car
+        - status
+      properties:
+        firstName:
+          type: string
+          example: Alexey 
+        lastName:
+          type: string
+          example: Istomin
+        role:
+          type: string
+          enum: ['operator', 'admin']
+          example: operator
+        email:
+          type: string
+          example: example@example.com
+        password:
+          type: string
+          example: 123 
+        phone:
+          type: string
+          example: +7(999)-99-99
+        location:
+          type: string
+          example: 'New York, NY'  
+        bio:
+          type: string
+          example: 'Just a man' 
+        dob:
+          type: string
+          example: '10.02.1997' 
+        car:
+          type: object
+          properties:
+            id:
+              type: string
+              example: 'fsdfsdfsd'
+            manufacturer:
+              type: string
+              example: 'BMW'
+            model:
+              type: string
+              example: 'X5'  
+            dateOfPurchase:
+              type: string
+              example: 'Wed Jun 03 2020 14:04:59 GMT+0300 (Москва, стандартное время)'
+            status:
+              type: string
+              enum: ['fully-serviced', 'in-service', 'waiting', 'service-needed']
+              example: service-needed
+            mileage:
+              type: number
+              example: 10
+        tripsTaken:
+          type: number
+          example: 0
+        mileageDone:
+          type: number
+          example: 0  
+        avatar:
+          type: string
+          example: '' 
+        status:
+          type: string
+          enum: ['active', 'inactive']
+          example: 'active' 
+        moneyYearned:
+          type: number
+          example: 0  
+        milesDriven:
+          type: number
+          example: 0   
+          
+    DriverSignUpSchemaFailure:
+     type: object
+     properties:
+       success:
+         type: boolean
+         example: false
+       message:
+         type: string
+         example: Email address already registered
+         
+    DriverSignUpSchemaSuccess:
      type: object
      properties:
        success:
