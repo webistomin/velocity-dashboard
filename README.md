@@ -26,6 +26,7 @@
 <p align="center">
   <a href="#description-%EF%B8%8F">Description</a> •
   <a href="#demo-">Demo</a> •
+  <a href="#Pages-">Pages</a> •
   <a href="#tech-stack-%EF%B8%8F">Tech stack</a> •
   <a href="#documentation-%EF%B8%8F">Documentation</a> •
   <a href="#license-%EF%B8%8F">License</a>
@@ -49,6 +50,55 @@ As a result, I realized that Vue in conjunction with TypeScript is still not rea
 Heroku will spin down app to save resources, if it's not accessed for a certain amount of time. Thus the slowness is caused by having to start up the entire app again.
 
 ### [DEMO](https://stormy-ocean-88138.herokuapp.com/)
+
+## Pages 📃
+
+<table>
+  <thead>
+    <tr>
+      <th>Page</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://stormy-ocean-88138.herokuapp.com/">Home</a></td>
+      <td>Home page</td>
+    </tr>
+    <tr>
+      <td><a href="https://stormy-ocean-88138.herokuapp.com/login">Login</a></td>
+      <td>This is a page where the user can log in, register, receive a password reset email</td>
+    </tr>
+    <tr>
+      <td><a href="https://stormy-ocean-88138.herokuapp.com/reset-password/123">Reset password</a></td>
+      <td>This is a page where the user enters a new password. A token is required that comes to the mail</td>
+    </tr>
+    <tr>
+      <td><a href="https://stormy-ocean-88138.herokuapp.com/analytics">Analytics</a></td>
+      <td>This is a page with various graphs and statistics on the project</td>
+    </tr>
+    <tr>
+      <td><a href="https://stormy-ocean-88138.herokuapp.com/vehicles">Vehicles</a></td>
+      <td>This is a page with a table of all the vehicles that can be filtered</td>
+    </tr>
+    <tr>
+      <td><a href="https://stormy-ocean-88138.herokuapp.com/reminders">Reminders</a></td>
+      <td>This is a To Do List Page</td>
+    </tr>
+    <tr>
+      <td><a href="https://stormy-ocean-88138.herokuapp.com/map">Map</a></td>
+      <td>This is a page with current trips</td>
+    </tr>
+    <tr>
+      <td><a href="https://stormy-ocean-88138.herokuapp.com/chat">Chat</a></td>
+      <td>This is a page where you can communicate with customers</td>
+    </tr>
+    <tr>
+      <td><a href="https://stormy-ocean-88138.herokuapp.com/settings">Settings</a></td>
+      <td>This is a page where the user can change information about himself, choose a theme for the site</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Tech stack ⚙️
 
