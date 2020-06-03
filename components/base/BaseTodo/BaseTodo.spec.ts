@@ -3,7 +3,7 @@ import { todos } from './mocks/todos';
 import BaseTodo from './BaseTodo';
 
 describe('BaseTodo', () => {
-  const todoSelector = '.base-todo__checkbox ';
+  const itemSelector = "[data-jest='base-todo__item']";
 
   const factory = (propsData = {}, options = {}) => {
     return mount(BaseTodo, {
@@ -23,8 +23,11 @@ describe('BaseTodo', () => {
 
   it('Emit "input" event', () => {
     const wrapper = factory();
-    const input = wrapper.find(todoSelector);
+    const input = wrapper.find(itemSelector);
     input.trigger('input');
     expect(wrapper.emitted().input);
+
+    const onInputMethod = wrapper.vm.onInput({} as Event);
+    expect(onInputMethod).toEqual({});
   });
 });

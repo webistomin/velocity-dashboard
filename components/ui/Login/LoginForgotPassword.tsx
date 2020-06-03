@@ -53,7 +53,6 @@ export default class LoginForgot extends VueComponent<ILoginProps> {
         await this.$axios
           .$post(serverUrls.auth.forgot, data)
           .then((response: IAuthForgotResponseBody | IAuthForgotValidatorResponseBody) => {
-            this.isLoading = false;
             if (response.success) {
               this.$notify({
                 group: 'auth',
@@ -63,6 +62,7 @@ export default class LoginForgot extends VueComponent<ILoginProps> {
                 duration: 3000,
               });
             }
+            this.isLoading = false;
           });
       } catch (e) {
         const data: IAuthForgotResponseBody | IAuthForgotValidatorResponseBody = e.response.data;

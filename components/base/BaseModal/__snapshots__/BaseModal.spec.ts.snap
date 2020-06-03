@@ -2,7 +2,7 @@
 
 exports[`BaseModal Matches snapshot 1`] = `
 "<transition-stub name=\\"modal-fade\\">
-  <div class=\\"base-modal\\" style=\\"display: none;\\"><button type=\\"button\\" aria-label=\\"Close\\" class=\\"base-close btn\\"></button>
+  <div class=\\"base-modal\\" style=\\"display: none;\\"><button data-jest=\\"base-close\\" type=\\"button\\" aria-label=\\"Close\\" class=\\"base-close btn\\"></button>
     <div class=\\"base-overlay \\"></div>
     <div class=\\"base-modal__locker\\">
       <div tabindex=\\"-1\\"></div>

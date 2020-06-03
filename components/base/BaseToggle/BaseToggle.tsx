@@ -29,6 +29,7 @@ export default class BaseToggle extends VueComponent<IBaseToggleProps> {
     const { size, isActive } = this;
     return (
       <button
+        data-jest='base-toggle'
         class={`base-toggle btn base-toggle_size_${size} ${isActive ? 'base-toggle_active' : ''}`}
         type='button'
         aria-label='Toggle'

@@ -53,10 +53,11 @@ export default class LoginResetPassword extends VueComponent<{}> {
               text: response.message,
               duration: 3000,
             });
-            this.isLoading = false;
           }
+          this.isLoading = false;
         });
       } catch (error) {
+        console.log(error);
         const data = error.response.data;
         this.$notify({
           group: 'auth',

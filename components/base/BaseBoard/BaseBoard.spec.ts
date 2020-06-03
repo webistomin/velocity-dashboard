@@ -3,7 +3,7 @@ import BaseBoard from './BaseBoard';
 import { boardData } from './mocks/data';
 
 describe('BaseBoard', () => {
-  const draggableSelector = '.base-board .base-board__col .base-board__draggable';
+  const draggableSelector = "[data-jest='base-block__draggable']";
   const factory = (propsData = {}, options = {}) => {
     return mount(BaseBoard, {
       propsData: {

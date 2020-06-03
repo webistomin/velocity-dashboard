@@ -20,7 +20,9 @@ export const BaseEmpty = Vue.extend({
     return (
       <div class={`base-empty ${staticClass || ''} ${cls || ''}`}>
         <v-lazy-image src='/img/empty.svg' width={184} height={152} alt='Empty box' class='base-empty__img image' />
-        <strong class='base-empty__title caption'>{text}</strong>
+        <strong data-jest='base-empty__title' class='base-empty__title caption'>
+          {text}
+        </strong>
       </div>
     );
   },

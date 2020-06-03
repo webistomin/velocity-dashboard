@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils';
 import { BaseEmpty } from './BaseEmpty';
 
 describe('BaseEmpty', () => {
-  const titleSelector = '.base-empty__title';
+  const titleSelector = "[data-jest='base-empty__title']";
 
   const factory = (propsData = {}, options = {}) => {
     return mount(BaseEmpty, {

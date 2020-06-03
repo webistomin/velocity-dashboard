@@ -32,10 +32,14 @@ export default class BaseBlock extends VueComponent<IBaseBlockProps> {
     return (
       <div class={`base-block ${isSimple ? 'base-block_simple' : ''}`}>
         {title || hasOptions ? (
-          <div class='base-block__heading'>
-            {title ? <h3 class='base-block__title caption title'>{title}</h3> : null}
+          <div class='base-block__heading' data-jest='base-block__heading'>
+            {title ? (
+              <h3 class='base-block__title caption title' data-jest='base-block__title'>
+                {title}
+              </h3>
+            ) : null}
             {hasOptions ? (
-              <div class='base-block__options-block'>
+              <div class='base-block__options-block' data-jest='base-block__options-block'>
                 <button class='base-block__options-btn btn' aria-label='Toggle block options'>
                   <svg-icon name='icon-options' width={16} height={16} />
                 </button>

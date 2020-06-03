@@ -2,9 +2,9 @@ import { mount } from '@vue/test-utils';
 import BaseBlock from './BaseBlock';
 
 describe('BaseBlock', () => {
-  const headingBarSelector = 'div.base-block__heading';
-  const titleSelector = '.base-block__title';
-  const optionsSelector = '.base-block__options-block';
+  const headingBarSelector = "[data-jest='base-block__heading']";
+  const titleSelector = "[data-jest='base-block__title']";
+  const optionsSelector = "[data-jest='base-block__options-block']";
 
   const factory = (propsData = {}) => {
     return mount(BaseBlock, {

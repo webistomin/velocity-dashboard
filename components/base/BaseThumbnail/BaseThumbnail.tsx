@@ -46,6 +46,7 @@ export const BaseThumbnail = Vue.extend({
             src={image}
             alt={alt}
             class='base-thumbnail__img image'
+            data-jest='base-thumbnail__img'
             nativeOnError={(event: Event) => {
               if (ctx?.parent?.$nuxt?.isOnline) {
                 const image = event.target as HTMLImageElement;

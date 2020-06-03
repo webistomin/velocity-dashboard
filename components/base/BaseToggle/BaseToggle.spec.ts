@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils';
 import BaseToggle from './BaseToggle';
 
 describe('BaseToggle', () => {
-  const toggleSelector = '.base-toggle';
+  const toggleSelector = "[data-jest='base-toggle']";
 
   const factory = (propsData = {}, options = {}) => {
     return mount(BaseToggle, {

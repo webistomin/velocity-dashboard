@@ -16,6 +16,8 @@ export default class BaseClose extends VueComponent<IBaseCloseProps> {
   public onClose() {}
 
   public render(): VNode {
-    return <button class='base-close btn' type='button' aria-label='Close' onClick={this.onClose} />;
+    return (
+      <button data-jest='base-close' class='base-close btn' type='button' aria-label='Close' onClick={this.onClose} />
+    );
   }
 }

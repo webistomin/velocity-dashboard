@@ -1,3 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BaseToggle Matches snapshot 1`] = `"<button type=\\"button\\" aria-label=\\"Toggle\\" class=\\"base-toggle btn base-toggle_size_xs \\"><span class=\\"base-toggle__wrapper\\"><span class=\\"base-toggle__line\\"></span><span class=\\"base-toggle__line\\"></span><span class=\\"base-toggle__line\\"></span></span></button>"`;
+exports[`BaseToggle Matches snapshot 1`] = `"<button data-jest=\\"base-toggle\\" type=\\"button\\" aria-label=\\"Toggle\\" class=\\"base-toggle btn base-toggle_size_xs \\"><span class=\\"base-toggle__wrapper\\"><span class=\\"base-toggle__line\\"></span><span class=\\"base-toggle__line\\"></span><span class=\\"base-toggle__line\\"></span></span></button>"`;

@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseTodoItem Matches snapshot 1`] = `
+"<li data-jest=\\"base-todo__item\\" class=\\"list-item base-todo__item \\">
+  <div class=\\"base-todo__actions\\"><input data-jest=\\"base-todo__checkbox\\" type=\\"checkbox\\" id=\\"1\\" aria-label=\\"Toggle task with name: Title\\" class=\\"base-todo__checkbox visually-hidden\\" value=\\"1\\"><label for=\\"1\\" class=\\"base-todo__label label\\"></label></div>
+  <nuxt-link-stub to=\\"/reminders/1\\" class=\\"base-todo__content link\\"><strong class=\\"base-todo__name\\">Title</strong></nuxt-link-stub>
+</li>"
+`;

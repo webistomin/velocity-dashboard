@@ -3,28 +3,28 @@
 exports[`BaseTodo Matches snapshot 1`] = `
 "<div class=\\"base-todo\\">
   <ul class=\\"base-todo__list list\\">
-    <li class=\\"list-item base-todo__item \\">
-      <div class=\\"base-todo__actions\\"><input type=\\"checkbox\\" id=\\"1\\" aria-label=\\"Toggle task with name: Meet George\\" class=\\"base-todo__checkbox visually-hidden\\" value=\\"1\\"><label for=\\"1\\" class=\\"base-todo__label label\\"></label></div>
+    <li data-jest=\\"base-todo__item\\" class=\\"list-item base-todo__item \\">
+      <div class=\\"base-todo__actions\\"><input data-jest=\\"base-todo__checkbox\\" type=\\"checkbox\\" id=\\"1\\" aria-label=\\"Toggle task with name: Meet George\\" class=\\"base-todo__checkbox visually-hidden\\" value=\\"1\\"><label for=\\"1\\" class=\\"base-todo__label label\\"></label></div>
       <nuxt-link-stub to=\\"/reminders/1\\" class=\\"base-todo__content link\\"><strong class=\\"base-todo__name\\">Meet George</strong></nuxt-link-stub>
     </li>
-    <li class=\\"list-item base-todo__item \\">
-      <div class=\\"base-todo__actions\\"><input type=\\"checkbox\\" id=\\"2\\" aria-label=\\"Toggle task with name: Call peter for TPS reports\\" class=\\"base-todo__checkbox visually-hidden\\" value=\\"2\\"><label for=\\"2\\" class=\\"base-todo__label label\\"></label></div>
+    <li data-jest=\\"base-todo__item\\" class=\\"list-item base-todo__item \\">
+      <div class=\\"base-todo__actions\\"><input data-jest=\\"base-todo__checkbox\\" type=\\"checkbox\\" id=\\"2\\" aria-label=\\"Toggle task with name: Call peter for TPS reports\\" class=\\"base-todo__checkbox visually-hidden\\" value=\\"2\\"><label for=\\"2\\" class=\\"base-todo__label label\\"></label></div>
       <nuxt-link-stub to=\\"/reminders/2\\" class=\\"base-todo__content link\\"><strong class=\\"base-todo__name\\">Call peter for TPS reports</strong></nuxt-link-stub>
     </li>
-    <li class=\\"list-item base-todo__item \\">
-      <div class=\\"base-todo__actions\\"><input type=\\"checkbox\\" id=\\"3\\" aria-label=\\"Toggle task with name: Reply to customers\\" class=\\"base-todo__checkbox visually-hidden\\" value=\\"3\\"><label for=\\"3\\" class=\\"base-todo__label label\\"></label></div>
+    <li data-jest=\\"base-todo__item\\" class=\\"list-item base-todo__item \\">
+      <div class=\\"base-todo__actions\\"><input data-jest=\\"base-todo__checkbox\\" type=\\"checkbox\\" id=\\"3\\" aria-label=\\"Toggle task with name: Reply to customers\\" class=\\"base-todo__checkbox visually-hidden\\" value=\\"3\\"><label for=\\"3\\" class=\\"base-todo__label label\\"></label></div>
       <nuxt-link-stub to=\\"/reminders/3\\" class=\\"base-todo__content link\\"><strong class=\\"base-todo__name\\">Reply to customers</strong></nuxt-link-stub>
     </li>
-    <li class=\\"list-item base-todo__item \\">
-      <div class=\\"base-todo__actions\\"><input type=\\"checkbox\\" id=\\"4\\" aria-label=\\"Toggle task with name: Review Anna's new article\\" class=\\"base-todo__checkbox visually-hidden\\" value=\\"4\\"><label for=\\"4\\" class=\\"base-todo__label label\\"></label></div>
+    <li data-jest=\\"base-todo__item\\" class=\\"list-item base-todo__item \\">
+      <div class=\\"base-todo__actions\\"><input data-jest=\\"base-todo__checkbox\\" type=\\"checkbox\\" id=\\"4\\" aria-label=\\"Toggle task with name: Review Anna's new article\\" class=\\"base-todo__checkbox visually-hidden\\" value=\\"4\\"><label for=\\"4\\" class=\\"base-todo__label label\\"></label></div>
       <nuxt-link-stub to=\\"/reminders/4\\" class=\\"base-todo__content link\\"><strong class=\\"base-todo__name\\">Review Anna's new article</strong></nuxt-link-stub>
     </li>
-    <li class=\\"list-item base-todo__item \\">
-      <div class=\\"base-todo__actions\\"><input type=\\"checkbox\\" id=\\"5\\" aria-label=\\"Toggle task with name: Meet Pete\\" class=\\"base-todo__checkbox visually-hidden\\" value=\\"5\\"><label for=\\"5\\" class=\\"base-todo__label label\\"></label></div>
+    <li data-jest=\\"base-todo__item\\" class=\\"list-item base-todo__item \\">
+      <div class=\\"base-todo__actions\\"><input data-jest=\\"base-todo__checkbox\\" type=\\"checkbox\\" id=\\"5\\" aria-label=\\"Toggle task with name: Meet Pete\\" class=\\"base-todo__checkbox visually-hidden\\" value=\\"5\\"><label for=\\"5\\" class=\\"base-todo__label label\\"></label></div>
       <nuxt-link-stub to=\\"/reminders/5\\" class=\\"base-todo__content link\\"><strong class=\\"base-todo__name\\">Meet Pete</strong></nuxt-link-stub>
     </li>
-    <li class=\\"list-item base-todo__item \\">
-      <div class=\\"base-todo__actions\\"><input type=\\"checkbox\\" id=\\"6\\" aria-label=\\"Toggle task with name: Call mom\\" class=\\"base-todo__checkbox visually-hidden\\" value=\\"6\\"><label for=\\"6\\" class=\\"base-todo__label label\\"></label></div>
+    <li data-jest=\\"base-todo__item\\" class=\\"list-item base-todo__item \\">
+      <div class=\\"base-todo__actions\\"><input data-jest=\\"base-todo__checkbox\\" type=\\"checkbox\\" id=\\"6\\" aria-label=\\"Toggle task with name: Call mom\\" class=\\"base-todo__checkbox visually-hidden\\" value=\\"6\\"><label for=\\"6\\" class=\\"base-todo__label label\\"></label></div>
       <nuxt-link-stub to=\\"/reminders/6\\" class=\\"base-todo__content link\\"><strong class=\\"base-todo__name\\">Call mom</strong></nuxt-link-stub>
     </li>
   </ul>

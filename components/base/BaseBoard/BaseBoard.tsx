@@ -56,6 +56,7 @@ export default class BaseBoard extends VueComponent<IBaseBoardProps> {
                   <BaseBadge color={column.color}>{column.tasks.length}</BaseBadge>
                 </div>
                 <Draggable
+                  data-jest='base-block__draggable'
                   class='base-board__draggable'
                   group='tasks'
                   animation={200}

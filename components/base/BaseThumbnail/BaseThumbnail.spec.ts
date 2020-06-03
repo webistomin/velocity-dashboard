@@ -2,6 +2,8 @@ import { mount } from '@vue/test-utils';
 import { BaseThumbnail } from './BaseThumbnail';
 
 describe('BaseThumbnail', () => {
+  const imgSelector = "[data-jest='base-thumbnail__img']";
+
   const factory = (propsData = {}, options = {}) => {
     return mount(BaseThumbnail, {
       propsData: {
@@ -42,5 +44,39 @@ describe('BaseThumbnail', () => {
     });
     const classes = wrapper.classes();
     expect(classes).toEqual(expect.arrayContaining(expectedResult));
+  });
+
+  it('Set class on image error', async () => {
+    const expectedResult = ['v-lazy-image-loaded'];
+    const $nuxt = { isOnline: true };
+    const wrapper = factory(
+      {},
+      {
+        mocks: {
+          $nuxt,
+        },
+      }
+    );
+    const img = wrapper.find(imgSelector);
+    await img.trigger('error');
+    const classes = img.classes();
+    expect(classes).toEqual(expect.arrayContaining(expectedResult));
+  });
+
+  it('Does not set class on image error if app is offline', async () => {
+    const expectedResult = ['v-lazy-image-loaded'];
+    const $nuxt = { isOnline: false };
+    const wrapper = factory(
+      {},
+      {
+        mocks: {
+          $nuxt,
+        },
+      }
+    );
+    const img = wrapper.find(imgSelector);
+    await img.trigger('error');
+    const classes = img.classes();
+    expect(classes).not.toEqual(expect.arrayContaining(expectedResult));
   });
 });

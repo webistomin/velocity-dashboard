@@ -109,7 +109,7 @@ export default class BaseFormGroup extends VueComponent<IBaseFormGroupProps> {
       <div class='base-form-group'>
         <div class='base-form-group__heading'>
           {this.label ? (
-            <label for={this.id} class='base-form-group__label caption label'>
+            <label for={this.id} class='base-form-group__label caption label' data-jest='base-form-group__label'>
               {this.label}
             </label>
           ) : null}
@@ -120,6 +120,7 @@ export default class BaseFormGroup extends VueComponent<IBaseFormGroupProps> {
             /*
             // @ts-ignore */
             <TheMask
+              data-jest='base-form-group__mask'
               type={this.type}
               id={this.id}
               aria-label={this.label}
@@ -136,6 +137,7 @@ export default class BaseFormGroup extends VueComponent<IBaseFormGroupProps> {
             />
           ) : this.isTextarea ? (
             <textarea
+              data-jest='base-form-group__textarea'
               id={this.id}
               aria-label={this.label}
               name={this.name}
@@ -152,6 +154,7 @@ export default class BaseFormGroup extends VueComponent<IBaseFormGroupProps> {
             />
           ) : (
             <input
+              data-jest='base-form-group__input'
               type={this.type}
               id={this.id}
               aria-label={this.label}
@@ -170,7 +173,10 @@ export default class BaseFormGroup extends VueComponent<IBaseFormGroupProps> {
             <ul class='base-form-group__errors list' id={`errors-${this.id}`}>
               {this.activeErrorMessages.slice(0, 1).map((error: string, index: number) => {
                 return (
-                  <li class='base-form-group__error list-item' key={`${error}-${index}`}>
+                  <li
+                    data-jest='base-form-group__error'
+                    class='base-form-group__error list-item'
+                    key={`${error}-${index}`}>
                     {error}
                   </li>
                 );
