@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BaseSlider Matches snapshot 1`] = `
-"<div class=\\"base-slider\\">
+"<div tabindex=\\"0\\" class=\\"base-slider\\">
   <div class=\\"base-slider__heading\\"><span class=\\"base-slider__text\\">start</span><span class=\\"base-slider__max\\">end</span></div>
   <div class=\\"vue-slider vue-slider-ltr base-slider__slider\\" style=\\"padding: 8px 8px; width: auto; height: 4px;\\">
     <div class=\\"vue-slider-rail\\" style=\\"border-radius: 99px;\\">
