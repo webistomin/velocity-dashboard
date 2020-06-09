@@ -121,7 +121,7 @@
     "@types/vue-the-mask": "^0.11.0",
     "@types/vuedraggable": "^2.23.1",
     "@types/vuelidate": "^0.7.13",
-    "@types/yup": "^0.29.1",
+    "@types/yup": "^0.29.2",
     "@vue/babel-helper-vue-jsx-merge-props": "^1.0.0",
     "@vue/babel-preset-jsx": "^1.1.2",
     "@vue/test-utils": "^1.0.3",
