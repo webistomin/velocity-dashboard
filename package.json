@@ -87,7 +87,7 @@
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-angular": "^8.3.4",
     "@ls-lint/ls-lint": "^1.8.1",
-    "@nuxt/typescript-build": "^1.0.2",
+    "@nuxt/typescript-build": "^1.0.3",
     "@nuxtjs/eslint-config-typescript": "^2.0.0",
     "@nuxtjs/eslint-module": "^2.0.0",
     "@nuxtjs/robots": "^2.4.2",
