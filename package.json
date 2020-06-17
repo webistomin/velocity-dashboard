@@ -52,7 +52,7 @@
     "multer-s3": "^2.9.0",
     "nanoid": "^3.1.9",
     "node-random-name": "^1.0.1",
-    "nodemailer": "^6.4.8",
+    "nodemailer": "^6.4.10",
     "nodemailer-express-handlebars": "^4.0.0",
     "nuxt": "^2.12.2",
     "nuxt-property-decorator": "^2.7.2",
