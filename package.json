@@ -31,7 +31,7 @@
     "@nuxtjs/router": "^1.5.0",
     "@nuxtjs/style-resources": "^1.0.0",
     "@nuxtjs/svg-sprite": "^0.4.10",
-    "aws-sdk": "^2.696.0",
+    "aws-sdk": "^2.700.0",
     "bcrypt": "^5.0.0",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.19.0",
