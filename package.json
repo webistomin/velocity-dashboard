@@ -91,7 +91,7 @@
     "@nuxtjs/eslint-config-typescript": "^2.0.0",
     "@nuxtjs/eslint-module": "^2.0.0",
     "@nuxtjs/robots": "^2.4.2",
-    "@nuxtjs/sitemap": "^2.3.2",
+    "@nuxtjs/sitemap": "^2.4.0",
     "@storybook/addon-actions": "^5.3.19",
     "@storybook/addon-knobs": "^5.3.19",
     "@storybook/addon-links": "^5.3.19",
