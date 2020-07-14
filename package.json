@@ -158,7 +158,7 @@
     "scriptlint": "^2.1.1",
     "storybook-vue-router": "^1.0.7",
     "style-loader": "^1.2.1",
-    "ts-jest": "^26.1.1",
+    "ts-jest": "^26.1.2",
     "ts-loader": "^7.0.5",
     "ts-node": "^8.10.2",
     "tsconfig-paths-webpack-plugin": "^3.2.0",
