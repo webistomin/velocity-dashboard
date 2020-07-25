@@ -103,7 +103,7 @@
     "@types/bcrypt": "^3.0.0",
     "@types/bcrypt-nodejs": "0.0.31",
     "@types/body-scroll-lock": "^2.6.1",
-    "@types/chart.js": "^2.9.22",
+    "@types/chart.js": "^2.9.23",
     "@types/cors": "^2.8.6",
     "@types/jest": "^26.0.4",
     "@types/jsonwebtoken": "^8.5.0",
