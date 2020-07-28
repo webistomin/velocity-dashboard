@@ -151,7 +151,7 @@
     "nodemon": "^2.0.4",
     "postcss-focus": "^4.0.0",
     "postcss-initial": "^3.0.2",
-    "postcss-momentum-scrolling": "^2.7.17",
+    "postcss-momentum-scrolling": "^2.8.18",
     "postcss-object-fit-images": "^1.1.2",
     "prettier": "^2.0.5",
     "sass-loader": "^9.0.2",
