@@ -86,7 +86,7 @@ export default class BaseMap extends VueComponent<IBaseMapProps> {
   }
 
   public get getPrimaryColor(): string {
-    if (process.client) {
+    if ((process as any).client) {
       return `rgb(${
         getComputedStyle(document.documentElement).getPropertyValue('--color-primary').trim() || '46, 91, 255'
       })`;
@@ -130,7 +130,7 @@ export default class BaseMap extends VueComponent<IBaseMapProps> {
   }
 
   public get getCurrentTheme(): SiteThemes | null {
-    if (process.client) {
+    if ((process as any).client) {
       return localStorage.getItem('theme') as SiteThemes;
     }
 

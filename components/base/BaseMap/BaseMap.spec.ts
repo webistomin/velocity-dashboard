@@ -142,17 +142,17 @@ describe('BaseMap', () => {
   });
 
   it('Return color from document if process client', () => {
-    process.client = true;
+    (process as any).client = true;
     const wrapper = factory();
     const primaryColor = wrapper.vm.getPrimaryColor;
     const result = 'rgb(46, 91, 255)';
-    process.client = false;
+    (process as any).client = false;
 
     expect(primaryColor).toEqual(result);
   });
 
   it('Return default theme if process is not client', () => {
-    process.client = false;
+    (process as any).client = false;
     const wrapper = factory();
     const currentTheme = wrapper.vm.getCurrentTheme;
     const result = SiteThemes.SHELOB;
@@ -161,11 +161,11 @@ describe('BaseMap', () => {
   });
 
   it('Return theme from local storage if process is client', () => {
-    process.client = true;
+    (process as any).client = true;
     const wrapper = factory();
     const currentTheme = wrapper.vm.getCurrentTheme;
     const result = null;
-    process.client = false;
+    (process as any).client = false;
 
     expect(currentTheme).toEqual(result);
   });

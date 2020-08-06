@@ -23,7 +23,7 @@ export default async (req: IDriverSignUpRequest, res: Response<IDriverSignUpResp
     newDriver.firstName = firstName;
     newDriver.lastName = lastName;
     newDriver.password = password;
-    newDriver.car = { id: nanoid(), ...car };
+    newDriver.car = { ...car, id: nanoid() };
     newDriver.tel = tel;
     newDriver.location = location;
 

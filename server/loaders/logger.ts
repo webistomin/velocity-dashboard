@@ -1,7 +1,7 @@
 import morgan, { Options } from 'morgan';
 import { Request, Application } from 'express';
 
-const morganOption: Options = {
+const morganOption: Options<any, any> = {
   skip: (req: Request) => {
     /**
      * Skip static requests
