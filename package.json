@@ -95,7 +95,7 @@
     "@nuxtjs/sitemap": "^2.4.0",
     "@storybook/addon-actions": "^5.3.19",
     "@storybook/addon-knobs": "^5.3.19",
-    "@storybook/addon-links": "^5.3.19",
+    "@storybook/addon-links": "^6.0.7",
     "@storybook/addons": "^5.3.19",
     "@storybook/preset-scss": "^1.0.2",
     "@storybook/preset-typescript": "^3.0.0",
