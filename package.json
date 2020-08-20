@@ -86,7 +86,7 @@
     "@babel/plugin-proposal-decorators": "^7.10.5",
     "@babel/plugin-transform-modules-commonjs": "^7.10.4",
     "@commitlint/cli": "^9.1.1",
-    "@commitlint/config-angular": "^9.1.1",
+    "@commitlint/config-angular": "^9.1.2",
     "@ls-lint/ls-lint": "^1.9.2",
     "@nuxt/typescript-build": "^2.0.2",
     "@nuxtjs/eslint-config-typescript": "^3.0.0",
