@@ -154,7 +154,7 @@
     "postcss-initial": "^3.0.2",
     "postcss-momentum-scrolling": "^2.8.20",
     "postcss-object-fit-images": "^1.1.2",
-    "prettier": "^2.0.5",
+    "prettier": "^2.1.2",
     "sass-loader": "^10.0.2",
     "scriptlint": "^2.1.1",
     "storybook-vue-router": "^1.0.7",
