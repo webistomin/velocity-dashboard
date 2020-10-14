@@ -93,7 +93,7 @@
     "@nuxtjs/eslint-module": "^3.0.0",
     "@nuxtjs/robots": "^2.4.2",
     "@nuxtjs/sitemap": "^2.4.0",
-    "@storybook/addon-actions": "^6.0.22",
+    "@storybook/addon-actions": "^6.0.26",
     "@storybook/addon-knobs": "^6.0.26",
     "@storybook/addon-links": "^6.0.22",
     "@storybook/addons": "^6.0.26",
