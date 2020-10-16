@@ -55,7 +55,7 @@
     "node-random-name": "^1.0.1",
     "nodemailer": "^6.4.14",
     "nodemailer-express-handlebars": "^4.0.0",
-    "nuxt": "^2.14.6",
+    "nuxt": "^2.14.7",
     "nuxt-property-decorator": "^2.8.8",
     "random": "^2.2.0",
     "v-click-outside": "^3.1.2",
