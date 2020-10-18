@@ -119,7 +119,7 @@
     "@types/nuxtjs__auth": "^4.8.5",
     "@types/random": "^2.1.1",
     "@types/vue-select": "^2.5.0",
-    "@types/vue-the-mask": "^0.11.0",
+    "@types/vue-the-mask": "^0.11.1",
     "@types/vuedraggable": "^2.23.1",
     "@types/vuelidate": "^0.7.13",
     "@types/yup": "^0.29.7",
