@@ -118,7 +118,7 @@
     "@types/nodemailer": "^6.4.0",
     "@types/nuxtjs__auth": "^4.8.5",
     "@types/random": "^2.1.1",
-    "@types/vue-select": "^2.5.0",
+    "@types/vue-select": "^2.5.1",
     "@types/vue-the-mask": "^0.11.1",
     "@types/vuedraggable": "^2.23.2",
     "@types/vuelidate": "^0.7.13",
