@@ -104,7 +104,7 @@
     "@types/bcrypt": "^3.0.0",
     "@types/bcrypt-nodejs": "0.0.31",
     "@types/body-scroll-lock": "^2.6.1",
-    "@types/chart.js": "^2.9.25",
+    "@types/chart.js": "^2.9.27",
     "@types/cors": "^2.8.8",
     "@types/jest": "^26.0.14",
     "@types/jsonwebtoken": "^8.5.0",
