@@ -106,7 +106,7 @@
     "@types/body-scroll-lock": "^2.6.1",
     "@types/chart.js": "^2.9.27",
     "@types/cors": "^2.8.8",
-    "@types/jest": "^26.0.14",
+    "@types/jest": "^26.0.15",
     "@types/jsonwebtoken": "^8.5.0",
     "@types/leaflet": "^1.5.19",
     "@types/lodash.sortby": "^4.7.6",
