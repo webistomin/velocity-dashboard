@@ -74,7 +74,7 @@
     "vue2-leaflet": "^2.6.0",
     "vue2-leaflet-markercluster": "^3.1.0",
     "vue2-transitions": "^0.3.0",
-    "vuedraggable": "^2.24.2",
+    "vuedraggable": "^2.24.3",
     "vuelidate": "^0.7.6",
     "vuelidate-error-extractor": "^2.4.1",
     "vuex-class": "^0.3.2",
