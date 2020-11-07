@@ -160,7 +160,7 @@
     "storybook-vue-router": "^1.0.7",
     "style-loader": "^2.0.0",
     "ts-jest": "^26.4.3",
-    "ts-loader": "^8.0.7",
+    "ts-loader": "^8.0.9",
     "ts-node": "^9.0.0",
     "tsconfig-paths-webpack-plugin": "^3.3.0",
     "vue-jest": "^5.0.0-alpha.1",
