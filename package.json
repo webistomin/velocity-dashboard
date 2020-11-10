@@ -148,7 +148,7 @@
     "jest-canvas-mock": "^2.3.0",
     "lint-staged": "^10.5.1",
     "moment-locales-webpack-plugin": "^1.2.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^5.0.0",
     "nodemon": "^2.0.6",
     "postcss-focus": "^5.0.1",
     "postcss-initial": "^4.0.0",
