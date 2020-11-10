@@ -65,7 +65,7 @@
     "vue-anka-cropper": "^1.1.0",
     "vue-chartjs": "^3.5.1",
     "vue-focus-lock": "^1.4.0",
-    "vue-lazy-hydration": "^1.0.0-beta.14",
+    "vue-lazy-hydration": "^2.0.0-alpha.0",
     "vue-notification": "^1.3.20",
     "vue-select": "^3.10.8",
     "vue-slider-component": "^3.2.10",
