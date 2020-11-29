@@ -4,7 +4,6 @@ const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 
 module.exports = {
   dev: process.env.NODE_ENV !== 'production',
-  mode: 'universal',
   /**
    * Head meta tags
    */
