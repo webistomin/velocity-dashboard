@@ -19,16 +19,8 @@ exports[`Analytics UI Matches snapshot 1`] = `
       <baseblock-stub title=\\"Total drive time\\" class=\\"analytics__block\\">
         <basestat-stub value=\\"1\\" prevvalue=\\"0\\" measure=\\"h\\" icon=\\"icon-graph\\" color=\\"yellow\\" align=\\"row\\"></basestat-stub>
       </baseblock-stub>
-      <anonymous-stub idletimeout=\\"2000\\" whenvisible=\\"true\\">
-        <baseblock-stub title=\\"Latest trips\\" class=\\"analytics__block\\">
-          <baselist-stub list=\\"[object Object],[object Object]\\" limit=\\"6\\"></baselist-stub>
-        </baseblock-stub>
-      </anonymous-stub>
-      <anonymous-stub idletimeout=\\"2000\\" whenvisible=\\"true\\">
-        <baseblock-stub title=\\"Trips by weekday\\" class=\\"analytics__block\\">
-          <basebargraph-stub chartid=\\"bar-chart\\" width=\\"400\\" height=\\"400\\" cssclasses=\\"\\" plugins=\\"\\" chartdata=\\"[object Object]\\" options=\\"[object Object]\\" fallbacktext=\\"Bar graph\\"></basebargraph-stub>
-        </baseblock-stub>
-      </anonymous-stub>
+      <!---->
+      <!---->
     </div>
   </div>
 </section>"

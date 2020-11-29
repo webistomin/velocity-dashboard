@@ -19,21 +19,9 @@ exports[`Overview UI Matches snapshot 1`] = `
       <baseblock-stub title=\\"vehicles on track\\" class=\\"overview__block\\">
         <vuecomponent-stub text=\\"No data was provided\\"></vuecomponent-stub>
       </baseblock-stub>
-      <anonymous-stub idletimeout=\\"2000\\" whenvisible=\\"true\\">
-        <baseblock-stub title=\\"Top drivers\\" class=\\"overview__block\\">
-          <vuecomponent-stub text=\\"No data was provided\\"></vuecomponent-stub>
-        </baseblock-stub>
-      </anonymous-stub>
-      <anonymous-stub idletimeout=\\"2000\\" whenvisible=\\"true\\">
-        <baseblock-stub title=\\"Trips by type\\" class=\\"overview__block\\">
-          <vuecomponent-stub text=\\"No data was provided\\"></vuecomponent-stub>
-        </baseblock-stub>
-      </anonymous-stub>
-      <anonymous-stub idletimeout=\\"2000\\" whenvisible=\\"true\\">
-        <baseblock-stub title=\\"Service Reminders\\" class=\\"overview__block\\">
-          <vuecomponent-stub text=\\"No data was provided\\"></vuecomponent-stub>
-        </baseblock-stub>
-      </anonymous-stub>
+      <!---->
+      <!---->
+      <!---->
     </div>
   </div>
 </section>"

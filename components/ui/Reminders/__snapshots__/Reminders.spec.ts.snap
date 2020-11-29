@@ -8,21 +8,9 @@ exports[`Reminders UI Matches snapshot 1`] = `
       <baseblock-stub issimple=\\"true\\" class=\\"reminders__block\\">
         <baseboard-stub board=\\"[object Object],[object Object],[object Object],[object Object]\\"></baseboard-stub>
       </baseblock-stub>
-      <anonymous-stub idletimeout=\\"2000\\" whenvisible=\\"true\\">
-        <baseblock-stub title=\\"service center\\" class=\\"reminders__block\\">
-          <remindersmap-stub></remindersmap-stub>
-        </baseblock-stub>
-      </anonymous-stub>
-      <anonymous-stub idletimeout=\\"2000\\" whenvisible=\\"true\\">
-        <baseblock-stub title=\\"Vehicle Service Status\\" class=\\"reminders__block\\">
-          <basepiegraph-stub chartid=\\"pie-chart\\" width=\\"400\\" height=\\"400\\" cssclasses=\\"\\" plugins=\\"\\" chartdata=\\"[object Object]\\" options=\\"[object Object]\\" fallbacktext=\\"Pie graph\\"></basepiegraph-stub>
-        </baseblock-stub>
-      </anonymous-stub>
-      <anonymous-stub idletimeout=\\"2000\\" whenvisible=\\"true\\">
-        <baseblock-stub title=\\"Top drivers\\" class=\\"reminders__block\\">
-          <baselist-stub list=\\"[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]\\" limit=\\"3\\"></baselist-stub>
-        </baseblock-stub>
-      </anonymous-stub>
+      <!---->
+      <!---->
+      <!---->
     </div>
   </div>
 </section>"
